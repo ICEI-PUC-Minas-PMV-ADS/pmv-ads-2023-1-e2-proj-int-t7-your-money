@@ -4,7 +4,7 @@
 
 `DESENVOLVIMENTO DE APLICAÇÃO BACKEND`
 
-O projeto desenvolvido tem como objetivo criar uma APLICAÇÃO que possa Prover as pessoas, um maior controle e gestão de suas finanças pessoais, através de uma aplicação fluída e com uma interface simples, de fácil acessibilidade, que possa:
+O projeto desenvolvido tem como objetivo criar uma aplicação que possa Prover as pessoas, um maior controle e gestão de suas finanças pessoais, através de uma aplicação fluída e com uma interface simples, de fácil acessibilidade, que possa:
 
 * Auxiliar as pessoas no controle de seus gastos pessoais
 * Dar dicas e recomendações para um controle financeiro mais assertivo
