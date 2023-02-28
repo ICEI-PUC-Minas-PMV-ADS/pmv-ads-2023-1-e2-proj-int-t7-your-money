@@ -2,9 +2,10 @@
 
 `ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DESENVOLVIMENTO DE APLICAÇÃO WEB FRONT END`
+`DESENVOLVIMENTO DE APLICAÇÃO BACKEND`
 
 Prover as pessoas, um maior controle e gestão de suas finanças pessoais, através de uma aplicação fluída e com uma interface simples, de fácil acessibilidade, que possa:
+
 * Auxiliar as pessoas no controle de seus gastos pessoais
 * Dar dicas e recomendações para um controle financeiro mais assertivo
 
