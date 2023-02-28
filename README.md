@@ -1,23 +1,26 @@
-# TÍTULO DO PROJETO
+# YOUR MONEY
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`DESENVOLVIMENTO DE APLICAÇÃO WEB FRONT END`
 
-`SEMESTRE`
-
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Prover as pessoas, um maior controle e gestão de suas finanças pessoais, através de uma aplicação fluída e com uma interface simples, de fácil acessibilidade, que possa:
+* Auxiliar as pessoas no controle de seus gastos pessoais
+* Dar dicas e recomendações para um controle financeiro mais assertivo
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Daniel Mendes Rufino
+* Leonardo Buck Alves
+* Leonardo Melo de Lima
+* Pedro Henrique da Silva
+* Rafael Santana de Oliveira
+* Stephanye Castellano
+
 
 ## Orientador
 
-* Nome completo do professor 1
+* Luciana de Nardin
 
 ## Instruções de utilização
 
