@@ -12,7 +12,7 @@ Prover as pessoas de uma ferramenta que possibilite um maior controle e gestão 
 *	Dar dicas e recomendações para um controle financeiro mais assertivo
 
 ## Justificativa
-No Brasil o percentual de endividados foi de 67% em junho de 2020 para 71% em junho de 2021⁴. A educação financeira é parte primordial para um melhor controle das finanças de qualquer pessoa, desta forma, ajudar as pessoas a terem um melhor controle financeiro em sua vida pessoal e profissional para que possam realizar seus sonhos e desejos é algo essencial.
+No Brasil o percentual de endividados foi de 67% em junho de 2020 para 71% em junho de 2021⁴. A educação financeira é parte primordial para um melhor controle das finanças de qualquer pessoa. Com isso, ajudar as pessoas a terem um melhor controle financeiro em sua vida pessoal e profissional para que possam realizar seus sonhos e desejos é algo essencial.
 
 Nos últimos anos, o acesso à tecnologia está muito maior em virtude dos avanços tecnológicos que vivenciamos diariamente, sendo a maioria acessíveis via um smartphone. A Your Money surge como solução neste contexto, fornecendo o controle necessário para as pessoas se planejarem e administrarem suas finanças da melhor forma possível, de forma didática e efetiva.
 
