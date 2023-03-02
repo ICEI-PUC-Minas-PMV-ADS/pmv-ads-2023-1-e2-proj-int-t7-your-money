@@ -2,7 +2,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Para direcionar melhor a aplicação proposta, precisamos entender quais faixas etárias compreendem os maiores endividados do pais, segundo dados do Serasa¹, a faixa de pessoas entre os 26 e 40 anos, representa a maioria dos endividados correspondendo a 34,8% sendo seguida de perto pela faixa de 41 a 60 anos que compreende 34,7% da população, em pesquisa realizada em Janeiro de 2023. 
+Para direcionar melhor a aplicação proposta, precisamos entender quais faixas etárias compreendem os maiores endividados do pais, segundo dados do Serasa, a faixa de pessoas entre os 26 e 40 anos, representa a maioria dos endividados correspondendo a 34,8% sendo seguida de perto pela faixa de 41 a 60 anos que compreende 34,7% da população, em pesquisa realizada em Janeiro de 2023. 
 
 A aplicação é destinada a qualquer pessoa que busque uma melhor organização de suas finanças, mas estas faixas citadas a cima, serão o foco da solução e de sua divulgação. 
 
@@ -11,7 +11,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 * `Armando Gomes`
 
-* `João Pedro`
+* `João Pedro` é um jovem de 22 anos, recentemente formado como Desenvolvedor e Analista de Sistemas, trabalhando como Desenvolvedor Web Front-End na HP Brasil. Demonstra ter um problema grave de disciplina e organização quando o assunto é Finanças, não tendo controle nenhum sobre seus gastos, fazendo com que ele não consiga criar suas reservas financeiras para seu próprio futuro e para ajudar sua família.  
 
 * `David Amaral`
 
@@ -29,9 +29,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-| João Pedro         |                                    |                                        |
-| João Pedro         |                                    |                                        |
-| João Pedro         |                                    |                                        |
+| João Pedro         | Encontrar uma aplicação que calcule impostos, taxas e juros de acordo com minhas renda e meus gastos. |  Saber o valor que devo separar para meus impostos e os acréscimos que pago em juros e taxas. |
+| João Pedro         | Ser avisado sobre mudanças no mercado financeiro que possam ser responsáveis por aumentar ou diminuir minhas despesas. | Me prevenir com relação ao quanto meus gastos serão variáveis a curto e longo prazo. |
+| João Pedro         | Receber sugestões de possíveis boas oportunidades de investimento do mercado atual. | Ter a oportunidade de conhecer mais sobre o mercado financeiro e ter a possibilidade de expandir meus lucros ao longo dos anos. |
 | David Amaral       |                                    |                                        |
 | David Amaral       |                                    |                                        |
 | David Amaral       |                                    |                                        |
@@ -59,9 +59,9 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-01|  |  | 
 |RF-02|  |  |
 |RF-03|  |  |
-|RF-04|  |  |
-|RF-05|  |  |
-|RF-06|  |  |
+|RF-04| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
+|RF-05| A aplicação deve possibilitar o Cadastro e o Login de Usuário. | Alta |
+|RF-06| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Média |
 |RF-07|  |  |
 |RF-08|  |  |
 |RF-09|  |  |
@@ -103,6 +103,6 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 
 
-> **Referêcis**:
+> **Referências**:
 > 1. https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/ Acesso em 01/03/2023.
 
