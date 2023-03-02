@@ -13,7 +13,8 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 * `João Pedro` é um jovem de 22 anos, recentemente formado como Desenvolvedor e Analista de Sistemas, trabalhando como Desenvolvedor Web Front-End na HP Brasil. Demonstra ter um problema grave de disciplina e organização quando o assunto é Finanças, não tendo controle nenhum sobre seus gastos, fazendo com que ele não consiga criar suas reservas financeiras para seu próprio futuro e para ajudar sua família.  
 
-* `David Amaral`
+
+![David Amaral](https://user-images.githubusercontent.com/98750413/222517885-caffb44f-2bf7-4b55-afde-507c34f0d6bb.gif)
 
 * `José Antonio Moreira`
 
@@ -32,9 +33,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | João Pedro         | Encontrar uma aplicação que calcule impostos, taxas e juros de acordo com minhas renda e meus gastos. |  Saber o valor que devo separar para meus impostos e os acréscimos que pago em juros e taxas. |
 | João Pedro         | Ser avisado sobre mudanças no mercado financeiro que possam ser responsáveis por aumentar ou diminuir minhas despesas. | Me prevenir com relação ao quanto meus gastos serão variáveis a curto e longo prazo. |
 | João Pedro         | Receber sugestões de possíveis boas oportunidades de investimento do mercado atual. | Ter a oportunidade de conhecer mais sobre o mercado financeiro e ter a possibilidade de expandir meus lucros ao longo dos anos. |
-| David Amaral       |                                    |                                        |
-| David Amaral       |                                    |                                        |
-| David Amaral       |                                    |                                        |
+| David Amaral       | Encontrar ferramenta que o auxilie no controle de gastos.|  Ter ciência e controle dos gastos, fixos e eventuais.|
+| David Amaral       | Conseguir visualizar de forma prática para onde, exatamente, sua receita(salário) está indo.|Ter acesso, fácil e claro, aos gastos.|
+| David Amaral       | Manter os gastos menores que a receita mensal.|Evitar o uso de cartões de crédito ou a necessidade de contrair empréstimos.|
 | José Antonio Moreira       |                                    |                                        |
 | José Antonio Moreira       |                                    |                                        |
 | José Antonio Moreira       |                                    |                                        |
@@ -56,9 +57,9 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01|  |  | 
-|RF-02|  |  |
-|RF-03|  |  |
+|RF-01| A aplicação deve permitir que o usuário cadastre seus gastos fixos e variáveis.| Alta | 
+|RF-02| A aplicação deve permitir que o usuário cadastre suas receitas (salários, investimentos, aluguéis, dentre outros). | Alta |
+|RF-03| A aplicação deve ter alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Média |
 |RF-04| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
 |RF-05| A aplicação deve possibilitar o Cadastro e o Login de Usuário. | Alta |
 |RF-06| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Média |
@@ -76,10 +77,10 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-01|  |  |
-|RNF-02|  |  |
-|RNF-03|  |  |
-|RNF-04|  |  |
+|RNF-01| A aplicação deve funcionar 24 horas por dia, todos os dias da semana. | Alta |
+|RNF-02| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
+|RNF-03| A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. | Alta |
+|RNF-04| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku); | Alta |
 |RNF-05|  |  |
 |RNF-06|  |  |
 |RNF-07|  |  |
