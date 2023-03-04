@@ -16,7 +16,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 ![David Amaral](https://user-images.githubusercontent.com/98750413/222517885-caffb44f-2bf7-4b55-afde-507c34f0d6bb.gif)
 
-* `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gemos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
+* `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gêmeos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
 
 * `Sophie Santos Faria`
 
