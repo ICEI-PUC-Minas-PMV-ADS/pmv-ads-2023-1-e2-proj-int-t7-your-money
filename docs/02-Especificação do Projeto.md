@@ -16,7 +16,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 ![David Amaral](https://user-images.githubusercontent.com/98750413/222517885-caffb44f-2bf7-4b55-afde-507c34f0d6bb.gif)
 
-* `José Antonio Moreira`
+* `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gemos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
 
 * `Sophie Santos Faria`
 
@@ -36,9 +36,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | David Amaral       | Encontrar ferramenta que o auxilie no controle de gastos.|  Ter ciência e controle dos gastos, fixos e eventuais.|
 | David Amaral       | Conseguir visualizar de forma prática para onde, exatamente, sua receita(salário) está indo.|Ter acesso, fácil e claro, aos gastos.|
 | David Amaral       | Manter os gastos menores que a receita mensal.|Evitar o uso de cartões de crédito ou a necessidade de contrair empréstimos.|
-| José Antonio Moreira       |                                    |                                        |
-| José Antonio Moreira       |                                    |                                        |
-| José Antonio Moreira       |                                    |                                        |
+| José Antonio Moreira       |Ser avisado quando houver uma grande movimentação de débito em sua conta. |Ter segurança contra fraudes. |
+| José Antonio Moreira       |Ser avisado perto do vencimento de pagamentos. |Evitar de pagar juros. |
+| José Antonio Moreira       |Visualizar de maneira clara o quanto seu dinheiro rende por mês. |Saber se está investindo seu dinheiro corretamente. |
 | Sophie Santos Faria       |                                    |                                        |
 | Sophie Santos Faria       |                                    |                                        |
 | Sophie Santos Faria       |                                    |                                        |
@@ -67,9 +67,9 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-08|  |  |
 |RF-09|  |  |
 |RF-10|  |  |
-|RF-11|  |  |
-|RF-12|  |  |
-|RF-13|  |  |
+|RF-11| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados. | Média |
+|RF-12| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
+|RF-13| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
 |RF-14|  |  |
 |RF-15| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
 
