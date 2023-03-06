@@ -57,8 +57,8 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01| A aplicação deve permitir que o usuário cadastre seus gastos fixos e variáveis.| Alta | 
-|RF-02| A aplicação deve permitir que o usuário cadastre suas receitas (salários, investimentos, aluguéis, dentre outros). | Alta |
+|RF-01| A aplicação deve permitir que o usuário gerencie seus gastos fixos e variáveis.| Alta | 
+|RF-02| A aplicação deve permitir que o usuário gerencie suas receitas (salários, investimentos, aluguéis, dentre outros). | Alta |
 |RF-03| A aplicação deve ter alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Média |
 |RF-04| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
 |RF-05| A aplicação deve possibilitar o Cadastro e o Login de Usuário. | Alta |
