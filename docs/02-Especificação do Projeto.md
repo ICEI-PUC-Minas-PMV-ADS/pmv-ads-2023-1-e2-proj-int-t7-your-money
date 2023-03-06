@@ -13,8 +13,8 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 * `João Pedro` é um jovem de 22 anos, recentemente formado como Desenvolvedor e Analista de Sistemas, trabalhando como Desenvolvedor Web Front-End na HP Brasil. Demonstra ter um problema grave de disciplina e organização quando o assunto é Finanças, não tendo controle nenhum sobre seus gastos, fazendo com que ele não consiga criar suas reservas financeiras para seu próprio futuro e para ajudar sua família.  
 
+* `David Amaral` tem 25 anos e está cursando Economia na UFMG. Tem um filho de 5 anos do último relacionamento e paga pensão para a criança. Faz estágio remunerado na área de formação. A pesar de estar cursando Economia, não tem conseguido organizar bem suas finanças.
 
-![David Amaral](https://user-images.githubusercontent.com/98750413/222517885-caffb44f-2bf7-4b55-afde-507c34f0d6bb.gif)
 
 * `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gêmeos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
 
