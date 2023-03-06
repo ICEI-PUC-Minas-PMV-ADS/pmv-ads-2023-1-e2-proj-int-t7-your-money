@@ -18,7 +18,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 * `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gêmeos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
 
-* `Sophie Santos Faria`
+* `Sophie Santos Faria` tem 29 anos, estudante universitária, tem dois gatos, namora, mora sozinha, sua renda é de aproximadamente R$5000,00. Nas horas vagas adora assistir séries e uma ou duas vezes por mês se reunir com os amigos. Como mora sozinha e tem muitas contas a serem pagas, fica perdida no que foi pago e no que é preciso pagar, já tentou planilha, anotar em papel mas sempre perde a paciencia de ter que preencher mês a mês.
 
 * `Cláudio Roberto` tem 39 anos, agricultor, trabalhador do campo, uma pessoa que vive da terra e seus plantios. Tem dificuldades para gerir suas finanças e vive recorrendo a empréstimos para sanar suas despesas e poder manter suas contas em dia. Não tem reservas e tem grandes problemas em suas lavouras devido ao fato de não ter capital de giro para subsidiar seu manejo. 
  
@@ -39,9 +39,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | José Antonio Moreira       |Ser avisado quando houver uma grande movimentação de débito em sua conta. |Ter segurança contra fraudes. |
 | José Antonio Moreira       |Ser avisado perto do vencimento de pagamentos. |Evitar de pagar juros. |
 | José Antonio Moreira       |Visualizar de maneira clara o quanto seu dinheiro rende por mês. |Saber se está investindo seu dinheiro corretamente. |
-| Sophie Santos Faria       |                                    |                                        |
-| Sophie Santos Faria       |                                    |                                        |
-| Sophie Santos Faria       |                                    |                                        |
+| Sophie Santos Faria       |Adicionar minhas contas em um lugar e especificar se é corrente, parcelado ou uma vez.|Ter melhor controle de quando termina e acaba minhas contas.|
+| Sophie Santos Faria       |Fazer controle de compras no cartão de crédito. |Ter melhor controle de quando gasto por mês no cartão de crédito. |
+| Sophie Santos Faria       |Ter um sistema onde faça as somas automaticas para mim por mês e me diga se estou no vermelho ou azul|Me programar melhor nos proximos meses e/ou poder investir meu dinheiro caso sobre. |
 | Cláudio Roberto    | Visualizar quais despesas são mais impactantes no orçamento mensalmente | Ter informações suficientes e relevantes a fim de tomar decisões mais corretamente |
 | Cláudio Roberto    | Visualizar quais despesas são mais impactantes no orçamento mensalmente | Ter informações suficientes e relevantes a fim de tomar decisões mais corretamente |
 | Cláudio Roberto    |	Poder estruturar minhas finanças pessoais com uma visão de longo prazo |	Com uma visão de longo prazo, é possível estruturar um planejamento futuro mais assertivo |
@@ -63,8 +63,8 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-04| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
 |RF-05| A aplicação deve possibilitar o Cadastro e o Login de Usuário. | Alta |
 |RF-06| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Média |
-|RF-07|  |  |
-|RF-08|  |  |
+|RF-07| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
+|RF-08| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
 |RF-09|  |  |
 |RF-10|  |  |
 |RF-11| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados. | Média |
@@ -81,7 +81,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RNF-02| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
 |RNF-03| A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. | Alta |
 |RNF-04| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku); | Alta |
-|RNF-05|  |  |
+|RNF-05| A aplicação deve ser passível de manutenção para migração para outra plataforma em 2 semanas. | Alta |
 |RNF-06|  |  |
 |RNF-07|  |  |
 |RNF-08| A aplicação deverá funcionar em ambiente WEB e deverá rodar nos navegadores com suporte para HTML5 e CSS3. | Alta |
@@ -102,6 +102,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
+![image](https://user-images.githubusercontent.com/53917285/223274937-650d338c-a7c7-45c8-bd19-d949996cdd0b.png)
 
 
 > **Referências**:
