@@ -17,7 +17,7 @@ No Brasil o percentual de endividados foi de 67% em junho de 2020 para 71% em ju
 Nos últimos anos, o acesso à tecnologia está muito maior em virtude dos avanços tecnológicos que vivenciamos diariamente, sendo a maioria acessíveis via um smartphone. A Your Money surge como solução neste contexto, fornecendo o controle necessário para as pessoas se planejarem e administrarem suas finanças da melhor forma possível, de forma didática e efetiva.
 
 ## Público-Alvo
-A Your Money traz para seus usuários a possibilidade de uma organização fácil e rápida de suas finanças, visando um controle assertivo para que o usuário possa ter uma vida financeira equilibrada. Nossa solução é destinada a homens e mulheres de 18 a 85 anos de idade que busquem uma melhor gestão de suas finanças.
+Nossa solução é destinada a homens e mulheres de 18 a 85 anos de idade que busquem um melhor gerenciamento de suas receitas e despesas.
 
 ## Referências
 1. https://static.poder360.com.br/2022/02/banco-mundial-pandemia-efeitos-fev2022.pdf Acesso em 27/02/2023
