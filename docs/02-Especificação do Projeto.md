@@ -57,18 +57,20 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-01| A aplicação deve permitir que o usuário gerencie seus gastos fixos e variáveis.| Alta | 
-|RF-02| A aplicação deve permitir que o usuário gerencie suas receitas (salários, investimentos, aluguéis, dentre outros). | Alta |
-|RF-03| A aplicação deve ter alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Média |
-|RF-04| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
-|RF-05| A aplicação deve possibilitar o Cadastro e o Login de Usuário. | Alta |
-|RF-06| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Média |
-|RF-07| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
-|RF-08| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
-|RF-09| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
-|RF-10| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
-|RF-11| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
-|RF-12| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
-|RF-13| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
+|RF-02| Para cada gasto cadastrado, o tipo de gasto e a forma de pagamento deve ser informada. | Alta |
+|RF-03| A aplicação deve permitir que o usuário gerencie suas receitas (salários, investimentos, aluguéis, dentre outros). | Alta |
+|RF-04| A aplicação deve emitir alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Média |
+|RF-05| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
+|RF-06| A aplicação deve permitir o auto gerenciamento dos Usuários. | Alta |
+|RF-07| A aplicação deve permitir que o Usuário faça Login. | Alta |
+|RF-08| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Baixa |
+|RF-09| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
+|RF-10| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
+|RF-11| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
+|RF-12| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
+|RF-13| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
+|RF-14| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
+|RF-15| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
 
 
 ### Requisitos não Funcionais
