@@ -13,7 +13,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 * `João Pedro` é um jovem de 22 anos, recentemente formado como Desenvolvedor e Analista de Sistemas, trabalhando como Desenvolvedor Web Front-End na HP Brasil. Demonstra ter um problema grave de disciplina e organização quando o assunto é Finanças, não tendo controle nenhum sobre seus gastos, fazendo com que ele não consiga criar suas reservas financeiras para seu próprio futuro e para ajudar sua família.  
 
-* `David Amaral` tem 25 anos e está cursando Economia na UFMG. Tem um filho de 5 anos do último relacionamento e paga pensão para a criança. Faz estágio remunerado na área de formação, com rendimento em torno de R$1.572,00. Apesar de estar cursando Economia, não tem conseguido organizar bem suas finanças.
+* `David Amaral` tem 25 anos e está cursando Economia na UFMG. Tem um filho de 5 anos do último relacionamento e paga pensão para a criança. Faz estágio remunerado na área de formação, com rendimento em torno de R$1.572,00. Apesar de estar cursando Economia, não tem conseguido gerir bem as suas finanças.
 
 
 * `José Antonio Moreira` tem 43 anos, é criador de gado, ama sua família e tem um casal de filhos gêmeos que entraram recentemente na faculdade. No seu tempo livre, gosta de participar de competições de tiro  ao alvo.
@@ -65,7 +65,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-06| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Média |
 |RF-07| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
 |RF-08| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
-|RF-09|  |  |
+|RF-09| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
 |RF-10|  |  |
 |RF-11| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados. | Média |
 |RF-12| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
