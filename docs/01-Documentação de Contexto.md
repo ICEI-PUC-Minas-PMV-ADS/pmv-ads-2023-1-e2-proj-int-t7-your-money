@@ -7,7 +7,7 @@ Neste contexto economico, é de fundamental importância que todos tenham um con
 O endividamento dos brasileiros nunca alcançou patamares tão altos como atualmente, de acordo com o levantamento da CNC (Confederação Nacional do Comércio de Bens, Serviços e Turismo) antes da pandemia do Covid-19, que teve seu início em 2020, 64%² das pessoas abordadas nesta pesquisa tinham algum tipo de dívida. Já em 2022, segundo a PEIC (Pesquisa de Endividamento e Inadimplência do Consumidor), 77,9%³ das famílias declararam ter dívidas 7% a mais do que em 2021, que fechou em 70,9%. 
 
 ## Objetivos
-Prover as pessoas de uma ferramenta que possibilite um maior controle e gestão de suas finanças pessoais, através de uma aplicação fluída e com uma interface simples, de fácil acessibilidade, que possa:
+Prover as pessoas de uma ferramenta que possibilite um maior controle e gestão de suas finanças pessoais. Uma aplicação que siga as boas práticas de usabilidade, contribuindo para simplificar o acesso aos usuários e que possa:
 *	Auxiliar as pessoas no controle de seus gastos pessoais
 *	Dar dicas e recomendações para um controle financeiro mais assertivo
 
