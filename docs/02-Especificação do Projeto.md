@@ -71,6 +71,8 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-13| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
 |RF-14| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
 |RF-15| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
+|RF-16| Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
+
 
 
 ### Requisitos não Funcionais
