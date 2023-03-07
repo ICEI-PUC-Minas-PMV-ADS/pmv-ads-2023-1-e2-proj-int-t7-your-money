@@ -66,12 +66,11 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-07| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
 |RF-08| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
 |RF-09| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
-|RF-10|  |  |
-|RF-11| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados. | Média |
-|RF-12| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
-|RF-13| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
-|RF-14|  |  |
-|RF-15| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
+|RF-10| A aplicação deve ter alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
+|RF-11| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
+|RF-12| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
+|RF-13| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
+
 
 ### Requisitos não Funcionais
 
@@ -81,11 +80,8 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RNF-02| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
 |RNF-03| A aplicação deverá ser responsiva. | Alta |
 |RNF-04| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages); | Alta |
-|RNF-05|| |
-|RNF-06|  |  |
-|RNF-07|  |  |
-|RNF-08| A aplicação deverá funcionar em ambiente WEB e deverá rodar nos navegadores com suporte para HTML5 e CSS3. | Alta |
-|RNF-09| A aplicação deverá seguir as normas estabelecidas pela Legislação de privacidade do usuário. |  Alta | 
+|RNF-05| A aplicação deverá funcionar em ambiente WEB e deverá rodar nos navegadores com suporte para HTML5 e CSS3. | Alta |
+|RNF-06|  A aplicação deverá seguir as normas estabelecidas pela Legislação de privacidade do usuário. |  Alta | 
 
 
 ## Restrições
@@ -95,7 +91,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02|       |
+|02| O projeto deverá ser trabalhado apenas pelo grupo de alunos, sem contratação de profissionais |
 
 
 ## Diagrama de Casos de Uso
