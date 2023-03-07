@@ -11,7 +11,7 @@ O projeto desenvolvido tem como objetivo criar uma aplicação que possa Prover 
 
 ## Integrantes
 
-* Daniel Mendes Rufino
+* Daniel Mendes Rufino Silva
 * Leonardo Buck Alves
 * Leonardo Melo de Lima
 * Pedro Henrique da Silva
