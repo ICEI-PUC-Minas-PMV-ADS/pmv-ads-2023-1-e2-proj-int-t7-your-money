@@ -29,6 +29,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
+| Armando Gomes      |                                    |                                        |
+| Armando Gomes      |                                    |                                        |
+| Armando Gomes      |                                    |                                        |
 | João Pedro         | Encontrar uma aplicação que calcule impostos, taxas e juros de acordo com minhas renda e meus gastos. |  Saber o valor que devo separar para meus impostos e os acréscimos que pago em juros e taxas. |
 | João Pedro         | Ser avisado sobre mudanças no mercado financeiro que possam ser responsáveis por aumentar ou diminuir minhas despesas. | Me prevenir com relação ao quanto meus gastos serão variáveis a curto e longo prazo. |
 | João Pedro         | Receber sugestões de possíveis boas oportunidades de investimento do mercado atual. | Ter a oportunidade de conhecer mais sobre o mercado financeiro e ter a possibilidade de expandir meus lucros ao longo dos anos. |
