@@ -85,7 +85,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RNF-01| A aplicação deve funcionar 24 horas por dia, todos os dias da semana. | Alta |
 |RNF-02| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
 |RNF-03| A aplicação deverá ser responsiva. | Alta |
-|RNF-04| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages); | Alta |
+|RNF-04| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet. | Alta |
 |RNF-05| A aplicação deverá funcionar em ambiente WEB e deverá rodar nos navegadores com suporte para HTML5 e CSS3. | Alta |
 |RNF-06|  A aplicação deverá seguir as normas estabelecidas pela Legislação de privacidade do usuário. |  Alta | 
 
