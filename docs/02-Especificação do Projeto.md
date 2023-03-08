@@ -69,12 +69,11 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-08| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
 |RF-09| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
 |RF-10| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
-|RF-11| Aplicação deverá ter uma robusta segurança dos dados dos usuários, evitando exposição destes na internet. | Alta |
-|RF-12| Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
-|RF-13| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
-|RF-14| A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
-|RF-15| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
-|RF-16| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Baixa |
+|RF-11| Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
+|RF-12| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
+|RF-13| A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
+|RF-14| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
+|RF-15| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Baixa |
 
 ### Requisitos não Funcionais
 
