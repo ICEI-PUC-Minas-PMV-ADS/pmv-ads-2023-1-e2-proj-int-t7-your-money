@@ -9,7 +9,7 @@ A aplicação é destinada a qualquer pessoa que busque uma melhor organização
 ## Personas
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem.
 
-* `Armando Gomes`
+* `Armando Gomes` é um advogado trabalhista com 5 anos de experiência, atuando em processos judiciais, promovendo defesas de empresas e de clientes em ações trabalhistas. Armando tem grande dificuldade de organizar suas finanças pois ele atende muitos clientes simultaneamente e com varios clientes que necessitam ser cobrados em datas especificas, com este situação ele esta acabando se atrapalhando em fazer as cobraças e administrar suas contas em geral(despesas, ganhos).
 
 * `João Pedro` é um jovem de 22 anos, recentemente formado como Desenvolvedor e Analista de Sistemas, trabalhando como Desenvolvedor Web Front-End na HP Brasil. Demonstra ter um problema grave de disciplina e organização quando o assunto é Finanças, não tendo controle nenhum sobre seus gastos, fazendo com que ele não consiga criar suas reservas financeiras para seu próprio futuro e para ajudar sua família.  
 
@@ -29,9 +29,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-| Armando Gomes      |                                    |                                        |
-| Armando Gomes      |                                    |                                        |
-| Armando Gomes      |                                    |                                        |
+| Armando Gomes      |   Conseguir preencher uma descrição para cada transação realizada.                                 |Para saber qual foi o motivo da transação em questão.                                       |
+| Armando Gomes      |   Conseguir criar tags personalizar.                                 |Para conseguir filtrar e separar minhas transações, pelo nome do cliente por exemplo.                                         |
+| Armando Gomes      |   Preciso gerar relatorios financeiros para um grupo especifico de transaçoes, por exemplo de acordo com uma tag especifica.                                 |Para enviar aos clientes o total gasto, ou enviar para o meu contador.                                        |
 | João Pedro         | Encontrar uma aplicação que calcule impostos, taxas e juros de acordo com minhas renda e meus gastos. |  Saber o valor que devo separar para meus impostos e os acréscimos que pago em juros e taxas. |
 | João Pedro         | Ser avisado sobre mudanças no mercado financeiro que possam ser responsáveis por aumentar ou diminuir minhas despesas. | Me prevenir com relação ao quanto meus gastos serão variáveis a curto e longo prazo. |
 | João Pedro         | Receber sugestões de possíveis boas oportunidades de investimento do mercado atual. | Ter a oportunidade de conhecer mais sobre o mercado financeiro e ter a possibilidade de expandir meus lucros ao longo dos anos. |
