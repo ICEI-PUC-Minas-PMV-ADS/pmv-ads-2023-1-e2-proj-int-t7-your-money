@@ -32,9 +32,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Armando Gomes      |   Conseguir preencher uma descrição para cada transação realizada.                                 |Para saber qual foi o motivo da transação em questão.                                       |
 | Armando Gomes      |   Conseguir criar tags personalizar.                                 |Para conseguir filtrar e separar minhas transações, pelo nome do cliente por exemplo.                                         |
 | Armando Gomes      |   Preciso gerar relatorios financeiros para um grupo especifico de transaçoes, por exemplo de acordo com uma tag especifica.                                 |Para enviar aos clientes o total gasto, ou enviar para o meu contador.                                        |
-| João Pedro         | Encontrar uma aplicação que calcule impostos, taxas e juros de acordo com minhas renda e meus gastos. |  Saber o valor que devo separar para meus impostos e os acréscimos que pago em juros e taxas. |
-| João Pedro         | Ser avisado sobre mudanças no mercado financeiro que possam ser responsáveis por aumentar ou diminuir minhas despesas. | Me prevenir com relação ao quanto meus gastos serão variáveis a curto e longo prazo. |
-| João Pedro         | Receber sugestões de possíveis boas oportunidades de investimento do mercado atual. | Ter a oportunidade de conhecer mais sobre o mercado financeiro e ter a possibilidade de expandir meus lucros ao longo dos anos. |
+| João Pedro         | Encontrar um método de controle de gastos que me ajude a manter uma rotina de economia, para que eu consiga criar minhas reservas financeiras para o futuro.  |  Saber a quantia que poderei ter reservada na perspectiva de 1 ano, 5 anos e 10 anos, mantendo uma rotina de economia.  |
+| João Pedro         | Receber avisos e notificações sobre possíveis mudanças do mercado financeiro que possam influenciar diretamente minha vida financeira na perspectiva de 6 meses à 1 ano.  | Me prevenir com relação as grandes oscilações do mercado financeiro que possam influenciar diretamente minhas finanças.  |
+| João Pedro         | Encontrar uma fonte confiável de informações sobre o tema Finanças.  | Ter a oportunidade de conhecer mais sobre o mercado financeiro em geral.  |
 | David Amaral       | Encontrar ferramenta que o auxilie no controle de gastos.|  Ter ciência e controle dos gastos, fixos e eventuais.|
 | David Amaral       | Conseguir visualizar de forma prática para onde, exatamente, sua receita(salário) está indo.|Ter acesso, fácil e claro, aos gastos.|
 | David Amaral       | Manter os gastos menores que a receita mensal.|Conseguir quitar suas despesas mensais sem a necessidade de contrair empréstimos ou utilizar cartão de crédito|
@@ -75,7 +75,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-14| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
 |RF-15| A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
 |RF-16| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
-|RF-17| A aplicação deve possibilitar que o usuário calcule impostos, taxas, juros, entre outros, de acordo com sua renda e seus gastos.  | Baixa |
+|RF-17| A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês.   | Baixa |
 
 ### Requisitos não Funcionais
 
