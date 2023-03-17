@@ -59,32 +59,32 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01| A aplicação deve permitir que o usuário gerencie seus gastos fixos e variáveis.| Alta | 
-|RF-02| Para cada gasto cadastrado, o tipo de gasto e a forma de pagamento deve ser informada. | Alta |
-|RF-03| A aplicação deve permitir que o usuário gerencie suas receitas (salários, aluguéis, dentre outros). | Alta |
-|RF-04| A aplicação deve emitir alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Alta |
-|RF-05| A aplicação deve permitir o auto gerenciamento dos Usuários. | Alta |
-|RF-06| A aplicação deve permitir que o Usuário faça Login. | Alta |
-|RF-07| A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
-|RF-08| A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
-|RF-09| A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
-|RF-10| A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
-|RF-11| Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
-|RF-12| Aplicação deve emitir relatórios(De gastos, receitas e outros). | Alta |
-|RF-13| Aplicação deve ter uma área específica com FAQ. | Alta |
-|RF-14| A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
-|RF-15| A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
-|RF-16| A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
-|RF-17| A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês.   | Baixa |
+| RF-01 | A aplicação deve permitir que o usuário gerencie seus gastos fixos e variáveis.| Alta | 
+| RF-02 | Para cada gasto cadastrado, o tipo de gasto e a forma de pagamento deve ser informada. | Alta |
+| RF-03 | A aplicação deve permitir que o usuário gerencie suas receitas (salários, aluguéis, dentre outros). | Alta |
+| RF-04 | A aplicação deve emitir alertas, quando gastos forem maiores ou estiverem atingindo o valor das receitas.| Alta |
+| RF-05 | A aplicação deve permitir o auto gerenciamento dos Usuários. | Alta |
+| RF-06 | A aplicação deve permitir que o Usuário faça Login. | Alta |
+| RF-07 | A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
+| RF-08 | A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
+| RF-09 | A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
+| RF-10 | A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
+| RF-11 | Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
+| RF-12 | Aplicação deve emitir relatórios(De gastos, receitas e outros). | Alta |
+| RF-13 | Aplicação deve ter uma área específica com FAQ. | Alta |
+| RF-14 | A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
+| RF-15 | A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
+| RF-16 | A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
+| RF-17 | A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês.   | Baixa |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-01| A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
-|RNF-02| A aplicação deverá ser responsiva. | Alta |
-|RNF-03| A aplicação deve ser publicada em um ambiente acessível publicamente na Internet. | Alta |
-|RNF-04|  A aplicação deverá seguir as normas estabelecidas pela Legislação de privacidade do usuário. |  Alta | 
+| RNF-01 | A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
+| RNF-02 | A aplicação deverá ser responsiva. | Alta |
+| RNF-03 | A aplicação deve ser publicada em um ambiente acessível publicamente na Internet. | Alta |
+| RNF-04 |  A aplicação deverá seguir as normas estabelecidas pela Legislação de privacidade do usuário. |  Alta | 
 
 
 ## Restrições
@@ -93,8 +93,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| O projeto deverá ser trabalhado apenas pelo grupo de alunos, sem contratação de profissionais |
+| 01 | O projeto deverá ser entregue até o final do semestre |
+| 02 | O projeto deverá ser trabalhado apenas pelo grupo de alunos, sem contratação de profissionais |
 
 
 ## Diagrama de Casos de Uso
