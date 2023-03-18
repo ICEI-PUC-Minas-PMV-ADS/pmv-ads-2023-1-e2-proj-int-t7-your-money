@@ -102,7 +102,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-![Diagrama de Casos de Uso](https://user-images.githubusercontent.com/98750413/224128323-3f6832ac-059d-4f09-91da-d0594b5ba4b6.png)
+![Diagrama de caso de uso (2)](https://user-images.githubusercontent.com/53917285/226143669-598d159f-18fb-4aeb-9d70-de74f8ea4c9f.png)
+
+
+
 
 > **Referências**:
 > 1. https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/ Acesso em 01/03/2023.
