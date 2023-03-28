@@ -67,15 +67,13 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 | RF-06 | A aplicação deve permitir que o Usuário faça Login. | Alta |
 | RF-07 | A aplicação deve permitir inserir contas e valores de entrada, para ter controle de quanto tem na carteira. | Alta |
 | RF-08 | A aplicação deve disponibilizar dicas e informações para um melhor controle financeiro | Alta |
-| RF-09 | A aplicação deve permitir que o usuário descadastre seus gastos fixos e variáveis. | Alta |
-| RF-10 | A aplicação deve permitir que o usuário descadastre suas receitas. | Alta |
-| RF-11 | Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
-| RF-12 | Aplicação deve emitir relatórios(De gastos, receitas e outros). | Alta |
-| RF-13 | Aplicação deve ter uma área específica com FAQ. | Alta |
-| RF-14 | A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
-| RF-15 | A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
-| RF-16 | A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
-| RF-17 | A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês.   | Baixa |
+| RF-09 | Aplicação deve permitir que o usuário, a qualquer momento, verifique o status da sua conta. | Alta |
+| RF-10 | Aplicação deve emitir relatórios(De gastos, receitas e outros). | Alta |
+| RF-11 | Aplicação deve ter uma área específica com FAQ. | Alta |
+| RF-12 | A aplicação deve permitir adicionar um cartão de crédito e as compras vinculadas a ele. | Média |
+| RF-13 | A aplicação deve emitir alertas, próximo aos vencimentos dos pagamentos cadastrados.| Média |
+| RF-14 | A aplicação deve ter uma área específica para fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Média |
+| RF-15 | A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês.   | Baixa |
 
 ### Requisitos não Funcionais
 
