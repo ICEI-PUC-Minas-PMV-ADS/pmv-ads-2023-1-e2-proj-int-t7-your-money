@@ -8,6 +8,7 @@ O projeto desenvolvido tem como objetivo criar uma aplicação que possa Prover 
 
 * Auxiliar as pessoas no controle de seus gastos pessoais
 * Dar dicas e recomendações para um controle financeiro mais assertivo
+* Fazer com que os usuarios tenham mais responsabilidade com seu dinheiro.
 
 ## Integrantes
 
