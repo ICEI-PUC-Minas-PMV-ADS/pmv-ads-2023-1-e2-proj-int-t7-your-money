@@ -30,6 +30,8 @@ A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
 O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
  
 Para mais informações, consulte o microfundamento "Modelagem de Dados".
+![Projeto da Base de Dados YourMoney](https://user-images.githubusercontent.com/109763968/229640125-e69f47be-0985-4292-b7f3-b650445ea8a7.jpeg)
+
 
 ## Tecnologias Utilizadas
 
