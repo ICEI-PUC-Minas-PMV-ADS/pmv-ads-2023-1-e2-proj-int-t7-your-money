@@ -93,7 +93,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 | 01 | O projeto deverá ser entregue até o final do semestre |
 | 02 | O projeto deverá ser executado apenas pelos alunos que compõe o grupo, sem contratação de profissionais |
-| 03 | A aplicação deverá ser exibida navegador web | 
+| 03 | A aplicação deverá ser exibida em navegador web | 
 
 
 ## Diagrama de Casos de Uso
