@@ -17,9 +17,9 @@ O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamen
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
-
+### User Flow
+Fluxo de usuário (User Flow), é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas da aplicação. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
+![userFlow](img/UserFlow.png)
 
 
 ## Wireframes
@@ -41,17 +41,14 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 ### Tela - Cadastro | Login
 ![Cadastro e Login](img/Wireframe-YourMoney(2).png)
 
-### Tela - Usuário logado Aviso
-![Usuario logado Aviso](img/Wireframe-YourMoney(3).png)
+### Tela - Usuário logado
+![Usuario logado](img/Wireframe-YourMoney(3).png)
 
 ### Tela - Usuário logado
-![Usuario logado](img/Wireframe-YourMoney(4).png)
+![Usuario logado 1](img/Wireframe-YourMoney(4).png)
 
 ### Tela - Usuário logado
-![Usuario logado 1](img/Wireframe-YourMoney(5).png)
-
-### Tela - Usuário logado
-![Usuario logado 2](img/Wireframe-YourMoney(6).png)
+![Usuario logado 2](img/Wireframe-YourMoney(5).png)
 
 
 
