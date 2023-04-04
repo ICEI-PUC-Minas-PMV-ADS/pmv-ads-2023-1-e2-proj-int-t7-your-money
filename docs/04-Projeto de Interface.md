@@ -1,11 +1,11 @@
 
 # Projeto de Interface
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+<span style="color:red">Pré-requisitos: <a href="02-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+ Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="02-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
 ## Diagrama de Fluxo
 
@@ -33,5 +33,31 @@ Conforme fluxo de telas do projeto, apresentado no item anterior, as telas do si
 ● Rodapé - apresenta a síntese do site associados aos elementos presentes no sistema, auxiliando na navegação do usuário e ajuda-lo com informações de contato para a empresa.
 
 ### Tela - Home Page
-![Home Page](img/Wireframe - Your Money (0).png)
+![Home Page](img/Wireframe-YourMoney(0).png)
+
+### Tela - FAQ
+![FAQ](img/Wireframe-YourMoney(1).png)
+
+### Tela - Cadastro | Login
+![Cadastro e Login](img/Wireframe-YourMoney(2).png)
+
+### Tela - Usuário logado Aviso
+![Usuario logado Aviso](img/Wireframe-YourMoney(3).png)
+
+### Tela - Usuário logado
+![Usuario logado](img/Wireframe-YourMoney(4).png)
+
+### Tela - Usuário logado
+![Usuario logado 1](img/Wireframe-YourMoney(5).png)
+
+### Tela - Usuário logado
+![Usuario logado 2](img/Wireframe-YourMoney(6).png)
+
+
+
+
+
+
+
+
 
