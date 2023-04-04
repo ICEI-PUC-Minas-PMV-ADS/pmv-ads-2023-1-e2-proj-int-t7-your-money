@@ -54,3 +54,9 @@ As ferramentas empregadas no projeto são:
 * **Ferramentas de desenho de tela**: Miro
 
 Os editores de código foram escolhidos porque possuem uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem facilidade na troca de informações. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar e expressar as necessidades da nossa solução.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<<<<<  02-Especificações do Projeto- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md   <<
+
+  >>> 04-Projeto de Interface- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/04-Projeto%20de%20Interface.md >>>>>
