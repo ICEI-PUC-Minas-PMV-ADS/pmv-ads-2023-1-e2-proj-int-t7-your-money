@@ -9,7 +9,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Diagram de Fluxo Final (Your Money)](https://user-images.githubusercontent.com/112659128/229818643-241ea9c2-951e-4a65-a900-6bb065a6dd0e.jpeg)
+![Diagrama de Fluxo Final (Your Money)](https://user-images.githubusercontent.com/112659128/230257348-7db30de0-8d13-4df1-b141-2b1886eff300.jpeg)
 
 
 A equipe desenvolveu este Diagrama de Fluxo pensando em como será o fluxo de dados e em quais serão os processos pelos quais o usuário passará para utilizar a nossa aplicação. Debatemos algumas possibilidades durante o desenvolvimento e chegamos a esta foi a melhor delas até o momento.
