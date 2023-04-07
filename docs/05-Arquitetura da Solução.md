@@ -25,7 +25,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
  
 Para mais informações, consulte o microfundamento "Modelagem de Dados".
-![Projeto da Base de Dados YourMoney](https://user-images.githubusercontent.com/109763968/229640125-e69f47be-0985-4292-b7f3-b650445ea8a7.jpeg)
+![Projeto da Base de Dados YourMoney](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/e6926b1e6bd319b6c755951d5700d054e140cd01/docs/img/DB.png)
 
 
 ## Tecnologias Utilizadas
