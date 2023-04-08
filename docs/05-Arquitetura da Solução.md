@@ -8,7 +8,8 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
 
-![Diagrama de Classes  YourMoney](https://user-images.githubusercontent.com/98750413/230384450-3c75ebbf-5baa-4f9a-a44d-c96845f92c5c.png)
+![Diagrama de Classes](https://user-images.githubusercontent.com/98750413/230686617-c9b94572-a2ad-479c-a834-a88febe787b0.png)
+
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
 
@@ -17,20 +18,14 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER (Projeto Conceitual)
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
-
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
-
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![Your Money (MER)](https://user-images.githubusercontent.com/109763968/230682909-fa69f5bb-7ed4-4d6c-93f8-4a14e211f4ad.png)
 
 ## Projeto da Base de Dados
 
 O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
  
 Para mais informações, consulte o microfundamento "Modelagem de Dados".
-![Projeto da Base de Dados YourMoney](https://user-images.githubusercontent.com/109763968/229640125-e69f47be-0985-4292-b7f3-b650445ea8a7.jpeg)
+![Projeto da Base de Dados YourMoney](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/e6926b1e6bd319b6c755951d5700d054e140cd01/docs/img/DB.png)
 
 
 ## Tecnologias Utilizadas
