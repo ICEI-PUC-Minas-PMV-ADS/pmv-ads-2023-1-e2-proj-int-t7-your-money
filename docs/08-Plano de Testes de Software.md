@@ -9,6 +9,7 @@ Não deixe de enumerar os casos de teste de forma sequencial e de garantir que o
 Por exemplo:
  
 | **Caso de Teste** 	| **CT-01 – Adicionar uma receita com sucesso.** 	|
+|:---:	|:---:	|
 |	Requisito Associado 	| RF01 - A aplicação deve permitir o usuário gerenciar suas receitas. |
 | Objetivo do Teste 	| Usuário adicionar uma nova receita com sucesso |
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br> - Clicar no botão de adicionar nova receita.<br> - Preencher os campos obrigatórios, como nome, valor e tipo de receita.  <br> - Clicar no botão de salvar.  |
