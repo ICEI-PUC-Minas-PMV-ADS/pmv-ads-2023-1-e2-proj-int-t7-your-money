@@ -18,7 +18,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER (Projeto Conceitual)
 
-![Your Money (MER)](https://user-images.githubusercontent.com/109763968/230682909-fa69f5bb-7ed4-4d6c-93f8-4a14e211f4ad.png)
+![Your Money (MER)](https://user-images.githubusercontent.com/109763968/230730953-91e8be0a-c776-46ba-9781-497fd24cc675.png)
 
 ## Projeto da Base de Dados
 
