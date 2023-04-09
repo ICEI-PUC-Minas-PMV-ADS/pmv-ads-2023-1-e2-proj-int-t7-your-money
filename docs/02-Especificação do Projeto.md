@@ -77,10 +77,12 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-| RNF-01 | A aplicação deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) | Alta |
-| RNF-02 | A aplicação deverá ser responsiva. | Alta |
-| RNF-03 | A aplicação deve estar disponível 7 dias da semana, 24 horas ao dia. | Alta |
-| RNF-04 | A aplicação deverá seguir as normas estabelecidas pela Legislação vigente de privacidade de dados do usuário. |  Alta | 
+| RNF-01 | A aplicação deve ser fácil de usar e entender para os usuários, com uma interface de usuário intuitiva e clara. | Alta |
+| RNF-02 | A aplicação deve ser responsiva. | Alta |
+| RNF-03 | A aplicação deve ter tempo se resposta menor que 2 segundo a cada requisição realizada. | Alta |
+| RNF-04 | A aplicação deve estar disponível e funcionando corretamente durante a maior parte do tempo, com tempo de inatividade mínimo ou nulo. |  Alta | 
+| RNF-05 | A aplicação deve ser fácil de manter e atualizar, com uma arquitetura dividida em modulos e documentação clara para os desenvolvedores. |  Alta |
+| RNF-06 | A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento. Exemplos de navegadores: Microsoft Edge, Google Chrome, Mozila Firefox e Opera. Exemplos de sistemas operacionais: Windows, MAC, IOS, Android.  |  Alta |  
 
 
 ## Restrições
