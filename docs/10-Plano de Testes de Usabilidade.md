@@ -22,7 +22,7 @@ Para cada voluntário do teste, é fundamental coletar e apresentar todos os dad
 | **Requisito Associado** 	| **RFN-05 – A aplicação deve ser fácil de manter e atualizar, com uma arquitetura dividida em modulos e documentação clara para os desenvolvedores.** |
 | Como pode ser testado 	| Verificar se a aplicação foi divida por responsabilidade, antes de mergear a branch do dev com a main/master tenha code review com pelo menos 2 aceites antes de fazer merge. |
 |  	|  	|
-| **Requisito Associado** 	| **RFN-06 – A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento.** |
+| **Requisito Associado** 	| **RFN-06 – A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento. Exemplos de navegadores: Microsoft Edge, Google Chrome, Mozila Firefox e Opera. Exemplos de sistemas operacionais: Windows, MAC, IOS, Android.** |
 | Como pode ser testado 	| Acessar a aplicação em diferentes dispositivos, navegadores e sistemas operacionais e realizar as funções principais para verificar como a aplicação se comporta nesses cenários. |
 |  	|  	|
 
