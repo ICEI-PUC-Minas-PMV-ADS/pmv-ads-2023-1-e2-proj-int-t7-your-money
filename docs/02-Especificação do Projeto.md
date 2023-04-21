@@ -29,25 +29,24 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-| Armando Gomes      |   Conseguir preencher uma descrição para cada transação realizada.                                 |Para saber qual foi o motivo da transação em questão.                                       |
-| Armando Gomes      |   Conseguir criar tags personalizar.                                 |Para conseguir filtrar e separar minhas transações, pelo nome do cliente por exemplo.                                         |
-| Armando Gomes      |   Preciso gerar relatorios financeiros para um grupo especifico de transaçoes, por exemplo de acordo com uma tag especifica.                                 |Para enviar aos clientes o total gasto, ou enviar para o meu contador.                                        |
-| João Pedro         | Encontrar um método de controle de gastos que me ajude a manter uma rotina de economia, para que eu consiga criar minhas reservas financeiras para o futuro.  |  Saber a quantia que poderei ter reservada na perspectiva de 6 meses a 1 ano, mantendo uma rotina de economia.  |
-| João Pedro         | Encontrar um método para definir um limitador para meus gastos mensais por meio de algum tipo de aviso.  | Evitar gastos desnecessários.  |
-| João Pedro         | Encontrar uma fonte de dicas gerais sobre o mercado financeiro.  | Ter a oportunidade de aprender mais sobre o finanças.  |
-| David Amaral       | Encontrar ferramenta que o auxilie no controle de gastos.|  Ter ciência e controle dos gastos, fixos e eventuais.|
-| David Amaral       | Conseguir visualizar de forma prática para onde, exatamente, sua receita(salário) está indo.|Ter acesso, fácil e claro, aos gastos.|
-| David Amaral       | Manter os gastos menores que a receita mensal.|Conseguir quitar suas despesas mensais sem a necessidade de contrair empréstimos ou utilizar cartão de crédito|
-| José Antonio Moreira       |Ser avisado quando houver uma grande movimentação de débito em sua conta. |Ter segurança contra fraudes. |
-| José Antonio Moreira       |Ser avisado perto do vencimento de pagamentos. |Evitar de pagar juros. |
-| José Antonio Moreira       |Visualizar de maneira clara o quanto seu dinheiro rende por mês. |Saber se está investindo seu dinheiro corretamente. |
-| Sophie Santos Faria       |Adicionar minhas contas em um lugar e especificar se é corrente, parcelado ou uma vez.|Ter melhor controle de quando termina e acaba minhas contas.|
-| Sophie Santos Faria       |Fazer controle de compras no cartão de crédito. |Ter melhor controle de quando gasto por mês no cartão de crédito. |
-| Sophie Santos Faria       |Ter um sistema onde faça as somas automaticas para mim por mês e me diga se estou no vermelho ou azul|Me programar melhor nos proximos meses e/ou poder investir meu dinheiro caso sobre. |
+| Armando Gomes | Conseguir preencher uma descrição para cada transação realizada. | Para saber qual foi o motivo da transação em questão. |
+| Armando Gomes | Poder classificar minhas receitas e despesas | Poder visualizar receitas e despesas de acordo com a sua classificação. |
+| Armando Gomes | Preciso gerar relatorios financeiros para um grupo especifico de transaçoes, por exemplo de acordo com uma tag especifica. | Para enviar aos clientes o total gasto, ou enviar para o meu contador.                                        |
+| João Pedro | Encontrar um método de controle de gastos que me ajude a manter uma rotina de economia, para que eu consiga criar minhas reservas financeiras para o futuro.  |  Saber a quantia que poderei ter reservada na perspectiva de 6 meses a 1 ano, mantendo uma rotina de economia. |
+| João Pedro | Encontrar um método para definir um limitador para meus gastos mensais por meio de algum tipo de aviso.  | Evitar gastos desnecessários.  |
+| João Pedro | Encontrar uma fonte de dicas gerais sobre o mercado financeiro.  | Ter a oportunidade de aprender mais sobre o finanças.  |
+| David Amaral | Encontrar ferramenta que o auxilie no controle de gastos.|  Ter ciência e controle dos gastos, fixos e eventuais.|
+| David Amaral | Conseguir visualizar de forma prática para onde, exatamente, sua receita(salário) está indo.|Ter acesso, fácil e claro, aos gastos.|
+| David Amaral | Manter os gastos menores que a receita mensal.|Conseguir quitar suas despesas mensais sem a necessidade de contrair empréstimos ou utilizar cartão de crédito|
+| José Antonio Moreira | Ter uma visão simples, clara e objetiva dos meus gastos mensais| Ter informação rápida sobre meu saldo mensal |
+| José Antonio Moreira | Receber alertas perto do vencimento de pagamentos. |Evitar de pagar juros. |
+| José Antonio Moreira | Visualizar de maneira clara como estão minhas finanças | Entender como estão sendo efetivados os gastos frente as minhas receitas |
+| Sophie Santos Faria | Adicionar minhas contas em um lugar e especificar se é corrente, parcelado ou uma vez.| Ter melhor controle de quando termina e acaba minhas contas.|
+| Sophie Santos Faria | Poder visualizar todos os meus lançamentos de despesas ou receitas independente do mês. | Entender como estão minhas receitas e despesas para planejar melhor meu futuro. |
+| Sophie Santos Faria | Ter um sistema onde faça as somas automaticas para mim por mês e me diga se estou no vermelho ou azul| Me programar melhor nos proximos meses e/ou poder investir meu dinheiro caso sobre.|
 | Cláudio Roberto    | Visualizar quais despesas são mais impactantes no orçamento mensalmente | Ter informações suficientes e relevantes a fim de tomar decisões mais corretamente |
-| Cláudio Roberto    | Visualizar quais despesas são mais impactantes no orçamento mensalmente | Ter informações suficientes e relevantes a fim de tomar decisões mais corretamente |
-| Cláudio Roberto    |	Poder estruturar minhas finanças pessoais com uma visão de longo prazo |	Com uma visão de longo prazo, é possível estruturar um planejamento futuro mais assertivo |
-| Cláudio Roberto    |	Saber o quanto de dinheiro eu terei livre, após o pagamento de todas as minhas despesas |	Saber em cada mês, se precisarei economizar ou não |
+| Cláudio Roberto    | Poder estruturar minhas finanças pessoais com uma visão de longo prazo | Com uma visão de longo prazo, é possível estruturar um planejamento futuro mais assertivo |
+| Cláudio Roberto    | Saber o quanto de dinheiro eu terei livre, após o pagamento de todas as minhas despesas | Saber em cada mês, se precisarei economizar ou não |
 
 
 
