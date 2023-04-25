@@ -26,4 +26,4 @@ Nossa solução é destinada a homens e mulheres de 18 a 85 anos de idade que bu
 4. https://www.fecomercio.com.br/noticia/endividamento-atinge-78-das-familias-brasileiras-maior-taxa-dos-ultimos-12-anos#:~:text=O%20porcentual%20de%20fam%C3%ADlias%20endividadas,para%2071%25%20em%20junho%202021. Acesso em 27/02/2023
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
->> 02- Especificações do Projeto - https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md >>>>>>>
+> 02- Especificações do Projeto - https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md >

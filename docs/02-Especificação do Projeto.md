@@ -56,32 +56,32 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-| RF-01 | A aplicação deve permitir o usuário gerenciar suas receitas.| Alta | 
-| RF-02 | A aplicação deve permitir o usuário gerenciar seus despesas. | Alta |
-| RF-03 | A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. | Alta |
-| RF-04 | A aplicação deve emitir alertas, quando as despesas atingirem 75% do valor das receitas.| Alta |
-| RF-05 | A aplicação deve permitir que o usuário faça login. | Alta |
-| RF-06 | A aplicação deve permitir o auto gerenciamentos do usuários. | Alta |
-| RF-07 | Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. | Alta |
-| RF-08 | A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros.| Alta |
-| RF-09 | Aplicação deve ter uma área específica com FAQ. | Alta |
-| RF-10 | A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. | Alta |
-| RF-11 | No FAQ a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. | Alta |
-| RF-12 | A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês. | Média |
-| RF-13 | No FAQ da aplicação deve também fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário.| Média |
+|ID   | Descrição do Requisito  | Prioridade |
+|-----|-----------------------------------------|----|
+|RF-01| A aplicação deve permitir o usuário gerenciar suas receitas.| Alta | 
+|RF-02| A aplicação deve permitir o usuário gerenciar seus despesas. | Alta |
+|RF-03| A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. | Alta |
+|RF-04| A aplicação deve emitir alertas, quando as despesas atingirem 75% do valor das receitas.| Alta |
+|RF-05| A aplicação deve permitir que o usuário faça login. | Alta |
+|RF-06| A aplicação deve permitir o auto gerenciamentos do usuários. | Alta |
+|RF-07| Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. | Alta |
+|RF-08| A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros.| Alta |
+|RF-09| Aplicação deve ter uma área específica com FAQ. | Alta |
+|RF-10| A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. | Alta |
+|RF-11| No FAQ a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. | Alta |
+|RF-12| A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês. | Média |
+|RF-13| No FAQ da aplicação deve também fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário.| Média |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-| RNF-01 | A aplicação deve ser fácil de usar e entender para os usuários, com uma interface de usuário intuitiva e clara. | Alta |
-| RNF-02 | A aplicação deve ser responsiva. | Alta |
-| RNF-03 | A aplicação deve ter tempo se resposta menor que 2 segundo a cada requisição realizada. | Alta |
-| RNF-04 | A aplicação deve estar disponível e funcionando corretamente durante a maior parte do tempo, com tempo de inatividade mínimo ou nulo. |  Alta | 
-| RNF-05 | A aplicação deve ser fácil de manter e atualizar, com uma arquitetura dividida em modulos e documentação clara para os desenvolvedores. |  Alta |
-| RNF-06 | A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento. Exemplos de navegadores: Microsoft Edge, Google Chrome, Mozila Firefox e Opera. Exemplos de sistemas operacionais: Windows, MAC, IOS, Android.  |  Alta |  
+|RNF-01| A aplicação deve ser fácil de usar e entender para os usuários, com uma interface de usuário intuitiva e clara. | Alta |
+|RNF-02| A aplicação deve ser responsiva. | Alta |
+|RNF-03| A aplicação deve ter tempo se resposta menor que 2 segundo a cada requisição realizada. | Alta |
+|RNF-04| A aplicação deve estar disponível e funcionando corretamente durante a maior parte do tempo, com tempo de inatividade mínimo ou nulo. |  Alta | 
+|RNF-05| A aplicação deve ser fácil de manter e atualizar, com uma arquitetura dividida em modulos e documentação clara para os desenvolvedores. |  Alta |
+|RNF-06| A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento. Exemplos de navegadores: Microsoft Edge, Google Chrome, Mozila Firefox e Opera. Exemplos de sistemas operacionais: Windows, MAC, IOS, Android.  |  Alta |  
 
 
 ## Restrições
@@ -90,9 +90,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-| 01 | O projeto deverá ser entregue até o final do semestre |
-| 02 | O projeto deverá ser executado apenas pelos alunos que compõe o grupo, sem contratação de profissionais |
-| 03 | A aplicação deverá ser exibida em navegador web | 
+|01| O projeto deverá ser entregue até o final do semestre |
+|02| O projeto deverá ser executado apenas pelos alunos que compõe o grupo, sem contratação de profissionais |
+|03| A aplicação deverá ser exibida em navegador web | 
 
 
 ## Diagrama de Casos de Uso
@@ -103,19 +103,11 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 
 
-
-
-
-
 > **Referências**:
 > 1. https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/ Acesso em 01/03/2023.
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-<<<<<<<<<<<<<< 01-Documentação de Contexto
- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/01-Documenta%C3%A7%C3%A3o%20de%20Contexto.md  <<<<<
- 
- 
->>> 03-Metodologia  https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/03-Metodologia.md  >>>>>
+> 01-Documentação de Contexto https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/01-Documenta%C3%A7%C3%A3o%20de%20Contexto.md >
+> 03-Metodologia  https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/03-Metodologia.md >
 

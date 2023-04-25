@@ -9,7 +9,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-![Diagrama de Fluxo Final (Your Money)](https://user-images.githubusercontent.com/112659128/230257348-7db30de0-8d13-4df1-b141-2b1886eff300.jpeg)
+![Diagrama de Fluxo Final (Your Money)](img/DiagramadeFluxoYourMoney.png)
 
 
 A equipe desenvolveu este Diagrama de Fluxo pensando em como será o fluxo de dados e em quais serão os processos pelos quais o usuário passará para utilizar a nossa aplicação. Debatemos algumas possibilidades durante o desenvolvimento e chegamos a esta foi a melhor delas até o momento.
@@ -63,7 +63,6 @@ Requisitos funcionais contemplados nesta tela:
 * `RF-12` A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X 
 anos, se ele economizar o valor Y ao final de cada mês.	Média
 * `RF-08` A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros.
-
 ![Usuario logado 1](img/Wireframe-YourMoney(4).png)
 
 ### Tela - Usuário logado (3)
@@ -73,7 +72,5 @@ Requisitos funcionais contemplados nesta tela:
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 > 03-Metodologia- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/03-Metodologia.md >
-
 > 05-Arquitetura da Solução- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/05-Arquitetura%20da%20Solu%C3%A7%C3%A3o.md >

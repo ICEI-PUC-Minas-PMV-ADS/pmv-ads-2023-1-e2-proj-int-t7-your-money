@@ -33,7 +33,9 @@ A equipe de desenvolvimento do projeto da Your Money está dividida assim:
 
 Para organização e distribuição das tarefas do projeto, a equipe está utilizando o GitHub Projects, onde as atividades a serem desenvolvidas, estão estruturada em listas de status, conforme descrito abaixo:
 
-* `ToDo`: esta lista, expressará todos os itens que serão desenvolvidas na iteração atual, é o guideline da equipe, contendo os objetivos que devem ser alcançados dentro da sprint em execução, sendo o ponto de partida da equipe.
+* `ToDo`: esta lista, expressará todos os itens que deverão ser desenvolvidas pela equipe, contendo os objetivos que devem ser alcançados dentro pelo projeto
+
+* `Sprint Backlog`: esta lista, expressará todos os itens que serão desenvolvidas na iteração atual, é o guideline da equipe, contendo os objetivos que devem ser alcançados dentro da sprint em execução, sendo o ponto de partida da equipe.
 
 * `In progress`: Quando a equipe de desenvolvimento iniciar uma atividade, está será movida para esta lista, indicando que está sendo realizada pela equipe.
 
@@ -56,7 +58,5 @@ As ferramentas empregadas no projeto são:
 Os editores de código foram escolhidos porque possuem uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem facilidade na troca de informações. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar e expressar as necessidades da nossa solução.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-<<<<<  02-Especificações do Projeto- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md   <<
-
-  >>> 04-Projeto de Interface- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/04-Projeto%20de%20Interface.md >>>>>
+> 02-Especificações do Projeto- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md >
+> 04-Projeto de Interface- https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/main/docs/04-Projeto%20de%20Interface.md >
