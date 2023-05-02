@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+        "projectName": "Your-Money",
+        "projectPath": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+        "packagesPath": "C:\\Users\\Remakker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Remakker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
