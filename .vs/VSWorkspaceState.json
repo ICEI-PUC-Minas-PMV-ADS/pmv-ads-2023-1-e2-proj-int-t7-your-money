@@ -3,8 +3,11 @@
     "",
     "\\src",
     "\\src\\Your-Money",
-    "\\src\\Your-Money\\Controllers"
+    "\\src\\Your-Money\\Controllers",
+    "\\src\\Your-Money\\Views",
+    "\\src\\Your-Money\\Views\\Shared",
+    "\\src\\Your-Money\\Views\\Usuarios"
   ],
-  "SelectedNode": "\\src\\Your-Money\\Controllers\\UsuariosController.cs",
+  "SelectedNode": "\\src\\Your-Money.sln",
   "PreviewInSolutionExplorer": false
 }

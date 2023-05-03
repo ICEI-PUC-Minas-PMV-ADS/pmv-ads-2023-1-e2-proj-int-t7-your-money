@@ -35,7 +35,13 @@ namespace Your_Money.Controllers
 
             if (user == null)
             {
-                ViewBag.Message = "Usuário e/ou Senha inválidos!";
+                ViewBag.Message = "E-mail e/ou Senha inválidos!";
+                return View();
+            }
+
+            if (usuario.Senha == null)
+            {
+                ViewBag.Message = "E-mail e/ou Senha inválidos!";
                 return View();
             }
 
@@ -66,7 +72,7 @@ namespace Your_Money.Controllers
                 return Redirect("/");
             }
 
-            ViewBag.Message = "Usuário e/ou Senha inválidos!";
+            ViewBag.Message = "E-mail e/ou Senha inválidos!";
             return View();
         }
 
