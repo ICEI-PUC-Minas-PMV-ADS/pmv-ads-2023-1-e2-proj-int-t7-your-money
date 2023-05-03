@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0yo3OcS+4YStfH2qlAV/5dpfuPVnj+yYlHsWJ6b3ZumFLlLieBJJQGG6ecM7GTrHZVRFll76l2/3VnLe+pmJlg==",
+  "dgSpecHash": "x42Cs0z9CoHfocwIe3vKCQcTpWIjbRh87GJtqhah+mOtHNcosbzJQG1X2+48TnfVf+zYXVXcfzWX4SexC+NqBw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Remakker\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Remakker\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Remakker\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Remakker\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.17\\microsoft.aspnetcore.mvc.razor.extensions.5.0.17.nupkg.sha512",

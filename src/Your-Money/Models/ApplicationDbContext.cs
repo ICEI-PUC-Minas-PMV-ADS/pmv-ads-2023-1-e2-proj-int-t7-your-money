@@ -10,6 +10,6 @@ namespace Your_Money.Models
         {
         }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Your_Money.Models.Conta> Conta { get; set; }
+        public DbSet<Conta> Conta { get; set; }
     }
 }
