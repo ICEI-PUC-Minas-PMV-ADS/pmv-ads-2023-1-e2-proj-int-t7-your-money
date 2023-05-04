@@ -6,8 +6,9 @@
     "\\src\\Your-Money\\Controllers",
     "\\src\\Your-Money\\Views",
     "\\src\\Your-Money\\Views\\Shared",
-    "\\src\\Your-Money\\Views\\Usuarios"
+    "\\src\\Your-Money\\Views\\Usuarios",
+    "\\src\\Your-Money\\wwwroot"
   ],
-  "SelectedNode": "\\src\\Your-Money.sln",
+  "SelectedNode": "\\src\\Your-Money\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

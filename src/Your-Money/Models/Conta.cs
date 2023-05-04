@@ -13,10 +13,6 @@ namespace Your_Money.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Saldo { get; set; }
-        public Conta()
-        {
-            Saldo = 0;
-        }
 
         public int UsuarioId { get; set; }
 

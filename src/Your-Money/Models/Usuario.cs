@@ -23,5 +23,7 @@ namespace Your_Money.Models
         [Required(ErrorMessage = "É necessário informar uma senha!")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        public Conta conta { get; set; }
     }
 }

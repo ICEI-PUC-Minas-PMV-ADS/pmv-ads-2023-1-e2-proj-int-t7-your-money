@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -129,6 +130,8 @@ namespace Your_Money.Controllers
             if (ModelState.IsValid)
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                var account = new Conta { Saldo = 0 };
+                usuario.conta = account;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return Redirect("/Usuarios/Login");
