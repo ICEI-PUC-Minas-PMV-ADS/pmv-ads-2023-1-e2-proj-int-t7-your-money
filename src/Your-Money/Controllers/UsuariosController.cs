@@ -130,7 +130,7 @@ namespace Your_Money.Controllers
             if (ModelState.IsValid)
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                var account = new Conta { Saldo = 0 };
+                var account = new Conta { SaldoTotal = 0 };
                 usuario.conta = account;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();

@@ -12,7 +12,7 @@ namespace Your_Money.Models
         public int Id { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Saldo { get; set; }
+        public decimal SaldoTotal { get; set; }
 
         public int UsuarioId { get; set; }
 
