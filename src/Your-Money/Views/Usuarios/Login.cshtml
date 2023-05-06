@@ -4,10 +4,8 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
-
-<h4>Usuario</h4>
-<hr />
+<h2 style="color:darkblue">Login</h2>
+<hr>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Login">
@@ -24,6 +22,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Entrar" class="btn btn-primary" />
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
         <h3> @ViewBag.Message </h3>

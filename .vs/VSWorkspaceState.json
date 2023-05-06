@@ -1,14 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\Your-Money",
-    "\\src\\Your-Money\\Controllers",
-    "\\src\\Your-Money\\Views",
-    "\\src\\Your-Money\\Views\\Shared",
-    "\\src\\Your-Money\\Views\\Usuarios",
-    "\\src\\Your-Money\\wwwroot"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\Your-Money\\Startup.cs",
+  "SelectedNode": "\\src\\Your-Money.sln",
   "PreviewInSolutionExplorer": false
 }

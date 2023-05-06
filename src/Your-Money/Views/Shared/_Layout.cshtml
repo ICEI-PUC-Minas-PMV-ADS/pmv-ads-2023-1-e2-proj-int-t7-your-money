@@ -10,39 +10,51 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Your Money</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
+
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="40%" /></a>
+                    </div>
+                    <div class="col">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
+                    </div>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                               <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
-                            </li>
+                        <div class="col">
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h5><b>Relatórios</b></h5></a>
+                        </div>
+                            <div>
+                               <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>
+                            </div>
+                        <div>
+                            <h6 style="color:darkblue">|</h6>
+                        </div>
+                            <div>
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Logout"><h7><b>Sair</b></h7></a>
+                            </div>
                         }
                         else
                         {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Cadastrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                        </li>
+                        <div class="">
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Create"><h5><b>Cadastrar</b></h5></a> 
+                        </div>
+                        <div>
+                            <h5 style="color:darkblue">|</h5>
+                        </div>
+                        <div class="">
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Login</b></h5></a>
+                        </div>
                         }
-                    </ul>
                 </div>
+
             </div>
         </nav>
     </header>
@@ -52,9 +64,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Your_Money - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <hr>
+        <div class="container text-center p-0 mb-0">
+            Direitos reservados a PUC Minas. COPYRIGHT&copy; 2023 - <a asp-area="" asp-controller="Home" asp-action="Dicas">Dicas</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -63,3 +76,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

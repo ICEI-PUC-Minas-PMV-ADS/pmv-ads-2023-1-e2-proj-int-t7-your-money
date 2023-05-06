@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using AspNetCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -36,13 +37,13 @@ namespace Your_Money.Controllers
 
             if (user == null)
             {
-                ViewBag.Message = "E-mail e/ou Senha inválidos!";
+                ViewBag.Message = "E-mail e/ou Senha inválidos, favor verifique as informações!";
                 return View();
             }
 
             if (usuario.Senha == null)
             {
-                ViewBag.Message = "E-mail e/ou Senha inválidos!";
+                ViewBag.Message = "E-mail e/ou Senha inválidos, favor verifique as informações!";
                 return View();
             }
 
@@ -70,17 +71,17 @@ namespace Your_Money.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return Redirect("/");
+                return Redirect("/Usuarios/Index");
             }
 
             ViewBag.Message = "E-mail e/ou Senha inválidos!";
-            return View();
+            return View(usuario);
         }
 
         public async Task<IActionResult> logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login", "Usuarios");
+            return Redirect("/Home/Index");
         }
 
         public IActionResult AccessDenied()
