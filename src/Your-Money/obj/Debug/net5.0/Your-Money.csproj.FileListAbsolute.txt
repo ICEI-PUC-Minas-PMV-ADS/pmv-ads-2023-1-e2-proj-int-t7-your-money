@@ -884,3 +884,8 @@ C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7
 C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Your-Money.props
 C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\refint\Your-Money.dll
 C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Dicas.cshtml.g.cs
+C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Create.cshtml.g.cs
+C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Delete.cshtml.g.cs
+C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Details.cshtml.g.cs
+C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Edit.cshtml.g.cs
+C:\Users\leodm\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Index.cshtml.g.cs

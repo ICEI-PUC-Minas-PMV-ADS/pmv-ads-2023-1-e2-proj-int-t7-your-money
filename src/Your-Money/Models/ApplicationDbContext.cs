@@ -11,5 +11,7 @@ namespace Your_Money.Models
         }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Conta> Conta { get; set; }
+
+        public DbSet<Lancamento> Lancamentos { get; set; }
     }
 }
