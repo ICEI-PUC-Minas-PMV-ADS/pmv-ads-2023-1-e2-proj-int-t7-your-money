@@ -20,25 +20,35 @@
                     <div class="col-4">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="40%" /></a>
                     </div>
-                    <div class="col">
+                    <div class="col" style="text-align:center">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
                     </div>
+                    <div>
+                        
+                </div>
                         @if (User.Identity.IsAuthenticated)
                         {
+                        <div>
+                            <h7 style="color:blue">|</h7>
+                        </div>
                         <div class="col">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
+                        </div>
+                        <div>
+                            <h7 style="color:blue">|</h7>
                         </div>
                         <div class="col">
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h5><b>Relatórios</b></h5></a>
                         </div>
-                            <div>
-                               <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index">Olá, @User.Identity.Name</a>
-                            </div>
                         <div>
-                            <h6 style="color:darkblue">|</h6>
+                            <h7 style="color:blue">|</h7>
                         </div>
+                        <div class="col" style="text-align:center">
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h6><img src="~/userloged.png" />  Olá, @User.Identity.Name</h6></a>
+                        </div>
+                        <h7 style="color:blue">|</h7>
                             <div>
-                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Logout"><h7><b>Sair</b></h7></a>
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Logout"><h6><b>Sair</b></h6></a>
                             </div>
                         }
                         else
@@ -47,10 +57,10 @@
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Create"><h5><b>Cadastrar</b></h5></a> 
                         </div>
                         <div>
-                            <h5 style="color:darkblue">|</h5>
+                            <h7 style="color:blue">|</h7>
                         </div>
                         <div class="">
-                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Login</b></h5></a>
+                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Entrar</b></h5></a>
                         </div>
                         }
                 </div>

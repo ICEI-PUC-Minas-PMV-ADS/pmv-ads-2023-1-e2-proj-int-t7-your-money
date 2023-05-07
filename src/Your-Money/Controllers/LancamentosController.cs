@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient.DataClassification;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using Your_Money.Models;
 
 namespace Your_Money.Controllers
@@ -21,8 +25,14 @@ namespace Your_Money.Controllers
         // GET: Lancamentos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Lancamentos.Include(l => l.Usuario);
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            var applicationDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        private Usuario GetUser()
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Email == ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value);
         }
 
         // GET: Lancamentos/Details/5
@@ -34,7 +44,7 @@ namespace Your_Money.Controllers
             }
 
             var lancamento = await _context.Lancamentos
-                .Include(l => l.Usuario)
+                .Include(l => l.Contas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (lancamento == null)
             {
@@ -47,7 +57,7 @@ namespace Your_Money.Controllers
         // GET: Lancamentos/Create
         public IActionResult Create()
         {
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Email");
+            ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View();
         }
 
@@ -56,17 +66,20 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,UsuarioId")] Lancamento lancamento)
+        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
         {
             if (ModelState.IsValid)
             {
+                lancamento.ContasId = GetUser().Id;
                 _context.Add(lancamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Email", lancamento.UsuarioId);
+        ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
+
+
 
         // GET: Lancamentos/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -81,7 +94,7 @@ namespace Your_Money.Controllers
             {
                 return NotFound();
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Email", lancamento.UsuarioId);
+            ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
 
@@ -90,7 +103,7 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,UsuarioId")] Lancamento lancamento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
         {
             if (id != lancamento.Id)
             {
@@ -101,6 +114,7 @@ namespace Your_Money.Controllers
             {
                 try
                 {
+                    lancamento.ContasId = GetUser().Id;
                     _context.Update(lancamento);
                     await _context.SaveChangesAsync();
                 }
@@ -117,7 +131,7 @@ namespace Your_Money.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "Id", "Email", lancamento.UsuarioId);
+            ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
 
@@ -130,7 +144,7 @@ namespace Your_Money.Controllers
             }
 
             var lancamento = await _context.Lancamentos
-                .Include(l => l.Usuario)
+                .Include(l => l.Contas)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (lancamento == null)
             {

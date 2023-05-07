@@ -3,13 +3,18 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Deletar Usuário</li>
+    </ol>
+</nav>
 
-<h1>Delete</h1>
+<h2 style="color:darkblue">Deletar Usuário</h2>
+<hr>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="mt-2 pt-5 pb-5" style="color:blue">Você tem certeza que deseja excluir este Usuário?</h3>
 <div>
-    <h4>Usuario</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
@@ -27,7 +32,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
     </form>
 </div>

@@ -3,11 +3,15 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar Usuário</li>
+    </ol>
+</nav>
 
-<h1>Edit</h1>
-
-<h4>Usuario</h4>
-<hr />
+<h2 style="color:darkblue">Editar Usuário</h2>
+<hr>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -29,15 +33,13 @@
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary" />Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

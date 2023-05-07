@@ -10,7 +10,7 @@
     </ol>
 </nav>
 
-<h2 style="color:darkblue;padding-top:2%;">Minha Conta</h2>
+<h2 style="color:darkblue;">Minha Conta</h2>
 <hr>
 
 <div class="container-fluid p-2">
@@ -19,16 +19,19 @@
         <div class="col m-1">
 
              <div class="card align-items-center">
-                <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;"> 
+                <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
                 <div class="card-body">
                     <p id="NameUser" class="card-text">@User.Identity.Name</p>
                 </div>
                 ------------------
-                <div class="p-2">
-                    <a asp-action="Edit" asp-route-id="">Editar</a> |
-                    <a asp-action="Details" asp-route-id="">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="">Deletar</a>
-                </div>
+                @foreach(var item in Model)
+                {
+                    <div class="p-3 pb-5">
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    </div>
+                }
             </div>
         </div>
         <div class="col-3 m-1 text-center">
@@ -38,6 +41,7 @@
             </div>
                 <div class="pt-5 pb-5" style="color:green">
                     <h1><b>R$ 1.000,00</b></h1>
+                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem">
                 </div>
             </div>
         </div>
@@ -48,6 +52,7 @@
                 </div>
                 <div class="pt-5 pb-5" style="color:darkred">
                     <h1><b>R$ 500,00</b></h1>
+                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem">
                 </div>
             </div>
         </div>

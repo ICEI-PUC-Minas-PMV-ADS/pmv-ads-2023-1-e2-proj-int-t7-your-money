@@ -3,12 +3,16 @@
 @{
     ViewData["Title"] = "Details";
 }
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detalhes Usuário</li>
+    </ol>
+</nav>
 
-<h1>Details</h1>
-
+<h2 style="color:darkblue">Exibir Usuário</h2>
+<hr>
 <div>
-    <h4>Usuario</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
@@ -25,6 +29,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" Class="btn btn-primary">Editar</a>
+    <a asp-action="Index" Class="btn btn-secondary">Voltar</a>
 </div>

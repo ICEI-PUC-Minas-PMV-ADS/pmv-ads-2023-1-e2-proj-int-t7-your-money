@@ -21,11 +21,14 @@ namespace Your_Money.Models
         [Required(ErrorMessage = "Obrigatório informar a via!")]
         public Via Via { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar a via!")]
+        [Display(Name = "Classificação")]
+        [Required(ErrorMessage = "Obrigatório informar a classificação!")]
         public Classificacao Classificacao { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "Obrigatório informar o Valor!")]
+        [Required(ErrorMessage = "É necessário informar o valor!")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         public decimal Valor { get; set; }
 
         [Display(Name = "Data de Vencimento")]
@@ -40,10 +43,10 @@ namespace Your_Money.Models
         public string Descricao { get; set; }
 
 
-        public int UsuarioId { get; set; }
+        public int ContasId { get; set; }
         
-        [ForeignKey("UsuarioId")]
-        public Usuario Usuario { get; set; }
+        [ForeignKey("ContasId")]
+        public Conta Contas { get; set; }
     }
 
     public enum StatusTransacao
