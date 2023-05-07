@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {}
+    "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {
+    "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+        "projectUniqueName": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
         "projectName": "Your-Money",
-        "projectPath": "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
-        "packagesPath": "C:\\Users\\leodm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\obj\\",
+        "projectPath": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+        "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
+        "outputPath": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\leodm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
