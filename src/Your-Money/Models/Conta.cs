@@ -21,7 +21,8 @@ namespace Your_Money.Models
         [ForeignKey("UsuarioId")]
         public Usuario Usuario { get; set; }
 
-        public Lancamento Lancamento { get; set; }
+        public ICollection<Lancamento> Lancamentos { get; set; }
 
+        
     }
 }

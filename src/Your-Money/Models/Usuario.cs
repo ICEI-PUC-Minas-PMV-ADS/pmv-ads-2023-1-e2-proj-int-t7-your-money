@@ -26,6 +26,5 @@ namespace Your_Money.Models
 
         public Conta conta { get; set; }
 
-        public ICollection<Lancamento> Lancamentos { get; set; }
     }
 }
