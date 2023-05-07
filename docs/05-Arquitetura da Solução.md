@@ -8,7 +8,9 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 Um lançamento se refere a uma receita ou uma despesa
 
-![Diagrama de Classes](https://user-images.githubusercontent.com/98750413/233646338-5d4d3061-1f74-4339-a05f-a6e006dcf027.png)
+![Diagrama de Classes](https://user-images.githubusercontent.com/98750413/236702346-a61656e7-476c-4c81-8e6c-35ec5e4484b5.jpeg)
+
+
 
 ## Modelo ER (Projeto Conceitual)
 
@@ -19,7 +21,8 @@ Um lançamento se refere a uma receita ou uma despesa
 O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
  
 Para mais informações, consulte o microfundamento "Modelagem de Dados".
-![Projeto da Base de Dados YourMoney](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/blob/e6926b1e6bd319b6c755951d5700d054e140cd01/docs/img/DB.png)
+![Projeto BD](https://user-images.githubusercontent.com/98750413/236702365-4dbae156-ff23-40f9-8d8c-785685e1db4a.jpeg)
+
 
 
 ## Tecnologias Utilizadas
