@@ -1,15 +1,22 @@
 # Programação de Funcionalidades
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
-
 Implementação do sistema descrita por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos com os artefatos criados (código fonte), deverão apresentadas as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
-
-Por exemplo: a tabela a seguir deverá ser preenchida considerando os artefatos desenvolvidos.
 
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | tarefas.shtml / tarefas.cs / controllertarefas.cs | 
-|RF-002| Emitir um relatório de tarefas no mês   | relatorio.shtml |
+|RF-001| A aplicação deve permitir o usuário gerenciar suas receitas. | Em construção |
+|RF-002| A aplicação deve permitir o usuário gerenciar seus despesas. | Em construção |
+|RF-003| A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. | Em construção |
+|RF-004| A aplicação deve emitir alertas, quando as despesas atingirem 75% do valor das receitas. | Em construção | 
+|RF-005| A aplicação deve permitir que o usuário faça login. | Usuarios/Login.cshtml, Models/Usuario.cs, Controllers/UsuariosController.cs | 
+|RF-006| A aplicação deve permitir o auto gerenciamentos do usuários.   | Usuarios/Index.shtml, Controllers/UsuariosController.cs |
+|RF-007| Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. | Em construção |
+|RF-008| A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros. | Em construção |
+|RF-009| Aplicação deve ter uma área específica com FAQ. | Em construção |
+|RF-010| A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. | Em construção |
+|RF-011| No FAQ a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. | Em construção |
+|RF-012| A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês. | Em construção |
+|RF-013| No FAQ da aplicação deve também fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. | Em construção |
 
 # Instruções de acesso
 

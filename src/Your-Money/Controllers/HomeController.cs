@@ -23,7 +23,7 @@ namespace Your_Money.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Dicas()
         {
             return View();
         }
