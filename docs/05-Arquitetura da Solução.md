@@ -14,7 +14,7 @@ Um lançamento se refere a uma receita ou uma despesa
 
 ## Modelo ER (Projeto Conceitual)
 
-![Your Money (MER)](https://user-images.githubusercontent.com/109763968/234134918-9959c65d-03a8-4cde-b9ac-80fdf9ad33d1.png)
+![Your Money  MER](https://user-images.githubusercontent.com/112659128/236704532-f8f857c8-8cf9-4b19-9f57-ef39170814fe.jpeg)
 
 ## Projeto da Base de Dados
 
