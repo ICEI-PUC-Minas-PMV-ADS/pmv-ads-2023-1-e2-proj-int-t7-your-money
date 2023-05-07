@@ -159,11 +159,11 @@ Por exemplo:
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Ter receitas e despesas cadastradas.  <br> - Clicar na visualização do relátorio trimestral. |
 |Critério de Êxito | - A aplicação deverá mostrar um gráfico das despesas em relação as receitas nos útimos 3 meses. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-26 – Visualizar um local destinado ao FAQ** 	|
-|	Requisito Associado 	| RF09 - Aplicação deve ter uma área específica com FAQ. |
-| Objetivo do Teste 	| Um dos itens do menu deve ser FAQ e ao clicar ser redirecionado para uma página com mesmo nome. |
-| Passos 	| - Estar na aplicação na tela principal. <br>  - Clicar no meu o FAQ.  <br> - Visualizar a página FAQ. |
-|Critério de Êxito | - Ao clicar no FAQ, uma nova página deverá ser carregada sobre FAQ deverá ser carregada. |
+| **Caso de Teste** 	| **CT-26 – Visualizar um local destinado as dicas** 	|
+|	Requisito Associado 	| RF09 - Aplicação deve ter uma área específica com dicas. |
+| Objetivo do Teste 	| Um dos itens do menu deve ser as dicas e ao clicar ser redirecionado para uma página com mesmo nome. |
+| Passos 	| - Estar na aplicação na tela principal. <br>  - Clicar no dicas.  <br> - Visualizar a página dicas. |
+|Critério de Êxito | - Ao clicar nas dicas, uma nova página deverá ser carregada sobre dicas deverá ser carregada. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-27 – Verificar alerta próximo do vencimento dos pagamentos** 	|
 |	Requisito Associado 	| RF10 - A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. |
@@ -172,24 +172,16 @@ Por exemplo:
 |Critério de Êxito | - Ao logar na conta, um alerta deve ser emitido de que a despesa X está próxima do vencimento. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-28 – Visualizar sessão de dicas e informações para controle financeiro** 	|
-|	Requisito Associado 	| RF11 - No FAQ a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. |
-| Objetivo do Teste 	| Ao acessar o FAQ, visualizar uma sessão de Dicas e Informações para melhor controle financeiro. |
-| Passos 	| - Estar na aplicação na tela principal. <br>  - No menu clicar em FAQ. <br> - Visualizar uma sessão de dicas e informações para melhor controle financeiro. |
-|Critério de Êxito | - Ter no FAQ uma sessão para melhor controle financeiro. |
+|	Requisito Associado 	| RF11 - Nas dicas a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. |
+| Objetivo do Teste 	| Ao acessar as dicas, visualizar uma sessão de Dicas e Informações para melhor controle financeiro. |
+| Passos 	| - Estar na aplicação na tela principal. <br>  - No menu clicar em dicas. <br> - Visualizar uma sessão de dicas e informações para melhor controle financeiro. |
+|Critério de Êxito | - Ter no dicas uma sessão para melhor controle financeiro. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-29 – Visualizar uma perspectiva de futuro de economia** 	|
 |	Requisito Associado 	| RF12 - A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês. |
 | Objetivo do Teste 	| Ao acessa |
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br> - Clicar em Perspectiva do Futuro. <br>  - Inserir um valor e um tempo para simulação. <br> - Clicar no botão Simular. |
 |Critério de Êxito | - Aparecer uma simulação com o valor que o usuário vai ter com o tempo de economia que colocou. |
-|  	|  	|
-| **Caso de Teste** 	| **CT-30 – Visualizar uma sessão de informações gerais e dicas sobre o mercado financeiro** 	|
-|	Requisito Associado 	| RF13 - No FAQ da aplicação deve também fornecer informações gerais e dicas sobre o mercado financeiro atual para o usuário. |
-| Objetivo do Teste 	| Ao acessar o FAQ, visualizar uma sessão de Informações Gerais e dicas sobre o mercado financeiro atual. |
-| Passos 	| - Estar na aplicação na tela principal. <br>  - No menu clicar em FAQ. <br> - Visualizar uma sessão de dicas e informações para melhor controle financeiro. |
-|Critério de Êxito | - Ter no FAQ uma sessão para informações gerais e dicas sobre o mercado financeiro atual para o usuário. |
-|  	|  	|
-
 
  
 > **Links Úteis**:
