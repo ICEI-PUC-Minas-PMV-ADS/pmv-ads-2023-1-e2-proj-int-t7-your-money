@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lbmLwwxuT65c45hdpEMCqxoJPjiiCIHz1cDloz+bqmJrAxXNmtPjyZMnyEfCxsCRPKIyWamvs2OBl+53G2MNlA==",
+  "dgSpecHash": "6uKbEBvF/wZUTMgC7s/tMhZZHeU5aU4VoN91OHOhd1Kvw0Y3lGGTgCHAlqFb47syUvG09xvcNg6YAO5LIXSq/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leodm\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+  "projectFilePath": "C:\\Users\\leodm\\OneDrive\\_DEV\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leodm\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\leodm\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
