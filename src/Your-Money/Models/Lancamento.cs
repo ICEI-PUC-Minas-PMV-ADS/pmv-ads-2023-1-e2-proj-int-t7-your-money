@@ -33,6 +33,7 @@ namespace Your_Money.Models
 
         [Display(Name = "Data de Vencimento")]
         [Required(ErrorMessage = "Obrigatório informar a data!")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o status!")]
