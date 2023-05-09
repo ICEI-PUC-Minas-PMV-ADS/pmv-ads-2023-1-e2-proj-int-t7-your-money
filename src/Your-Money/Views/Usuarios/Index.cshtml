@@ -69,4 +69,80 @@
 
     </div>
 </div>
-          
+<hr>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h2 style="color:darkblue;">Receitas x Despesas</h2>
+<div>
+<canvas id="grafico1" style="width: 500px;"></canvas>
+</div>
+
+
+<h2 style="color:darkblue;padding-top:50px;"> Detalhamento das Despesas </h2>
+<div>
+    <canvas id="grafico2" style="width:200px;"></canvas>
+</div>
+
+<script>
+    var dadosGrafico1 = {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [
+            {
+                label: 'Receitas',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1,
+            },
+            {
+                label: 'Despesa',
+                data: [10, 15, 5, 2, 5, 1],
+                borderWidth: 1,
+            }]
+    };
+    var dadosGrafico2 = {
+        labels: ['Alimentação',
+            'Veículo',
+            'Salário',
+            'Moradia',
+            'Transporte',
+            'Empréstimos',
+            'Entretenimento',
+            'Impostos',
+            'Taxas',
+            'Saúde'],
+        datasets: [
+            {
+                data: [100, 200, 150, 300, 250, 138, 780, 98, 654, 345],
+                borderWidth:1,
+                backgroundColor: ['rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                    'rgb(876, 203, 207)',
+                    'rgb(201, 340, 207)',
+                    'rgb(201, 203, 549)',
+                    'rgb(451, 203, 870)',
+                    'rgb(201, 203, 100)',
+                'rgb(54, 162, 235)']
+            },
+        ],
+    };
+    var opcoes = {
+        responsive: true,
+        maintainAspectRatio: false,
+    };
+    var grafico1 = new Chart(document.getElementById("grafico1"), {
+        type: "bar",
+        data: dadosGrafico1,
+        options: opcoes,
+    });
+    var grafico2 = new Chart(document.getElementById("grafico2"), {
+        type: "bar",
+        data: dadosGrafico2,
+        
+    });
+</script>
+
+
+
