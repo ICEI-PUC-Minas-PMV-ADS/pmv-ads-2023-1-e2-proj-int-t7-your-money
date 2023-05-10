@@ -32,6 +32,7 @@ namespace Your_Money.Models
         public decimal Valor { get; set; }
 
         [Display(Name = "Data de Vencimento")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Required(ErrorMessage = "Obrigatório informar a data!")]
         public DateTime Data { get; set; }
 

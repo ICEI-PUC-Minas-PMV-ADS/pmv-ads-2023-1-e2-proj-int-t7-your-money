@@ -16,32 +16,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="row align-items-center">
-                    <div class="col-4">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="40%" /></a>
+                <div class="container justify-content-center">
+                    <div class="row align-items-center">
+                    <div class="col-sm">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="25%" /></a>
                     </div>
-                    <div class="col" style="text-align:center">
+                    <div class="" style="text-align:center">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
                     </div>
-                        @if (User.Identity.IsAuthenticated)
-                        {
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="col">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <div class="">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="col">
+                        <div class="">
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h5><b>Relatórios</b></h5></a>
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="col" style="text-align:center">
-                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index"><h6><img src="~/userloged.png" />  Olá, @User.Identity.Name</h6></a>
+                        <div class="" style="text-align:center">
+                            <a class="nav-link" style="justify-items:baseline" asp-area="" asp-controller="Usuarios" asp-action="Index"><h6><img src="~/userloged.png" /> Olá,@User.Identity.Name</h6></a>
                         </div>
                         <h7 style="color:blue">|</h7>
                             <div>
@@ -60,6 +61,7 @@
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Entrar</b></h5></a>
                         </div>
                         }
+                </div>
                 </div>
 
             </div>

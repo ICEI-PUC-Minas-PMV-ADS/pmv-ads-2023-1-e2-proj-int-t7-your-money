@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Your_Money.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Minha Conta";
 }
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
@@ -18,7 +18,7 @@
 
         <div class="col m-1">
 
-             <div class="card align-items-center">
+            <div class="card align-items-center box-shadow">
                 <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
                 <div class="card-body">
                     <p id="NameUser" class="card-text">@User.Identity.Name</p>
@@ -28,40 +28,41 @@
                 {
                     <div class="p-3 pb-5">
                         <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
                     </div>
                 }
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card">
+            <div class="card box-shadow">
                 <div class="card-body" style="background-color:lightgreen">
                 <b style="color:green">Receitas</b>
             </div>
                 <div class="pt-5 pb-5" style="color:green">
                     <h1><b>R$ 1.000,00</b></h1>
-                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem">
+                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem; cursor: pointer;">
+                    Add Receita
                 </div>
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card">
+            <div class="card box-shadow">
                 <div class="card-body" style="background-color:indianred">
             <b style="color:white">Despesas</b>
                 </div>
                 <div class="pt-5 pb-5" style="color:darkred">
                     <h1><b>R$ 500,00</b></h1>
-                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem">
+                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem; cursor: pointer;">
+                    Add Despesa
                 </div>
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card">
+            <div class="card box-shadow">
                 <div class="card-body" style="background-color:whitesmoke">
             <b style="color:black">Saldo</b>
                 </div>
-                <div class="pt-5 pb-5" style="color:darkslategray">
+                <div class="pt-5 pb-5 mb-5" style="color:darkslategray">
                     <h1><b>R$ 500,00</b></h1>
                 </div>
             </div>
