@@ -22,7 +22,15 @@ namespace Your_Money.Models
 
         [Required(ErrorMessage = "É necessário informar uma senha!")]
         [DataType(DataType.Password)]
+        [Display(Name = "Senha")]
+        [Compare(nameof(ConfirmaSenha))]
         public string Senha { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirme sua Senha")]
+        [Compare(nameof(Senha), ErrorMessage = "A senha de confirmação não combina!")]
+        public string ConfirmaSenha { get; set; }
 
         public Conta conta { get; set; }
 
