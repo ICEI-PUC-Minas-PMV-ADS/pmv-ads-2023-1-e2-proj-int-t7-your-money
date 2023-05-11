@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\Your-Money",
+    "\\src\\Your-Money\\Models"
   ],
+  "SelectedNode": "\\src\\Your-Money.sln",
   "PreviewInSolutionExplorer": false
 }

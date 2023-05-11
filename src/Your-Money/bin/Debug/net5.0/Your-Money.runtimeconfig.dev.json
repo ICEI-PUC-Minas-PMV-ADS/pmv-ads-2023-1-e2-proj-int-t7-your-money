@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Remakker\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Remakker\\.nuget\\packages"
+      "C:\\Users\\Casa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Casa\\.nuget\\packages"
     ]
   }
 }
