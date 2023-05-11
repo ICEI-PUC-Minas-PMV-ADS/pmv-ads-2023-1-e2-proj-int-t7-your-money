@@ -7614,32 +7614,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\steph\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Remakker\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+      "projectUniqueName": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
       "projectName": "Your-Money",
-      "projectPath": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
-      "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-      "outputPath": "D:\\Faculdade\\2º período\\repositorio\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\obj\\",
+      "projectPath": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\Your-Money.csproj",
+      "packagesPath": "C:\\Users\\Remakker\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Remakker\\Source\\Repos\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2023-1-e2-proj-int-t7-your-money\\src\\Your-Money\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Remakker\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

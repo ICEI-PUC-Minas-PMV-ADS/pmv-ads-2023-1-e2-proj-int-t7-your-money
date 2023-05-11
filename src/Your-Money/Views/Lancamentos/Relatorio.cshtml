@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Your_Money.Models.Lancamento>
+
+@{
+    ViewData["Title"] = "Relatorio";
+}
+
+<h1>Relatorio</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Relatorio" method="get">
+    <div class="form-group">
+        <label>Data Inicial</label>
+        <input type="date" name="dataInicial" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Data Final</label>
+        <input type="date" name="dataFinal" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="0" />
+                <label class="form-check-label">Pendente</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="1" />
+                <label class="form-check-label">Efetivado</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="" checked />
+                <label class="form-check-label">Qualquer</label>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Via)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classificacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Via)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classificacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contas.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

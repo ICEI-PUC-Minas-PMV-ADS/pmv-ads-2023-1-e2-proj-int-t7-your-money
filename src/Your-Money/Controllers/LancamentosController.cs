@@ -30,6 +30,17 @@ namespace Your_Money.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Relatorio(DateTime dataInicial, DateTime dataFinal, int? status)
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            var lancamentos = _context.Lancamentos
+                .Where(l => l.Contas.Usuario.Email == userEmail &&
+                    l.Data >= dataInicial && l.Data <= dataFinal &&
+                    (status == null || (int)l.Status == status));
+
+            return View(await lancamentos.ToListAsync());
+        }
+
         private Usuario GetUser()
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value);

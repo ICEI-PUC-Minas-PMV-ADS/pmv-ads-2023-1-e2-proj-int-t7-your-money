@@ -342,7 +342,6 @@ C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.TagHelpers.output.cache
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorCoreGenerate.cache
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -1337,3 +1336,10 @@ D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\s
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.pdb
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.genruntimeconfig.cache
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\ref\Your-Money.dll
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Dicas.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Create.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Delete.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Details.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Edit.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Index.cshtml.g.cs
+C:\Users\Remakker\Source\Repos\ICEI-PUC-Minas-PMV-ADS\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Relatorio.cshtml.g.cs
