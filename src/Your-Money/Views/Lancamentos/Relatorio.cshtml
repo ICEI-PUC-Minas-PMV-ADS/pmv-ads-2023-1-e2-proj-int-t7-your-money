@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Your_Money.Models.Lancamento>
+
+@{
+    ViewData["Title"] = "Relatorio";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h2 style="color:darkblue;padding-top:10px;"> Relatório </h2>
+<hr />
+<div>
+    <canvas id="grafico2" style="display: block; box-sizing: border-box;" width="1856" height="628"></canvas>
+</div>
+
+<script>
+    var dadosGrafico2 ={
+        labels: ['Alimentação',
+            'Veículo',
+            'Salário',
+            'Moradia',
+            'Transporte',
+            'Empréstimos',
+            'Entretenimento',
+            'Impostos',
+            'Taxas',
+            'Saúde'],
+        datasets: [
+            {
+                label: 'Detalhamento das Despesas',
+                data: [100, 200, 150, 300, 250, 138, 780, 98, 654, 345],
+                borderWidth: 1,
+                backgroundColor: ['rgb(255, 99, 13)',
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(201, 203, 207)',
+                    'rgb(876, 203, 207)',
+                    'rgb(201, 340, 207)',
+                    'rgb(201, 203, 549)',
+                    'rgb(451, 203, 870)',
+                    'rgb(201, 203, 100)',
+                    'rgb(54, 162, 235)'],
+            },
+        ],
+    };
+    var opcoes = {
+        responsive: true,
+        maintainAspectRatio: false,
+    };
+    var grafico2 = new Chart(document.getElementById("grafico2"), {
+        label: 'Classificação das Despesas',
+        type: "bar",
+        data: dadosGrafico2,
+    });
+</script>
+
+
+<div style="padding-top:50px";>
+    <hr>
+    <h5 style="color:darkblue;padding-top:50px;"> Descritivo das despesas </h5>
+
+    <table class="table" style="text-align:center;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Via)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classificacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Via)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classificacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contas.Id)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

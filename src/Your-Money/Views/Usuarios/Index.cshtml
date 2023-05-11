@@ -11,12 +11,16 @@
 </nav>
 
 <h2 style="color:darkblue;">Minha Conta</h2>
+
+<h7 style="color:darkblue;">Saldo: R$ 500,00</h7>
+
+
 <hr>
 
 <div class="container-fluid p-2">
     <div class="row">
 
-        <div class="col m-1">
+        <div class="col-3">
 
             <div class="card align-items-center box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
@@ -33,7 +37,7 @@
                 }
             </div>
         </div>
-        <div class="col-3 m-1 text-center">
+        <div class="col-4 text-center">
             <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <div class="card-body" style="background-color:lightgreen;">
                 <b style="color:green">Receitas</b>
@@ -45,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3 m-1 text-center">
+        <div class="col-4 text-center">
             <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <div class="card-body" style="background-color:indianred">
             <b style="color:white">Despesas</b>
@@ -57,17 +61,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-3 m-1 text-center">
-            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
-                <div class="card-body" style="background-color:whitesmoke">
-            <b style="color:black">Saldo</b>
-                </div>
-                <div class="pt-5 pb-5 mb-5" style="color:darkslategray">
-                    <h1><b>R$ 500,00</b></h1>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 <hr>
@@ -78,12 +71,6 @@
 <h2 style="color:darkblue;">Receitas x Despesas</h2>
 <div>
 <canvas id="grafico1" style="width: 500px;"></canvas>
-</div>
-
-
-<h2 style="color:darkblue;padding-top:50px;"> Detalhamento das Despesas </h2>
-<div>
-    <canvas id="grafico2" style="width:200px;"></canvas>
 </div>
 
 <script>
@@ -101,34 +88,6 @@
                 borderWidth: 1,
             }]
     };
-    var dadosGrafico2 = {
-        labels: ['Alimentação',
-            'Veículo',
-            'Salário',
-            'Moradia',
-            'Transporte',
-            'Empréstimos',
-            'Entretenimento',
-            'Impostos',
-            'Taxas',
-            'Saúde'],
-        datasets: [
-            {
-                data: [100, 200, 150, 300, 250, 138, 780, 98, 654, 345],
-                borderWidth:1,
-                backgroundColor: ['rgb(255, 99, 132)',
-                'rgb(75, 192, 192)',
-                'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
-                    'rgb(876, 203, 207)',
-                    'rgb(201, 340, 207)',
-                    'rgb(201, 203, 549)',
-                    'rgb(451, 203, 870)',
-                    'rgb(201, 203, 100)',
-                'rgb(54, 162, 235)']
-            },
-        ],
-    };
     var opcoes = {
         responsive: true,
         maintainAspectRatio: false,
@@ -137,11 +96,6 @@
         type: "bar",
         data: dadosGrafico1,
         options: opcoes,
-    });
-    var grafico2 = new Chart(document.getElementById("grafico2"), {
-        type: "bar",
-        data: dadosGrafico2,
-        
     });
 </script>
 
