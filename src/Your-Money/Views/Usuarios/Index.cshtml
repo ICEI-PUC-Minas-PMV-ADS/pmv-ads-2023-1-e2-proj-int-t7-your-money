@@ -18,7 +18,7 @@
 
         <div class="col m-1">
 
-            <div class="card align-items-center box-shadow">
+            <div class="card align-items-center box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
                 <div class="card-body">
                     <p id="NameUser" class="card-text">@User.Identity.Name</p>
@@ -34,8 +34,8 @@
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card box-shadow">
-                <div class="card-body" style="background-color:lightgreen">
+            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
+                <div class="card-body" style="background-color:lightgreen;">
                 <b style="color:green">Receitas</b>
             </div>
                 <div class="pt-5 pb-5" style="color:green">
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card box-shadow">
+            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <div class="card-body" style="background-color:indianred">
             <b style="color:white">Despesas</b>
                 </div>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-3 m-1 text-center">
-            <div class="card box-shadow">
+            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
                 <div class="card-body" style="background-color:whitesmoke">
             <b style="color:black">Saldo</b>
                 </div>
@@ -139,7 +139,7 @@
         options: opcoes,
     });
     var grafico2 = new Chart(document.getElementById("grafico2"), {
-        type: "polarArea",
+        type: "bar",
         data: dadosGrafico2,
         
     });
