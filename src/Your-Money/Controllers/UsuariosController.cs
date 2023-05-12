@@ -125,16 +125,24 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Senha, ConfirmarSenha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                if (usuario.ConfirmacaoSenha())
+                {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 var account = new Conta { SaldoTotal = 0 };
                 usuario.conta = account;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return Redirect("/Usuarios/Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("ConfirmacaoSenha", "As senhas não coincidem.");
+                }
+
             }
             return View(usuario);
         }
@@ -224,5 +232,8 @@ namespace Your_Money.Controllers
         {
             return _context.Usuarios.Any(e => e.Id == id);
         }
+
+
+
     }
 }
