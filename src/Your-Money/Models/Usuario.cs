@@ -24,7 +24,7 @@ namespace Your_Money.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
-        public Conta conta { get; set; }
+        public Conta Conta { get; set; }
 
     }
 }

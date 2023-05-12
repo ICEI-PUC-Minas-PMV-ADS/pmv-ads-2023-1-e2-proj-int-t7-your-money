@@ -1337,6 +1337,28 @@ D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\s
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.pdb
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.genruntimeconfig.cache
 D:\Faculdade\2º período\repositorio\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\ref\Your-Money.dll
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.csproj.AssemblyReference.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.AssemblyInfoInputs.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.AssemblyInfo.cs
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.csproj.CoreCompileInputs.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorAssemblyInfo.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorAssemblyInfo.cs
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\scopedcss\bundle\Your-Money.styles.css
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\Your-Money.StaticWebAssets.Manifest.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\Your-Money.StaticWebAssets.Pack.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.Your-Money.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.build.Your-Money.props
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Your-Money.props
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Your-Money.props
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.TagHelpers.input.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.TagHelpers.output.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorCoreGenerate.cache
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.dll
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\refint\Your-Money.dll
+C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.pdb
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\appsettings.json
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\Your-Money.exe
@@ -1738,25 +1760,6 @@ C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\s
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.csproj.AssemblyReference.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.AssemblyInfoInputs.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.AssemblyInfo.cs
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.csproj.CoreCompileInputs.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorAssemblyInfo.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorAssemblyInfo.cs
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\scopedcss\bundle\Your-Money.styles.css
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\Your-Money.StaticWebAssets.Manifest.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\Your-Money.StaticWebAssets.Pack.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.Your-Money.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.build.Your-Money.props
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Your-Money.props
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Your-Money.props
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.TagHelpers.input.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.TagHelpers.output.cache
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorCoreGenerate.cache
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Dicas.cshtml.g.cs
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Razor\Views\Lancamentos\Create.cshtml.g.cs
@@ -1780,8 +1783,5 @@ C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\s
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.RazorTargetAssemblyInfo.cs
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.Views.pdb
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.csproj.CopyComplete
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.dll
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\refint\Your-Money.dll
-C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.pdb
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\Your-Money.genruntimeconfig.cache
 C:\Users\dmend\source\repos\Faculdade\pmv-ads-2023-1-e2-proj-int-t7-your-money\src\Your-Money\obj\Debug\net5.0\ref\Your-Money.dll

@@ -131,7 +131,7 @@ namespace Your_Money.Controllers
             {
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 var account = new Conta { SaldoTotal = 0 };
-                usuario.conta = account;
+                usuario.Conta = account;
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return Redirect("/Usuarios/Login");
