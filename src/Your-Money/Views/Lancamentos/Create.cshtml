@@ -19,17 +19,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Transacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Via" class="control-label"></label>
-                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"></select>
+                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"><option value="" disabled selected>Selecione uma opção</option></select>>
                 <span asp-validation-for="Via" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Classificacao" class="control-label"></label>
-                <select asp-for="Classificacao" class="form-control" asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
+                <select asp-for="Classificacao" class="form-control" asp-items="Html.GetEnumSelectList<Classificacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
                 <span asp-validation-for="Classificacao" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
+                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<StatusTransacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -61,6 +61,12 @@
 </div>
 
 <div>
-    
 </div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 

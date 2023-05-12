@@ -28,7 +28,7 @@ namespace Your_Money.Models
         [Column(TypeName = "decimal(18,2)")]
         [Required(ErrorMessage = "É necessário informar o valor!")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)] Tirar essa linha fez R$  desaparecer no Edit 
         public decimal Valor { get; set; }
 
         [Display(Name = "Data de Vencimento")]
