@@ -125,7 +125,7 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Senha, ConfirmarSenha")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +168,7 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
             if (id != usuario.Id)
             {
@@ -177,6 +177,7 @@ namespace Your_Money.Controllers
 
             if (ModelState.IsValid)
             {
+                if (usuario.ConfirmacaoSenha()) { 
                 try
                 {
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
@@ -191,9 +192,11 @@ namespace Your_Money.Controllers
                     }
                     else
                     {
-                        throw;
+                        throw;           
+                    }
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(usuario);
