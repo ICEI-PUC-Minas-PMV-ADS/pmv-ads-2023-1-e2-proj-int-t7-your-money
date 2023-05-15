@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
@@ -89,11 +90,33 @@ namespace Your_Money.Controllers
         }
 
         // GET: Usuarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int mes, int ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
-            var applicationDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
-            return View(await applicationDbContext.ToListAsync());
+
+            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            var lancamentos = await lancamentoDbContext.ToListAsync();
+
+            if (mes == 0)
+                mes = DateTime.Now.Month;
+
+            if (ano == 0)
+                ano = DateTime.Now.Year;
+
+            var valorReceitas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
+
+            var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
+
+            ViewBag.ValorReceitas = valorReceitas;
+            ViewBag.ValorDespesas = valorDespesas;
+            ViewBag.Saldo = valorReceitas - valorDespesas;
+
+            var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
+            return View(await usuarioDbContext.ToListAsync());
         }
 
         // GET: Usuarios/Details/5
