@@ -37,30 +37,82 @@
                 }
             </div>
         </div>
-        <div class="col-4 text-center">
-            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
-                <div class="card-body" style="background-color:lightgreen;">
-                <b style="color:green">Receitas</b>
+
+        <div class="col-9 m-1">
+            <div class="row">
+                <form asp-action="Index" method="get" class="col-12 form-row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="control-label">Mês</label>
+                            <select name="mes" class="form-control" required>
+                                <option></option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="control-label">Ano</label>
+                            <input type="number" step="1" min="1901" name="ano" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" style="margin-top:32px;">Pesquisar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-                <div class="pt-5 pb-5" style="color:green">
-                    <h1><b>R$ 1.000,00</b></h1>
-                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem; cursor: pointer;">
-                    Add Receita
+
+            <div class="row text-center">
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body" style="background-color:lightgreen">
+                            <b style="color:green">Receitas</b>
+                        </div>
+                        <div class="pt-5 pb-5" style="color:green">
+                            <h1><b>R$ @ViewBag.ValorReceitas</b></h1>
+                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body" style="background-color:indianred">
+                            <b style="color:white">Despesas</b>
+                        </div>
+                        <div class="pt-5 pb-5" style="color:darkred">
+                            <h1><b>R$ @ViewBag.ValorDespesas</b></h1>
+                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body" style="background-color:whitesmoke">
+                            <b style="color:black">Saldo</b>
+                        </div>
+                        <div class="pt-5 pb-5" style="color:darkslategray">
+                            <h1><b>R$ @ViewBag.Saldo</b></h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-4 text-center">
-            <div class="card box-shadow" style="border-end-start-radius:40px;border-end-end-radius:40px;">
-                <div class="card-body" style="background-color:indianred">
-            <b style="color:white">Despesas</b>
-                </div>
-                <div class="pt-5 pb-5" style="color:darkred">
-                    <h1><b>R$ 500,00</b></h1>
-                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem; cursor: pointer;">
-                    Add Despesa
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 <hr>

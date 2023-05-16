@@ -51,7 +51,7 @@ A equipe de desenvolvimento seguirá com sprints semanais para execução das at
 
 As ferramentas empregadas no projeto são:
 
-* **Editor de código**: Visual Code e Visual Basic
+* **Editor de código**: Visual Studio Code e Visual Studio 2022
 * **Ferramentas de comunicação**: Whatsapp e Microsoft Teams
 * **Ferramentas de desenho de tela**: Miro
 

@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Data)
+                @item.Data.ToString("dd/MM/yyyy")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
