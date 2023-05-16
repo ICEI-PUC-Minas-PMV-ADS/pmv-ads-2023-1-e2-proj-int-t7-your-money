@@ -350,3 +350,5 @@ MigrationBackup/
 # .vscode folder
 .vscode/
 /src/.vs/Your-Money/v17/.suo
+/src/Your-Money/Your-Money.csproj.user
+/src/.vs/Your-Money/config/applicationhost.config
