@@ -349,3 +349,4 @@ MigrationBackup/
 
 # .vscode folder
 .vscode/
+/src/.vs/Your-Money/v17/.suo
