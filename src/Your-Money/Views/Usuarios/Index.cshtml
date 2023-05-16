@@ -39,6 +39,7 @@
                 <form asp-action="Index" method="get" class="col-12 form-row">
                     <div class="col-4">
                         <div class="form-group">
+                           
                             <label class="control-label">Mês</label>
                             <select name="mes" class="form-control" required>
                                 <option></option>
@@ -103,6 +104,10 @@
                         </div>
                         <div class="pt-5 pb-5" style="color:darkslategray">
                             <h1><b>R$ @ViewBag.Saldo</b></h1>
+                            @if (!string.IsNullOrEmpty(ViewBag.AlertMessage))
+                            {
+                                <div class="alert alert-warning">@ViewBag.AlertMessage</div>
+                            }
                         </div>
                     </div>
                 </div>

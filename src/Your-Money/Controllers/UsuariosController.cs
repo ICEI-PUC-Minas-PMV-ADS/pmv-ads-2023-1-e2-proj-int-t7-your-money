@@ -115,6 +115,11 @@ namespace Your_Money.Controllers
             ViewBag.ValorDespesas = valorDespesas;
             ViewBag.Saldo = valorReceitas - valorDespesas;
 
+            if (valorDespesas >= 0.75m * valorReceitas)
+            {
+                ViewBag.AlertMessage = "As despesas atingiram 75% das receitas!";
+            }
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
