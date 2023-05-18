@@ -115,9 +115,57 @@ namespace Your_Money.Controllers
             ViewBag.ValorDespesas = valorDespesas;
             ViewBag.Saldo = valorReceitas - valorDespesas;
 
+
+            /*
+            var (receitasMesJaneiro, despesasMesJaneiro) = GetLancamentosMes(1, 2023);
+            ViewBag.ReceitaMesJaneiro = receitasMesJaneiro;
+            ViewBag.DespesaMesJaneiro = despesasMesJaneiro;
+
+            var (receitasMesFevereiro, despesasMesFevereiro) = GetLancamentosMes(2, 2023);
+            ViewBag.ReceitaMesFevereiro = receitasMesFevereiro;
+            ViewBag.DespesaMesFevereiro = despesasMesFevereiro;
+            */
+
+            int anoAtual = DateTime.Now.Year;
+
+            Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
+
+            for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
+            {
+                var (receitasMes, despesasMes) = GetLancamentosMes(mesRelatorio, anoAtual);
+                lancamentosMes[mesRelatorio] = (receitasMes, despesasMes);
+            }
+
+            // Assign the dictionary to the ViewBag property
+            ViewBag.LancamentosMes = lancamentosMes;
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
+
+
+        public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int ano)
+        {
+            int contagemDeLancamentosReceita = 0;
+            int contagemDeLancamentosDespesas = 0;
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Receita))
+            {
+                contagemDeLancamentosReceita += 1;
+            }
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Despesa))
+            {
+                contagemDeLancamentosDespesas += 1;
+            }
+
+            return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
+        }
+        
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
