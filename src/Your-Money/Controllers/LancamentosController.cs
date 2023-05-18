@@ -66,6 +66,14 @@ namespace Your_Money.Controllers
             return View(lancamento);
         }
 
+        // GET: Lancamentos/Relatorio/5
+        public async Task<IActionResult> Relatorio()
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            var applicationDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Lancamentos/Create
         public IActionResult Create()
         {

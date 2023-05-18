@@ -110,10 +110,15 @@ namespace Your_Money.Controllers
             var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
                                                   x.Data.Year == ano &&
                                                   x.Data.Month == mes).Sum(x => x.Valor);
+            
+            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita).Sum(x => x.Valor);
+            
+            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa).Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
             ViewBag.Saldo = valorReceitas - valorDespesas;
+            ViewBag.SaldoTotal = valorReceitasTotal - valorDespesasTotal;
 
             //Gráficos
             int anoAtual = DateTime.Now.Year;
