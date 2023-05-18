@@ -115,17 +115,7 @@ namespace Your_Money.Controllers
             ViewBag.ValorDespesas = valorDespesas;
             ViewBag.Saldo = valorReceitas - valorDespesas;
 
-
-            /*
-            var (receitasMesJaneiro, despesasMesJaneiro) = GetLancamentosMes(1, 2023);
-            ViewBag.ReceitaMesJaneiro = receitasMesJaneiro;
-            ViewBag.DespesaMesJaneiro = despesasMesJaneiro;
-
-            var (receitasMesFevereiro, despesasMesFevereiro) = GetLancamentosMes(2, 2023);
-            ViewBag.ReceitaMesFevereiro = receitasMesFevereiro;
-            ViewBag.DespesaMesFevereiro = despesasMesFevereiro;
-            */
-
+            //Gráficos
             int anoAtual = DateTime.Now.Year;
 
             Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
@@ -136,14 +126,14 @@ namespace Your_Money.Controllers
                 lancamentosMes[mesRelatorio] = (receitasMes, despesasMes);
             }
 
-            // Assign the dictionary to the ViewBag property
             ViewBag.LancamentosMes = lancamentosMes;
+
 
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
 
-
+        // Gráficos
         public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int ano)
         {
             int contagemDeLancamentosReceita = 0;
