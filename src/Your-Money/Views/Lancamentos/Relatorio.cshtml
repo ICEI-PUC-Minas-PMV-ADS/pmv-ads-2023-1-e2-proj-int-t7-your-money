@@ -4,10 +4,48 @@
     ViewData["Title"] = "Relatorio";
 }
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Relatório</li>
+    </ol>
+</nav>
 
-<h2 style="color:darkblue;padding-top:10px;"> Relatório </h2>
-<hr />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+<h2 style="color:darkblue;padding-top:10px;padding-bottom:5px;"> Detalhamento </h2>
+
+</div>
+<div class="flex-sm-column">
+            <form asp-action="Index" method="get" class="row">
+                <div class="form-group p-1">
+                    <label class="control-label" style="color:darkblue;"><b>Transação</b></label>
+                   <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                </div>
+                    <div class="form-group p-1">
+                        <label class="control-label" style="color:darkblue;"><b>Via</b></label>
+                        <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()"></select>
+                    </div>
+                    <div class="form-group p-1">
+                        <label class="control-label" style="color:darkblue;"><b>Classificação</b></label>
+                        <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
+                    </div>
+                    <div class="form-group p-1">
+                        <label class="control-label" style="color:darkblue;"><b>Status</b></label>
+                        <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
+                    </div>
+                    <div class="form-group p-1">
+                        <button class="btn btn-primary" style="margin-top:32px;">Pesquisar</button>
+                    </div>
+            </form>
+</div>
+    </div>
+</div>
+
+<hr>
 <div>
     <canvas id="grafico2" style="display: block; box-sizing: border-box;" width="1856" height="628"></canvas>
 </div>
@@ -26,7 +64,7 @@
             'Saúde'],
         datasets: [
             {
-                label: 'Detalhamento das Despesas',
+                label: ' R$',
                 data: [100, 200, 150, 300, 250, 138, 780, 98, 654, 345],
                 borderWidth: 1,
                 backgroundColor: ['rgb(255, 99, 13)',
@@ -40,23 +78,34 @@
                     'rgb(201, 203, 100)',
                     'rgb(54, 162, 235)'],
             },
-        ],
+                    ],
     };
-    var opcoes = {
+    var grafico2 = new Chart(document.getElementById("grafico2"),
+    {
         responsive: true,
-        maintainAspectRatio: false,
-    };
-    var grafico2 = new Chart(document.getElementById("grafico2"), {
-        label: 'Classificação das Despesas',
         type: "bar",
         data: dadosGrafico2,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Classificação dos Lançamentos',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
     });
 </script>
 
 
-<div style="padding-top:50px";>
+<div style="padding-top:10px;">
     <hr>
-    <h5 style="color:darkblue;padding-top:50px;"> Descritivo das despesas </h5>
+    <h5 style="color:darkblue;padding-top:20px;padding-bottom:10px;"> Descritivo das despesas </h5>
 
     <table class="table" style="text-align:center;">
     <thead>

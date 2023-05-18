@@ -15,14 +15,14 @@
     <div class="col">
 <h2 style="color:darkblue;">Minha Conta</h2>
 
-            <h6 style="color:darkblue;">Saldo total da conta: R$ @ViewBag.SaldoTotal</h6>
+            <h6 style="color:black;">Saldo total da conta: <b>R$ @ViewBag.SaldoTotal</b></h6>
     </div>
 <div class="col">
 <form asp-action="Index" method="get" class="form-row">
         <div class="form-group">
-            <label class="control-label">Mês</label>
-            <select name="mes" class="form-control" required>
-                <option></option>
+        <label class="control-label" style="color:darkblue;"><b>Mês</b></label>
+                <select name="mes" class="form-control" required style="color:darkblue;">
+                <option value="">Escolha o Mês</option>
                 <option value="1">Janeiro</option>
                 <option value="2">Fevereiro</option>
                 <option value="3">Março</option>
@@ -37,15 +37,15 @@
                 <option value="12">Dezembro</option>
             </select>
         </div>
-    <div class="col-3">
+    <div class="col-4">
         <div class="form-group">
-            <label class="control-label">Ano</label>
-            <input type="number" step="1" min="1901" name="ano" class="form-control" required />
+                        <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
+                        <input type="number" name="ano" class="form-control" required style="color:darkblue;" placeholder="Digite o Ano" />
         </div>
     </div>
     <div class="col">
         <div class="form-group">
-            <button class="btn btn-primary" style="margin-top:32px;">Pesquisar</button>
+                        <button class="btn btn-primary" style="margin-top:32px;">Pesquisar</button>
         </div>
     </div>
 </form>
@@ -55,15 +55,14 @@
 
 <hr>
 
-<div class="container-fluid p-2 text-center">
+<div class="container-fluid pt-4 p-2 text-center">
     <div class="row">
         <div class="col-3">
-            <div class="card align-items-center box-shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
+            <div class="card align-items-center shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
                 <div class="card-body">
-                    <p id="NameUser" class="card-text">@User.Identity.Name</p>
+                    <p id="NameUser" class="card-text" style="color:darkblue"><h4>@User.Identity.Name</h4></p>
                 </div>
-                ------------------
                 @foreach(var item in Model)
                 {
                     <div class="p-3 pb-5">
@@ -75,73 +74,94 @@
         </div>
 
          <div class="col-3 text-center">
-            <div class="card" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
+            <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <div class="card-body" style="background-color:lightgreen;border-start-start-radius:20px;border-start-end-radius:20px;">
-                            <b style="color:green">Receitas</b>
+                    <h4><b style="color:green;text-shadow:black;">Receitas</b></h4>
                         </div>
                         <div class="pt-5 pb-5" style="color:green">
-                            <h1><b>R$ @ViewBag.ValorReceitas</b></h1>
+                            <h2><b>R$ @ViewBag.ValorReceitas</b></h2>
                             <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="50%" style="padding-top: 1rem">
                         </div>
                     </div>
           </div>
 
         <div class="col-3 text-center">
-            <div class="card" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
+            <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <div class="card-body" style="background-color:indianred;border-start-start-radius:20px;border-start-end-radius:20px;">
-                            <b style="color:white">Despesas</b>
+                    <h4><b style="color:white">Despesas</b></h4>
                         </div>
                         <div class="pt-5 pb-5" style="color:darkred">
-                            <h1><b>R$ @ViewBag.ValorDespesas</b></h1>
+                            <h2><b>R$ @ViewBag.ValorDespesas</b></h2>
                             <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="50%" style="padding-top: 1rem">
                         </div>
                     </div>
                 </div>
 
         <div class="col-3 text-center">
-            <div class="card" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
-                <div class="card-body" style="background-color:whitesmoke;border-start-start-radius:20px;border-start-end-radius:20px;">
-                    <b style="color:black">Saldo do mês</b>
+            <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
+                <div class="card-body" style="background-color:lightgray;border-start-start-radius:20px;border-start-end-radius:20px;">
+                    <h4><b style="color:black;text-shadow:black;">Saldo do mês</b></h4>
                 </div>
-                <div class="pt-5 pb-5" style="color:black">
-                    <h1><b>R$ @ViewBag.Saldo</b></h1>
+                <div class="pt-5 pb-5" style="color:darkslategray;">
+                    <h2><b>R$ @ViewBag.Saldo</b></h2>
+                    <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/saldo.png" width="52%" style="padding-top: 1rem">
                 </div>
             </div>
         </div>
 </div>
 </div>
-<hr>
+<hr style="margin-top:5%;">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<h2 style="color:darkblue;padding-top:1rem;">Receitas x Despesas</h2>
+<h2 style="color:darkblue;padding-top:2rem;">Visão Global</h2>
 <div>
-<canvas id="grafico1" style="width: 500px;"></canvas>
+<canvas id="grafico1" style="width: 300px; height:70px;"></canvas>
 </div>
 
 <script>
     var dadosGrafico1 = {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        datasets: [
+        datasets: [          
             {
                 label: 'Receitas',
                 data: [12, 19, 3, 5, 2, 3],
                 borderWidth: 1,
+                backgroundColor: ['lightgreen'],
             },
             {
                 label: 'Despesa',
                 data: [10, 15, 5, 2, 5, 1],
                 borderWidth: 1,
-            }]
+                backgroundColor: ['indianred'],
+            },
+                            {
+                label: 'Linha de Tendência',
+                data: [10, 12, 8, 6, 4, 2, 0],
+                type: 'line',
+                borderColor: 'blue',
+                backgroundColor: 'blue',
+                fill: false,
+                pointRadius: 0,
+                borderWidth: 2
+            }
+        ]
     };
     var opcoes = {
         responsive: true,
         maintainAspectRatio: false,
+        display: false,
+        drawOnChartArea: false,
+        drawTicks: false,
+        legend: true
     };
     var grafico1 = new Chart(document.getElementById("grafico1"), {
         type: "bar",
         data: dadosGrafico1,
-        options: opcoes,
+        options: {
+            plugins: {
+            }
+        }
     });
 </script>
 
