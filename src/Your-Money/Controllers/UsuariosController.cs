@@ -111,14 +111,19 @@ namespace Your_Money.Controllers
                                                   x.Data.Year == ano &&
                                                   x.Data.Month == mes).Sum(x => x.Valor);
 
-            ViewBag.ValorReceitas = valorReceitas;
-            ViewBag.ValorDespesas = valorDespesas;
-            ViewBag.Saldo = valorReceitas - valorDespesas;
-
             if (valorDespesas >= 0.75m * valorReceitas)
             {
                 ViewBag.AlertMessage = "As despesas atingiram 75% das receitas!";
             }
+
+            ViewBag.ValorReceitas = valorReceitas;
+            ViewBag.ValorDespesas = valorDespesas;
+            ViewBag.Saldo = valorReceitas - valorDespesas;
+
+            /* if (valorDespesas > 0.75m * valorReceitas)     //nesse ponto, >75% não apenas no mês, mas em todo o período
+             {
+                 ViewBag.AlertMessage = "As despesas atingiram 75% das receitas!";
+             }*/
 
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
