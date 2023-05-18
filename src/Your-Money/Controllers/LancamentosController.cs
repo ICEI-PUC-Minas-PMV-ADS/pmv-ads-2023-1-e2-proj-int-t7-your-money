@@ -30,18 +30,6 @@ namespace Your_Money.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        public async Task<IActionResult> Relatorio(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
-        {
-            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
-            var lancamentos = _context.Lancamentos
-                .Where(l => l.Contas.Usuario.Email == userEmail &&
-                    l.Data >= dataInicial && l.Data <= dataFinal &&
-                    (status == null || (int)l.Status == status) &&
-                    (transacao == null || (int)l.Tipo == transacao));
-
-            return View(await lancamentos.ToListAsync());
-        }
-
         private Usuario GetUser()
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value);
@@ -66,12 +54,26 @@ namespace Your_Money.Controllers
             return View(lancamento);
         }
 
+        /*
         // GET: Lancamentos/Relatorio/5
         public async Task<IActionResult> Relatorio()
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             var applicationDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
             return View(await applicationDbContext.ToListAsync());
+        }
+        */
+
+        public async Task<IActionResult> Relatorio(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            var lancamentos = _context.Lancamentos
+                .Where(l => l.Contas.Usuario.Email == userEmail &&
+                    l.Data >= dataInicial && l.Data <= dataFinal &&
+                    (status == null || (int)l.Status == status) &&
+                    (transacao == null || (int)l.Tipo == transacao));
+
+            return View(await lancamentos.ToListAsync());
         }
 
         // GET: Lancamentos/Create
