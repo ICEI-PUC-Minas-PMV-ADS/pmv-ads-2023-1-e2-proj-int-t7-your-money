@@ -95,6 +95,11 @@ namespace Your_Money.Controllers
                 lancamento.ContasId = GetUser().Id;
                 _context.Add(lancamento);
                 await _context.SaveChangesAsync();
+
+                var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
+                usuario.SaldoTotal += lancamento.Tipo == Transacao.Despesa ? -lancamento.Valor : lancamento.Valor;
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
         ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
@@ -139,6 +144,10 @@ namespace Your_Money.Controllers
                     lancamento.ContasId = GetUser().Id;
                     _context.Update(lancamento);
                     await _context.SaveChangesAsync();
+
+                    var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
+                    usuario.SaldoTotal = usuario.Lancamentos.Sum(l => l.Tipo == Transacao.Despesa ? -l.Valor : l.Valor);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -182,7 +191,15 @@ namespace Your_Money.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var lancamento = await _context.Lancamentos.FindAsync(id);
-            _context.Lancamentos.Remove(lancamento);
+
+            if (lancamento != null)
+            {
+                var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
+                usuario.SaldoTotal = usuario.Lancamentos.Where(l => l.Id != id).Sum(l => l.Valor);
+
+                _context.Lancamentos.Remove(lancamento);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
