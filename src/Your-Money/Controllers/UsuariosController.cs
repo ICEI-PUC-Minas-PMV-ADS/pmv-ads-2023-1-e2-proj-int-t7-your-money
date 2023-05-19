@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
@@ -60,7 +61,7 @@ namespace Your_Money.Controllers
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                ClaimsPrincipal principal = new(userIdentity);
 
                 var props = new AuthenticationProperties
                 {
@@ -78,7 +79,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
-        public async Task<IActionResult> logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return Redirect("/Home/Index");
@@ -113,17 +114,15 @@ namespace Your_Money.Controllers
 
             if (valorDespesas >= 0.75m * valorReceitas)
             {
-                ViewBag.AlertMessage = "As despesas atingiram 75% das receitas!";
+                CultureInfo cultura = new("pt-BR");
+                string nomeMes = cultura.DateTimeFormat.GetMonthName(mes);
+
+                ViewBag.AlertMessage = "As despesas atingiram 75% das receitas no mês de " + nomeMes + "!";
             }
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
             ViewBag.Saldo = valorReceitas - valorDespesas;
-
-            /* if (valorDespesas > 0.75m * valorReceitas)     //nesse ponto, >75% não apenas no mês, mas em todo o período
-             {
-                 ViewBag.AlertMessage = "As despesas atingiram 75% das receitas!";
-             }*/
 
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());

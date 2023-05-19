@@ -104,9 +104,12 @@
                         </div>
                         <div class="pt-5 pb-5" style="color:darkslategray">
                             <h1><b>R$ @ViewBag.Saldo</b></h1>
-                            @if (!string.IsNullOrEmpty(ViewBag.AlertMessage))
+
+                            @if (ViewBag.AlertMessage != null)
                             {
-                                <div class="alert alert-warning">@ViewBag.AlertMessage</div>
+                                <div class="alert alert-warning" role="alert">
+                                    @ViewBag.AlertMessage
+                                </div>
                             }
                         </div>
                     </div>
