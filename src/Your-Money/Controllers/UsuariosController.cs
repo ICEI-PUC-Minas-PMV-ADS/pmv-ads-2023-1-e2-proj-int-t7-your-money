@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 using Your_Money.Models;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace Your_Money.Controllers
 {
     public class UsuariosController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(IConfiguration configuration, ApplicationDbContext context)
         {
+            _configuration = configuration;
             _context = context;
         }
 
@@ -154,12 +156,12 @@ namespace Your_Money.Controllers
             {
                 if (usuario.ConfirmacaoSenha())
                 {
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                var account = new Conta { SaldoTotal = 0 };
-                usuario.conta = account;
-                _context.Add(usuario);
-                await _context.SaveChangesAsync();
-                return Redirect("/Usuarios/Login");
+                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                    var account = new Conta { SaldoTotal = 0 };
+                    usuario.conta = account;
+                    _context.Add(usuario);
+                    await _context.SaveChangesAsync();
+                    return Redirect("/Usuarios/Login");
                 }
                 else
                 {
@@ -200,23 +202,24 @@ namespace Your_Money.Controllers
 
             if (ModelState.IsValid)
             {
-                if (usuario.ConfirmacaoSenha()) { 
-                try
+                if (usuario.ConfirmacaoSenha())
                 {
-                    usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuarioExists(usuario.Id))
+                    try
                     {
-                        return NotFound();
+                        usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+                        _context.Update(usuario);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;           
-                    }
+                        if (!UsuarioExists(usuario.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
 
@@ -259,7 +262,132 @@ namespace Your_Money.Controllers
             return _context.Usuarios.Any(e => e.Id == id);
         }
 
+        public string GerarTokenRecuperacaoSenha()
+        {
+            // Gerar um token único usando um GUID (Identificador Global Único)
+            var token = Guid.NewGuid().ToString();
+
+            // Codificar o token como Base64 para torná-lo seguro para inclusão em URLs
+            var tokenBytes = Encoding.UTF8.GetBytes(token);
+            var encodedToken = WebEncoders.Base64UrlEncode(tokenBytes);
+
+            _context.SaveChanges();
+
+            return encodedToken;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RecuperarSenha(string email)
+        {
+            // Localiza o usuário pelo email
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (usuario == null)
+            {
+                // Usuário não encontrado
+                return View("UsuarioNaoEncontrado");
+            }
 
 
+            // Gerar um token de recuperação de senha
+            usuario.GerarTokenRecuperacaoSenha();
+
+            // Salva o usuário com o token gerado no banco de dados
+            _context.Update(usuario); // Adiciona o usuário modificado ao contexto
+            await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
+
+            // Envia o e-mail de recuperação de senha
+            var apiKey = _configuration["SendGridSettings:ApiKey"];
+            var senderEmail = _configuration["SendGridSettings:SenderEmail"];
+
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress(senderEmail);
+            var to = new EmailAddress(usuario.Email);
+            var subject = "Recuperação de Senha";
+            var plainTextContent = $"Clique no link a seguir para recuperar sua senha: {Url.Action("ResetarSenha", "Usuarios", new { token = usuario.TokenRecuperacaoSenha }, Request.Scheme)}";
+            var htmlContent = $"<p>Clique no link a seguir para recuperar sua senha:</p><p><a href=\"{Url.Action("ResetarSenha", "Usuarios", new { token = usuario.TokenRecuperacaoSenha }, Request.Scheme)}\">Recuperar Senha</a></p>";
+
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            await client.SendEmailAsync(msg);
+
+            return ExibirEmailEnviado();
+        }
+
+        public IActionResult ResetarSenha(string token)
+        {
+            // Verificar se o token é válido e exibir a view para redefinir a senha
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.TokenRecuperacaoSenha == token);
+
+            if (usuario != null)
+            {
+                // Gerar e atribuir o novo token
+                string novoToken = GerarTokenRecuperacaoSenha();
+                usuario.TokenRecuperacaoSenha = novoToken;
+
+                // Salvar as alterações no banco de dados
+                _context.SaveChanges();
+            }
+
+            // Token válido, exibir a view para redefinir a senha
+            return ExibirResetarSenha();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetarSenha(string token, string novaSenha)
+        {
+            // Verificar se o token é válido e atualizar a senha do usuário
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.TokenRecuperacaoSenha == token);
+
+            if (usuario != null)
+            {
+                // Atualizar a senha do usuário com a nova senha fornecida
+                usuario.Senha = novaSenha;
+
+
+                // Limpar o token de recuperação 
+                usuario.TokenRecuperacaoSenha = null;
+
+                // Salvar as alterações no banco de dados
+                await _context.SaveChangesAsync();
+
+                return ExibirSenhaRedefinida();
+            }
+            else
+            {
+                // Caso o usuário não seja encontrado, você pode lidar com isso de acordo com a sua lógica, como exibir uma mensagem de erro ou redirecionar para uma página adequada.
+                // Exemplo de redirecionamento para uma página de erro
+                return ExibirTokenInvalido();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult ExibirRecuperarSenha()
+        {
+            return View("RecuperarSenha");
+        }
+
+        [HttpGet]
+        public IActionResult ExibirResetarSenha()
+        {
+            return View("ResetarSenha");
+        }
+
+        [HttpGet]
+        public IActionResult ExibirEmailEnviado()
+        {
+            return View("EmailEnviado");
+        }
+
+        [HttpGet]
+        public IActionResult ExibirSenhaRedefinida()
+        {
+            return View("SenhaRedefinida");
+        }
+
+        [HttpGet]
+        public IActionResult ExibirTokenInvalido()
+        {
+            return View("TokenInvalido");
+        }
     }
 }

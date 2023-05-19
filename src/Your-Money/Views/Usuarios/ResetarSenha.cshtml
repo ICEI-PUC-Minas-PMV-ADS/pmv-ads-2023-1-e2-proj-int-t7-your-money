@@ -1,0 +1,12 @@
+﻿@{
+@model Your_Money.Models.Usuario
+
+<form method="post" action="/Usuarios/ResetarSenha">
+    <input type="hidden" name="token" value="@Model Your_Money.Models.Usuario.TokenRecuperacaoSenha" />
+    <div class="form-group">
+        <label for="novaSenha">Nova Senha:</label>
+        <input type="password" id="novaSenha" name="novaSenha" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Redefinir Senha</button>
+</form>
+}

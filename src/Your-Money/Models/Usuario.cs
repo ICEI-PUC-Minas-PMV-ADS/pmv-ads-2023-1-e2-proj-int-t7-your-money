@@ -33,6 +33,8 @@ namespace Your_Money.Models
         [Display(Name = "Confirme sua Senha")]
         public string ConfirmarSenha { get; set; }
 
+       
+        public string TokenRecuperacaoSenha { get; set; }
 
 
         public Conta conta { get; set; }
@@ -40,6 +42,11 @@ namespace Your_Money.Models
         internal bool ConfirmacaoSenha()
         {
             return Senha == ConfirmarSenha;
+        }
+
+        public void GerarTokenRecuperacaoSenha()
+        {
+            TokenRecuperacaoSenha = Guid.NewGuid().ToString();
         }
     }
 }
