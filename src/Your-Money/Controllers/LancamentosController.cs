@@ -62,6 +62,14 @@ namespace Your_Money.Controllers
             var applicationDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
 
             //Gráficos
+            if (mes == null)
+            {
+                mes = DateTime.Now.Month;
+            }
+            if (ano == null)
+            {
+                ano = DateTime.Now.Year;
+            }
 
             ViewBag.AnoAtual = ano;
 
@@ -78,15 +86,14 @@ namespace Your_Money.Controllers
             }
 
             ViewBag.LancamentosMes = lancamentosMes;
-            //
 
-            var alimentoReceita = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Receita);
-            var veiculosReceita = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Receita);
-            var salariosReceita = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Receita);
+            var alimentoReceita = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Receita, mes, ano);
+            var veiculosReceita = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Receita, mes, ano);
+            var salariosReceita = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Receita, mes, ano);
 
-            var alimentoDespesa = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Despesa);
-            var veiculosDespesa = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Despesa);
-            var salariosDespesa = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Despesa);
+            var alimentoDespesa = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Despesa, mes, ano);
+            var veiculosDespesa = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Despesa, mes, ano);
+            var salariosDespesa = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Despesa, mes, ano);
 
             ViewBag.AlimentacaoReceita = alimentoReceita;
             ViewBag.VeiculoReceita = veiculosReceita;
@@ -98,12 +105,14 @@ namespace Your_Money.Controllers
 
             return View(await applicationDbContext.ToListAsync());
         }
-        private int CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao)
+        private int CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             return _context.Lancamentos
                 .Where(t => t.Classificacao == classificacao &&
                             t.Tipo == transacao &&
+                            t.Data.Month == mes &&
+                            t.Data.Year == ano &&
                             t.Contas.Usuario.Email == userEmail)
                 .Count();
         }
@@ -132,11 +141,7 @@ namespace Your_Money.Controllers
             int contagemDeLancamentosReceita = 0;
             int contagemDeLancamentosDespesas = 0;
 
-            if (mes == null)
-                mes = DateTime.Now.Month;
-
-            if (ano == null)
-                ano = DateTime.Now.Year;
+            
 
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
