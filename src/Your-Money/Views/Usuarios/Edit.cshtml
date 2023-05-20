@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Editar Usuário";
 }
+
+<body style="background-image: url(/blue1.png);">
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -49,3 +52,5 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+</body>

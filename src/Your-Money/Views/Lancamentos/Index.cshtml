@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Lançamentos";
 }
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -15,9 +16,11 @@
 <p>
     <a asp-action="Create">Adicionar Lançamento</a>
 </p>
-<table class="table" style="text-align:center;">
+
+
+<table class="table table-striped" style="text-align:center;width:100%;">
     <thead>
-        <tr style="background-color:whitesmoke">
+        <tr style="background-color:aliceblue">
             <th>
                 @Html.DisplayNameFor(model => model.Tipo)
             </th>

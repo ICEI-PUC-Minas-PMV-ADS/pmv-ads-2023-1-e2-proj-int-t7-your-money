@@ -46,56 +46,62 @@
 </div>
 
 <script>
-    var dadosGrafico1 = {
+
+    var data = {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        datasets: [
-            {
-                label: 'Receitas',
-                data: [10, 5, 7],
-                borderWidth: 1,
-                backgroundColor: ['lightgreen'],
-            },
-            {
-                label: 'Despesa',
-                data: [4, 8, 2],
-                borderWidth: 1,
-                backgroundColor: ['indianred'],
-            }
+        datasets: [{
+            label: 'Receitas',
+            data: [10, 5, 7],
+            borderWidth: 1,
+            backgroundColor: ['lightgreen'],
+        },
+        {
+            label: 'Despesa',
+            data: [4, 8, 2],
+            borderWidth: 1,
+            backgroundColor: ['indianred'],
+        }
         ]
     };
-    var opcoes = {
-        responsive: true,
-        maintainAspectRatio: false,
-        display: false,
-        drawOnChartArea: false,
-        drawTicks: false,
-        legend: true
-    };
-    var grafico1 = new Chart(document.getElementById("grafico1"), {
-        type: "bar",
-        data: dadosGrafico1,
+
+    var config = {
+        type: 'bar',
+        data,
         options: {
-            plugins: {
+            legend: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                }
             }
         }
-    });
+    };
+
+    var myChart = new Chart(
+        document.getElementById('grafico1'),
+        config
+    );
+
 </script>
 
 <hr>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
 <div class="container-fluid pt-5">
     <div class="row">
         <div class="col-sm">
             <hr>
-<h2 style="color:darkblue;padding-top:10px;padding-bottom:5px;"> Detalhamento </h2>
+            <h2 style="color:darkblue;padding-top:10px;padding-bottom:5px;"> Detalhamento </h2>
 
-</div>
+        </div>
     </div>
 
 
-<div class="container">
+    <div class="container">
 
         <div class="row">
             <div class="col">
@@ -118,17 +124,17 @@
                             <option value="12">Dezembro</option>
                         </select>
                     </div>
-                    
-                        <div class="form-group p-1">
-                            <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                            <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="Digite o ano" value="@ViewBag.AnoAtual" />
-                        </div>
-                    
 
-                <div class="form-group p-1">
-                    <label class="control-label" style="color:darkblue;"><b>Transação</b></label>
-                   <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
-                </div>
+                    <div class="form-group p-1">
+                        <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
+                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="Digite o ano" value="@ViewBag.AnoAtual" />
+                    </div>
+
+
+                    <div class="form-group p-1">
+                        <label class="control-label" style="color:darkblue;"><b>Transação</b></label>
+                        <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                    </div>
                     <div class="form-group p-1">
                         <label class="control-label" style="color:darkblue;"><b>Via</b></label>
                         <select class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()"></select>
@@ -141,190 +147,180 @@
                     <div class="form-group p-1">
                         <button class="btn btn-primary" style="margin-top:32px;">Pesquisar</button>
                     </div>
-            </form>
-</div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-    </div>
 
 <hr>
 
 <div class="container">
     <div class="row">
 
-<div class="col-6">
-    <canvas id="grafico2"></canvas>
+        <div class="col-6">
+            
+            <canvas id="grafico2"></canvas>
 
-<script>
-    var dadosGrafico2 ={
-        labels: ['Alimentação',
-            'Veículo',
-            'Salário'],
-        datasets: [
-            {
-                label: ' R$',
-                data: [100, 200, 150],
-                borderWidth: 1,
-                            backgroundColor: ['lightgreen'],
-            },
-                    ],
-    };
-    var grafico2 = new Chart(document.getElementById("grafico2"),
-    {
-        responsive: true,
-        type: "bar",
-        data: dadosGrafico2,
-            options: {
-                indexAxis: 'y',
-                scales: {
-                    y: {
-                        ticks: {
-                            crossAlign: 'far',
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: 'Receitas',
-                        font: {
-                            size: 16
-                        }
-                    }
-                }
-            }
-    });
-</script>
-
-</div>
-
-<hr />
-
- <div class="col-6">
-        <canvas id="grafico3" ></canvas>
-
-        <script>
-            var dadosGrafico3 ={
-                    labels: ['Alimentação', 'Veículo', 'Moradia', 'Transporte','Empréstimos',
-                    'Entretenimento',
-                    'Impostos',
-                    'Taxas',
-                    'Saúde'],
-                datasets: [
-                    {
-                        label: ' R$',
-                        data: [100, 200, 10, 20, 250, 138, 70, 98, 54, 45],
+            <script>
+                var data = {
+                    labels: ['Alimentação',
+                        'Veículo',
+                        'Salário'],
+                    datasets: [{
+                        label: 'Receitas',
+                        data: [10, 5, 7],
                         borderWidth: 1,
-                            backgroundColor: ['indianred'],
+                        backgroundColor: ['lightgreen'],
                     },
-                ],
-            };
-            var grafico2 = new Chart(document.getElementById("grafico3"),
-                {
-                    responsive: true,
-                    type: "bar",
-                    data: dadosGrafico3,
+                    ]
+                };
+                var config = {
+                    type: 'bar',
+                    data,
                     options: {
                         indexAxis: 'y',
                         scales: {
-                            y: {
-                                ticks: {
-                                    crossAlign: 'far',
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            title: {
-                                display: true,
-                                text: 'Despesas',
-                                font: {
-                                    size: 16
+                            x: {
+                                beginAtZero: false,
+                                grid: {
+                                    drawOnChartArea: false
                                 }
                             }
                         }
                     }
-                });
-        </script>
+                };
+
+                var myChart = new Chart(
+                    document.getElementById('grafico2'),
+                    config
+                );
+
+            </script>
+        </div>
+
+        <div class="col-6">
+
+            <canvas id="grafico3"></canvas>
+
+            <script>
+
+                var data = {
+                    labels: ['Alimentação',
+                        'Veículo',
+                        'Salário',
+                        'Moradia',
+                        'Transporte',
+                        'Empréstimos',
+                        'Entretenimento',
+                        'Impostos',
+                        'Taxas',
+                        'Saúde'],
+                    datasets: [{
+                        label: 'Depesas',
+                        data: [10, 5, 7],
+                        borderWidth: 1,
+                        backgroundColor: ['indianred'],
+                    },
+                    ]
+                };
+                var config = {
+                    type: 'bar',
+                    data,
+                    options: {
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var myChart = new Chart(
+                    document.getElementById('grafico3'),
+                    config
+                );
+
+            </script>
+        </div>
+
+    </div>
 </div>
 
-</div>
-</div>
 
-
-<div style="padding-top:10px;">
+<div class="pag" style="padding-top:10px;">
     <hr>
     <h5 style="color:darkblue;padding-top:20px;padding-bottom:10px;"> Descritivo dos Lançamentos </h5>
 
     <table class="table" style="text-align:center;">
-    <thead>
-            <tr style="background-color:whitesmoke">
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Via)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Classificacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contas)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Via)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Classificacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contas.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <thead>
+            <tr style="background-color:aliceblue">
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Via)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Classificacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Valor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contas)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Via)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Classificacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Valor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contas.Id)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
