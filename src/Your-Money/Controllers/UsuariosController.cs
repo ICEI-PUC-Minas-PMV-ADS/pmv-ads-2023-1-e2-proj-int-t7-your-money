@@ -123,6 +123,13 @@ namespace Your_Money.Controllers
             //Gráficos
             int anoAtual = DateTime.Now.Year;
 
+            ViewBag.AnoAtual = anoAtual;
+
+            int mesAtual = DateTime.Now.Month;
+
+
+            ViewBag.MesAtual = mesAtual;
+
             Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
 
             for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
@@ -133,10 +140,10 @@ namespace Your_Money.Controllers
 
             ViewBag.LancamentosMes = lancamentosMes;
 
-
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
+
 
         // Gráficos
         public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int ano)

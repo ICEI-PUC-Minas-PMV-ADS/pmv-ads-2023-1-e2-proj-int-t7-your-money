@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
     <div class="row">
-    <div class="col">
+    <div class="col-7">
 <h2 style="color:darkblue;">Minha Conta</h2>
 
             <h6 style="color:black;">Saldo total da conta: <b>R$ @ViewBag.SaldoTotal</b></h6>
@@ -23,7 +23,7 @@
         <div class="form-group">
         <label class="control-label" style="color:darkblue;"><b>Mês</b></label>
                     <select name="mes" class="form-control shadow-sm" required style="color:darkblue;">
-                <option value="">Escolha o Mês</option>
+                <option value="@ViewBag.MesAtual">Mês Atual</option>
                 <option value="1">Janeiro</option>
                 <option value="2">Fevereiro</option>
                 <option value="3">Março</option>
@@ -41,7 +41,7 @@
     <div class="col-4">
         <div class="form-group">
                         <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" placeholder="Digite o Ano" />
+                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="Digite o ano" value="@ViewBag.AnoAtual" />
         </div>
     </div>
     <div class="col">
@@ -89,7 +89,7 @@
         <div class="col-3 text-center">
             <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <div class="card-body" style="background-color:indianred;border-start-start-radius:20px;border-start-end-radius:20px;">
-                    <h4><b style="color:white">Despesas</b></h4>
+                    <h4><b style="color:white;">Despesas</b></h4>
                         </div>
                         <div class="pt-5 pb-5" style="color:darkred">
                             <h2><b>R$ @ViewBag.ValorDespesas</b></h2>
@@ -101,7 +101,7 @@
         <div class="col-3 text-center">
             <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <div class="card-body" style="background-color:lightgray;border-start-start-radius:20px;border-start-end-radius:20px;">
-                    <h4><b style="color:black;text-shadow:black;">Saldo do mês</b></h4>
+                    <h4><b style="color:black;text-shadow:black;">Saldo do mês</b></h4><h7>Selecionado</h7>
                 </div>
                 <div class="pt-5 pb-5" style="color:darkslategray;">
                     <h2><b>R$ @ViewBag.Saldo</b></h2>
@@ -112,7 +112,7 @@
 </div>
 </div>
 <hr style="margin-top:5%;">
-
+@*
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <h2 style="color:darkblue;padding-top:2rem;">Visão Global</h2>
@@ -160,7 +160,7 @@
             },
                             {
                 label: 'Linha de Tendência',
-                data: [10, 12, 8, 6, 4, 2, 0],
+                data: [5, 5, 5, 5, 5, 5, 5],
                 type: 'line',
                 borderColor: 'blue',
                 backgroundColor: 'blue',
@@ -187,6 +187,6 @@
         }
     });
 </script>
-
+*@
 
 
