@@ -54,16 +54,37 @@ namespace Your_Money.Controllers
             return View(lancamento);
         }
 
-        /*
+
         // GET: Lancamentos/Relatorio/5
-        public async Task<IActionResult> Relatorio()
+        public async Task<IActionResult> Relatorio(int? ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             var applicationDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+
+            //Gráficos
+
+            ViewBag.AnoAtual = ano;
+
+            int mesAtual = DateTime.Now.Month;
+
+            ViewBag.MesAtual = mesAtual;
+
+            Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
+
+            for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
+            {
+                var (receitasMes, despesasMes) = GetLancamentosMes(mesRelatorio, ano);
+                lancamentosMes[mesRelatorio] = (receitasMes, despesasMes);
+            }
+
+            ViewBag.LancamentosMes = lancamentosMes;
+            //
+
             return View(await applicationDbContext.ToListAsync());
         }
-        */
 
+
+        /*
         public async Task<IActionResult> Relatorio(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
@@ -73,8 +94,49 @@ namespace Your_Money.Controllers
                     (status == null || (int)l.Status == status) &&
                     (transacao == null || (int)l.Tipo == transacao));
 
+            
+
             return View(await lancamentos.ToListAsync());
         }
+        */
+
+
+        // Gráficos
+        public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int? ano)
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            int contagemDeLancamentosReceita = 0;
+            int contagemDeLancamentosDespesas = 0;
+
+            if (ano == null)
+                ano = DateTime.Now.Year;
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Receita &&
+                                                                      l.Contas.Usuario.Email == userEmail))
+            {
+                contagemDeLancamentosReceita += 1;
+            }
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Despesa &&
+                                                                      l.Contas.Usuario.Email == userEmail))
+            {
+                contagemDeLancamentosDespesas += 1;
+            }
+
+            //Pega saldo total do ano
+            var saldoTotalAno = _context.Lancamentos.Where(l => l.Contas.Usuario.Email == userEmail &&
+                                                                l.Data.Year == ano).Sum(l => l.Tipo == Transacao.Receita ? l.Valor : -l.Valor);
+
+            ViewBag.SaldoTotalAno = saldoTotalAno;
+            //
+
+            return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
+        }
+        //
 
         // GET: Lancamentos/Create
         public IActionResult Create()
@@ -102,7 +164,7 @@ namespace Your_Money.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-        ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
+            ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
 
