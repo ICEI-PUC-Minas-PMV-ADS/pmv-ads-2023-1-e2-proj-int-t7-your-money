@@ -17,14 +17,14 @@
         <div class="col-9">
             <h2 style="color:darkblue;">Visão Global</h2>
 
-            <h6 style="color:black;">Saldo total do Ano: <b>R$ @ViewBag.SaldoTotal</b></h6>
+            <h6 style="color:black;">Saldo total do Ano: <b>R$ @ViewBag.SaldoTotalAno</b></h6>
         </div>
         <div class="col">
-            <form asp-action="Index" method="get" class="form-row">
+            <form asp-action="Relatorio" method="get" class="form-row">
                 <div class="col-7">
                     <div class="form-group">
                         <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="Digite o ano" value="@ViewBag.AnoAtual" />
+                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="Digite o ano" />
                     </div>
                 </div>
                 <div class="col">
