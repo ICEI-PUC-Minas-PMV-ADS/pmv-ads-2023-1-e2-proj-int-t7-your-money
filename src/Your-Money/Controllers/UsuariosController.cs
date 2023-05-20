@@ -120,9 +120,47 @@ namespace Your_Money.Controllers
             ViewBag.Saldo = valorReceitas - valorDespesas;
             ViewBag.SaldoTotal = valorReceitasTotal - valorDespesasTotal;
 
+            //Gráficos
+            int anoAtual = DateTime.Now.Year;
+
+            Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
+
+            for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
+            {
+                var (receitasMes, despesasMes) = GetLancamentosMes(mesRelatorio, anoAtual);
+                lancamentosMes[mesRelatorio] = (receitasMes, despesasMes);
+            }
+
+            ViewBag.LancamentosMes = lancamentosMes;
+
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
+
+        // Gráficos
+        public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int ano)
+        {
+            int contagemDeLancamentosReceita = 0;
+            int contagemDeLancamentosDespesas = 0;
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Receita))
+            {
+                contagemDeLancamentosReceita += 1;
+            }
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Despesa))
+            {
+                contagemDeLancamentosDespesas += 1;
+            }
+
+            return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
+        }
+        
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
