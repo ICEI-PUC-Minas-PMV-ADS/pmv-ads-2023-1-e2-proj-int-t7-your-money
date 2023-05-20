@@ -73,8 +73,56 @@ namespace Your_Money.Controllers
                     (status == null || (int)l.Status == status) &&
                     (transacao == null || (int)l.Tipo == transacao));
 
+            //Gráficos
+            int anoAtual = DateTime.Now.Year;
+
+            ViewBag.AnoAtual = anoAtual;
+
+            int mesAtual = DateTime.Now.Month;
+
+
+            ViewBag.MesAtual = mesAtual;
+
+            Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
+
+            for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
+            {
+                var (receitasMes, despesasMes) = GetLancamentosMes(mesRelatorio, anoAtual);
+                lancamentosMes[mesRelatorio] = (receitasMes, despesasMes);
+            }
+
+            ViewBag.LancamentosMes = lancamentosMes;
+            //
+
             return View(await lancamentos.ToListAsync());
         }
+
+        // Gráficos
+        public (int receitasMes, int despesasMes) GetLancamentosMes(int mes, int ano)
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            int contagemDeLancamentosReceita = 0;
+            int contagemDeLancamentosDespesas = 0;
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Receita &&
+                                                                      l.Contas.Usuario.Email == userEmail))
+            {
+                contagemDeLancamentosReceita += 1;
+            }
+
+            foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
+                                                                      l.Data.Year == ano &&
+                                                                      l.Tipo == Transacao.Despesa &&
+                                                                      l.Contas.Usuario.Email == userEmail))
+            {
+                contagemDeLancamentosDespesas += 1;
+            }
+
+            return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
+        }
+        //
 
         // GET: Lancamentos/Create
         public IActionResult Create()

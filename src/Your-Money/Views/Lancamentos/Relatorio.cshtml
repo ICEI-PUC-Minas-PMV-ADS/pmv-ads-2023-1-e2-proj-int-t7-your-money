@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Relatorio";
+    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
 }
 
 <nav>
@@ -51,13 +52,35 @@
         datasets: [
             {
                 label: 'Receitas',
-                data: [10, 5, 7],
+                data: [@lancamentosMes[1].receitasMes,
+                        @lancamentosMes[2].receitasMes,
+                        @lancamentosMes[3].receitasMes,
+                        @lancamentosMes[4].receitasMes,
+                        @lancamentosMes[5].receitasMes,
+                        @lancamentosMes[6].receitasMes,
+                        @lancamentosMes[7].receitasMes,
+                        @lancamentosMes[8].receitasMes,
+                        @lancamentosMes[9].receitasMes,
+                        @lancamentosMes[10].receitasMes,
+                        @lancamentosMes[11].receitasMes,
+                        @lancamentosMes[12].receitasMes],
                 borderWidth: 1,
                 backgroundColor: ['lightgreen'],
             },
             {
                 label: 'Despesa',
-                data: [4, 8, 2],
+                data: [@lancamentosMes[1].despesasMes,
+                        @lancamentosMes[2].despesasMes,
+                        @lancamentosMes[3].despesasMes,
+                        @lancamentosMes[4].despesasMes,
+                        @lancamentosMes[5].despesasMes,
+                        @lancamentosMes[6].despesasMes,
+                        @lancamentosMes[7].despesasMes,
+                        @lancamentosMes[8].despesasMes,
+                        @lancamentosMes[9].despesasMes,
+                        @lancamentosMes[10].despesasMes,
+                        @lancamentosMes[11].despesasMes,
+                        @lancamentosMes[12].despesasMes],
                 borderWidth: 1,
                 backgroundColor: ['indianred'],
             }
