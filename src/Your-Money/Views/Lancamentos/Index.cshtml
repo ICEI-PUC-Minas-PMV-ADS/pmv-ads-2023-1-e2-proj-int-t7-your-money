@@ -18,31 +18,33 @@
 </p>
 
 
-<table class="table table-striped" style="text-align:center;width:100%;">
+
+<table class="table table-striped" id="tabela1-lancamentos" style="text-align:center;padding-top:40px;">
+
     <thead>
-        <tr style="background-color:aliceblue">
-            <th>
+        <tr style="background-color:aliceblue;">
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Tipo)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Via)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Classificacao)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Data)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
-            <th>Ações</th>
+            <th style="text-align:center;">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -75,7 +77,6 @@
                 <a asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
-        </tr>
-}
+        </tr>}
     </tbody>
 </table>
