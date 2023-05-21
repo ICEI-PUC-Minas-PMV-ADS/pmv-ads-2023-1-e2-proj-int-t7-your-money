@@ -120,7 +120,7 @@ namespace Your_Money.Controllers
 
             return View(await applicationDbContext.ToListAsync());
         }
-        private int CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
+        private decimal CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             return _context.Lancamentos
@@ -129,7 +129,7 @@ namespace Your_Money.Controllers
                             t.Data.Month == mes &&
                             t.Data.Year == ano &&
                             t.Contas.Usuario.Email == userEmail)
-                .Count();
+                .Sum(l => l.Valor);
         }
 
         /*

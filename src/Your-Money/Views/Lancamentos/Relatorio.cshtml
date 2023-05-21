@@ -12,7 +12,7 @@
     </ol>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid pt-5 pb-3" style="background-image:url(/blue2.png);">
     <div class="row">
         <div class="col-9">
             <h2 style="color:darkblue;">Visão Global</h2>
@@ -39,11 +39,10 @@
 
 <hr>
 
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div>
-    <canvas id="grafico1" style="width: 300px; height:70px;"></canvas>
+    <canvas id="grafico1" style="width:300px; height:100px;padding-top:30px;padding-bottom:50px;"></canvas>
 </div>
 
 <script>
@@ -53,34 +52,34 @@
         datasets: [{
             label: 'Receitas',
             data: [@lancamentosMes[1].receitasMes,
-                    @lancamentosMes[2].receitasMes,
-                    @lancamentosMes[3].receitasMes,
-                    @lancamentosMes[4].receitasMes,
-                    @lancamentosMes[5].receitasMes,
-                    @lancamentosMes[6].receitasMes,
-                    @lancamentosMes[7].receitasMes,
-                    @lancamentosMes[8].receitasMes,
-                    @lancamentosMes[9].receitasMes,
-                    @lancamentosMes[10].receitasMes,
-                    @lancamentosMes[11].receitasMes,
-                    @lancamentosMes[12].receitasMes],
+    @lancamentosMes[2].receitasMes,
+    @lancamentosMes[3].receitasMes,
+    @lancamentosMes[4].receitasMes,
+    @lancamentosMes[5].receitasMes,
+    @lancamentosMes[6].receitasMes,
+    @lancamentosMes[7].receitasMes,
+    @lancamentosMes[8].receitasMes,
+    @lancamentosMes[9].receitasMes,
+    @lancamentosMes[10].receitasMes,
+    @lancamentosMes[11].receitasMes,
+    @lancamentosMes[12].receitasMes],
             borderWidth: 1,
             backgroundColor: ['lightgreen'],
         },
         {
             label: 'Despesa',
             data: [@lancamentosMes[1].despesasMes,
-                    @lancamentosMes[2].despesasMes,
-                    @lancamentosMes[3].despesasMes,
-                    @lancamentosMes[4].despesasMes,
-                    @lancamentosMes[5].despesasMes,
-                    @lancamentosMes[6].despesasMes,
-                    @lancamentosMes[7].despesasMes,
-                    @lancamentosMes[8].despesasMes,
-                    @lancamentosMes[9].despesasMes,
-                    @lancamentosMes[10].despesasMes,
-                    @lancamentosMes[11].despesasMes,
-                    @lancamentosMes[12].despesasMes],
+    @lancamentosMes[2].despesasMes,
+    @lancamentosMes[3].despesasMes,
+    @lancamentosMes[4].despesasMes,
+    @lancamentosMes[5].despesasMes,
+    @lancamentosMes[6].despesasMes,
+    @lancamentosMes[7].despesasMes,
+    @lancamentosMes[8].despesasMes,
+    @lancamentosMes[9].despesasMes,
+    @lancamentosMes[10].despesasMes,
+    @lancamentosMes[11].despesasMes,
+    @lancamentosMes[12].despesasMes],
             borderWidth: 1,
             backgroundColor: ['indianred'],
         }
@@ -91,12 +90,20 @@
         type: 'bar',
         data,
         options: {
-            legend: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        drawOnChartArea: false
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18,
+                        }
+                    },
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            drawOnChartArea: false
+                        }
                     }
                 }
             }
@@ -114,21 +121,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="container-fluid pt-5">
+<div class="container-fluid" style="background-image:url(/blue2.png);">
     <div class="row">
-        <div class="col-sm">
-            <hr>
-            <h2 style="color:darkblue;padding-top:10px;padding-bottom:5px;"> Detalhamento </h2>
-
+        <div>
+            <h4 style="color:darkblue;padding-top:10px;padding-bottom:5px;"> Detalhamento </h4>
         </div>
     </div>
-
 
     <div class="container">
 
         <div class="row">
             <div class="col">
-                <form asp-action="Relatorio" method="get" class="form-row justify-content-center">
+                <form asp-action="Index" method="get" class="form-row justify-content-center">
                     <div class="form-group p-1">
                         <label class="control-label" style="color:darkblue;"><b>Mês</b></label>
                         <select name="mes" class="form-control shadow-sm" required style="color:darkblue;">
@@ -179,17 +183,15 @@
 <hr>
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="max-height;max-width;">
 
-        <div class="col-6">
-            
-            <canvas id="grafico2"></canvas>
+        <div class="col">
+
+            <canvas id="grafico2" style="height:200px;width:70%;padding-bottom:50px;"></canvas>
 
             <script>
                 var data = {
-                    labels: ['Alimentação',
-                        'Veículo',
-                        'Salário'],
+                    labels: ['Alimentação', 'Veículo', 'Salário'],
                     datasets: [{
                         label: 'Receitas',
                         data: [@ViewBag.AlimentacaoReceita, @ViewBag.VeiculoReceita, @ViewBag.SalarioReceita],
@@ -202,12 +204,21 @@
                     type: 'bar',
                     data,
                     options: {
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: false,
-                                grid: {
-                                    drawOnChartArea: false
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 18
+                                    }
+                                }
+                            },
+                            indexAxis: 'x',
+                            scales: {
+                                x: {
+                                    beginAtZero: false,
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
                                 }
                             }
                         }
@@ -222,16 +233,15 @@
             </script>
         </div>
 
-        <div class="col-6">
+        <div class="col">
 
-            <canvas id="grafico3"></canvas>
+            <canvas id="grafico3" style="height:200px;width:70%;padding-bottom:50px;"></canvas>
 
             <script>
 
                 var data = {
                     labels: ['Alimentação',
                         'Veículo',
-                        'Salário',
                         'Moradia',
                         'Transporte',
                         'Empréstimos',
@@ -242,15 +252,15 @@
                     datasets: [{
                         label: 'Depesas',
                         data: [@ViewBag.AlimentacaoDespesa,
-                                @ViewBag.VeiculoDespesa,
-                                @ViewBag.SalarioDespesa,
-                                @ViewBag.MoradiaDespesa,
-                                @ViewBag.TransporteDespesa,
-                                @ViewBag.EmprestimoDespesa,
-                                @ViewBag.EntretenimentoDespesa,
-                                @ViewBag.ImpostoDespesa,
-                                @ViewBag.TaxaDespesa,
-                                @ViewBag.SaudeDespesa],
+                @ViewBag.VeiculoDespesa,
+                @ViewBag.SalarioDespesa,
+                @ViewBag.MoradiaDespesa,
+                @ViewBag.TransporteDespesa,
+                @ViewBag.EmprestimoDespesa,
+                @ViewBag.EntretenimentoDespesa,
+                @ViewBag.ImpostoDespesa,
+                @ViewBag.TaxaDespesa,
+                @ViewBag.SaudeDespesa],
                         borderWidth: 1,
                         backgroundColor: ['indianred'],
                     },
@@ -260,12 +270,21 @@
                     type: 'bar',
                     data,
                     options: {
-                        indexAxis: 'y',
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                grid: {
-                                    drawOnChartArea: false
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 18
+                                    }
+                                }
+                            },
+                            indexAxis: 'x',
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
                                 }
                             }
                         }
@@ -283,39 +302,35 @@
     </div>
 </div>
 
-
-<div class="pag" style="padding-top:10px;">
+<div style="padding-top:10px;">
     <hr>
-    <h5 style="color:darkblue;padding-top:20px;padding-bottom:10px;"> Descritivo dos Lançamentos </h5>
+    <h5 style="color:darkblue;padding-top:20px;padding-bottom:20px;"> Descritivo dos Lançamentos </h5>
 
-    <table class="table table-striped" style="text-align:center;width:100%;">
+    <table class="table table-striped" id="tabela2-lancamentos" style="text-align:center;padding-top:40px;">
         <thead>
             <tr style="background-color:aliceblue">
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Tipo)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Via)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Classificacao)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Valor)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Data)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Status)
                 </th>
-                <th>
+                <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Descricao)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Contas)
-                </th>
-                <th></th>
+                <th style="text-align:center;">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -342,9 +357,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Contas.Id)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
