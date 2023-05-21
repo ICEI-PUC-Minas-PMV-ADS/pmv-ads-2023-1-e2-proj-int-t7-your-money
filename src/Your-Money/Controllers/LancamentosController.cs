@@ -94,6 +94,13 @@ namespace Your_Money.Controllers
             var alimentoDespesa = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Despesa, mes, ano);
             var veiculosDespesa = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Despesa, mes, ano);
             var salariosDespesa = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Despesa, mes, ano);
+            var moradiasDespesa = CountLancamentosByClassificacao(Classificacao.Moradia, Transacao.Despesa, mes, ano);
+            var transportesDespesa = CountLancamentosByClassificacao(Classificacao.Transporte, Transacao.Despesa, mes, ano);
+            var emprestimosDespesa = CountLancamentosByClassificacao(Classificacao.Empréstimos, Transacao.Despesa, mes, ano);
+            var entretenimentosDespesa = CountLancamentosByClassificacao(Classificacao.Entretenimento, Transacao.Despesa, mes, ano);
+            var impostosDespesa = CountLancamentosByClassificacao(Classificacao.Impostos, Transacao.Despesa, mes, ano);
+            var taxasDespesa = CountLancamentosByClassificacao(Classificacao.Taxas, Transacao.Despesa, mes, ano);
+            var saudeDespesa = CountLancamentosByClassificacao(Classificacao.Saúde, Transacao.Despesa, mes, ano);
 
             ViewBag.AlimentacaoReceita = alimentoReceita;
             ViewBag.VeiculoReceita = veiculosReceita;
@@ -102,6 +109,14 @@ namespace Your_Money.Controllers
             ViewBag.AlimentacaoDespesa = alimentoDespesa;
             ViewBag.VeiculoDespesa = veiculosDespesa;
             ViewBag.SalarioDespesa = salariosDespesa;
+            ViewBag.MoradiaDespesa = moradiasDespesa;
+            ViewBag.TransporteDespesa = transportesDespesa;
+            ViewBag.EmprestimoDespesa = emprestimosDespesa;
+            ViewBag.EntretenimentoDespesa = entretenimentosDespesa;
+            ViewBag.ImpostoDespesa = impostosDespesa;
+            ViewBag.TaxaDespesa = taxasDespesa;
+            ViewBag.SaudeDespesa = saudeDespesa;
+
 
             return View(await applicationDbContext.ToListAsync());
         }
@@ -118,7 +133,7 @@ namespace Your_Money.Controllers
         }
 
         /*
-        public async Task<IActionResult> Relatorio(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
+        public async Task<IActionResult> RelatorioDescritvo(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             var lancamentos = _context.Lancamentos
@@ -191,7 +206,11 @@ namespace Your_Money.Controllers
                 await _context.SaveChangesAsync();
 
                 var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
-                usuario.SaldoTotal += lancamento.Tipo == Transacao.Despesa ? -lancamento.Valor : lancamento.Valor;
+                if (lancamento.Status == StatusTransacao.Efetivado)
+                {
+                    usuario.SaldoTotal += lancamento.Tipo == Transacao.Despesa ? -lancamento.Valor : lancamento.Valor;
+                }
+                
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -240,7 +259,15 @@ namespace Your_Money.Controllers
                     await _context.SaveChangesAsync();
 
                     var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
-                    usuario.SaldoTotal = usuario.Lancamentos.Sum(l => l.Tipo == Transacao.Despesa ? -l.Valor : l.Valor);
+                    if (lancamento.Status == StatusTransacao.Efetivado)
+                    {
+                        usuario.SaldoTotal = usuario.Lancamentos.Sum(l => l.Tipo == Transacao.Despesa ? -l.Valor : l.Valor);
+                    }
+                    if (lancamento.Status == StatusTransacao.Pendente)
+                    {
+                        usuario.SaldoTotal = usuario.Lancamentos.Where(l => l.Id != id).Sum(l => l.Valor);
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
