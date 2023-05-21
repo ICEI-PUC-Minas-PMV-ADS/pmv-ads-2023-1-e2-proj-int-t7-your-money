@@ -176,6 +176,7 @@ namespace Your_Money.Controllers
 
             //Pega saldo total do ano
             var saldoTotalAno = _context.Lancamentos.Where(l => l.Contas.Usuario.Email == userEmail &&
+                                                                l.Status == StatusTransacao.Efetivado &&
                                                                 l.Data.Year == ano).Sum(l => l.Tipo == Transacao.Receita ? l.Valor : -l.Valor);
 
             ViewBag.SaldoTotalAno = saldoTotalAno;
