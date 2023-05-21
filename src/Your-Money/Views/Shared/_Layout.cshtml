@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
-</head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+  
+ </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -18,7 +21,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="container justify-content-center">
+                <div class="container">
                     <div class="row align-items-center">
                     <div class="col-sm">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="25%" /></a>
@@ -31,6 +34,10 @@
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <div class="" style="text-align:center">
+                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index"><img src="~/userloged.png" /><h6 style="text-align:center;"></h6></a>
+                            </div>
+                            <h7 style="color:blue">|</h7>
                         <div class="">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
                         </div>
@@ -43,12 +50,8 @@
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="" style="text-align:center">
-                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index"><img src="~/userloged.png" /><h6 style="text-align:center;"></h6></a>
-                        </div>
-                        <h7 style="color:blue">|</h7>
                             <div>
-                            <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Logout"><h6><b>Sair</b></h6></a>
+                                <a class="nav-link shadow-sm m-1" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="border-color:blue;background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;"><h6><b>Sair</b></h6></a>
                             </div>
                         }
                         else
@@ -69,17 +72,17 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container" id="página inicial">
+        <main role="main" class="pb-3 m-auto p-o">
             @RenderBody()
         </main>
     </div>
 
 </body>
 
-    <footer>
+<footer>
         <hr>
-        <div class="container text-center p-0 mb-0">
+        <div class="container text-center">
             Direitos reservados a PUC Minas. COPYRIGHT&copy; 2023 - <a asp-area="" asp-controller="Home" asp-action="Dicas">Dicas</a>
         </div>
     </footer>
@@ -87,8 +90,16 @@
     <script src="~/lib/jquery/dist/jquery-3.2.1.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+    <script type="text/javascript" https: //code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" https: //cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
 </html>
+
+
+
 
