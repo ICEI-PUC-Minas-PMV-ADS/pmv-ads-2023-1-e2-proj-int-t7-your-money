@@ -54,7 +54,6 @@ namespace Your_Money.Controllers
             return View(lancamento);
         }
 
-
         // GET: Lancamentos/Relatorio/5
         public async Task<IActionResult> Relatorio(int? mes, int? ano)
         {
@@ -142,8 +141,6 @@ namespace Your_Money.Controllers
                     (status == null || (int)l.Status == status) &&
                     (transacao == null || (int)l.Tipo == transacao));
 
-            
-
             return View(await lancamentos.ToListAsync());
         }
         */
@@ -156,7 +153,7 @@ namespace Your_Money.Controllers
             int contagemDeLancamentosReceita = 0;
             int contagemDeLancamentosDespesas = 0;
 
-            
+
 
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
@@ -184,7 +181,6 @@ namespace Your_Money.Controllers
 
             return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
         }
-        //
 
         // GET: Lancamentos/Create
         public IActionResult Create()
@@ -194,8 +190,6 @@ namespace Your_Money.Controllers
         }
 
         // POST: Lancamentos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
@@ -211,7 +205,7 @@ namespace Your_Money.Controllers
                 {
                     usuario.SaldoTotal += lancamento.Tipo == Transacao.Despesa ? -lancamento.Valor : lancamento.Valor;
                 }
-                
+
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -219,8 +213,6 @@ namespace Your_Money.Controllers
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
-
-
 
         // GET: Lancamentos/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -240,8 +232,6 @@ namespace Your_Money.Controllers
         }
 
         // POST: Lancamentos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)

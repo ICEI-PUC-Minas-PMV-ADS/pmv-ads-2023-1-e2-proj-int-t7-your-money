@@ -8,14 +8,16 @@
 <body style="background-image: url(/blue1.png);">
 
 <nav>
-    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;justify-items:center;">
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
-    </ol>       
-</nav>
+            <marquee direction="left" style="background-color:aliceblue;padding-top:10px;padding-bottom:0;">
+            <p id="cotation"><span class="text-info">Dolar -&gt;</span> R$ 5,00 &nbsp;|&nbsp; <span class="text-info">Euro-&gt;</span> R$ 5,41 &nbsp;|&nbsp; <span class="text-info">Bitcoin-&gt;</span> R$ 144.241,51 &nbsp;|&nbsp; <span class="text-info"> Ibovespa-&gt; </span> 110744.51</p>
+        </marquee>
+        </ol>
+    </nav>
 
-<marquee direction="left">
-    <p id="cotation"><span class="text-info">Dolar -&gt;</span> R$ 5,00 &nbsp;|&nbsp; <span class="text-info">Euro-&gt;</span> R$ 5,41 &nbsp;|&nbsp; <span class="text-info">Bitcoin-&gt;</span> R$ 144.241,51 &nbsp;|&nbsp; <span class="text-info"> Ibovespa-&gt; </span> 110744.51</p></marquee> 
+ 
 
 <div class="container-fluid">
     <div class="row">
@@ -66,7 +68,7 @@
     <div class="row">
         <div class="col-3">
             <div class="card align-items-center shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
-                <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
+                <img src="~/user.png" alt="usuário" width="70%" style="padding-top:15%;">
                 <div class="card-body">
                     <p id="NameUser" class="card-text" style="color:darkblue"><h4>Olá, @User.Identity.Name</h4></p>
                 </div>
@@ -87,8 +89,9 @@
                         </div>
                         <div class="pt-5 pb-5" style="color:green">
                             <h2><b>R$ @ViewBag.ValorReceitas</b></h2>
-                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="50%" style="padding-top: 1rem">
+                        <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="50%" style="padding-top: 1rem;cursor:pointer;">
                         </div>
+                    <div style="color:green;padding:5px;"><h6>Clique no "+" para adicionar uma receita</h6></div>
                     </div>
           </div>
 
@@ -99,15 +102,16 @@
                         </div>
                         <div class="pt-5 pb-5" style="color:darkred">
                             <h2><b>R$ @ViewBag.ValorDespesas</b></h2>
-                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="50%" style="padding-top: 1rem">
+                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="50%" style="padding-top: 1rem;cursor:pointer;">
                         </div>
+                    <div style="color:darkred;padding:5px;"><h6>Clique no "+" para adicionar uma Despesa</h6></div>
                     </div>
                 </div>
 
         <div class="col-3 text-center">
             <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;">
                 <div class="card-body" style="background-color:lightgray;border-start-start-radius:20px;border-start-end-radius:20px;">
-                    <h4><b style="color:black;text-shadow:black;padding-bottom:0px;">Saldo do mês</b></h4><h7 class="p-0 pt-0 pb-0">Selecionado</h7>
+                    <h4><b style="color:black;text-shadow:black;padding-bottom:0px;">Saldo do mês</b></h4><h7 class="p-0 pt-0 pb-0">selecionado</h7>
                 </div>
                 <div class="pt-5 pb-5" style="color:darkslategray;">
                     <h2><b>R$ @ViewBag.Saldo</b></h2>
