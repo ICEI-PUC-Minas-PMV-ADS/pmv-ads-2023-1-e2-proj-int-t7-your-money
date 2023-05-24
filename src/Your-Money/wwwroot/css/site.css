@@ -77,17 +77,17 @@ body {
 
 .alert-danger {
     color: red;
-    background-color: black;
+    background-color: grey;
 }
 
 .alert-orange {
     color: darkorange;
-    background-color: black;
+    background-color: grey;
 }
 
 .alert-warning {
     color: yellow;
-    background-color: black;
+    background-color: grey;
 }
 
 
