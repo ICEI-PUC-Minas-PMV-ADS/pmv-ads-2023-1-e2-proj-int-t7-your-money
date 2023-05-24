@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<link rel="stylesheet" href="~/css/site.css" />
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -12,6 +13,19 @@
 
 <h2 style="color:darkblue">Deletar Usuário</h2>
 <hr>
+
+@{
+    var alertClass = ViewBag.AlertClass;
+    var alertMessage = ViewBag.AlertMessage;
+}
+
+@if (!string.IsNullOrEmpty(alertMessage))
+{
+    <div class="alert @alertClass">
+        @alertMessage
+    </div>
+}
+
 
 <h3 class="mt-2 pt-5 pb-5" style="color:blue">Você tem certeza que deseja excluir este Usuário?</h3>
 <div>

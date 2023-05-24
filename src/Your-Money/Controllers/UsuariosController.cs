@@ -13,18 +13,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Your_Money.Models;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
+
 
 namespace Your_Money.Controllers
 {
     public class UsuariosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly CultureInfo _cultura;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(ApplicationDbContext context, CultureInfo cultura)
         {
             _context = context;
+            _cultura = cultura;
         }
-
         public IActionResult Login()
         {
             return View();
@@ -85,6 +89,7 @@ namespace Your_Money.Controllers
             return Redirect("/Home/Index");
         }
 
+
         public IActionResult AccessDenied()
         {
             return View();
@@ -105,20 +110,43 @@ namespace Your_Money.Controllers
                 ano = DateTime.Now.Year;
 
             var valorReceitas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                  x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
+                                                      x.Data.Year == ano &&
+                                                      x.Data.Month == mes).Sum(x => x.Valor);
 
             var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                  x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
+                                                      x.Data.Year == ano &&
+                                                      x.Data.Month == mes).Sum(x => x.Valor);
 
-            if (valorDespesas >= 0.75m * valorReceitas)
+            decimal porcentagemDespesas = 0;
+
+            if (valorReceitas != 0)
             {
-                CultureInfo cultura = new("pt-BR");
-                string nomeMes = cultura.DateTimeFormat.GetMonthName(mes);
-
-                ViewBag.AlertMessage = "As despesas atingiram 75% das receitas no mês de " + nomeMes + "!";
+                porcentagemDespesas = valorDespesas / valorReceitas * 100;
             }
+            else if (valorDespesas != 0)
+            {
+                porcentagemDespesas = 100; 
+            }
+
+            string nomeMes = _cultura.DateTimeFormat.GetMonthName(mes);
+            string alertClass = GetAlertClass(porcentagemDespesas);
+
+            if (porcentagemDespesas > 95)
+            {
+                ViewBag.AlertClass = "alert-danger";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            {
+                ViewBag.AlertClass = "alert-orange";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            {
+                ViewBag.AlertClass = "alert-warning";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
@@ -127,6 +155,25 @@ namespace Your_Money.Controllers
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             return View(await usuarioDbContext.ToListAsync());
         }
+
+        private string GetAlertClass(decimal porcentagemDespesas)
+        {
+            if (porcentagemDespesas > 95)
+            {
+                return "alert-danger";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            {
+                return "alert-orange";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            {
+                return "alert-warning";
+            }
+
+            return string.Empty;
+        }
+
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)

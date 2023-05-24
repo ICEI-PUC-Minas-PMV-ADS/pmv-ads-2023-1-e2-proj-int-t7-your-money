@@ -1,8 +1,23 @@
 ﻿@model Your_Money.Models.Usuario
 
 @{
+    var alertClass = ViewBag.AlertClass;
+    var alertMessage = ViewBag.AlertMessage;
+}
+
+@if (!string.IsNullOrEmpty(alertMessage))
+{
+    <div class="alert @alertClass">
+        @alertMessage
+    </div>
+}
+
+
+@{
     ViewData["Title"] = "Edit";
 }
+
+<link rel="stylesheet" href="~/css/site.css" />
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>

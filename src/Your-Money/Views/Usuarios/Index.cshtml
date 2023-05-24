@@ -2,7 +2,14 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+    var alertMessage = ViewBag.AlertMessage;
+}
+<link rel="stylesheet" href="~/css/site.css" />
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -105,12 +112,23 @@
                         <div class="pt-5 pb-5" style="color:darkslategray">
                             <h1><b>R$ @ViewBag.Saldo</b></h1>
 
-                            @if (ViewBag.AlertMessage != null)
+                            @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
                             {
-                                <div class="alert alert-warning" role="alert">
-                                    @ViewBag.AlertMessage
-                                </div>
+                                if (ViewBag.AlertClass == "alert-orange")
+                                {
+                                    <div class="alert alert-orange" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert @ViewBag.AlertClass" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
                             }
+
+
                         </div>
                     </div>
                 </div>
