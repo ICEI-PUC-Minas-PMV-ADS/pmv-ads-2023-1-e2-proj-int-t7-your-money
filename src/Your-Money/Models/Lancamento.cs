@@ -43,11 +43,15 @@ namespace Your_Money.Models
         [Required(ErrorMessage = "Obrigatório informar a descrição!")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Recorrente?")]
+        public int NumeroParcelas { get; set; }
+        public int ParcelaAtual { get; set; }
 
         public int ContasId { get; set; }
         
         [ForeignKey("ContasId")]
         public Conta Contas { get; set; }
+
     }
 
     public enum StatusTransacao

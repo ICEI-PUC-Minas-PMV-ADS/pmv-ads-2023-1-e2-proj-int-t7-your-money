@@ -72,6 +72,26 @@
             </div>
         </nav>
     </header>
+
+    @{
+        var toastMessage = TempData["ToastMessage"]?.ToString();
+    }
+
+    @if (!string.IsNullOrEmpty(toastMessage))
+    {
+        <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+            <div class="toast-header">
+                <strong class="mr-auto">Mensagem</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @toastMessage
+            </div>
+        </div>
+    }
+
     <div class="container" id="página inicial">
         <main role="main" class="pb-3 m-auto p-o">
             @RenderBody()

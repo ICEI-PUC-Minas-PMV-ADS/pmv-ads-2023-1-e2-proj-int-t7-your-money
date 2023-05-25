@@ -151,6 +151,7 @@ namespace Your_Money.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
+            TempData["ToastMessage"] = "Usuário criado com sucesso!";
             return View();
         }
 

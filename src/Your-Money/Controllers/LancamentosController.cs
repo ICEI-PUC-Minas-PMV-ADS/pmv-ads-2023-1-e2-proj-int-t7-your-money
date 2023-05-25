@@ -192,12 +192,40 @@ namespace Your_Money.Controllers
         // POST: Lancamentos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
+        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId,NumeroParcelas")] Lancamento lancamento)
         {
             if (ModelState.IsValid)
             {
                 lancamento.ContasId = GetUser().Id;
-                _context.Add(lancamento);
+
+                if (lancamento.NumeroParcelas > 1)
+                {
+                    decimal valorParcela = lancamento.Valor / lancamento.NumeroParcelas;
+
+                    for (int parcela = 1; parcela <= lancamento.NumeroParcelas; parcela++)
+                    {
+                        Lancamento lancamentoParcelado = new Lancamento
+                        {
+                            Tipo = lancamento.Tipo,
+                            Via = lancamento.Via,
+                            Classificacao = lancamento.Classificacao,
+                            Valor = valorParcela,
+                            Data = lancamento.Data.AddMonths(parcela - 1),
+                            Status = lancamento.Status,
+                            Descricao = lancamento.Descricao,
+                            ContasId = lancamento.ContasId,
+                            NumeroParcelas = lancamento.NumeroParcelas,
+                            ParcelaAtual = parcela
+                        };
+
+                        _context.Add(lancamentoParcelado);
+                    }
+                }
+                else
+                {
+                    _context.Add(lancamento);
+                }
+
                 await _context.SaveChangesAsync();
 
                 var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
@@ -210,9 +238,11 @@ namespace Your_Money.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
+
 
         // GET: Lancamentos/Edit/5
         public async Task<IActionResult> Edit(int? id)

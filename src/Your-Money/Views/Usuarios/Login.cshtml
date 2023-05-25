@@ -6,28 +6,45 @@
 
 <h2 style="color:darkblue">Entrar</h2>
 <hr>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <b style="color:darkblue">
-                    <label asp-for="Email" class="control-label"></label></b>
+                    <label asp-for="Email" class="control-label"></label>
+                </b>
                 <input asp-for="Email" class="form-control shadow-sm" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <b style="color:darkblue">
-                    <label asp-for="Senha" class="control-label"></label></b>
+                    <label asp-for="Senha" class="control-label"></label>
+                </b>
                 <input asp-for="Senha" class="form-control shadow-sm" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Entrar" class="btn btn-primary" />
+                <button type="submit" class="btn btn-primary" id="btnEntrar">
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    Entrar
+                </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
         <h3> @ViewBag.Message </h3>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+        $('form').submit(function () {
+            $('#btnEntrar').prop('disabled', true);
+            $('.spinner-border').removeClass('d-none');
+        });
+    });
+</script>
+
 

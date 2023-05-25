@@ -66,7 +66,18 @@
                 @item.Data.ToString("dd/MM/yyyy")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                    @if (item.Status == StatusTransacao.Pendente)
+                    {
+                        <span class="alert alert-danger">@Html.DisplayFor(modelItem => item.Status)</span>
+                    }
+                    else if (item.Status == StatusTransacao.Efetivado)
+                    {
+                        <span class="alert alert-success">@Html.DisplayFor(modelItem => item.Status)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Status)
+                    }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Descricao)
@@ -74,7 +85,6 @@
 
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
         </tr>}
