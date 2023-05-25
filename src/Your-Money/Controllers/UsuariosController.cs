@@ -262,18 +262,15 @@ namespace Your_Money.Controllers
             return _context.Usuarios.Any(e => e.Id == id);
         }
 
-        public string GerarTokenRecuperacaoSenha()
+        public string GerarCodigoTemporario()
         {
-            // Gerar um token único usando um GUID (Identificador Global Único)
-            var token = Guid.NewGuid().ToString();
+            // Gerar um código alfanumérico aleatório
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            var codigo = new string(Enumerable.Repeat(caracteres, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
 
-            // Codificar o token como Base64 para torná-lo seguro para inclusão em URLs
-            var tokenBytes = Encoding.UTF8.GetBytes(token);
-            var encodedToken = WebEncoders.Base64UrlEncode(tokenBytes);
-
-            _context.SaveChanges();
-
-            return encodedToken;
+            return codigo;
         }
 
         [HttpPost]
@@ -284,16 +281,15 @@ namespace Your_Money.Controllers
 
             if (usuario == null)
             {
-                // Usuário não encontrado
+               // Usuário não encontrado
                 return View("UsuarioNaoEncontrado");
             }
-
-
+            else { 
             // Gerar um token de recuperação de senha
-            usuario.GerarTokenRecuperacaoSenha();
+            var CodigoTemporario = GerarCodigoTemporario();
 
             // Salva o usuário com o token gerado no banco de dados
-            _context.Update(usuario); // Adiciona o usuário modificado ao contexto
+            usuario.CodigoTemporario = CodigoTemporario; // Adiciona o usuário modificado ao contexto
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
 
             // Envia o e-mail de recuperação de senha
@@ -304,60 +300,57 @@ namespace Your_Money.Controllers
             var from = new EmailAddress(senderEmail);
             var to = new EmailAddress(usuario.Email);
             var subject = "Recuperação de Senha";
-            var plainTextContent = $"Clique no link a seguir para recuperar sua senha: {Url.Action("ResetarSenha", "Usuarios", new { token = usuario.TokenRecuperacaoSenha }, Request.Scheme)}";
-            var htmlContent = $"<p>Clique no link a seguir para recuperar sua senha:</p><p><a href=\"{Url.Action("ResetarSenha", "Usuarios", new { token = usuario.TokenRecuperacaoSenha }, Request.Scheme)}\">Recuperar Senha</a></p>";
+            var plainTextContent = $"Seu código temporário é: {CodigoTemporario} <br> Clique no link a seguir para recuperar sua senha: {Url.Action("ResetarSenha", "Usuarios", new { codigo = usuario.CodigoTemporario }, Request.Scheme)}";
+            var htmlContent = $"<p>Seu código temporário é: {CodigoTemporario} Clique no link a seguir para recuperar sua senha:</p><p><a href=\"{Url.Action("ResetarSenha", "Usuarios", new { codigo = usuario.CodigoTemporario }, Request.Scheme)}\">Recuperar Senha</a></p>";
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             await client.SendEmailAsync(msg);
 
             return ExibirEmailEnviado();
+            }
         }
 
-        public IActionResult ResetarSenha(string token)
+        public async Task <IActionResult> ResetarSenha(string codigo)
         {
-            // Verificar se o token é válido e exibir a view para redefinir a senha
-            var usuario = _context.Usuarios.FirstOrDefault(u => u.TokenRecuperacaoSenha == token);
+            // Verifica se o token é válido e exibir a view para redefinir a senha
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.CodigoTemporario == codigo);
 
             if (usuario != null)
             {
-                // Gerar e atribuir o novo token
-                string novoToken = GerarTokenRecuperacaoSenha();
-                usuario.TokenRecuperacaoSenha = novoToken;
+                // Gera e atribui o novo código
+                string novoCodigo = GerarCodigoTemporario();
+                usuario.CodigoTemporario = novoCodigo;
 
-                // Salvar as alterações no banco de dados
+                // Salva as alterações no banco de dados
                 _context.SaveChanges();
             }
 
-            // Token válido, exibir a view para redefinir a senha
+            // Caso o código seja válido, exibir a view para redefinir a senha
             return ExibirResetarSenha();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ResetarSenha(string token, string novaSenha)
+        public async Task <IActionResult> ResetarSenha(string codigoTemporario, string novaSenha)
         {
-            // Verificar se o token é válido e atualizar a senha do usuário
-            var usuario = _context.Usuarios.FirstOrDefault(u => u.TokenRecuperacaoSenha == token);
+            // Verificar se o código temporário é válido e atualizar a senha do usuário
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.CodigoTemporario == codigoTemporario);
 
             if (usuario != null)
             {
                 // Atualizar a senha do usuário com a nova senha fornecida
                 usuario.Senha = novaSenha;
 
-
-                // Limpar o token de recuperação 
-                usuario.TokenRecuperacaoSenha = null;
+                // Limpar o código temporário
+                usuario.CodigoTemporario = null;
 
                 // Salvar as alterações no banco de dados
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
 
                 return ExibirSenhaRedefinida();
             }
-            else
-            {
-                // Caso o usuário não seja encontrado, você pode lidar com isso de acordo com a sua lógica, como exibir uma mensagem de erro ou redirecionar para uma página adequada.
-                // Exemplo de redirecionamento para uma página de erro
-                return ExibirTokenInvalido();
-            }
+
+            // Se o código temporário for inválido, redirecionar para uma página de erro
+            return RedirectToAction("TokenInvalido");
         }
 
         [HttpGet]
@@ -389,5 +382,7 @@ namespace Your_Money.Controllers
         {
             return View("TokenInvalido");
         }
+
+        /*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*/
     }
 }

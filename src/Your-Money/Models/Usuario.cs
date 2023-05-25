@@ -36,6 +36,8 @@ namespace Your_Money.Models
        
         public string TokenRecuperacaoSenha { get; set; }
 
+        public string CodigoTemporario { get; set; }
+
 
         public Conta conta { get; set; }
 
