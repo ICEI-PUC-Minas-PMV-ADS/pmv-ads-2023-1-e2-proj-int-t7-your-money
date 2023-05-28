@@ -105,15 +105,23 @@ namespace Your_Money.Controllers
 
             var valorReceitas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
                                                   x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
+                                                  x.Data.Month == mes &&
+                                                  x.Status == StatusTransacao.Efetivado)
+                                            .Sum(x => x.Valor);
 
             var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
                                                   x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
-            
-            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita).Sum(x => x.Valor);
-            
-            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa).Sum(x => x.Valor);
+                                                  x.Data.Month == mes &&
+                                                  x.Status == StatusTransacao.Efetivado)
+                                            .Sum(x => x.Valor);
+
+            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                       x.Status == StatusTransacao.Efetivado)
+                                                .Sum(x => x.Valor);
+
+            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                       x.Status == StatusTransacao.Efetivado)
+                                                .Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;

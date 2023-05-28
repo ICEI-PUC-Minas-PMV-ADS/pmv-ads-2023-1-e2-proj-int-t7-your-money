@@ -120,16 +120,17 @@ namespace Your_Money.Controllers
 
             return View(await applicationDbContext.ToListAsync());
         }
-        private int CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
+        private decimal CountLancamentosByClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             return _context.Lancamentos
                 .Where(t => t.Classificacao == classificacao &&
                             t.Tipo == transacao &&
+                            t.Status == StatusTransacao.Efetivado &&
                             t.Data.Month == mes &&
                             t.Data.Year == ano &&
                             t.Contas.Usuario.Email == userEmail)
-                .Count();
+                .Sum(l => l.Valor);
         }
 
         /*
@@ -176,7 +177,8 @@ namespace Your_Money.Controllers
 
             //Pega saldo total do ano
             var saldoTotalAno = _context.Lancamentos.Where(l => l.Contas.Usuario.Email == userEmail &&
-                                                                l.Data.Year == ano).Sum(l => l.Tipo == Transacao.Receita ? l.Valor : -l.Valor);
+                                                                l.Data.Year == ano &&
+                                                                l.Status == StatusTransacao.Efetivado).Sum(l => l.Tipo == Transacao.Receita ? l.Valor : -l.Valor);
 
             ViewBag.SaldoTotalAno = saldoTotalAno;
             //
