@@ -18,17 +18,21 @@
 <hr>
 
     <div class="container">
-        <form asp-action="Create">
+        <form asp-action="Create" id="formCreate">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="form-group">
+                    <div class="form-group" id="Transação">
                         <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
-                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()">
+                            <option value="" style="background-color:aliceblue;">Selecione</option>
+                        </select>
                         <span asp-validation-for="Tipo" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="Classificação">
                         <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
-                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
+                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
                         <span asp-validation-for="Classificacao" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -37,15 +41,19 @@
                         <span asp-validation-for="Data" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <b style="color:darkblue"><label asp-for="Status" class="control-label"></label></b>
-                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
+                        <b style="color: darkblue"><label asp-for="Status" class="control-label"></label></b>
+                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group" id="Via">
                         <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
-                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()"></select>
+                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
                         <span asp-validation-for="Via" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -55,7 +63,7 @@
                     </div>
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="NumeroParcelas" class="control-label"></label></b>
-                        <input asp-for="NumeroParcelas" class="form-control shadow-sm" placeholder="Se sim, digite o nº de repetições" />
+                        <input asp-for="NumeroParcelas" class="form-control shadow-sm" placeholder="Sim: nº repetições | Não: digite 0" />
                         <span asp-validation-for="NumeroParcelas" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -67,11 +75,42 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
                     <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" asp-action="Index" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </form>
     </div>
+
+
+    <script>
+        function limparFormulario() {
+            var form = document.getElementById("formCreate");
+            form.reset();
+        }
+
+        document.getElementById("formCreate").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log("Lançamento salvo com sucesso");
+                        limparFormulario();
+                        window.location.href = "/Lancamentos/Index";
+                    } else {
+                        console.error("Erro ao salvar o lançamento:", response.statusText);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Erro ao enviar os dados do formulário:", error);
+                });
+        });
+    </script>
+
+
 
 </body>

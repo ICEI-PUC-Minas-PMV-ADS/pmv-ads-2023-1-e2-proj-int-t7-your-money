@@ -22,6 +22,7 @@ $(document).ready(function () {
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
             "sSearch": "Pesquisar",
+            "sSearchPlaceholder": "o que você busca?",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",

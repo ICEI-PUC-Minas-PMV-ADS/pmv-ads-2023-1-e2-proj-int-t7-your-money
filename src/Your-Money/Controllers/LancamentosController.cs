@@ -30,6 +30,7 @@ namespace Your_Money.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+
         private Usuario GetUser()
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value);
@@ -100,6 +101,13 @@ namespace Your_Money.Controllers
             var impostosDespesa = CountLancamentosByClassificacao(Classificacao.Impostos, Transacao.Despesa, mes, ano);
             var taxasDespesa = CountLancamentosByClassificacao(Classificacao.Taxas, Transacao.Despesa, mes, ano);
             var saudeDespesa = CountLancamentosByClassificacao(Classificacao.Saúde, Transacao.Despesa, mes, ano);
+            var educacaoDespesa = CountLancamentosByClassificacao(Classificacao.Educação, Transacao.Despesa, mes, ano);
+            var segurosDespesa = CountLancamentosByClassificacao(Classificacao.Seguros, Transacao.Despesa, mes, ano);
+            var vestuarioDespesa = CountLancamentosByClassificacao(Classificacao.Vestuário, Transacao.Despesa, mes, ano);
+            var investimentosDespesa = CountLancamentosByClassificacao(Classificacao.Investimentos, Transacao.Despesa, mes, ano);
+            var imprevistosDespesa = CountLancamentosByClassificacao(Classificacao.Imprevistos, Transacao.Despesa, mes, ano);
+            var eventosDespesa = CountLancamentosByClassificacao(Classificacao.Eventos, Transacao.Despesa, mes, ano);
+            var outrosDespesa = CountLancamentosByClassificacao(Classificacao.Outros, Transacao.Despesa, mes, ano);
 
             ViewBag.AlimentacaoReceita = alimentoReceita;
             ViewBag.VeiculoReceita = veiculosReceita;
@@ -115,6 +123,13 @@ namespace Your_Money.Controllers
             ViewBag.ImpostoDespesa = impostosDespesa;
             ViewBag.TaxaDespesa = taxasDespesa;
             ViewBag.SaudeDespesa = saudeDespesa;
+            ViewBag.EducacaoDespesa = educacaoDespesa;
+            ViewBag.SegurosDespesa = segurosDespesa;
+            ViewBag.VestuarioDespesa = vestuarioDespesa;
+            ViewBag.InvestimentosDespesa = investimentosDespesa;
+            ViewBag.ImprevistosDespesa = imprevistosDespesa;
+            ViewBag.EventosDespesa = eventosDespesa;
+            ViewBag.OutrosDespesa = outrosDespesa;
 
 
             return View(await applicationDbContext.ToListAsync());

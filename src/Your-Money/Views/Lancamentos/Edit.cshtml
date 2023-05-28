@@ -23,12 +23,14 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
-                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()" disabled></select>
+                        <input type="hidden" asp-for="Tipo" />
                         <span asp-validation-for="Tipo" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
-                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
+                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()" disabled></select>
+                        <input type="hidden" asp-for="Classificacao" />
                         <span asp-validation-for="Classificacao" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -38,14 +40,15 @@
                     </div>
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="Status" class="control-label"></label></b>
-                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
+                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()" ></select>
                         <span asp-validation-for="Status" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
-                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()"></select>
+                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()" disabled></select>
+                        <input type="hidden" asp-for="Via" />
                         <span asp-validation-for="Via" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -67,8 +70,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
                     <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </form>

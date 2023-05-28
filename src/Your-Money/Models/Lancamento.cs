@@ -44,6 +44,7 @@ namespace Your_Money.Models
         public string Descricao { get; set; }
 
         [Display(Name = "Recorrente?")]
+        [Required(ErrorMessage = "Obrigatório informar o número de parcelas! Caso não haja parcela, coloque 0")]
         public int NumeroParcelas { get; set; }
         public int ParcelaAtual { get; set; }
 
@@ -55,7 +56,7 @@ namespace Your_Money.Models
     }
 
     public enum StatusTransacao
-    {
+    { 
         Pendente,
         Efetivado
     }
@@ -69,21 +70,28 @@ namespace Your_Money.Models
     public enum Via
     {
         Dinheiro,
-        Cartão,
+        Transferência,
         Pix
     }
     public enum Classificacao
     {
         Alimentação,
-        Veículo,
-        Salário,
-        Moradia,
-        Transporte,
+        CartãoDeCrédito,
+        Educação,
         Empréstimos,
         Entretenimento,
+        Eventos,
         Impostos,
+        Imprevistos,
+        Investimentos,
+        Moradia,
+        Salário,
+        Saúde,
+        Seguros,
         Taxas,
-        Saúde
-
+        Transporte,
+        Veículo,
+        Vestuário,
+        Outros
     }
 }

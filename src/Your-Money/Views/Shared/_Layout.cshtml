@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
-  
+
  </head>
 <body>
     <header>
@@ -35,7 +35,9 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="" style="text-align:center">
-                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index"><img src="~/userloged.png" /><h6 style="text-align:center;"></h6></a>
+                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                    <img src="~/userloged.png" />
+                                </a>
                             </div>
                             <h7 style="color:blue">|</h7>
                         <div class="">
@@ -48,10 +50,10 @@
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Relatorio"><h5><b>Relatórios</b></h5></a>
                         </div>
                         <div>
-                            <h7 style="color:blue">|</h7>
+                                <h7 style="color:blue;">|</h7>
                         </div>
                             <div>
-                                <a class="nav-link shadow m-1" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;"><h6><b>Sair</b></h6></a>
+                                <a class="nav-link shadow m-3" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;"><h6><b>Sair</b></h6></a>
                             </div>
                         }
                         else
@@ -71,26 +73,8 @@
 
             </div>
         </nav>
+
     </header>
-
-    @{
-        var toastMessage = TempData["ToastMessage"]?.ToString();
-    }
-
-    @if (!string.IsNullOrEmpty(toastMessage))
-    {
-        <div id="toastMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
-            <div class="toast-header">
-                <strong class="mr-auto">Mensagem</strong>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                @toastMessage
-            </div>
-        </div>
-    }
 
     <div class="container" id="página inicial">
         <main role="main" class="pb-3 m-auto p-o">
@@ -100,24 +84,23 @@
 
 </body>
 
-<footer>
+<script src="~/lib/jquery/dist/jquery-3.2.1.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script type="text/javascript" https: //code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" https: //cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+<footer class="pt-0 p-0 m-0 mb-0 pb-0">
         <hr>
         <div class="container text-center">
             Direitos reservados a PUC Minas. COPYRIGHT&copy; 2023 - <a asp-area="" asp-controller="Home" asp-action="Dicas">Dicas</a>
         </div>
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery-3.2.1.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
-
-    <script type="text/javascript" https: //code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" https: //cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-
 </html>
 
 

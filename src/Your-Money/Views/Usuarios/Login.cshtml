@@ -26,11 +26,10 @@
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary" id="btnEntrar">
-                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                    Entrar
-                </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary" id="btnEntrar" value="Entrar">
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" style="margin-right:20px;"></span>Entrar
+                </button>
             </div>
         </form>
         <h3> @ViewBag.Message </h3>
