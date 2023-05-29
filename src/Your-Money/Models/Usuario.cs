@@ -39,6 +39,7 @@ namespace Your_Money.Models
         public string CodigoTemporario { get; set; }
 
 
+
         public Conta conta { get; set; }
 
         internal bool ConfirmacaoSenha()

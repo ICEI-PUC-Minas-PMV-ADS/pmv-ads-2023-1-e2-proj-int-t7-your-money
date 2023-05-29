@@ -12,6 +12,7 @@ using SendGrid;
 using Your_Money.Models;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace Your_Money.Controllers
 {
@@ -310,7 +311,7 @@ namespace Your_Money.Controllers
             }
         }
 
-        public async Task <IActionResult> ResetarSenha(string codigo)
+        public IActionResult ResetarSenha(string codigo)
         {
             // Verifica se o token é válido e exibir a view para redefinir a senha
             var usuario = _context.Usuarios.FirstOrDefault(u => u.CodigoTemporario == codigo);
@@ -330,7 +331,7 @@ namespace Your_Money.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> ResetarSenha(string codigoTemporario, string novaSenha)
+        public IActionResult ResetarSenha(string codigoTemporario, string novaSenha)
         {
             // Verificar se o código temporário é válido e atualizar a senha do usuário
             var usuario = _context.Usuarios.FirstOrDefault(u => u.CodigoTemporario == codigoTemporario);
@@ -344,7 +345,7 @@ namespace Your_Money.Controllers
                 usuario.CodigoTemporario = null;
 
                 // Salvar as alterações no banco de dados
-                _context.SaveChanges();
+               _context.SaveChanges();
 
                 return ExibirSenhaRedefinida();
             }
@@ -383,6 +384,6 @@ namespace Your_Money.Controllers
             return View("TokenInvalido");
         }
 
-        /*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*/
+       
     }
 }
