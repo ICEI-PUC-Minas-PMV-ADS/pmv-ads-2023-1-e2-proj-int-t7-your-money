@@ -22,7 +22,7 @@ namespace Your_Money.Models
 
         [Display(Name = "Data de Pagamento")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime DataPagamento { get; set; }
+        public DateTime? DataPagamento { get; set; }
 
         [Display(Name = "Data de Vencimento")]
         [Required(ErrorMessage = "Obrigatório informar a data!")]
