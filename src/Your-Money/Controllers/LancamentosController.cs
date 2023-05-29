@@ -46,10 +46,14 @@ namespace Your_Money.Controllers
             var lancamento = await _context.Lancamentos
                 .Include(l => l.Contas)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (lancamento == null)
             {
                 return NotFound();
             }
+
+            lancamento.Parcelamentos = _context.Parcelamentos
+                .Where(x => x.LancamentoId == lancamento.Id).ToList();
 
             return View(lancamento);
         }
@@ -90,10 +94,15 @@ namespace Your_Money.Controllers
             }
 
             var lancamento = await _context.Lancamentos.FindAsync(id);
+
             if (lancamento == null)
             {
                 return NotFound();
             }
+
+            lancamento.Parcelamentos = _context.Parcelamentos
+                .Where(x => x.LancamentoId == lancamento.Id).ToList();
+
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
@@ -146,10 +155,14 @@ namespace Your_Money.Controllers
             var lancamento = await _context.Lancamentos
                 .Include(l => l.Contas)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (lancamento == null)
             {
                 return NotFound();
             }
+
+            lancamento.Parcelamentos = _context.Parcelamentos
+                .Where(x => x.LancamentoId == lancamento.Id).ToList();
 
             return View(lancamento);
         }

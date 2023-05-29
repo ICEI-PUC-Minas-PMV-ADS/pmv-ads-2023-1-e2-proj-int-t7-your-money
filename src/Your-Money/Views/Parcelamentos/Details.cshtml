@@ -1,0 +1,48 @@
+﻿@model Your_Money.Models.Parcelamento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 style="color:darkblue">Detalhar Parcela</h2>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataPagamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataPagamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataVencimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataVencimento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @if (Model.Status == true)
+            {
+                <span>Efetivado</span>
+            }
+            else
+            {
+                <span>Pendente</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Editar</a>
+    <a asp-controller="Lancamentos" asp-action="Edit" class="btn btn-secondary" asp-route-id="@Model.LancamentoId">Voltar</a>
+</div>

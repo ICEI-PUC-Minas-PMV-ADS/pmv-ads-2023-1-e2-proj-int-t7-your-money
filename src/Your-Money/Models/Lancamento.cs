@@ -1,10 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
-using System.Globalization;
-using Microsoft.VisualBasic;
-using Microsoft.AspNetCore.Components.Forms;
+using System.Collections.Generic;
 
 namespace Your_Money.Models
 {
@@ -48,6 +45,8 @@ namespace Your_Money.Models
         
         [ForeignKey("ContasId")]
         public Conta Contas { get; set; }
+
+        public List<Parcelamento> Parcelamentos { get; set; }
     }
 
     public enum StatusTransacao
@@ -68,6 +67,7 @@ namespace Your_Money.Models
         Cartão,
         Pix
     }
+
     public enum Classificacao
     {
         Alimentação,
@@ -80,6 +80,5 @@ namespace Your_Money.Models
         Impostos,
         Taxas,
         Saúde
-
     }
 }

@@ -64,6 +64,65 @@
             @Html.DisplayFor(model => model.Contas.Usuario.Email)
         </dd class>
     </dl>
+
+    <h3 style="color:darkblue">Parcelas</h3>
+    <hr>
+
+    <div class="row">
+        <table class="table ml-3 mr-3">
+            <thead>
+                <tr style="background-color:whitesmoke">
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        DataPagamento
+                    </th>
+                    <th>
+                        DataVencimento
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Parcelamentos != null && Model.Parcelamentos.Count > 0)
+                {
+                    @foreach (var item in Model.Parcelamentos)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Valor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataPagamento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataVencimento)
+                            </td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <span>Efetivado</span>
+                                }
+                                else
+                                {
+                                    <span>Pendente</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">Nenhum registro de parcelamento</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />

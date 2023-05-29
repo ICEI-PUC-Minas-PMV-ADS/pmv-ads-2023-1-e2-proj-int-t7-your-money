@@ -15,9 +15,9 @@
 <h2 style="color:darkblue">Editar Lançamento</h2>
 <hr>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-md-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Via" class="control-label"></label>
-                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"><option value="" disabled selected>Selecione uma opção</option></select>>
+                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"><option value="" disabled selected>Selecione uma opção</option></select>
                 <span asp-validation-for="Via" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,14 +55,85 @@
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
+        </div>
+
+        <div class="col-md-12">
+            <h3 style="color:darkblue">Parcelas</h3>
+            <hr>
+
+            <div class="row">
+                <table class="table ml-3 mr-3">
+                    <thead>
+                        <tr style="background-color:whitesmoke">
+                            <th>
+                                Valor
+                            </th>
+                            <th>
+                                DataPagamento
+                            </th>
+                            <th>
+                                DataVencimento
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Parcelamentos != null && Model.Parcelamentos.Count > 0)
+                        {
+                            @foreach (var item in Model.Parcelamentos)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Valor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DataPagamento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DataVencimento)
+                                    </td>
+                                    <td>
+                                        @if (item.Status == true)
+                                        {
+                                            <span>Efetivado</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Pendente</span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        <a asp-controller="Parcelamentos" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                                        <a asp-controller="Parcelamentos" asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
+                                        <a asp-controller="Parcelamentos" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5">Nenhum registro de parcelamento</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-4">
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-
-
+</form>
 
 
