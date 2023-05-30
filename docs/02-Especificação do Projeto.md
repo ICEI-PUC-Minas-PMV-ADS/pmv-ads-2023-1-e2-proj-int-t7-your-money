@@ -61,7 +61,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-01| A aplicação deve permitir o usuário gerenciar suas receitas.| Alta | 
 |RF-02| A aplicação deve permitir o usuário gerenciar seus despesas. | Alta |
 |RF-03| A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. | Alta |
-|RF-04| A aplicação deve emitir alertas, quando as despesas atingirem 75% do valor das receitas.| Alta |
+|RF-04| A aplicação deve emitir alertas, quando as despesas estiverem >=75% e <=85%, >85% e <=95% e maiores que 95% do valor das receitas| Alta |
 |RF-05| A aplicação deve permitir que o usuário faça login. | Alta |
 |RF-06| A aplicação deve permitir o auto gerenciamentos do usuários. | Alta |
 |RF-07| Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. | Alta |
