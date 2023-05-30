@@ -30,6 +30,7 @@ namespace Your_Money.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+
         private Usuario GetUser()
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value);
@@ -53,7 +54,6 @@ namespace Your_Money.Controllers
 
             return View(lancamento);
         }
-
 
         // GET: Lancamentos/Relatorio/5
         public async Task<IActionResult> Relatorio(int? mes, int? ano)
@@ -101,6 +101,13 @@ namespace Your_Money.Controllers
             var impostosDespesa = CountLancamentosByClassificacao(Classificacao.Impostos, Transacao.Despesa, mes, ano);
             var taxasDespesa = CountLancamentosByClassificacao(Classificacao.Taxas, Transacao.Despesa, mes, ano);
             var saudeDespesa = CountLancamentosByClassificacao(Classificacao.Saúde, Transacao.Despesa, mes, ano);
+            var educacaoDespesa = CountLancamentosByClassificacao(Classificacao.Educação, Transacao.Despesa, mes, ano);
+            var segurosDespesa = CountLancamentosByClassificacao(Classificacao.Seguros, Transacao.Despesa, mes, ano);
+            var vestuarioDespesa = CountLancamentosByClassificacao(Classificacao.Vestuário, Transacao.Despesa, mes, ano);
+            var investimentosDespesa = CountLancamentosByClassificacao(Classificacao.Investimentos, Transacao.Despesa, mes, ano);
+            var imprevistosDespesa = CountLancamentosByClassificacao(Classificacao.Imprevistos, Transacao.Despesa, mes, ano);
+            var eventosDespesa = CountLancamentosByClassificacao(Classificacao.Eventos, Transacao.Despesa, mes, ano);
+            var outrosDespesa = CountLancamentosByClassificacao(Classificacao.Outros, Transacao.Despesa, mes, ano);
 
             ViewBag.AlimentacaoReceita = alimentoReceita;
             ViewBag.VeiculoReceita = veiculosReceita;
@@ -116,6 +123,13 @@ namespace Your_Money.Controllers
             ViewBag.ImpostoDespesa = impostosDespesa;
             ViewBag.TaxaDespesa = taxasDespesa;
             ViewBag.SaudeDespesa = saudeDespesa;
+            ViewBag.EducacaoDespesa = educacaoDespesa;
+            ViewBag.SegurosDespesa = segurosDespesa;
+            ViewBag.VestuarioDespesa = vestuarioDespesa;
+            ViewBag.InvestimentosDespesa = investimentosDespesa;
+            ViewBag.ImprevistosDespesa = imprevistosDespesa;
+            ViewBag.EventosDespesa = eventosDespesa;
+            ViewBag.OutrosDespesa = outrosDespesa;
 
 
             return View(await applicationDbContext.ToListAsync());
@@ -142,8 +156,6 @@ namespace Your_Money.Controllers
                     (status == null || (int)l.Status == status) &&
                     (transacao == null || (int)l.Tipo == transacao));
 
-            
-
             return View(await lancamentos.ToListAsync());
         }
         */
@@ -156,7 +168,7 @@ namespace Your_Money.Controllers
             int contagemDeLancamentosReceita = 0;
             int contagemDeLancamentosDespesas = 0;
 
-            
+
 
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
@@ -184,7 +196,6 @@ namespace Your_Money.Controllers
 
             return (contagemDeLancamentosReceita, contagemDeLancamentosDespesas);
         }
-        //
 
         // GET: Lancamentos/Create
         public IActionResult Create()
@@ -194,16 +205,42 @@ namespace Your_Money.Controllers
         }
 
         // POST: Lancamentos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
+        public async Task<IActionResult> Create([Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId,NumeroParcelas")] Lancamento lancamento)
         {
             if (ModelState.IsValid)
             {
                 lancamento.ContasId = GetUser().Id;
-                _context.Add(lancamento);
+
+                if (lancamento.NumeroParcelas > 1)
+                {
+                    decimal valorParcela = lancamento.Valor / lancamento.NumeroParcelas;
+
+                    for (int parcela = 1; parcela <= lancamento.NumeroParcelas; parcela++)
+                    {
+                        Lancamento lancamentoParcelado = new Lancamento
+                        {
+                            Tipo = lancamento.Tipo,
+                            Via = lancamento.Via,
+                            Classificacao = lancamento.Classificacao,
+                            Valor = valorParcela,
+                            Data = lancamento.Data.AddMonths(parcela - 1),
+                            Status = lancamento.Status,
+                            Descricao = lancamento.Descricao,
+                            ContasId = lancamento.ContasId,
+                            NumeroParcelas = lancamento.NumeroParcelas,
+                            ParcelaAtual = parcela
+                        };
+
+                        _context.Add(lancamentoParcelado);
+                    }
+                }
+                else
+                {
+                    _context.Add(lancamento);
+                }
+
                 await _context.SaveChangesAsync();
 
                 var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
@@ -211,15 +248,15 @@ namespace Your_Money.Controllers
                 {
                     usuario.SaldoTotal += lancamento.Tipo == Transacao.Despesa ? -lancamento.Valor : lancamento.Valor;
                 }
-                
+
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
         }
-
 
 
         // GET: Lancamentos/Edit/5
@@ -240,8 +277,6 @@ namespace Your_Money.Controllers
         }
 
         // POST: Lancamentos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
