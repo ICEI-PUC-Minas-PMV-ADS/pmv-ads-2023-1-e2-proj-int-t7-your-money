@@ -17,13 +17,24 @@
     <a asp-action="Create">Adicionar Lançamento</a>
 </p>
 
+<body style="background-image: url(/blue1.png);">
+
+<style>
+    .toast-receita {
+        background-color: green;
+    }
+
+    .toast-despesa {
+        background-color: red;
+    }
+</style>
 
 
-<table class="table table-striped" id="tabela1-lancamentos" style="text-align:center;padding-top:40px;">
+<table class="table table-striped table-hover" id="tabela1-lancamentos" style="text-align:center;padding-top:20px;background-color:white;">
 
     <thead>
         <tr style="background-color:aliceblue;">
-            <th style="text-align:center;">
+            <th style="text-align:center;text-size-adjust:auto;">
                 @Html.DisplayNameFor(model => model.Tipo)
             </th>
             <th style="text-align:center;">
@@ -48,35 +59,68 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Via)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Classificacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valor)
-            </td>
-            <td>
-                @item.Data.ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>}
+        @foreach (var item in Model.OrderBy(c => c.Data))
+        {
+            <tr>
+                <td>
+                        @if (item.Tipo == Transacao.Receita)
+                        {
+                            <span class="text-success">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                        }
+                        else if (item.Tipo == Transacao.Despesa)
+                        {
+                            <span class="text-danger">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Tipo)
+                        }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Via)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classificacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @item.Data.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @if (item.Status == StatusTransacao.Pendente)
+                    {
+                        <span class="alert alert-danger">@Html.DisplayFor(modelItem => item.Status)</span>
+                    }
+                    else if (item.Status == StatusTransacao.Efetivado)
+                    {
+                        <span class="alert alert-success">@Html.DisplayFor(modelItem => item.Status)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Status)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="padding-right:5px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                        </svg>
+                    </a> <h7 class="text-info"> | </h7>
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="padding-left:5px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                        </svg>
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+</body>
+

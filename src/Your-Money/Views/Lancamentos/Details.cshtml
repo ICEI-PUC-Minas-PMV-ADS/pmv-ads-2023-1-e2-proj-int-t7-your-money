@@ -4,6 +4,8 @@
     ViewData["Title"] = "Detalhar Lançamento";
 }
 
+<body style="background-image: url(/blue1.png);margin-left:10px;">
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -15,56 +17,53 @@
 <h2 style="color:darkblue">Detalhar Lançamento</h2>
 <hr>
 
-<div>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Via)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Via)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Classificacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Classificacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contas.Usuario.Email)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
+                <select asp-for="Tipo" class="form-control shadow-sm form-input" aria-label="Disabled input example" disabled asp-items="Html.GetEnumSelectList<Transacao>()"></select>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
+                <select asp-for="Via" class="form-control shadow-sm" aria-label="Disabled input example" disabled asp-items="Html.GetEnumSelectList<Via>()"></select>
+                <span asp-validation-for="Via" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
+                <select asp-for="Classificacao" class="form-control shadow-sm" aria-label="Disabled input example" disabled asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
+                <span asp-validation-for="Classificacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Valor" class="control-label"></label></b>
+                <input asp-for="Valor" class="form-control shadow-sm" aria-label="Disabled input example" disabled />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Data" class="control-label"></label></b>
+                <input asp-for="Data" class="form-control shadow-sm" type="date" aria-label="Disabled input example" disabled />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Status" class="control-label"></label></b>
+                <select asp-for="Status" class="form-control shadow-sm" aria-label="Disabled input example" disabled asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b style="color:darkblue"><label asp-for="Descricao" class="control-label"></label></b>
+                <input asp-for="Descricao" class="form-control shadow-sm" aria-label="Disabled input example" disabled />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+        </div>
 
-    <h3 style="color:darkblue">Parcelas</h3>
+        <h3 style="color:darkblue">Parcelas</h3>
     <hr>
 
     <div class="row">
@@ -123,7 +122,5 @@
         </table>
     </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
-    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-</div>
+
+</body>
