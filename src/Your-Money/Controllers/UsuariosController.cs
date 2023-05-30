@@ -324,10 +324,12 @@ namespace Your_Money.Controllers
 
                 // Salva as alterações no banco de dados
                 _context.SaveChanges();
+
+                return View("ResetarSenha", usuario);
             }
 
             // Caso o código seja válido, exibir a view para redefinir a senha
-            return ExibirResetarSenha();
+            return RedirectToAction("TokenInvalido");
         }
 
         [HttpPost]
@@ -339,7 +341,8 @@ namespace Your_Money.Controllers
             if (usuario != null)
             {
                 // Atualizar a senha do usuário com a nova senha fornecida
-                usuario.Senha = novaSenha;
+                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+                
 
                 // Limpar o código temporário
                 usuario.CodigoTemporario = null;
