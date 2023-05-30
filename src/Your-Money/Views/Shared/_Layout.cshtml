@@ -10,23 +10,22 @@
     <link rel="stylesheet" href="~/cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
-
  </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row align-items-center">
-                    <div class="col-sm">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="25%" /></a>
+                    <div class="col-md">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="20%" /></a>
                     </div>
-                    <div class="" style="text-align:center">
+                    <div style="text-align:center">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
                     </div>
                         <div>
@@ -34,19 +33,19 @@
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div class="" style="text-align:center">
+                            <div style="text-align:center">
                                 <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index">
                                     <img src="~/userloged.png" />
                                 </a>
                             </div>
                             <h7 style="color:blue">|</h7>
-                        <div class="">
+                            <div>
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="">
+                            <div>
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Relatorio"><h5><b>Relatórios</b></h5></a>
                         </div>
                         <div>
@@ -58,13 +57,13 @@
                         }
                         else
                         {
-                        <div class="">
+                            <div>
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Create"><h5><b>Cadastrar</b></h5></a> 
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                        <div class="">
+                            <div>
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Entrar</b></h5></a>
                         </div>
                         }
@@ -76,7 +75,7 @@
 
     </header>
 
-    <div class="container" id="página inicial">
+    <div class="container-fluid" style="width:85%" id="página inicial">
         <main role="main" class="pb-3 m-auto p-o">
             @RenderBody()
         </main>
@@ -95,13 +94,16 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 
-<footer class="pt-0 p-0 m-0 mb-0 pb-0">
-        <hr>
-        <div class="container text-center">
-            Direitos reservados a PUC Minas. COPYRIGHT&copy; 2023 - <a asp-area="" asp-controller="Home" asp-action="Dicas">Dicas</a>
-        </div>
-    </footer>
+<footer>
+    <hr>
+    <div class="container text-center" style="color:gray;padding-bottom:15px;">
+        Direitos reservados a PUC Minas. COPYRIGHT&copy; 2023 - <a asp-area="" asp-controller="Home" asp-action="Dicas">Dicas</a>
+    </div>
+</footer>
+
 </html>
+
+
 
 
 

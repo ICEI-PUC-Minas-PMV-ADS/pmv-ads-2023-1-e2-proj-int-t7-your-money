@@ -24,7 +24,7 @@
                 <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;width:70%;"
                        Placeholder="Digite o ano" />
                 <div style="padding-top:10px;">
-                <button class="btn btn-primary">Pesquisar</button>
+                    <button class="btn btn-primary">Pesquisar</button>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
         options: {
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     grid: {
                         drawOnChartArea: false
                     }
@@ -97,10 +97,11 @@
                 legend: {
                     labels: {
                         font: {
-                            size: 18,
+                            size: 18
                         }
-                    },
-                }
+                    }
+                },
+                indexAxis: 'x'
             }
         }
     };
@@ -161,7 +162,7 @@
 <hr>
 
 <div class="container">
-    <div class="row" style="max-height;max-width;">
+    <div class="row">
 
         <div class="col">
 
@@ -169,7 +170,7 @@
 
             <script>
                 var data = {
-                    labels: ['Alimentação', 'Veículo', 'Salário'],
+                    labels: ['Salário', 'Investimentos', 'Outros'],
                     datasets: [{
                         label: 'Receitas',
                         data: [@ViewBag.AlimentacaoReceita, @ViewBag.VeiculoReceita, @ViewBag.SalarioReceita],
@@ -198,7 +199,7 @@
                                     }
                                 }
                             },
-                            indexAxis: 'x',
+                            indexAxis: 'x'
                         }
                     }
                 };
@@ -248,23 +249,23 @@
                     type: 'bar',
                     data,
                     options: {
-                                                    scales: {
-                                y: {
-                                    beginAtZero: false,
-                                    grid: {
-                                        drawOnChartArea: false
-                                    }
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                grid: {
+                                    drawOnChartArea: false
                                 }
-                            },
+                            }
+                        },
                         plugins: {
                             legend: {
                                 labels: {
                                     font: {
                                         size: 18
                                     }
-                                }
+                                },
                             },
-                            indexAxis: 'x',
+                            indexAxis: 'x'
                         }
                     }
                 };
@@ -284,7 +285,7 @@
     <hr>
     <h5 style="color:darkblue;padding-top:20px;padding-bottom:20px;"> Descritivo dos Lançamentos </h5>
 
-    <table class="table table-striped table-hover" id="tabela2-lancamentos" style="text-align:center;padding-top:40px;">
+    <table class="table table-striped table-hover" id="tabela2-lancamentos" style="text-align:center;padding-top:20px;">
         <thead>
             <tr style="background-color:aliceblue">
                 <th style="text-align:center;">
@@ -312,11 +313,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.OrderBy(c => c.Data))
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Tipo)
+                        @if (item.Tipo == Transacao.Receita)
+                        {
+                            <span class="text-success">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                        }
+                        else if (item.Tipo == Transacao.Despesa)
+                        {
+                            <span class="text-danger">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Tipo)
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Via)
@@ -328,7 +340,7 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Data)
+                        @item.Data.ToString("dd/MM/yyyy")
                     </td>
                     <td>
                         @if (item.Status == StatusTransacao.Pendente)
