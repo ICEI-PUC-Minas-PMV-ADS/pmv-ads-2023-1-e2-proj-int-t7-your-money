@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
@@ -11,6 +12,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json;
 using Your_Money.Models;
 
 namespace Your_Money.Controllers
@@ -104,24 +107,22 @@ namespace Your_Money.Controllers
                 ano = DateTime.Now.Year;
 
             var valorReceitas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                  x.Status == StatusTransacao.Efetivado &&
                                                   x.Data.Year == ano &&
-                                                  x.Data.Month == mes &&
-                                                  x.Status == StatusTransacao.Efetivado)
-                                            .Sum(x => x.Valor);
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
 
             var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                  x.Status == StatusTransacao.Efetivado &&
                                                   x.Data.Year == ano &&
-                                                  x.Data.Month == mes &&
-                                                  x.Status == StatusTransacao.Efetivado)
-                                            .Sum(x => x.Valor);
-
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
+            
             var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                       x.Status == StatusTransacao.Efetivado)
-                                                .Sum(x => x.Valor);
-
+                                                       x.Status == StatusTransacao.Efetivado          
+                                                              ).Sum(x => x.Valor);
+            
             var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                       x.Status == StatusTransacao.Efetivado)
-                                                .Sum(x => x.Valor);
+                                                                   x.Status == StatusTransacao.Efetivado
+                                                              ).Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
@@ -153,6 +154,7 @@ namespace Your_Money.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
+            TempData["ToastMessage"] = "Usuário criado com sucesso!";
             return View();
         }
 

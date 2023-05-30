@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('#tabela1-lancamentos').DataTable({
         "ordering": true,
         "paging": true,
-        "searching": false,
+        "searching": true,
         "oLanguage": {
             "sEmptyTable": "Nenhum registro encontrado na tabela",
             "sInfo": "_START_ à _END_ de _TOTAL_ lançamentos",
@@ -22,6 +22,7 @@ $(document).ready(function () {
             "sProcessing": "Processando...",
             "sZeroRecords": "Nenhum registro encontrado",
             "sSearch": "Pesquisar",
+            "sSearchPlaceholder": "o que você busca?",
             "oPaginate": {
                 "sNext": "Próximo",
                 "sPrevious": "Anterior",
@@ -41,7 +42,7 @@ $(document).ready(function () {
     $('#tabela2-lancamentos').DataTable({
         "ordering": true,
         "paging": true,
-        "searching": false,
+        "searching": true,
         "oLanguage": {
             "sEmptyTable": "Nenhum registro encontrado na tabela",
             "sInfo": "_START_ à _END_ de _TOTAL_ lançamentos",
@@ -66,4 +67,5 @@ $(document).ready(function () {
             }
         }
     });
+
 });
