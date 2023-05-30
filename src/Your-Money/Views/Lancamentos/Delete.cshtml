@@ -67,7 +67,7 @@
     
      <form asp-action="Delete">
         <<input type="hidden" asp-for="Id" />
-        <input type="button" value="Deletar" class="btn btn-danger  BTNTESTE" />
+        <input type="button" value="Deletar" class="btn btn-danger  btnConfirmDelete" />
         <a asp-action="Index" class="btn btn-secondary">Voltar</a>
     </form>
 
@@ -76,7 +76,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Confirmação</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p>Deseja realizar a remoção <b>PERMANENTE</b> do registro em questão ?</p>
@@ -85,7 +84,7 @@
 
              <form asp-action="Delete">
                 <<input type="hidden" asp-for="Id" />
-                <input type="submit" value="Confirmar" class="btn btn-danger  BTNTESTE" />
+                <input type="submit" value="Confirmar" class="btn btn-danger  btnConfirmDelete" />
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
             </form>
 
@@ -99,7 +98,7 @@
             
             <script type="text/javascript">
                 
-                $(".BTNTESTE").click(() => {
+                $(".btnConfirmDelete").click(() => {
                     $(".modal").modal("show")
                 })
             </script>
