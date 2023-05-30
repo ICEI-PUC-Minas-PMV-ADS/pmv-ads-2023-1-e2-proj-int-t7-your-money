@@ -50,10 +50,7 @@ namespace Your_Money.Models
         [ForeignKey("ContasId")]
         public Conta Contas { get; set; }
 
-<<<<<<< HEAD
         public List<Parcelamento> Parcelamentos { get; set; }
-=======
->>>>>>> Homolog
     }
 
     public enum StatusTransacao
@@ -91,13 +88,9 @@ namespace Your_Money.Models
         Saúde,
         Seguros,
         Taxas,
-<<<<<<< HEAD
-        Saúde
-=======
         Transporte,
         Veículo,
         Vestuário,
         Outros
->>>>>>> Homolog
     }
 }
