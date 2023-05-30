@@ -1,8 +1,10 @@
 ﻿@model Your_Money.Models.Lancamento
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Lançamento";
 }
+
+<body style="background-image: url(/blue1.png);margin-left:10px;">
 
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
@@ -19,40 +21,39 @@
     <div class="row">
         <div class="col-md-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Transacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
+                <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
+                <select asp-for="Tipo" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Transacao>()"></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Via" class="control-label"></label>
-                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"><option value="" disabled selected>Selecione uma opção</option></select>
+                <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
+                <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()"></select>
                 <span asp-validation-for="Via" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Classificacao" class="control-label"></label>
-                <select asp-for="Classificacao" class="form-control" asp-items="Html.GetEnumSelectList<Classificacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
+                <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
+                <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()"></select>
                 <span asp-validation-for="Classificacao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
+                <b style="color:darkblue"><label asp-for="Valor" class="control-label"></label></b>
+                <input asp-for="Valor" class="form-control shadow-sm" />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" type="date" />
+                <b style="color:darkblue"><label asp-for="Data" class="control-label"></label></b>
+                <input asp-for="Data" class="form-control shadow-sm" type="date" />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<StatusTransacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
+                <b style="color:darkblue"><label asp-for="Status" class="control-label"></label></b>
+                <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
+                <b style="color:darkblue"><label asp-for="Descricao" class="control-label"></label></b>
+                <input asp-for="Descricao" class="form-control shadow-sm" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
         </div>
@@ -134,6 +135,12 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </form>
+=======
+</div>
+
+</body>
+>>>>>>> Homolog
 
 
