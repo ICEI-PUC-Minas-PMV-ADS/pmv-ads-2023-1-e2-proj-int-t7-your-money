@@ -133,6 +133,7 @@ namespace Your_Money.Controllers
             return View(await usuarioDbContext.ToListAsync());
         }
 
+
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -167,6 +168,13 @@ namespace Your_Money.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == usuario.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "Já existe um usuário com este email.");
+                    return View(usuario);
+                }
+
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 var account = new Conta { SaldoTotal = 0 };
                 usuario.conta = account;
@@ -174,6 +182,7 @@ namespace Your_Money.Controllers
                 await _context.SaveChangesAsync();
                 return Redirect("/Usuarios/Login");
             }
+
             return View(usuario);
         }
 

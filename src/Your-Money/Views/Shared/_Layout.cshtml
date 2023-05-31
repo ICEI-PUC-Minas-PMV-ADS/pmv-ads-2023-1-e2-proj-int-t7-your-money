@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+
  </head>
 <body>
     <header>
@@ -23,9 +24,11 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                     <div class="col-md">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/yourMoney.png" width="20%" /></a>
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+    <img src="~/yourMoney.png" class="img-fluid" style="max-width: 20%;" />
+</a>
                     </div>
-                    <div style="text-align:center">
+                        <div style="text-align:center;text-size-adjust:auto;">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
                     </div>
                         <div>
@@ -33,19 +36,19 @@
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div style="text-align:center">
+                            <div style="text-align:center;text-size-adjust:auto;">
                                 <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index">
                                     <img src="~/userloged.png" />
                                 </a>
                             </div>
                             <h7 style="color:blue">|</h7>
-                            <div>
+                            <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                            <div>
+                            <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Relatorio"><h5><b>Relatórios</b></h5></a>
                         </div>
                         <div>
@@ -57,13 +60,13 @@
                         }
                         else
                         {
-                            <div>
+                            <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Create"><h5><b>Cadastrar</b></h5></a> 
                         </div>
                         <div>
                             <h7 style="color:blue">|</h7>
                         </div>
-                            <div>
+                            <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Login"><h5><b>Entrar</b></h5></a>
                         </div>
                         }
