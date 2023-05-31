@@ -87,13 +87,12 @@ namespace Your_Money.Controllers
 
             ViewBag.LancamentosMes = lancamentosMes;
 
-            var alimentoReceita = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Receita, mes, ano);
-            var veiculosReceita = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Receita, mes, ano);
-            var salariosReceita = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Receita, mes, ano);
+            var salarioReceita = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Receita, mes, ano);
+            var investimentoReceita = CountLancamentosByClassificacao(Classificacao.Investimentos, Transacao.Receita, mes, ano);
+            var outroReceita = CountLancamentosByClassificacao(Classificacao.Outros, Transacao.Receita, mes, ano);
 
             var alimentoDespesa = CountLancamentosByClassificacao(Classificacao.Alimentação, Transacao.Despesa, mes, ano);
             var veiculosDespesa = CountLancamentosByClassificacao(Classificacao.Veículo, Transacao.Despesa, mes, ano);
-            var salariosDespesa = CountLancamentosByClassificacao(Classificacao.Salário, Transacao.Despesa, mes, ano);
             var moradiasDespesa = CountLancamentosByClassificacao(Classificacao.Moradia, Transacao.Despesa, mes, ano);
             var transportesDespesa = CountLancamentosByClassificacao(Classificacao.Transporte, Transacao.Despesa, mes, ano);
             var emprestimosDespesa = CountLancamentosByClassificacao(Classificacao.Empréstimos, Transacao.Despesa, mes, ano);
@@ -109,13 +108,12 @@ namespace Your_Money.Controllers
             var eventosDespesa = CountLancamentosByClassificacao(Classificacao.Eventos, Transacao.Despesa, mes, ano);
             var outrosDespesa = CountLancamentosByClassificacao(Classificacao.Outros, Transacao.Despesa, mes, ano);
 
-            ViewBag.AlimentacaoReceita = alimentoReceita;
-            ViewBag.VeiculoReceita = veiculosReceita;
-            ViewBag.SalarioReceita = salariosReceita;
+            ViewBag.SalarioReceita = salarioReceita;
+            ViewBag.InvestimentosReceita = investimentoReceita;
+            ViewBag.OutrosReceita = outroReceita;
 
             ViewBag.AlimentacaoDespesa = alimentoDespesa;
             ViewBag.VeiculoDespesa = veiculosDespesa;
-            ViewBag.SalarioDespesa = salariosDespesa;
             ViewBag.MoradiaDespesa = moradiasDespesa;
             ViewBag.TransporteDespesa = transportesDespesa;
             ViewBag.EmprestimoDespesa = emprestimosDespesa;
@@ -143,23 +141,8 @@ namespace Your_Money.Controllers
                             t.Data.Month == mes &&
                             t.Data.Year == ano &&
                             t.Contas.Usuario.Email == userEmail)
-                .Sum(l => l.Valor);
+                .Sum(t => t.Valor);
         }
-
-        /*
-        public async Task<IActionResult> RelatorioDescritvo(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
-        {
-            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
-            var lancamentos = _context.Lancamentos
-                .Where(l => l.Contas.Usuario.Email == userEmail &&
-                    l.Data >= dataInicial && l.Data <= dataFinal &&
-                    (status == null || (int)l.Status == status) &&
-                    (transacao == null || (int)l.Tipo == transacao));
-
-            return View(await lancamentos.ToListAsync());
-        }
-        */
-
 
         // Gráficos1
         public (int receitasMes, int despesasMes) GetLancamentosMes(int? mes, int? ano)

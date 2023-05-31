@@ -47,34 +47,34 @@
         datasets: [{
             label: 'Receitas',
             data: [@lancamentosMes[1].receitasMes,
-    @lancamentosMes[2].receitasMes,
-    @lancamentosMes[3].receitasMes,
-    @lancamentosMes[4].receitasMes,
-    @lancamentosMes[5].receitasMes,
-    @lancamentosMes[6].receitasMes,
-    @lancamentosMes[7].receitasMes,
-    @lancamentosMes[8].receitasMes,
-    @lancamentosMes[9].receitasMes,
-    @lancamentosMes[10].receitasMes,
-    @lancamentosMes[11].receitasMes,
-    @lancamentosMes[12].receitasMes],
+                    @lancamentosMes[2].receitasMes,
+                    @lancamentosMes[3].receitasMes,
+                    @lancamentosMes[4].receitasMes,
+                    @lancamentosMes[5].receitasMes,
+                    @lancamentosMes[6].receitasMes,
+                    @lancamentosMes[7].receitasMes,
+                    @lancamentosMes[8].receitasMes,
+                    @lancamentosMes[9].receitasMes,
+                    @lancamentosMes[10].receitasMes,
+                    @lancamentosMes[11].receitasMes,
+                    @lancamentosMes[12].receitasMes],
             borderWidth: 1,
             backgroundColor: ['lightgreen'],
         },
         {
             label: 'Despesa',
             data: [@lancamentosMes[1].despesasMes,
-    @lancamentosMes[2].despesasMes,
-    @lancamentosMes[3].despesasMes,
-    @lancamentosMes[4].despesasMes,
-    @lancamentosMes[5].despesasMes,
-    @lancamentosMes[6].despesasMes,
-    @lancamentosMes[7].despesasMes,
-    @lancamentosMes[8].despesasMes,
-    @lancamentosMes[9].despesasMes,
-    @lancamentosMes[10].despesasMes,
-    @lancamentosMes[11].despesasMes,
-    @lancamentosMes[12].despesasMes],
+                    @lancamentosMes[2].despesasMes,
+                    @lancamentosMes[3].despesasMes,
+                    @lancamentosMes[4].despesasMes,
+                    @lancamentosMes[5].despesasMes,
+                    @lancamentosMes[6].despesasMes,
+                    @lancamentosMes[7].despesasMes,
+                    @lancamentosMes[8].despesasMes,
+                    @lancamentosMes[9].despesasMes,
+                    @lancamentosMes[10].despesasMes,
+                    @lancamentosMes[11].despesasMes,
+                    @lancamentosMes[12].despesasMes],
             borderWidth: 1,
             backgroundColor: ['indianred'],
         }
@@ -128,7 +128,7 @@
             </div>
 
             <div class="col-sm align-self-center">
-                <form asp-action="Index" method="get" class="form-row justify-content-center">
+                <form asp-action="Relatorio" method="get" class="form-row justify-content-center">
                     <div class="col-sm align-self-center">
                         <label class="control-label" style="color:darkblue;"><b>Mês</b></label>
                         <select name="mes" class="form-control shadow-sm" required style="color:darkblue;width:70%;">
@@ -147,12 +147,10 @@
                             <option value="12">Dezembro</option>
                         </select>
                     </div>
+                    <div style="padding-top:10px;">
+                        <button class="btn btn-primary">Pesquisar</button>
+                    </div>
                 </form>
-
-                <div style="padding-top:10px;">
-                    <button class="btn btn-primary">Pesquisar</button>
-                </div>
-
             </div>
         </div>
     </div>
@@ -173,7 +171,9 @@
                     labels: ['Salário', 'Investimentos', 'Outros'],
                     datasets: [{
                         label: 'Receitas',
-                        data: [@ViewBag.AlimentacaoReceita, @ViewBag.VeiculoReceita, @ViewBag.SalarioReceita],
+                        data: [@ViewBag.SalarioReceita,
+                               @ViewBag.InvestimentosReceita,
+                               @ViewBag.OutrosReceita],
                         borderWidth: 1,
                         backgroundColor: ['lightgreen'],
                     },
@@ -185,7 +185,7 @@
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: false,
+                                beginAtZero: true,
                                 grid: {
                                     drawOnChartArea: false
                                 }
@@ -220,26 +220,39 @@
 
                 var data = {
                     labels: ['Alimentação',
-                        'Veículo',
-                        'Moradia',
-                        'Transporte',
-                        'Empréstimos',
-                        'Entretenimento',
-                        'Impostos',
-                        'Taxas',
-                        'Saúde'],
+                                'Veículo',
+                                'Moradia',
+                                'Transporte',
+                                'Empréstimos',
+                                'Entretenimento',
+                                'Impostos',
+                                'Taxas',
+                                'Saúde',
+                                'Educação',
+                                'Seguros',
+                                'Vestuario',
+                                'Investimentos',
+                                'Imprevistos',
+                                'Eventos',
+                                'Outros'],
                     datasets: [{
                         label: 'Depesas',
                         data: [@ViewBag.AlimentacaoDespesa,
-                @ViewBag.VeiculoDespesa,
-                @ViewBag.SalarioDespesa,
-                @ViewBag.MoradiaDespesa,
-                @ViewBag.TransporteDespesa,
-                @ViewBag.EmprestimoDespesa,
-                @ViewBag.EntretenimentoDespesa,
-                @ViewBag.ImpostoDespesa,
-                @ViewBag.TaxaDespesa,
-                @ViewBag.SaudeDespesa],
+                                @ViewBag.VeiculoDespesa,
+                                @ViewBag.MoradiaDespesa,
+                                @ViewBag.TransporteDespesa,
+                                @ViewBag.EmprestimoDespesa,
+                                @ViewBag.EntretenimentoDespesa,
+                                @ViewBag.ImpostoDespesa,
+                                @ViewBag.TaxaDespesa,
+                                @ViewBag.SaudeDespesa,
+                                @ViewBag.EducacaoDespesa,
+                                @ViewBag.SegurosDespesa,
+                                @ViewBag.VestuarioDespesa,
+                                @ViewBag.InvestimentosDespesa,
+                                @ViewBag.ImprevistosDespesa,
+                                @ViewBag.EventosDespesa,
+                                @ViewBag.OutrosDespesa],
                         borderWidth: 1,
                         backgroundColor: ['indianred'],
                     },
@@ -251,7 +264,7 @@
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: false,
+                                beginAtZero: true,
                                 grid: {
                                     drawOnChartArea: false
                                 }
