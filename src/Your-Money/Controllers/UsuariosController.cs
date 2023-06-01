@@ -107,32 +107,32 @@ namespace Your_Money.Controllers
                 ano = DateTime.Now.Year;
 
             var valorReceitasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                  //x.Status == StatusTransacao.Efetivado &&
+                                                  x.Status == StatusTransacao.Efetivado &&
                                                   (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
                                                   x.Data.Year == ano &&
                                                   x.Data.Month == mes).Sum(x => x.Valor);
 
             var valorReceitasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                          //x.Status == StatusTransacao.Efetivado &&
                                                           x.NumeroParcelas > 1)
                                                    .SelectMany(l => l.Parcelamentos)
-                                                   .Where(p => p.DataVencimento.Year == ano &&
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
                                                           p.DataVencimento.Month == mes)
                                                    .Sum(x => x.Valor);
 
             var valorReceitas = valorReceitasLancamentos + valorReceitasParcelas;
 
             var valorDespesasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                  //x.Status == StatusTransacao.Efetivado &&
+                                                  x.Status == StatusTransacao.Efetivado &&
                                                   (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
                                                   x.Data.Year == ano &&
                                                   x.Data.Month == mes).Sum(x => x.Valor);
 
             var valorDespesasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                          //x.Status == StatusTransacao.Efetivado &&
                                                           x.NumeroParcelas > 1)
                                                    .SelectMany(l => l.Parcelamentos)
-                                                   .Where(p => p.DataVencimento.Year == ano &&
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
                                                           p.DataVencimento.Month == mes)
                                                    .Sum(x => x.Valor);
 
