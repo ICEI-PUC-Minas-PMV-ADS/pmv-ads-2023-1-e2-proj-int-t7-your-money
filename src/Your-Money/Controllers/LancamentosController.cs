@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
@@ -46,15 +47,13 @@ namespace Your_Money.Controllers
 
             var lancamento = await _context.Lancamentos
                 .Include(l => l.Contas)
+                .Include(p => p.Parcelamentos)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (lancamento == null)
             {
                 return NotFound();
             }
-
-            lancamento.Parcelamentos = _context.Parcelamentos
-                .Where(x => x.LancamentoId == lancamento.Id).ToList();
 
             return View(lancamento);
         }
@@ -216,6 +215,10 @@ namespace Your_Money.Controllers
             if (ModelState.IsValid)
             {
                 lancamento.ContasId = GetUser().Id;
+                lancamento.ParcelaAtual = lancamento.NumeroParcelas == 0 ? 0 : 1;
+
+                _context.Add(lancamento);
+                await _context.SaveChangesAsync();
 
                 if (lancamento.NumeroParcelas > 1)
                 {
@@ -223,29 +226,18 @@ namespace Your_Money.Controllers
 
                     for (int parcela = 1; parcela <= lancamento.NumeroParcelas; parcela++)
                     {
-                        Lancamento lancamentoParcelado = new Lancamento
+                        var parcelamento = new Parcelamento()
                         {
-                            Tipo = lancamento.Tipo,
-                            Via = lancamento.Via,
-                            Classificacao = lancamento.Classificacao,
+                            LancamentoId =  lancamento.Id,
                             Valor = valorParcela,
-                            Data = lancamento.Data.AddMonths(parcela - 1),
-                            Status = lancamento.Status,
-                            Descricao = lancamento.Descricao,
-                            ContasId = lancamento.ContasId,
-                            NumeroParcelas = lancamento.NumeroParcelas,
-                            ParcelaAtual = parcela
+                            DataPagamento = null,
+                            DataVencimento = lancamento.Data.AddMonths(parcela - 1),
+                            Status = false
                         };
 
-                        _context.Add(lancamentoParcelado);
+                        _context.Add(parcelamento);
                     }
                 }
-                else
-                {
-                    _context.Add(lancamento);
-                }
-
-                await _context.SaveChangesAsync();
 
                 var usuario = await _context.Conta.Include(u => u.Lancamentos).FirstOrDefaultAsync(u => u.Id == lancamento.ContasId);
                 if (lancamento.Status == StatusTransacao.Efetivado)
@@ -271,15 +263,15 @@ namespace Your_Money.Controllers
                 return NotFound();
             }
 
-            var lancamento = await _context.Lancamentos.FindAsync(id);
+            var lancamento = await _context.Lancamentos
+                .Include(l => l.Contas)
+                .Include(p => p.Parcelamentos)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (lancamento == null)
             {
                 return NotFound();
             }
-
-            lancamento.Parcelamentos = _context.Parcelamentos
-                .Where(x => x.LancamentoId == lancamento.Id).ToList();
 
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View(lancamento);
@@ -288,7 +280,7 @@ namespace Your_Money.Controllers
         // POST: Lancamentos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId")] Lancamento lancamento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Via,Classificacao,Valor,Data,Status,Descricao,ContasId,NumeroParcelas")] Lancamento lancamento)
         {
             if (id != lancamento.Id)
             {
@@ -342,15 +334,13 @@ namespace Your_Money.Controllers
 
             var lancamento = await _context.Lancamentos
                 .Include(l => l.Contas)
+                .Include(p => p.Parcelamentos)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (lancamento == null)
             {
                 return NotFound();
             }
-
-            lancamento.Parcelamentos = _context.Parcelamentos
-                .Where(x => x.LancamentoId == lancamento.Id).ToList();
 
             return View(lancamento);
         }
