@@ -292,6 +292,7 @@ namespace Your_Money.Controllers
                 try
                 {
                     lancamento.ContasId = GetUser().Id;
+
                     _context.Update(lancamento);
                     await _context.SaveChangesAsync();
 

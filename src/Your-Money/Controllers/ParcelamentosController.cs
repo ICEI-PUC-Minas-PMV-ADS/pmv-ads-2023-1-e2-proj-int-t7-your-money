@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Your_Money.Models;
 
@@ -66,6 +68,26 @@ namespace Your_Money.Controllers
             if (ModelState.IsValid)
             {
                 _context.Update(parcelamento);
+                await _context.SaveChangesAsync();
+
+                var lancamento = await _context.Lancamentos
+                    .Include(l => l.Contas)
+                    .Include(p => p.Parcelamentos)
+                    .FirstOrDefaultAsync(m => m.Id == parcelamento.LancamentoId);
+
+                var todasParcelasPagas = lancamento.Parcelamentos.Count == lancamento.Parcelamentos.Where(x => x.Status == true).ToList().Count;
+                if (todasParcelasPagas)
+                    lancamento.Status = StatusTransacao.Efetivado;
+                else
+                {
+                    foreach (var p in lancamento.Parcelamentos)
+                        if (p.Status == false)
+                            lancamento.Data = p.DataVencimento;
+
+                    lancamento.Status = StatusTransacao.Pendente;
+                }
+
+                _context.Update(lancamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Edit", "Lancamentos", new { id = parcelamento.LancamentoId });
             }

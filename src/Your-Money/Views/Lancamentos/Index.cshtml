@@ -47,6 +47,9 @@
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th style="text-align:center;">
+                N°. Parcelas
+            </th>
+            <th style="text-align:center;">
                 @Html.DisplayNameFor(model => model.Data)
             </th>
             <th style="text-align:center;">
@@ -63,18 +66,18 @@
         {
             <tr>
                 <td>
-                        @if (item.Tipo == Transacao.Receita)
-                        {
-                            <span class="text-success">@Html.DisplayFor(modelItem => item.Tipo)</span>
-                        }
-                        else if (item.Tipo == Transacao.Despesa)
-                        {
-                            <span class="text-danger">@Html.DisplayFor(modelItem => item.Tipo)</span>
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem => item.Tipo)
-                        }
+                    @if (item.Tipo == Transacao.Receita)
+                    {
+                        <span class="text-success">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                    }
+                    else if (item.Tipo == Transacao.Despesa)
+                    {
+                        <span class="text-danger">@Html.DisplayFor(modelItem => item.Tipo)</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Via)
@@ -84,6 +87,29 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+@*                    @Html.DisplayFor(modelItem => item.NumeroParcelas)*@
+                        @{
+                            int numeroParcelas = item.NumeroParcelas;
+                            string resultado;
+
+                            if (numeroParcelas == 0 || numeroParcelas == 1)
+                            {
+                                resultado = "-";
+                            }
+                            else if (numeroParcelas > 1)
+                            {
+                                resultado = $"{numeroParcelas}";
+                            }
+                            else
+                            {
+                                resultado = "Número de Parcelas inválido";
+                            }
+                        }
+
+                        @*@Html.DisplayFor(modelItem => item.NumeroParcelas)*@
+                        <span>@resultado</span>
                 </td>
                 <td>
                     @item.Data.ToString("dd/MM/yyyy")
