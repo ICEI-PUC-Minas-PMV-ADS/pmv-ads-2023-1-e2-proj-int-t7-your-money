@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Delete";
 }
+
+<body style="background-image: url(/blue1.png);">
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -32,7 +35,9 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
         <input type="submit" value="Deletar" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
     </form>
 </div>
+
+</body>

@@ -1,8 +1,10 @@
 ﻿@model Your_Money.Models.Lancamento
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Lançamento";
 }
+
+<body style="background-image: url(/blue1.png);margin-left:10px;">
 
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
@@ -15,52 +17,65 @@
 <h2 style="color:darkblue">Editar Lançamento</h2>
 <hr>
 
-<div class="row">
-    <div class="col-md-4">
+    <div class="container">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control"></select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
+                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()" disabled></select>
+                        <input type="hidden" asp-for="Tipo" />
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
+                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()" disabled></select>
+                        <input type="hidden" asp-for="Classificacao" />
+                        <span asp-validation-for="Classificacao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Data" class="control-label"></label></b>
+                        <input asp-for="Data" class="form-control shadow-sm" type="date" />
+                        <span asp-validation-for="Data" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Status" class="control-label"></label></b>
+                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()" ></select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
+                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()" disabled></select>
+                        <input type="hidden" asp-for="Via" />
+                        <span asp-validation-for="Via" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Valor" class="control-label"></label></b>
+                        <input asp-for="Valor" class="form-control shadow-sm" placeholder="R$ 0,00" />
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="NumeroParcelas" class="control-label"></label></b>
+                        <input asp-for="NumeroParcelas" class="form-control shadow-sm" placeholder="Se sim, digite o nº de repetições" />
+                        <span asp-validation-for="NumeroParcelas" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Descricao" class="control-label"></label></b>
+                        <input asp-for="Descricao" class="form-control shadow-sm" placeholder="Descreva seu lançamento" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Via" class="control-label"></label>
-                <select asp-for="Via" class="form-control"></select>
-                <span asp-validation-for="Via" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Classificacao" class="control-label"></label>
-                <select asp-for="Classificacao" class="form-control"></select>
-                <span asp-validation-for="Classificacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
-                <span asp-validation-for="Valor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" type="date"/>
-                <span asp-validation-for="Data" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
             </div>
         </form>
     </div>
-</div>
+</body>
 
 
