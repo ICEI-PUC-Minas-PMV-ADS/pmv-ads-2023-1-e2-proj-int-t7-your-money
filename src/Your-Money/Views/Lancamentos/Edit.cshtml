@@ -101,13 +101,12 @@
         <script>
             $(document).ready(function () {
                 $("#editForm").submit(function (e) {
-                    e.preventDefault(); // Impede o envio do formulário
-                    $("#confirmModal").modal("show"); // Exibe o modal de confirmação
+                    e.preventDefault();
+                    $("#confirmModal").modal("show");
                 });
 
                 $("#confirmBtn").click(function () {
-                    $("#editForm").off("submit").submit(); // Remove o manipulador de eventos e envia o formulário
-                });
+                    $("#editForm").off("submit").submit();
             });
         </script>
     }
