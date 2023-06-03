@@ -349,3 +349,10 @@ MigrationBackup/
 
 # .vscode folder
 .vscode/
+/src/.vs/Your-Money/v17/.suo
+/src/Your-Money/Your-Money.csproj.user
+/src/.vs/Your-Money/config/applicationhost.config
+/src/.vs/ProjectEvaluation/your-money.metadata.v6.1
+/src/.vs/ProjectEvaluation/your-money.projects.v6.1
+/src/.vs/Your-Money/DesignTimeBuild/.dtbcache.v2
+/src/.vs/Your-Money/v17/.futdcache.v2

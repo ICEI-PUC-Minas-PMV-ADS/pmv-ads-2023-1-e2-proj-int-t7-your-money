@@ -1,0 +1,23 @@
+﻿@{
+@model Your_Money.Models.Usuario
+
+<h2>Insira o código enviado por e-mail e a sua Nova Senha</h2>
+
+    <form method="post" asp-action="ResetarSenha">
+        <div class="form-group">
+        <label for="codigoTemporario">Insira o código temporário enviado por e-mail.</label>
+        <input type="text" for="CodigoTemporario" class="form-control" id="codigoTemporario" name="codigoTemporario" required/>
+        </div>
+        <div class="form-group">
+            <label for="novaSenha">Nova Senha</label>
+            <input type="password" class="form-control" id="novaSenha" name="novaSenha" required />
+        </div>
+
+        <div class="form-group">
+            <label for="confirmarSenha">Confirmar Senha</label>
+            <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Redefinir Senha</button>
+    </form>
+}
