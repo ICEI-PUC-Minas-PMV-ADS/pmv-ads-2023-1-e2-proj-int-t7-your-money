@@ -17,7 +17,14 @@
         <div class="row align-self-center">
             <div class="col-sm-9 align-self-center p-2">
                 <h2 style="color:darkblue;">Visão Global</h2>
-                <h6 style="color:black;">Saldo total do Ano: <b>@ViewBag.SaldoTotalAno.ToString("C")</b></h6>
+                <h6 style="color:black;">
+                    Saldo total do Ano:
+                    <b>
+                        <span style="color: @(ViewBag.SaldoTotalAno < 0 ? "red" : "green")">
+                            @ViewBag.SaldoTotalAno.ToString("C")
+                        </span>
+                    </b>
+                </h6>
             </div>
             <div class="col-sm align-self-center">
                 <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
@@ -30,7 +37,6 @@
         </div>
     </div>
 </div>
-
 
 <hr>
 
@@ -293,6 +299,7 @@
 
     </div>
 </div>
+
 
 <div style="padding-top:10px;">
     <hr>

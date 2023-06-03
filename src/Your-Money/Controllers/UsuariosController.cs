@@ -96,10 +96,8 @@ namespace Your_Money.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index(int mes, int ano)
         {
-            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
 
-            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
-            var lancamentos = await lancamentoDbContext.ToListAsync();
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
 
             if (mes == 0)
                 mes = DateTime.Now.Month;
@@ -107,23 +105,29 @@ namespace Your_Money.Controllers
             if (ano == 0)
                 ano = DateTime.Now.Year;
 
-            var valorReceitas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                  x.Status == StatusTransacao.Efetivado &&
-                                                  x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
+            var lancamentoDbContext = _context.Lancamentos;
 
-            var valorDespesas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                  x.Status == StatusTransacao.Efetivado &&
-                                                  x.Data.Year == ano &&
-                                                  x.Data.Month == mes).Sum(x => x.Valor);
-            
-            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                       x.Status == StatusTransacao.Efetivado          
-                                                              ).Sum(x => x.Valor);
-            
-            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                                   x.Status == StatusTransacao.Efetivado
-                                                              ).Sum(x => x.Valor);
+            var lancamentosUsuario = await lancamentoDbContext.ToListAsync();
+
+            // Seu código para obter os valores de receitas, despesas, saldo, etc.
+
+            var valorReceitas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
+                                                x.Status == StatusTransacao.Efetivado &&
+                                                x.Data.Year == ano &&
+                                                x.Data.Month == mes).Sum(x => x.Valor);
+
+            var valorDespesas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
+                                                x.Status == StatusTransacao.Efetivado &&
+                                                x.Data.Year == ano &&
+                                                x.Data.Month == mes).Sum(x => x.Valor);
+
+            var valorReceitasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
+                                                    x.Status == StatusTransacao.Efetivado
+                                                    ).Sum(x => x.Valor);
+
+            var valorDespesasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
+                                                    x.Status == StatusTransacao.Efetivado
+                                                    ).Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
@@ -131,8 +135,20 @@ namespace Your_Money.Controllers
             ViewBag.SaldoTotal = valorReceitasTotal - valorDespesasTotal;
 
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
-            return View(await usuarioDbContext.ToListAsync());
+            var usuarios = await usuarioDbContext.ToListAsync();
+
+            // Obter todos os lançamentos pendentes
+            var lancamentosPendentes = _context.Lancamentos
+                .Where(i => i.Contas.Usuario.Email == userEmail && i.Status == StatusTransacao.Pendente)
+                .ToList();
+
+            // Passar os lançamentos pendentes para a view
+            ViewBag.LancamentosPendentes = lancamentosPendentes;
+
+            return View(usuarios);
         }
+
+
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -188,8 +204,8 @@ namespace Your_Money.Controllers
                 {
                     ModelState.AddModelError("ConfirmacaoSenha", "As senhas não coincidem.");
                 }
-
             }
+
             return View(usuario);
         }
 
