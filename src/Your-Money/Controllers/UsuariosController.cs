@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -10,9 +11,8 @@ using Microsoft.Extensions.Configuration;
 using SendGrid.Helpers.Mail;
 using SendGrid;
 using Your_Money.Models;
-using Microsoft.AspNetCore.WebUtilities;
-using System.Text;
-using System.Runtime.CompilerServices;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace Your_Money.Controllers
 {
@@ -157,6 +157,13 @@ namespace Your_Money.Controllers
             {
                 if (usuario.ConfirmacaoSenha())
                 {
+                    var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == usuario.Email);
+                    if (existingUser != null)
+                    {
+                        ModelState.AddModelError("Email", "Já existe um usuário com este email.");
+                        return View(usuario);
+                    }
+
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                     var account = new Conta { SaldoTotal = 0 };
                     usuario.conta = account;
@@ -286,14 +293,15 @@ namespace Your_Money.Controllers
                 return View("UsuarioNaoEncontrado");
             }
             else { 
+
             // Gerar um token de recuperação de senha
-            var CodigoTemporario = GerarCodigoTemporario();
+            var codigoTemporario = GerarCodigoTemporario();
 
             // Salva o usuário com o token gerado no banco de dados
-            usuario.CodigoTemporario = CodigoTemporario; // Adiciona o usuário modificado ao contexto
+            usuario.CodigoTemporario = codigoTemporario; // Adiciona o usuário modificado ao contexto
             await _context.SaveChangesAsync(); // Salva as alterações no banco de dados
 
-            // Envia o e-mail de recuperação de senha
+                // Envia o e-mail de recuperação de senha
             var apiKey = _configuration["SendGridSettings:ApiKey"];
             var senderEmail = _configuration["SendGridSettings:SenderEmail"];
 
@@ -301,8 +309,8 @@ namespace Your_Money.Controllers
             var from = new EmailAddress(senderEmail);
             var to = new EmailAddress(usuario.Email);
             var subject = "Recuperação de Senha";
-            var plainTextContent = $"Seu código temporário é: {CodigoTemporario} <br> Clique no link a seguir para recuperar sua senha: {Url.Action("ResetarSenha", "Usuarios", new { codigo = usuario.CodigoTemporario }, Request.Scheme)}";
-            var htmlContent = $"<p>Seu código temporário é: {CodigoTemporario} Clique no link a seguir para recuperar sua senha:</p><p><a href=\"{Url.Action("ResetarSenha", "Usuarios", new { codigo = usuario.CodigoTemporario }, Request.Scheme)}\">Recuperar Senha</a></p>";
+            var plainTextContent = $"Seu código temporário é: {codigoTemporario} <br> Clique no link a seguir para recuperar sua senha: {Url.Action("ResetarSenha", "Usuarios", new { codigoTemporario = usuario.CodigoTemporario }, Request.Scheme)}";
+            var htmlContent = $"<p>Seu código temporário é: {codigoTemporario} <br> Clique no link a seguir para recuperar sua senha:</p><p><a href=\"{Url.Action("ResetarSenha", "Usuarios", new { codigoTemporario = usuario.CodigoTemporario }, Request.Scheme)}\">Recuperar Senha</a></p>";
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             await client.SendEmailAsync(msg);

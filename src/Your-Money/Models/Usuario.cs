@@ -13,28 +13,31 @@ namespace Your_Money.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "É necessário informar um nome!")]
+        [Required(ErrorMessage = "É necessário inserir um nome!")]
+        [Display(Name = "Nome *")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "É necessário informar um e-mail")]
+        [Required(ErrorMessage = "É necessário inserir um e-mail!")]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "E-mail")]
+        [Display(Name = "E-mail *")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "É necessário informar uma senha!")]
+        [Required(ErrorMessage = "É necessário inserir uma senha!")]
         [MinLength(6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$", ErrorMessage = "A senha deve conter letras maiúsculas, minúsculas e pelo menos um número.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Senha")]
+        [Display(Name = "Insira sua Senha *")]
         public string Senha { get; set; }
 
         [NotMapped]
         [Compare("Senha", ErrorMessage = "As senhas não coincidem.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$", ErrorMessage = "A senha deve conter letras maiúsculas, minúsculas e pelo menos um número.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Confirme sua Senha")]
+        [Display(Name = "Confirme sua Senha *")]
         public string ConfirmarSenha { get; set; }
 
-       
-        public string TokenRecuperacaoSenha { get; set; }
+        /*Variável inutilizada até o momento.
+        public string TokenRecuperacaoSenha { get; set; }*/
 
         public string CodigoTemporario { get; set; }
 
@@ -47,9 +50,12 @@ namespace Your_Money.Models
             return Senha == ConfirmarSenha;
         }
 
+
+
+        /*Código inutilizado até o momento.
         public void GerarTokenRecuperacaoSenha()
         {
             TokenRecuperacaoSenha = Guid.NewGuid().ToString();
-        }
+        }*/
     }
 }
