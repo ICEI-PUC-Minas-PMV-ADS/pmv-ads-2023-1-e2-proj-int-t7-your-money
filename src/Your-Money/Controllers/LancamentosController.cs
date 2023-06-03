@@ -140,6 +140,7 @@ namespace Your_Money.Controllers
                             t.Tipo == transacao &&
                             t.Data.Month == mes &&
                             t.Data.Year == ano &&
+                            t.Status == StatusTransacao.Efetivado &&
                             t.Contas.Usuario.Email == userEmail)
                 .Sum(t => t.Valor);
         }
