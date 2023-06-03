@@ -375,7 +375,7 @@ namespace Your_Money.Controllers
             }
 
             // Se o código temporário for inválido, redirecionar para uma página de erro
-            return RedirectToAction("TokenInvalido");
+            return ExibirTokenInvalido();
         }
 
         [HttpGet]
