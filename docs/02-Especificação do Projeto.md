@@ -71,6 +71,7 @@ O escopo funcional do projeto é definido por meio dos requisitos funcionais que
 |RF-11|	Na área Dicas, a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. |	Alta |
 |RF-12|	A aplicação deve ter gráficos com Visão Global(Ano) e Detalhamento(Mês) das Despesas e Receitas, para que o usuário possa visualizar, facilmente, suas movimentações financeiras	| Alta |
 |RF-13|	A aplicação deve ter uma página com a Visão Geral dos Lançamentos(Despesas/Receitas) com Status de Efetivado ou Pendente, identificados com cores.	| Alta |
+|RF-14|	A aplicação deve ter uma funcionalidade de recuperação de senha, integrada com uma API de envio de e-mails.	| Alta |
 
 ### Requisitos não Funcionais
 
