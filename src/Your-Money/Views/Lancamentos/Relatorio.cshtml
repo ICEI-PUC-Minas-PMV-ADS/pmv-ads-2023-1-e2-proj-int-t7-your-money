@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Relatorio";
-    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
+    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<decimal, (decimal receitasMes, decimal despesasMes)>;
 }
 
 <nav>
@@ -217,42 +217,41 @@
             <canvas id="grafico3" style="height:200px;width:70%;padding-bottom:50px;"></canvas>
 
             <script>
-
                 var data = {
                     labels: ['Alimentação',
-                                'Veículo',
-                                'Moradia',
-                                'Transporte',
-                                'Empréstimos',
-                                'Entretenimento',
-                                'Impostos',
-                                'Taxas',
-                                'Saúde',
-                                'Educação',
-                                'Seguros',
-                                'Vestuario',
-                                'Investimentos',
-                                'Imprevistos',
-                                'Eventos',
-                                'Outros'],
+                        'Educação',
+                        'Empréstimos',
+                        'Entretenimento',
+                        'Eventos',
+                        'Impostos',
+                        'Imprevistos',
+                        'Investimentos',
+                        'Moradia',
+                        'Saúde',
+                        'Seguros',
+                        'Taxas',
+                        'Transporte',
+                        'Veículo',
+                        'Vestuário',
+                        'Outros'],
                     datasets: [{
-                        label: 'Depesas',
+                        label: 'Despesas',
                         data: [@ViewBag.AlimentacaoDespesa,
-                                @ViewBag.VeiculoDespesa,
-                                @ViewBag.MoradiaDespesa,
-                                @ViewBag.TransporteDespesa,
-                                @ViewBag.EmprestimoDespesa,
-                                @ViewBag.EntretenimentoDespesa,
-                                @ViewBag.ImpostoDespesa,
-                                @ViewBag.TaxaDespesa,
-                                @ViewBag.SaudeDespesa,
-                                @ViewBag.EducacaoDespesa,
-                                @ViewBag.SegurosDespesa,
-                                @ViewBag.VestuarioDespesa,
-                                @ViewBag.InvestimentosDespesa,
-                                @ViewBag.ImprevistosDespesa,
-                                @ViewBag.EventosDespesa,
-                                @ViewBag.OutrosDespesa],
+                @ViewBag.EducacaoDespesa,
+                @ViewBag.EmprestimoDespesa,
+                @ViewBag.EntretenimentoDespesa,
+                @ViewBag.EventosDespesa,
+                @ViewBag.ImpostoDespesa,
+                @ViewBag.ImprevistosDespesa,
+                @ViewBag.InvestimentosDespesa,
+                @ViewBag.MoradiaDespesa,
+                @ViewBag.SaudeDespesa,
+                @ViewBag.SegurosDespesa,
+                @ViewBag.TaxaDespesa,
+                @ViewBag.TransporteDespesa,
+                @ViewBag.VeiculoDespesa,
+                @ViewBag.VestuarioDespesa,
+                @ViewBag.OutrosDespesa],
                         borderWidth: 1,
                         backgroundColor: ['indianred'],
                     },
@@ -264,7 +263,7 @@
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: true,
+                                beginAtZero: false,
                                 grid: {
                                     drawOnChartArea: false
                                 }
@@ -276,7 +275,7 @@
                                     font: {
                                         size: 18
                                     }
-                                },
+                                }
                             },
                             indexAxis: 'x'
                         }
@@ -287,6 +286,7 @@
                     document.getElementById('grafico3'),
                     config
                 );
+                
 
             </script>
         </div>
