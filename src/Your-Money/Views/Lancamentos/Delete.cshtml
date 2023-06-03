@@ -5,6 +5,9 @@
 @{
     ViewData["Title"] = "Delete";
 }
+
+<body style="background-image: url(/blue1.png);margin-left:10px;">
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -68,26 +71,26 @@
     </dl>
     
      <form asp-action="Delete">
-        <<input type="hidden" asp-for="Id" />
-        <input type="button" value="Deletar" class="btn btn-danger  btnConfirmDelete" />
+        <input type="hidden" asp-for="Id" />
         <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        <input type="button" value="Deletar" class="btn btn-danger  btnConfirmDelete" />
     </form>
 
-    <div class="modal" tabindex="-1">
+    <div class="modal fade mt-5 pt-5" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Confirmação</h5>
+            <h5 class="modal-title" style="color:darkblue"><b>Confirmação</b></h5>
           </div>
           <div class="modal-body">
-            <p>Deseja realizar a remoção <b>PERMANENTE</b> do registro em questão ?</p>
+            <p>Deseja realizar a remoção <b>PERMANENTE</b> deste registro ?</p>
           </div>
           <div class="modal-footer">
 
              <form asp-action="Delete">
-                <<input type="hidden" asp-for="Id" />
-                <input type="submit" value="Confirmar" class="btn btn-danger  btnConfirmDelete" />
+                <input type="hidden" asp-for="Id" />
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <input type="submit" value="Confirmar" class="btn btn-danger  btnConfirmDelete" />
             </form>
 
           </div>
@@ -105,3 +108,5 @@
                 })
             </script>
         }
+
+</body>

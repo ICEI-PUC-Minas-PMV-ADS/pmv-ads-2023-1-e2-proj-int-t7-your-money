@@ -6,38 +6,82 @@
 
 <body style="background-image: url(/blue1.png);">
 
-<nav>
-    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
-        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Deletar Usuário</li>
-    </ol>
-</nav>
+    <nav>
+        <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Deletar Usuário</li>
+        </ol>
+    </nav>
 
-<h2 style="color:darkblue">Deletar Usuário</h2>
-<hr>
+    <h2 style="color: darkblue">Deletar Usuário</h2>
+    <hr>
 
-<h3 class="mt-2 pt-5 pb-5" style="color:blue">Você tem certeza que deseja excluir este Usuário?</h3>
-<div>
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+    <h3 class="mt-2 pt-5 pb-5" style="color: blue">Você tem certeza que deseja excluir este Usuário?</h3>
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
             <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-    </form>
-</div>
+            <input type="button" value="Deletar" class="btn btn-danger btnConfirmDelete" />
+        </form>
+
+        <div class="modal fade mt-5 pt-5" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: darkblue"><b>Confirmação</b></h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja realizar a remoção <b>PERMANENTE</b> deste usuário?</p>
+                    </div>
+                    <div class="modal-footer">
+
+                        <form asp-action="Delete" id="deleteForm">
+                            <input type="hidden" asp-for="Id" />
+                            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                            <input type="submit" value="Confirmar" class="btn btn-danger btnConfirmDelete" />
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts {
+        <script type="text/javascript">
+            $(".btnConfirmDelete").click(() => {
+                $(".modal").modal("show");
+            });
+
+            $("#deleteForm").submit(function () {
+                $.ajax({
+                    url: $(this).attr("action"),
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function () {
+                        window.location.href = "/Usuarios/Logout";
+                    },
+                    error: function () {
+                    }
+                });
+
+                return false;
+            });
+        </script>
+    }
 
 </body>
