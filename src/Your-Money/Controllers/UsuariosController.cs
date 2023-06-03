@@ -95,7 +95,14 @@ namespace Your_Money.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index(int mes, int ano)
         {
+
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+
+            if (mes == 0)
+                mes = DateTime.Now.Month;
+
+            if (ano == 0)
+                ano = DateTime.Now.Year;
 
             var lancamentoDbContext = _context.Lancamentos
                 .Where(i => i.Contas.Usuario.Email == userEmail && i.Status == StatusTransacao.Pendente);
