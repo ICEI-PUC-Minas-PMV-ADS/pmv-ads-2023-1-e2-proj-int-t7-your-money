@@ -45,7 +45,9 @@ html {
     background-image: url(/blue1.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; /* Define a altura do elemento para ocupar toda a altura da página */
     background-attachment: fixed;
 }
 
