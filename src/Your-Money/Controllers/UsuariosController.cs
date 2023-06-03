@@ -104,8 +104,7 @@ namespace Your_Money.Controllers
             if (ano == 0)
                 ano = DateTime.Now.Year;
 
-            var lancamentoDbContext = _context.Lancamentos
-                .Where(i => i.Contas.Usuario.Email == userEmail && i.Status == StatusTransacao.Pendente);
+            var lancamentoDbContext = _context.Lancamentos;
 
             var lancamentosUsuario = await lancamentoDbContext.ToListAsync();
 
