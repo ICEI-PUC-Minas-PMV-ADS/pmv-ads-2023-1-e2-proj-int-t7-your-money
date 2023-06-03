@@ -102,7 +102,7 @@
     <div class="container-fluid ml-3 pt-2 p-2 pb-2 text-center">
         <div class="row">
             <div class="col-md-2">
-                <div class="card align-items-center shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;background-color:aliceblue;text-size-adjust:auto;">
+                <div class="card align-items-center shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;background-color:aliceblue;text-size-adjust:auto;">
                     <img src="~/user.png" alt="usuário" width="50%" style="padding-top:15%">
                     <div class="card-body p-0 m-0" style="text-size-adjust:auto;">
                         <p id="NameUser" class="card-text" style="color:darkblue;"><h6>Olá, @User.Identity.Name</h6></p>
@@ -127,7 +127,7 @@
 
             <div class="col-md-3 ml-2 text-center">
 
-                <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
+                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
 
                     <div class="card-body pb-3" style="background: linear-gradient(darkgreen,green);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
                         <h4><b style="color:white;text-size-adjust:auto;">Receitas</b></h4>
@@ -145,7 +145,7 @@
 
             <div class="col-md-3 text-center">
 
-                <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
+                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
 
                     <div class="card-body pb-3" style="background:linear-gradient(darkred, indianred);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
                         <h4><b style="color:white;text-size-adjust:auto;">Despesas</b></h4>
@@ -162,7 +162,7 @@
 
             <div class="col-md-3 text-center">
 
-                <div class="card shadow" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
+                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
                     <div class="card-body pb-3" style="background: linear-gradient(darkgray,lightgray);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
                         <h4><b style="color:black;text-size-adjust:auto;">Saldo do Mês</b></h4>
                     </div>
@@ -311,4 +311,13 @@
 
         </div>
     </div>
+    <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll("#cardMovement"),{
+            Max: 25,
+            speed: 400,
+            glare:true,
+            "max-glare": 1,
+        });
+    </script>
 </body>

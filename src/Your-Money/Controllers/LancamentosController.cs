@@ -146,21 +146,6 @@ namespace Your_Money.Controllers
                 .Sum(l => l.Valor);
         }
 
-        /*
-        public async Task<IActionResult> RelatorioDescritvo(DateTime dataInicial, DateTime dataFinal, int? status, int? transacao)
-        {
-            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
-            var lancamentos = _context.Lancamentos
-                .Where(l => l.Contas.Usuario.Email == userEmail &&
-                    l.Data >= dataInicial && l.Data <= dataFinal &&
-                    (status == null || (int)l.Status == status) &&
-                    (transacao == null || (int)l.Tipo == transacao));
-
-            return View(await lancamentos.ToListAsync());
-        }
-        */
-
-
         // Gráficos1
         public (int receitasMes, int despesasMes) GetLancamentosMes(int? mes, int? ano)
         {
