@@ -1,5 +1,6 @@
 ﻿@model Your_Money.Models.Usuario
 
+
 @{
     ViewData["Title"] = "Entrar";
 }
@@ -27,6 +28,7 @@
             </div>
             <div class="form-group">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <a asp-area="" asp-controller="Usuarios" asp-action="ExibirRecuperarSenha" class="btn btn-secondary">Esqueceu sua senha?</a>
                 <button type="submit" class="btn btn-primary" id="btnEntrar" value="Entrar">
                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" style="margin-right:20px;"></span>Entrar
                 </button>
