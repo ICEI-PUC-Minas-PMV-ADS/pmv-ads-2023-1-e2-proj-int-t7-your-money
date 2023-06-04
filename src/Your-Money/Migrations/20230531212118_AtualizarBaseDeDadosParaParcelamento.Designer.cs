@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Your_Money.Models;
 
 namespace Your_Money.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230531212118_AtualizarBaseDeDadosParaParcelamento")]
+    partial class AtualizarBaseDeDadosParaParcelamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,12 +133,6 @@ namespace Your_Money.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TokenRecuperacaoSenha")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CodigoTemporario")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

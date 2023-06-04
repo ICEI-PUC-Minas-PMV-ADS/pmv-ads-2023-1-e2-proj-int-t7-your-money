@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Your_Money.Models;
 
 namespace Your_Money.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230529055231_createDatabaseParcelamento")]
+    partial class createDatabaseParcelamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,12 +62,6 @@ namespace Your_Money.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumeroParcelas")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParcelaAtual")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -92,7 +88,7 @@ namespace Your_Money.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("DataPagamento")
+                    b.Property<DateTime>("DataPagamento")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataVencimento")
@@ -131,12 +127,6 @@ namespace Your_Money.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TokenRecuperacaoSenha")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CodigoTemporario")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

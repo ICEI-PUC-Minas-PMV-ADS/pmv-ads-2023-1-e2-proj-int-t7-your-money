@@ -96,8 +96,10 @@ namespace Your_Money.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index(int mes, int ano)
         {
-
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+
+            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            var lancamentos = await lancamentoDbContext.Include(p => p.Parcelamentos).ToListAsync();
 
             if (mes == 0)
                 mes = DateTime.Now.Month;
@@ -105,29 +107,45 @@ namespace Your_Money.Controllers
             if (ano == 0)
                 ano = DateTime.Now.Year;
 
-            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            var valorReceitasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                  x.Status == StatusTransacao.Efetivado &&
+                                                  (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
 
-            var lancamentosUsuario = await lancamentoDbContext.ToListAsync();
+            var valorReceitasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                          x.NumeroParcelas > 1)
+                                                   .SelectMany(l => l.Parcelamentos)
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
+                                                          p.DataVencimento.Month == mes)
+                                                   .Sum(x => x.Valor);
 
-            // Seu código para obter os valores de receitas, despesas, saldo, etc.
+            var valorReceitas = valorReceitasLancamentos + valorReceitasParcelas;
 
-            var valorReceitas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
-                                                x.Status == StatusTransacao.Efetivado &&
-                                                x.Data.Year == ano &&
-                                                x.Data.Month == mes).Sum(x => x.Valor);
+            var valorDespesasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                  x.Status == StatusTransacao.Efetivado &&
+                                                  (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
 
-            var valorDespesas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
-                                                x.Status == StatusTransacao.Efetivado &&
-                                                x.Data.Year == ano &&
-                                                x.Data.Month == mes).Sum(x => x.Valor);
+            var valorDespesasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                          x.NumeroParcelas > 1)
+                                                   .SelectMany(l => l.Parcelamentos)
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
+                                                          p.DataVencimento.Month == mes)
+                                                   .Sum(x => x.Valor);
 
-            var valorReceitasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
-                                                    x.Status == StatusTransacao.Efetivado
-                                                    ).Sum(x => x.Valor);
+            var valorDespesas = valorDespesasLancamentos - valorDespesasParcelas;
 
-            var valorDespesasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
-                                                    x.Status == StatusTransacao.Efetivado
-                                                    ).Sum(x => x.Valor);
+            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                       x.Status == StatusTransacao.Efetivado          
+                                                              ).Sum(x => x.Valor);
+            
+            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                   x.Status == StatusTransacao.Efetivado
+                                                              ).Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;

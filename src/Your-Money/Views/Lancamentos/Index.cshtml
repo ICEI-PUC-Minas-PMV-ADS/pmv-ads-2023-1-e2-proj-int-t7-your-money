@@ -4,20 +4,20 @@
     ViewData["Title"] = "Lançamentos";
 }
 
-<nav>
-    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
-        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Lançamentos</li>
-    </ol>
-</nav>
-
-<h2 style="color:darkblue">Visão Geral dos Lançamentos</h2>
-<hr>
-<p>
-    <a asp-action="Create">Adicionar Lançamento</a>
-</p>
-
 <body class="background-image">
+
+    <nav>
+        <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Lançamentos</li>
+        </ol>
+    </nav>
+
+    <h2 style="color:darkblue">Visão Geral dos Lançamentos</h2>
+    <hr>
+    <p>
+        <a asp-action="Create">Adicionar Lançamento</a>
+    </p>
 
     <table class="table table-striped table-hover" id="tabela1-lancamentos" style="text-align:center;padding-top:20px;background-color:white;">
 
@@ -34,6 +34,9 @@
                 </th>
                 <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Valor)
+                </th>
+                <th style="text-align:center;">
+                    N°. Parcelas
                 </th>
                 <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Data)
@@ -75,6 +78,26 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
+                        @{
+                            int numeroParcelas = item.NumeroParcelas;
+                            string resultado;
+
+                            if (numeroParcelas == 0 || numeroParcelas == 1)
+                            {
+                                resultado = "-";
+                            }
+                            else if (numeroParcelas > 1)
+                            {
+                                resultado = $"{numeroParcelas}";
+                            }
+                            else
+                            {
+                                resultado = "Número de Parcelas inválido";
+                            }
+                        }
+                        <span>@resultado</span>
+                    </td>
+                    <td>
                         @item.Data.ToString("dd/MM/yyyy")
                     </td>
                     <td>
@@ -111,6 +134,4 @@
             }
         </tbody>
     </table>
-
 </body>
-
