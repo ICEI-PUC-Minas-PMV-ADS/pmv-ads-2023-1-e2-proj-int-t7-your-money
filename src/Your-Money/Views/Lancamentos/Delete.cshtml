@@ -1,10 +1,12 @@
-﻿@model Your_Money.Models.Lancamento
+﻿Delete.cshtml
+
+@model Your_Money.Models.Lancamento
 
 @{
-    ViewData["Title"] = "Deletar Lançamento";
+    ViewData["Title"] = "Delete";
 }
 
-<body style="background-image: url(/blue1.png);margin-left:10px;">
+<body class="background-image">
 
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
@@ -68,70 +70,105 @@
         </dd class>
     </dl>
 
-    <h3 style="color:darkblue">Parcelas</h3>
-    <hr>
+    @if (Model.Parcelamentos.Count > 1)
+    {
+        <h3 style="color:darkblue">Parcelas</h3>
+        <hr>
 
-    <div class="row">
-        <table class="table ml-3 mr-3">
-            <thead>
-                <tr style="background-color:whitesmoke">
-                    <th>
-                        Valor
-                    </th>
-                    <th>
-                        DataPagamento
-                    </th>
-                    <th>
-                        DataVencimento
-                    </th>
-                    <th>
-                        Status
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model.Parcelamentos != null && Model.Parcelamentos.Count > 0)
-                {
-                    @foreach (var item in Model.Parcelamentos)
+        <div class="row">
+            <table class="table table-striped table-hover ml-3 mr-3" style="text-align:center;padding-top:20px;background-color:white;">
+                <thead>
+                    <tr style="background-color:whitesmoke">
+                        <th>
+                            Valor
+                        </th>
+                        <th>
+                            DataPagamento
+                        </th>
+                        <th>
+                            DataVencimento
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Parcelamentos != null && Model.Parcelamentos.Count > 0)
+                    {
+                        @foreach (var item in Model.Parcelamentos)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Valor)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataPagamento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataVencimento)
+                                </td>
+                                <td>
+                                    @if (item.Status == true)
+                                    {
+                                        <span>Efetivado</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Pendente</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Valor)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataPagamento)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataVencimento)
-                            </td>
-                            <td>
-                                @if (item.Status == true)
-                                {
-                                    <span>Efetivado</span>
-                                }
-                                else
-                                {
-                                    <span>Pendente</span>
-                                }
-                            </td>
+                            <td colspan="4">Nenhum registro de parcelamento</td>
                         </tr>
                     }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="4">Nenhum registro de parcelamento</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+    }
     
-    <form asp-action="Delete">
+     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-        <input type="submit" value="Deletar" class="btn btn-danger" />
+        <input type="button" value="Deletar" class="btn btn-danger  btnConfirmDelete" />
     </form>
+
+    <div class="modal fade mt-5 pt-5" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color:darkblue"><b>Confirmação</b></h5>
+          </div>
+          <div class="modal-body">
+            <p>Deseja realizar a remoção <b>PERMANENTE</b> deste registro ?</p>
+          </div>
+          <div class="modal-footer">
+
+             <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <input type="submit" value="Confirmar" class="btn btn-danger  btnConfirmDelete" />
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+
+ @section scripts {
+            
+            <script type="text/javascript">
+                
+                $(".btnConfirmDelete").click(() => {
+                    $(".modal").modal("show")
+                })
+            </script>
+        }
 
 </body>

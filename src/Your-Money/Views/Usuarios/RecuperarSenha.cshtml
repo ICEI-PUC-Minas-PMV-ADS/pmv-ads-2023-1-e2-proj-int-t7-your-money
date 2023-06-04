@@ -1,0 +1,12 @@
+﻿@{
+
+@model Your_Money.Models.Usuario
+
+<form method="post" action="/Usuarios/RecuperarSenha">
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary" action="/Usuarios/EmailEnviado">Recuperar Senha</button>
+</form>
+}

@@ -7,7 +7,7 @@
 
 $(document).ready(function () {
     $('#tabela1-lancamentos').DataTable({
-        "ordering": true,
+        "ordering": false,
         "paging": true,
         "searching": true,
         "oLanguage": {
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#tabela2-lancamentos').DataTable({
-        "ordering": true,
+        "ordering": false,
         "paging": true,
         "searching": true,
         "oLanguage": {

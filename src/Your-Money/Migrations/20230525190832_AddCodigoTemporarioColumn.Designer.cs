@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Your_Money.Models;
 
 namespace Your_Money.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230525190832_AddCodigoTemporarioColumn")]
+    partial class AddCodigoTemporarioColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,12 +62,6 @@ namespace Your_Money.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumeroParcelas")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParcelaAtual")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -83,35 +79,6 @@ namespace Your_Money.Migrations
                     b.HasIndex("ContasId");
 
                     b.ToTable("Lancamentos");
-                });
-
-            modelBuilder.Entity("Your_Money.Models.Parcelamento", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DataPagamento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataVencimento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LancamentoId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LancamentoId");
-
-                    b.ToTable("Parcelamentos");
                 });
 
             modelBuilder.Entity("Your_Money.Models.Usuario", b =>
@@ -136,7 +103,7 @@ namespace Your_Money.Migrations
                     b.Property<string>("TokenRecuperacaoSenha")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CodigoTemporario")
+                    b.Property<string>("codigoTemporario")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -166,25 +133,9 @@ namespace Your_Money.Migrations
                     b.Navigation("Contas");
                 });
 
-            modelBuilder.Entity("Your_Money.Models.Parcelamento", b =>
-                {
-                    b.HasOne("Your_Money.Models.Lancamento", "Lancamento")
-                        .WithMany("Parcelamentos")
-                        .HasForeignKey("LancamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Lancamento");
-                });
-
             modelBuilder.Entity("Your_Money.Models.Conta", b =>
                 {
                     b.Navigation("Lancamentos");
-                });
-
-            modelBuilder.Entity("Your_Money.Models.Lancamento", b =>
-                {
-                    b.Navigation("Parcelamentos");
                 });
 
             modelBuilder.Entity("Your_Money.Models.Usuario", b =>
