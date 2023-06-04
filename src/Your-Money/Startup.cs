@@ -76,6 +76,13 @@ namespace Your_Money
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                name: "LancamentosEdit",
+                pattern: "Lancamentos/Edit/{id}",
+                defaults: new { controller = "Lancamentos", action = "Edit" });
+
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
