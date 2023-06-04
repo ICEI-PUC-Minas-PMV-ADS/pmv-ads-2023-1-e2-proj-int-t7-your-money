@@ -82,7 +82,10 @@ namespace Your_Money.Controllers
                 {
                     foreach (var p in lancamento.Parcelamentos)
                         if (p.Status == false)
+                        {
                             lancamento.Data = p.DataVencimento;
+                            break;
+                        }
 
                     lancamento.Status = StatusTransacao.Pendente;
                 }
