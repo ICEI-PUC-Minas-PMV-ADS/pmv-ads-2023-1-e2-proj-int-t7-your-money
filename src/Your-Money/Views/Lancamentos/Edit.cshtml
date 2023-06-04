@@ -87,11 +87,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h7 style="color:darkblue">Deseja salvar suas alterações?</h7>
+                    <h7>Deseja salvar suas alterações?</h7>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="confirmBtn">Confirmar</button>
+                    <button type="submit" class="btn btn-primary" id="confirmBtn">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -107,9 +107,11 @@
 
                 $("#confirmBtn").click(function () {
                     $("#editForm").off("submit").submit();
+                });
             });
         </script>
     }
+
 </body>
 
 
