@@ -76,18 +76,19 @@ body {
 }
 
 .alert-danger {
-    color: red;
-    background-color: grey;
+    color: black;
+    background-color: red;
+  
 }
 
 .alert-orange {
-    color: darkorange;
-    background-color: grey;
+    color: black;
+    background-color: orange;
 }
 
 .alert-warning {
-    color: yellow;
-    background-color: grey;
+    color: black;
+    background-color: yellow;
 }
 
 
