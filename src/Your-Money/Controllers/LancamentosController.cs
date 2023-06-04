@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient.DataClassification;
@@ -14,6 +15,7 @@ using Your_Money.Models;
 
 namespace Your_Money.Controllers
 {
+    [Authorize]
     public class LancamentosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -154,8 +156,6 @@ namespace Your_Money.Controllers
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             decimal somaDeLancamentosReceita = 0;
             decimal somaDeLancamentoDespesas = 0;
-
-
 
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
