@@ -21,13 +21,21 @@
                 <input asp-for="Email" class="form-control shadow-sm" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <b style="color:darkblue">
-                    <label asp-for="Senha" class="control-label"></label>
-                </b>
-                <input asp-for="Senha" class="form-control shadow-sm" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <b style="color:darkblue">
+                        <label asp-for="Senha" class="control-label"></label>
+                    </b>
+                    <div class="input-group">
+                        <input asp-for="Senha" class="form-control shadow-sm" />
+                        <input type="password" id="SenhaVisivel" class="form-control shadow-sm" style="display: none;" />
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary" id="toggleSenha">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
             <div class="form-group">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-primary" id="btnEntrar" value="Entrar">
@@ -41,13 +49,37 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(function () {
-        $('form').submit(function () {
-            $('#btnEntrar').prop('disabled', true);
-            $('.spinner-border').removeClass('d-none');
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            var senhaInput = $("#Senha");
+            var senhaVisivelInput = $("#SenhaVisivel");
+            var toggle = $("#toggleSenha");
+
+            toggle.on("click", function () {
+                var isPasswordVisible = senhaInput.attr("type") === "password";
+                if (isPasswordVisible) {
+                    senhaInput.attr("type", "text");
+                    senhaVisivelInput.attr("type", "password");
+                    toggle.html('<i class="fa fa-eye-slash"></i>');
+                } else {
+                    senhaInput.attr("type", "password");
+                    senhaVisivelInput.attr("type", "text");
+                    toggle.html('<i class="fa fa-eye"></i>');
+                }
+            });
+        }
+
+        $(function () {
+            togglePasswordVisibility();
+            $('form').submit(function () {
+                $('#btnEntrar').prop('disabled', true);
+                $('.spinner-border').removeClass('d-none');
+            });
         });
-    });
-</script>
+    </script>
+
+
 
 </body>

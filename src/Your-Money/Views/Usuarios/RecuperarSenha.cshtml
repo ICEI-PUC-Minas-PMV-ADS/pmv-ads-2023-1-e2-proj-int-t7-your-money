@@ -1,12 +1,25 @@
-﻿@{
+﻿@model Your_Money.Models.Usuario
 
-@model Your_Money.Models.Usuario
-
-<form method="post" action="/Usuarios/RecuperarSenha">
-    <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" class="form-control" required />
-    </div>
-    <button type="submit" class="btn btn-primary" action="/Usuarios/EmailEnviado">Recuperar Senha</button>
-</form>
+@{
+    ViewData["Title"] = "Recuperar Senha";
 }
+
+<body class="background-image">
+
+    <h2 style="color:darkblue">Recuperar Senha</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-4 pt-3">
+            <form method="post" action="/Usuarios/RecuperarSenha">
+                <div class="form-group">
+                    <b style="color:darkblue"><label for="email">E-mail:</label></b>
+                    <input type="email" id="email" name="email" class="form-control" required />
+                </div>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary" action="/Usuarios/EmailEnviado">Recuperar Senha</button>
+            </form>
+
+        </div>
+    </div>
+</body>

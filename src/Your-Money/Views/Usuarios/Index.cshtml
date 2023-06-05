@@ -202,7 +202,7 @@
                         var dataLimite = dataAtual.AddDays(-7);
                     }
 
-                    <table class="table" style="text-size-adjust:auto;">
+                    <table class="table table-striped table-hover" style="text-size-adjust:auto;">
                         <thead style="text-align: center;">
                             <tr style="background-color: aliceblue;color:darkred;">
                                 <th>Tipo</th>
@@ -252,7 +252,7 @@
 
             <style>
                 .vertical-line {
-                    border-left: 2px solid lightgray;
+                    border-left: 0.7px solid lightgray;
                     height:auto; /* Ajuste a altura conforme necessário */
                 }
             </style>
@@ -260,13 +260,13 @@
             <div class="vertical-line align-content-center"></div>
 
             <div class="col">
-                <h4 style="text-align:center;padding-bottom:5px;color:darkblue;">À vencer nos próximos 15 dias</h4>
+                <h4 style="text-align:center;padding-bottom:5px;">À vencer nos próximos 15 dias</h4>
                 <div class="card shadow" style="border-start-end-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;border-start-start-radius:20px;">
                             @{
                                 DateTime isdataAtual = DateTime.Today;
                                 DateTime isdataLimite = isdataAtual.AddDays(15);
                             }
-                    <table class="table" style="text-size-adjust:auto;">
+                    <table class="table table-striped table-hover" style="text-size-adjust:auto;">
                         <thead style="text-align: center;">
                             <tr style="background-color: aliceblue;">
                                 <th>Tipo</th>

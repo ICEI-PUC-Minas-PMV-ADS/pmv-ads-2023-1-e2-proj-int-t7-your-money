@@ -121,8 +121,6 @@
 
 <hr>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <div class="d-flex justify-content-center">
 
     <div class="container-fluid pt-5 pb-3" style="background-image:url(/blue2.png);">
@@ -161,144 +159,123 @@
         </div>
     </div>
 </div>
-
-
 <hr>
 
-<div class="container">
-    <div class="row">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <div class="col">
-
-            <canvas id="grafico2" style="height:200px;width:70%;padding-bottom:50px;"></canvas>
-
-            <script>
-                var data = {
-                    labels: ['Salário', 'Investimentos', 'Outros'],
-                    datasets: [{
-                        label: 'Receitas',
-                        data: [@ViewBag.SalarioReceita,
-                               @ViewBag.InvestimentosReceita,
-                               @ViewBag.OutrosReceita],
-                        borderWidth: 1,
-                        backgroundColor: ['lightgreen'],
-                    },
-                    ]
-                };
-                var config = {
-                    type: 'bar',
-                    data,
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: {
-                                    drawOnChartArea: false
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: {
-                                        size: 18
-                                    }
-                                }
-                            },
-                            indexAxis: 'x'
-                        }
-                    }
-                };
-
-                var myChart = new Chart(
-                    document.getElementById('grafico2'),
-                    config
-                );
-
-            </script>
-        </div>
-
-        <div class="col">
-
-            <canvas id="grafico3" style="height:200px;width:70%;padding-bottom:50px;"></canvas>
-
-            <script>
-                var data = {
-                    labels: ['Alimentação',
-                        'Educação',
-                        'Empréstimos',
-                        'Entretenimento',
-                        'Eventos',
-                        'Impostos',
-                        'Imprevistos',
-                        'Investimentos',
-                        'Moradia',
-                        'Saúde',
-                        'Seguros',
-                        'Taxas',
-                        'Transporte',
-                        'Veículo',
-                        'Vestuário',
-                        'Outros'],
-                    datasets: [{
-                        label: 'Despesas',
-                        data: [@ViewBag.AlimentacaoDespesa,
-                @ViewBag.EducacaoDespesa,
-                @ViewBag.EmprestimoDespesa,
-                @ViewBag.EntretenimentoDespesa,
-                @ViewBag.EventosDespesa,
-                @ViewBag.ImpostoDespesa,
-                @ViewBag.ImprevistosDespesa,
-                @ViewBag.InvestimentosDespesa,
-                @ViewBag.MoradiaDespesa,
-                @ViewBag.SaudeDespesa,
-                @ViewBag.SegurosDespesa,
-                @ViewBag.TaxaDespesa,
-                @ViewBag.TransporteDespesa,
-                @ViewBag.VeiculoDespesa,
-                @ViewBag.VestuarioDespesa,
-                @ViewBag.OutrosDespesa],
-                        borderWidth: 1,
-                        backgroundColor: ['indianred'],
-                    },
-                    ]
-                };
-                var config = {
-                    type: 'bar',
-                    data,
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: false,
-                                grid: {
-                                    drawOnChartArea: false
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: {
-                                        size: 18
-                                    }
-                                }
-                            },
-                            indexAxis: 'x'
-                        }
-                    }
-                };
-
-                var myChart = new Chart(
-                    document.getElementById('grafico3'),
-                    config
-                );
-                
-
-            </script>
-        </div>
-
-    </div>
+<div>
+    <canvas id="grafico2" style="width: 300px; height: 100px; padding-top: 30px; padding-bottom: 50px;"></canvas>
 </div>
+
+<script>
+    var data = {
+        labels: ['Salário', 'Investimento', 'Outros'],
+        datasets: [{
+            label: 'Receitas',
+            data: [@ViewBag.SalarioReceita, @ViewBag.InvestimentoReceita, @ViewBag.OutrosReceita],
+            borderWidth: 1,
+            backgroundColor: ['lightgreen', 'lightblue', 'lightgray'], // Definindo cores diferentes para cada barra
+        }]
+    };
+
+    var config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                },
+                indexAxis: 'y'
+            }
+        }
+    };
+
+    var myChart = new Chart(
+        document.getElementById('grafico2'),
+        config
+    );
+</script>
+
+
+<hr />
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div>
+    <canvas id="grafico3" style="width:300px; height:100px;padding-top:30px;padding-bottom:50px;"></canvas>
+</div>
+
+<script>
+
+    var data = {
+        labels: ['Alimentação', 'Educação', 'Empréstimo', 'Entretenimento', 'Eventos', 'Impostos', 'Imprevistos', 'Invest', 'Moradia', 'Saúde', 'Seguros', 'Taxas', 'Transporte', 'Veiculos', 'Vestuário', 'Outros'],
+        datasets: [{
+            label: 'Despesas',
+            data: [@ViewBag.AlimentacaoDespesa,
+                    @ViewBag.EducacaoDespesa,
+                    @ViewBag.EmprestimoDespesa,
+                    @ViewBag.EntretenimentoDespesa,
+                    @ViewBag.EventosDespesa,
+                    @ViewBag.ImpostoDespesa,
+                    @ViewBag.ImprevistosDespesa,
+                    @ViewBag.InvestimentosDespesa,
+                    @ViewBag.MoradiaDespesa,
+                    @ViewBag.SaudeDespesa,
+                    @ViewBag.SegurosDespesa,
+                    @ViewBag.TaxaDespesa,
+                    @ViewBag.TransporteDespesa,
+                    @ViewBag.VeiculoDespesa,
+                    @ViewBag.VestuarioDespesa,
+                    @ViewBag.OutrosDespesa],
+            borderWidth: 1,
+            backgroundColor: ['indianred'],
+        }]
+    };
+
+    var config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                },
+                indexAxis: 'x'
+            }
+        }
+    };
+
+    var myChart = new Chart(
+        document.getElementById('grafico3'),
+        config
+    );
+
+</script>
 
 
 <div style="padding-top:10px;">

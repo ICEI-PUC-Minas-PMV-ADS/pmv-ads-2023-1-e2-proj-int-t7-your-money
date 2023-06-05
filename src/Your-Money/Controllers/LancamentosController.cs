@@ -89,46 +89,45 @@ namespace Your_Money.Controllers
 
             var salarioReceita = SomaLancamentosPorClassificacao(Classificacao.Salário, Transacao.Receita, mes, ano);
             var investimentoReceita = SomaLancamentosPorClassificacao(Classificacao.Investimentos, Transacao.Receita, mes, ano);
-            var outroReceita = SomaLancamentosPorClassificacao(Classificacao.Outros, Transacao.Receita, mes, ano);
+            var outrosReceita = SomaLancamentosPorClassificacao(Classificacao.Outros, Transacao.Receita, mes, ano);
 
-            var alimentoDespesa = SomaLancamentosPorClassificacao(Classificacao.Alimentação, Transacao.Despesa, mes, ano);
-            var veiculosDespesa = SomaLancamentosPorClassificacao(Classificacao.Veículo, Transacao.Despesa, mes, ano);
-            var moradiasDespesa = SomaLancamentosPorClassificacao(Classificacao.Moradia, Transacao.Despesa, mes, ano);
-            var transportesDespesa = SomaLancamentosPorClassificacao(Classificacao.Transporte, Transacao.Despesa, mes, ano);
-            var emprestimosDespesa = SomaLancamentosPorClassificacao(Classificacao.Empréstimos, Transacao.Despesa, mes, ano);
-            var entretenimentosDespesa = SomaLancamentosPorClassificacao(Classificacao.Entretenimento, Transacao.Despesa, mes, ano);
-            var impostosDespesa = SomaLancamentosPorClassificacao(Classificacao.Impostos, Transacao.Despesa, mes, ano);
-            var taxasDespesa = SomaLancamentosPorClassificacao(Classificacao.Taxas, Transacao.Despesa, mes, ano);
-            var saudeDespesa = SomaLancamentosPorClassificacao(Classificacao.Saúde, Transacao.Despesa, mes, ano);
+            var alimentacaoDespesa = SomaLancamentosPorClassificacao(Classificacao.Alimentação, Transacao.Despesa, mes, ano);
             var educacaoDespesa = SomaLancamentosPorClassificacao(Classificacao.Educação, Transacao.Despesa, mes, ano);
-            var segurosDespesa = SomaLancamentosPorClassificacao(Classificacao.Seguros, Transacao.Despesa, mes, ano);
-            var vestuarioDespesa = SomaLancamentosPorClassificacao(Classificacao.Vestuário, Transacao.Despesa, mes, ano);
-            var investimentosDespesa = SomaLancamentosPorClassificacao(Classificacao.Investimentos, Transacao.Despesa, mes, ano);
-            var imprevistosDespesa = SomaLancamentosPorClassificacao(Classificacao.Imprevistos, Transacao.Despesa, mes, ano);
+            var emprestimoDespesa = SomaLancamentosPorClassificacao(Classificacao.Empréstimos, Transacao.Despesa, mes, ano);
+            var entretenimentoDespesa = SomaLancamentosPorClassificacao(Classificacao.Entretenimento, Transacao.Despesa, mes, ano);
             var eventosDespesa = SomaLancamentosPorClassificacao(Classificacao.Eventos, Transacao.Despesa, mes, ano);
+            var imprevistoDespesa = SomaLancamentosPorClassificacao(Classificacao.Imprevistos, Transacao.Despesa, mes, ano);
+            var impostosDespesa = SomaLancamentosPorClassificacao(Classificacao.Impostos, Transacao.Despesa, mes, ano);
+            var investimentoDespesa = SomaLancamentosPorClassificacao(Classificacao.Investimentos, Transacao.Despesa, mes, ano);
+            var moradiaDespesa = SomaLancamentosPorClassificacao(Classificacao.Moradia, Transacao.Despesa, mes, ano);
+            var taxasDespesa = SomaLancamentosPorClassificacao(Classificacao.Taxas, Transacao.Despesa, mes, ano);
+            var transporteDespesa = SomaLancamentosPorClassificacao(Classificacao.Transporte, Transacao.Despesa, mes, ano);
+            var saudeDespesa = SomaLancamentosPorClassificacao(Classificacao.Saúde, Transacao.Despesa, mes, ano);
+            var segurosDespesa = SomaLancamentosPorClassificacao(Classificacao.Seguros, Transacao.Despesa, mes, ano);
+            var veiculoDespesa = SomaLancamentosPorClassificacao(Classificacao.Veículo, Transacao.Despesa, mes, ano);
+            var vestuarioDespesa = SomaLancamentosPorClassificacao(Classificacao.Vestuário, Transacao.Despesa, mes, ano);
             var outrosDespesa = SomaLancamentosPorClassificacao(Classificacao.Outros, Transacao.Despesa, mes, ano);
 
             ViewBag.SalarioReceita = salarioReceita;
-            ViewBag.InvestimentosReceita = investimentoReceita;
-            ViewBag.OutrosReceita = outroReceita;
+            ViewBag.InvestimentoReceita = investimentoReceita;
+            ViewBag.OutrosReceita = outrosReceita;
 
-            ViewBag.AlimentacaoDespesa = alimentoDespesa;
-            ViewBag.VeiculoDespesa = veiculosDespesa;
-            ViewBag.MoradiaDespesa = moradiasDespesa;
-            ViewBag.TransporteDespesa = transportesDespesa;
-            ViewBag.EmprestimoDespesa = emprestimosDespesa;
-            ViewBag.EntretenimentoDespesa = entretenimentosDespesa;
-            ViewBag.ImpostoDespesa = impostosDespesa;
-            ViewBag.TaxaDespesa = taxasDespesa;
-            ViewBag.SaudeDespesa = saudeDespesa;
+            ViewBag.AlimentacaoDespesa = alimentacaoDespesa;
             ViewBag.EducacaoDespesa = educacaoDespesa;
-            ViewBag.SegurosDespesa = segurosDespesa;
-            ViewBag.VestuarioDespesa = vestuarioDespesa;
-            ViewBag.InvestimentosDespesa = investimentosDespesa;
-            ViewBag.ImprevistosDespesa = imprevistosDespesa;
+            ViewBag.EmprestimoDespesa = emprestimoDespesa;
+            ViewBag.EntretenimentoDespesa = entretenimentoDespesa;
             ViewBag.EventosDespesa = eventosDespesa;
+            ViewBag.ImpostoDespesa = impostosDespesa;
+            ViewBag.InvestimentosDespesa = investimentoDespesa;
+            ViewBag.ImprevistosDespesa = imprevistoDespesa;
+            ViewBag.MoradiaDespesa = moradiaDespesa;
+            ViewBag.SaudeDespesa = saudeDespesa;
+            ViewBag.SegurosDespesa = segurosDespesa;
+            ViewBag.TaxaDespesa = taxasDespesa;
+            ViewBag.TransporteDespesa = transporteDespesa;
+            ViewBag.VeiculoDespesa = veiculoDespesa;
+            ViewBag.VestuarioDespesa = vestuarioDespesa;
             ViewBag.OutrosDespesa = outrosDespesa;
-
 
             return View(await applicationDbContext.ToListAsync());
         }

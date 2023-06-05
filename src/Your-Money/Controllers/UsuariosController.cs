@@ -14,6 +14,7 @@ using SendGrid;
 using Your_Money.Models;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Your_Money.Controllers
 {
@@ -93,10 +94,10 @@ namespace Your_Money.Controllers
             return View();
         }
 
+        [Authorize]
         // GET: Usuarios
         public async Task<IActionResult> Index(int mes, int ano)
         {
-
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
 
             if (mes == 0)
