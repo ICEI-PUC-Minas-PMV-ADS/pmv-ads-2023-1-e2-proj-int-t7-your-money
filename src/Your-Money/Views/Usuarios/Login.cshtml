@@ -1,31 +1,51 @@
 ﻿@model Your_Money.Models.Usuario
 
+
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Entrar";
 }
 
 <h2 style="color:darkblue">Entrar</h2>
 <hr>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <b style="color:darkblue">
+                    <label asp-for="Email" class="control-label"></label>
+                </b>
+                <input asp-for="Email" class="form-control shadow-sm" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
+                <b style="color:darkblue">
+                    <label asp-for="Senha" class="control-label"></label>
+                </b>
+                <input asp-for="Senha" class="form-control shadow-sm" />
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Entrar" class="btn btn-primary" />
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary" id="btnEntrar" value="Entrar">
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" style="margin-right:20px;"></span>Entrar
+                </button>
+                <a asp-area="" asp-controller="Usuarios" asp-action="ExibirRecuperarSenha"> <h7 style="text-justify:auto;margin-left:30px;">Esqueceu sua senha?</h7></a>
             </div>
         </form>
         <h3> @ViewBag.Message </h3>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+        $('form').submit(function () {
+            $('#btnEntrar').prop('disabled', true);
+            $('.spinner-border').removeClass('d-none');
+        });
+    });
+</script>
+
 

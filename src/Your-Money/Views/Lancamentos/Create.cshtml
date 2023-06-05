@@ -1,8 +1,11 @@
 ﻿@model Your_Money.Models.Lancamento
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar Lançamento";
 }
+
+<body class="background-image">
+
 <nav>
     <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
         <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
@@ -13,60 +16,99 @@
 
 <h2 style="color:darkblue">Adicionar Lançamento</h2>
 <hr>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Transacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
+
+    <div class="container">
+        <form asp-action="Create" id="formCreate">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group" id="Transação">
+                        <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
+                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()">
+                            <option value="" style="background-color:aliceblue;">Selecione</option>
+                        </select>
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" id="Classificação">
+                        <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
+                        <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
+                        <span asp-validation-for="Classificacao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Data" class="control-label"></label></b>
+                        <input asp-for="Data" class="form-control shadow-sm" type="date" />
+                        <span asp-validation-for="Data" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color: darkblue"><label asp-for="Status" class="control-label"></label></b>
+                        <select asp-for="Status" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<StatusTransacao>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" id="Via">
+                        <b style="color:darkblue"><label asp-for="Via" class="control-label"></label></b>
+                        <select asp-for="Via" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Via>()">
+                            <option value="" style="background-color:aliceblue"><b>Selecione</b></option>
+                        </select>
+                        <span asp-validation-for="Via" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Valor" class="control-label"></label></b>
+                        <input asp-for="Valor" class="form-control shadow-sm" placeholder="R$ 0,00"/>
+                        <span asp-validation-for="Valor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="NumeroParcelas" class="control-label"></label></b>
+                        <input asp-for="NumeroParcelas" class="form-control shadow-sm" placeholder="Sim: nº repetições | Não: digite 0" />
+                        <span asp-validation-for="NumeroParcelas" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <b style="color:darkblue"><label asp-for="Descricao" class="control-label"></label></b>
+                        <input asp-for="Descricao" class="form-control shadow-sm" placeholder="Descreva seu lançamento" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Via" class="control-label"></label>
-                <select asp-for="Via" class="form-control" asp-items="Html.GetEnumSelectList<Via>()"><option value="" disabled selected>Selecione uma opção</option></select>>
-                <span asp-validation-for="Via" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Classificacao" class="control-label"></label>
-                <select asp-for="Classificacao" class="form-control" asp-items="Html.GetEnumSelectList<Classificacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
-                <span asp-validation-for="Classificacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
-                <span asp-validation-for="Valor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" type="date" />
-                <span asp-validation-for="Data" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<StatusTransacao>()"><option value="" disabled selected>Selecione uma opção</option></select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            <div class="row">
+                <div class="col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" asp-action="Index" class="btn btn-primary">Salvar</button>
+                </div>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-</div>
+    <script>
+        function limparFormulario() {
+            var form = document.getElementById("formCreate");
+            form.reset();
+        }
+
+        document.getElementById("formCreate").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch(this.action, {
+                method: this.method,
+                body: formData
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log("Lançamento salvo com sucesso");
+                        limparFormulario();
+                        window.location.href = "/Lancamentos/Index";
+                    } else {
+                        console.error("Erro ao salvar o lançamento:", response.statusText);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Erro ao enviar os dados do formulário:", error);
+                });
+        });
+    </script>
 
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
-
+</body>
