@@ -120,29 +120,30 @@
                             <h1><b>R$ @ViewBag.Saldo</b></h1>
                             @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
                             {
-                                if (ViewBag.AlertClass == "alert-orange")
+                                if (ViewBag.AlertClass == "alert-danger")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
+                                else if (ViewBag.AlertClass == "alert-orange")
                                 {
                                     <div class="alert alert-orange" role="alert">
                                         @ViewBag.AlertMessage
                                     </div>
                                 }
-                                else
+                                else if (ViewBag.AlertClass == "alert-warning")
                                 {
-                                    <div class="alert @ViewBag.AlertClass" role="alert">
+                                    <div class="alert alert-warning" role="alert">
                                         @ViewBag.AlertMessage
                                     </div>
                                 }
                             }
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
+                        
+                        
+                   
+     
 </div>
-
 <div class="modal fade pt-5 mt-5" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
