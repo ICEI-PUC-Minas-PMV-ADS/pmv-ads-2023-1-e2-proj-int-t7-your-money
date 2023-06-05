@@ -61,22 +61,22 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/1c30d4da-b9b0-496d-9b67-fb9593f8529b
 
 ### CT-19 – Verificar se o alerta está sendo emitido.
-[CT19 Verificar se alerta está sendo emitido.zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652377/CT19.Verificar.se.alerta.esta.sendo.emitido.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/7d7eb9d5-3464-42e6-af59-9b3de83cefec
 
-# CT-20 – Fazer o login com sucesso.
-##[CT20 Fazer login com sucesso.zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652440/CT20.Fazer.login.com.sucesso.zip)
+### CT-20 – Fazer o login com sucesso.
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/10871889-3c05-428f-b6dc-b75fa4d605d5
 
 ### CT-21 – Falhar ao fazer login com e-mail inválido.
-[CT21 Falha ao fazer Login com email inválido.zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652454/CT21.Falha.ao.fazer.Login.com.email.invalido.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/af7a4a40-79aa-479c-a3ff-39e5be711e15
 
 ### CT-22 – Falhar ao fazer login com e-mail vazio.
-[CT22 Falha ao fazer Login com email vazio..zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652464/CT22.Falha.ao.fazer.Login.com.email.vazio.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/d30bb9e3-1d75-4951-bda6-4f10103a4cc3
 
 ### CT-23 – Falhar ao fazer login com senha inválida.
-[CT23 Falha ao fazer Login com senha inválida..zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652471/CT23.Falha.ao.fazer.Login.com.senha.invalida.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/4558c6e0-2eee-491d-bf5c-79d17a3e658d
 
 ### CT-24 – Falhar ao fazer login com senha vazia.
-[CT24 Falhar ao fazer Login com senha vazia..zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652476/CT24.Falhar.ao.fazer.Login.com.senha.vazia.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/d4471646-8943-4051-8335-df5e843b36e2
 
 ### CT-25 – Recuperar senha esquecida através de e-mail com sucesso.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/38392191-d7af-4918-8115-aefb8e3349c8
@@ -85,6 +85,7 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/4e9cc0ad-7ba4-48c6-8e0c-2301a1d8ea9d
 
 ### CT-27 – Trocar senha através de e-mail com sucesso.
+
 
 
 ### CT-28 – Falha ao troca senha através de e-mail.
@@ -109,13 +110,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 
 
 ### CT-35 – Verificar alerta próximo do vencimento dos pagamentos.
-[CT35 Verificar alerta próximo do vencimento dos pagamentos..zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652488/CT35.Verificar.alerta.proximo.do.vencimento.dos.pagamentos.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/a865c404-cc12-4ff5-acac-92cdbd79afa3
 
 ### CT-36 – Visualizar sessão de dicas e informações para controle financeiro.** 
-[CT36 Visualizar sessão de dicas e informações para controle financeiro.zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652496/CT36.Visualizar.sessao.de.dicas.e.informacoes.para.controle.financeiro.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/c8026a55-80aa-4147-a314-097778281ba4
 
 ### CT-37 – Ver diferenciação de Receitas e Despesas através da cor.
-[CT37 Ver diferenciação de Receitas e Despesas através da cor..zip](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/files/11652500/CT37.Ver.diferenciacao.de.Receitas.e.Despesas.atraves.da.cor.zip)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/b0aab99e-4ff7-4c90-aa17-aa3bf618ac38
+
 
 > **Links Úteis**:
 > - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
