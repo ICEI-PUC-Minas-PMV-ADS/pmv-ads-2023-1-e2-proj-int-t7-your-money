@@ -34,13 +34,13 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/1e6b0338-7c0c-4f1d-a3a5-0942035ef356
 
 ### CT-10 – Excluir uma despesa existente com sucesso.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/4981e11e-5923-4e27-a018-1fe8e7348721
 
 ### CT-11 – Falha ao preencher uma nova despesa sem os campos obrigatórios.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/29e5f3fe-f18a-45ae-8996-1f8578aa7707
 
 ### CT-12 – Falha ao preencher a edição de uma despesa sem os campos obrigatórios.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/8d038280-6a1a-4778-929a-0cf1c57d452d
 
 ### CT-13 – Realizar parcelamento com sucesso.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/7d0d8149-0d96-4f64-85f0-45e99d31f008
@@ -49,13 +49,13 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/f487f51a-29a2-469a-a8c7-24beb6e012e6
 
 ### CT-15 – Tentar editar data de Pagamento sem alterar Status.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/157a7abc-08f1-4e1a-8b5a-137e8b92150c
 
 ### CT-16 – Tentar editar Status Efetivado sem colocar data de pagamento.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/a89f4070-4fc3-4d99-9b22-64807e710fcb
 
 ### CT-17 – Status do Lançamento mudar para efetivado com sucesso.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/b3e7db6e-c7f6-4f99-99e6-82986ad3914b
 
 ### CT-18 – Verificar se o saldo do mês está sendo gerado de forma correta.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/1c30d4da-b9b0-496d-9b67-fb9593f8529b
@@ -85,29 +85,28 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-mon
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/4e9cc0ad-7ba4-48c6-8e0c-2301a1d8ea9d
 
 ### CT-27 – Trocar senha através de e-mail com sucesso.
-
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/0181d316-557e-4cc2-8ceb-846995daa38e
 
 ### CT-28 – Falha ao troca senha através de e-mail.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/3364d9c6-30b1-4cb5-b011-474fb0994f9c
 
 ### CT-29 – Criação de uma conta nova de usuário com sucesso.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/1e7c0cb4-79e0-48a1-a3f5-f5ef24fa02d0
 
 ### CT-30 – Falha na criação de conta por conta de informações vazias.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/c1a99a92-9db9-46fd-8d12-5f5766cc969a
 
 ### CT-31 – Falha na criação de conta por conta de formato de e-mail inválido.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/d497e9b3-ba87-4b29-ad83-211ea54799e6
 
 ### CT-32 – Falha na criação de conta por senha e repetição de senha incompatíveis.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/89702982-cfe7-4098-a1d2-75d2944214b9
 
 ### CT-33 – Visualizar os relatórios de despesas e receitas anual com sucesso.
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/713e26ef-0086-418d-8c09-f60ef07f80f4
 
 ### CT-34 – Visualizar um local destinado as dicas.** 
-
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/112659128/2cd4876e-afe8-4071-a6cf-d6a2c9865dfa
 
 ### CT-35 – Verificar alerta próximo do vencimento dos pagamentos.
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/98750413/a865c404-cc12-4ff5-acac-92cdbd79afa3
