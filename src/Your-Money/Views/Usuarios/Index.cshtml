@@ -7,12 +7,15 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal valorReceitas = ViewBag.ValorReceitas ?? 0;
+    decimal valorDespesas = ViewBag.ValorDespesas ?? 0;
+    decimal porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
 
 }
-
 @{
     var alertMessage = ViewBag.AlertMessage;
 }
+
 <link rel="stylesheet" href="~/css/site.css" />
 
 <nav>
@@ -21,159 +24,92 @@
         <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
     </ol>
 </nav>
-    ViewData["Title"] = "Minha Conta";
-    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
 
+<h2 style="color:darkblue;">Minha Conta</h2>
+<hr>
 
-@{
-    // Requisição HTTP para as cotações de moedas
-    var httpClient = new HttpClient();
+<div class="container-fluid p-2">
+    <div class="row">
 
-    var response = await httpClient.GetAsync("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").ConfigureAwait(false);
-
-    var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-    var jsonOptions = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-    var apiData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, dynamic>>>(responseContent, jsonOptions);
-
-    var usdValue = decimal.Parse(apiData["USDBRL"]["bid"].ToString(), CultureInfo.InvariantCulture);
-    var eurValue = decimal.Parse(apiData["EURBRL"]["bid"].ToString(), CultureInfo.InvariantCulture);
-    var btcValue = decimal.Parse(apiData["BTCBRL"]["bid"].ToString(), CultureInfo.InvariantCulture);
-
-}
-
-<body class="background-image">
-
-    <nav>
-        <ol class="breadcrumb p-0 pt-0 pb-0" style="background: white;text-size-adjust:auto;">
-            <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
-            <marquee direction="left" style="background-color:aliceblue;padding-top:5px;padding-bottom:5px;">
-                <img class="tex-info" src="~/crown.svg" style="width:15px;align-self:center;margin-right:10px;">
-                <span class="text-info">Dólar -&gt;</span> @usdValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <span class="text-info">Euro -&gt;</span> @eurValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <span class="text-info">Bitcoin -&gt;</span> @btcValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <h7 id="cotation">
-                    <h7 class="text-info" style="font-style:italic;padding-left:5px;">última atualização à 30 segundos</h7>
-                    <img class="tex-info" src="~/crown.svg" style="width:15px;align-self:center;margin-left:10px;">
-            </marquee>
-        </ol>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-7">
-                <h2 style="color:darkblue;">Minha Conta</h2>
-
-                <h6 style="color:black;">
-                    Saldo total da conta: <b>
-                        <span style="color: @(ViewBag.Saldo < 0 ? "red" : "green")">
-                            @ViewBag.Saldo.ToString("C")
-                        </span>
-                    </b>
-                </h6>
+        <div class="col m-1">
+            <div class="card align-items-center">
+                <img src="~/user.png" alt="usuário" width="70%" style="padding-top:10%;">
+                <div class="card-body">
+                    <p id="NameUser" class="card-text">@User.Identity.Name</p>
+                </div>
+                ------------------
+                @foreach (var item in Model)
+                {
+                    <div class="p-3 pb-5">
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    </div>
+                }
             </div>
-            <div class="col-md">
-                <form asp-action="Index" method="get" class="form-row">
-                    <div class="form-group ">
-                        <label class="control-label" style="color:darkblue;"><b>Mês</b></label>
-                        <select name="mes" class="form-control shadow-sm" required style="color:darkblue;">
-                            <option value="@ViewBag.MesAtual">Mês Atual</option>
-                            <option value="1">Janeiro</option>
-                            <option value="2">Fevereiro</option>
-                            <option value="3">Março</option>
-                            <option value="4">Abril</option>
-                            <option value="5">Maio</option>
-                            <option value="6">Junho</option>
-                            <option value="7">Julho</option>
-                            <option value="8">Agosto</option>
-                            <option value="9">Setembro</option>
-                            <option value="10">Outubro</option>
-                            <option value="11">Novembro</option>
-                            <option value="12">Dezembro</option>
-                        </select>
+        </div>
+
+        <div class="col-9 m-1">
+            <div class="row">
+                <form asp-action="Index" method="get" class="col-12 form-row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label class="control-label">Mês</label>
+                            <select name="mes" class="form-control" required>
+                                <option></option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                            <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="digite o ano" value="@ViewBag.AnoAtual" />
+                            <label class="control-label">Ano</label>
+                            <input type="number" step="1" min="1901" name="ano" class="form-control" required />
                         </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-4">
                         <div class="form-group">
-                            <button class="btn btn-primary" style="margin-top:32px;">Pesquisar</button>
+                            <button class="btn btn-primary btn-block" style="margin-top:32px;">Pesquisar</button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
 
-    <hr>
-
-    <div class="container-fluid ml-3 pt-2 p-2 pb-2 text-center">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="card align-items-center shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;background-color:aliceblue;text-size-adjust:auto;">
-
-                    <img src="~/user.png" alt="usuário" width="50%" style="padding-top:15%">
-                    <div class="card-body p-0 m-0" style="text-size-adjust:auto;">
-                        <p id="NameUser" class="card-text" style="color:darkblue;"><h6>Olá, @User.Identity.Name</h6></p>
+            <div class="row text-center">
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body" style="background-color:lightgreen">
+                            <b style="color:green">Receitas</b>
+                        </div>
+                        <div class="pt-5 pb-5" style="color:green">
+                            <h1><b>R$ @ViewBag.ValorReceitas</b></h1>
+                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/revenue.png" width="40%" style="padding-top: 1rem">
+                        </div>
                     </div>
-                    @foreach (var item in Model)
-                    {
-                          <div class="pb-3">
-                            <a asp-action="Edit" asp-route-id="@item.Id" style="padding-right:5px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                              <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                            </svg>
-                            </a><h7 class="text-info"> | </h7>
-                            <a asp-action="Delete" asp-route-id="@item.Id" style="padding-left:5px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-</svg></a></div>
-                    }
-                 </div>
-            </div>
-
-            <div class="col-md-3 ml-2 text-center">
-
-                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
-
-                    <div class="card-body pb-3" style="background: linear-gradient(darkgreen,green);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
-                        <h4><b style="color:white;text-size-adjust:auto;">Receitas</b></h4>
-                    </div>
-
-                    <div class="pt-3 pb-2" style="color:green;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C")</b></h2>
-                        <a href="~/Lancamentos/Create">
-                            <img src="~/revenue.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
-                        </a>
-                    </div>
-                    <div style="color:green;padding:5px;text-size-adjust:auto;padding-bottom:15px;"><h7 class="subtitulo">Clique para adicionar uma Receita</h7></div>
                 </div>
-            </div>
 
-            <div class="col-md-3 text-center">
-
-                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
-
-                    <div class="card-body pb-3" style="background:linear-gradient(darkred, indianred);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
-                        <h4><b style="color:white;text-size-adjust:auto;">Despesas</b></h4>
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body" style="background-color:indianred">
+                            <b style="color:white">Despesas</b>
+                        </div>
+                        <div class="pt-5 pb-5" style="color:darkred">
+                            <h1><b>R$ @ViewBag.ValorDespesas</b></h1>
+                            <img onclick="location=HTMLHRElement='Lancamentos/Create'" src="~/expense.png" width="40%" style="padding-top: 1rem">
+                        </div>
                     </div>
-                    <div class="pt-3 pb-2" style="color:darkred;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C")</b></h2>
-                        <a href="~/Lancamentos/Create">
-                            <img src="~/expense.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
-                        </a>
-                    </div>
-                    <div style="color:darkred;padding:5px;text-size-adjust:auto;padding-bottom:15px;"><h7 class="subtitulo">Clique para adicionar uma Despesa</h7></div>
                 </div>
-            </div>
 
                 <div class="col-4 text-center">
                     <div class="card">
@@ -182,8 +118,6 @@
                         </div>
                         <div class="pt-5 pb-5" style="color:darkslategray">
                             <h1><b>R$ @ViewBag.Saldo</b></h1>
-                    
-                    @* Minha parte Daniel  *@
                             @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
                             {
                                 if (ViewBag.AlertClass == "alert-orange")
@@ -199,170 +133,49 @@
                                     </div>
                                 }
                             }
-
-
                         </div>
-                        
-                    @* Parte Leo Melo, até linha 213 *@
-            <div class="col-md-3 text-center">
+                    </div>
+                </div>
 
-                <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
-                    <div class="card-body pb-3" style="background: linear-gradient(darkgray,lightgray);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
-                        <h4><b style="color:black;text-size-adjust:auto;">Saldo do Mês</b></h4>
-                    </div>
-                    <div class="pt-3 pb-2" style="color:darkslategray;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;">
-                            <b>
-                                <span style="color: @(ViewBag.Saldo < 0 ? "red" : "green")">
-                                    @ViewBag.Saldo.ToString("C")
-                                </span>
-                            </b>
-                        </h2>
-                        <img src="~/saldo.png" width="30%" style="padding-top: 1rem;">
-                    </div>
-                    <h7 style="color:gray;padding:5px;text-size-adjust:auto;padding-bottom:15px;">atual ou do mês selecionado acima</h7>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade pt-5 mt-5" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="alertModalLabel" style="color: darkred"><b>Atenção!</b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="alert alert-danger pt-4 pb-4" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-exclamation-triangle pt-4" viewBox="0 0 16 16">
+                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                    </svg>
+                    <h4 style="text-align:center">@ViewBag.AlertMessage</h4>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <hr>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
-    <style>
-        .marker {
-            background-color: green;
-            width: 5px;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+<script>
+    $(document).ready(function () {
+        var valorReceitas = parseFloat("@valorReceitas");
+        var valorDespesas = parseFloat("@valorDespesas");
+        var porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
+
+        if (porcentagemDespesas > 75) {
+            $('#alertModal').modal('show');
         }
-
-        .marker1 {
-            background-color: red;
-            width: 5px;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
-
-    <div class="container-fluid">
-        <h4 style="text-align:center;padding-bottom:5px;color:darkblue;">Em aberto para os próximos 15 dias<hr /></h4>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card shadow" style="border-start-end-radius:20px;border-end-end-radius:20px;">
-                    <div class="card-body" style="background-color:white;border-start-end-radius:20px;border-end-end-radius:20px;">
-                        <h5 style="color:darkgreen;text-align:center;padding-left:5px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z" />
-                                <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z" />
-                                <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z" />
-                                <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z" />
-                            </svg>
-                            À Receber
-                        </h5>
-                                            @{
-                        DateTime dataAtual = DateTime.Today;
-                        DateTime dataLimite = dataAtual.AddDays(15);
-                        }
-                        <table class="table" style="text-size-adjust:auto;">
-                            <thead style="text-align: center;">
-                                <tr style="background-color: aliceblue;">
-                                    <th>Classificacao</th>
-                                    <th>Valor</th>
-                                    <th>Data</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
-                                @foreach (var lancamento in ViewBag.LancamentosPendentes)
-                                {
-                                    if (lancamento.Data >= dataAtual && lancamento.Data <= dataLimite && lancamento.Tipo == Transacao.Receita)
-                                    {
-                                        <tr>
-                                            <td>@lancamento.Classificacao</td>
-                                            <td>@lancamento.Valor.ToString("C")</td>
-                                            <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                                    </svg>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="marker"></div>
-                </div>
-            </div>
-           <div class="col-md-6">
-                <div class="card shadow" style="border-start-end-radius:20px;border-end-end-radius:20px;">
-                    <div class="card-body" style="background-color:white;border-start-end-radius:20px;border-end-end-radius:20px;">
-                        <h5 style="color:darkred;text-align:center;padding-left:5px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
-                                <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
-                                <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
-                            </svg>
-                            À Pagar
-                        </h5>
-                        @{
-                            DateTime myDataAtual = DateTime.Today;
-                            DateTime myDataLimite = myDataAtual.AddDays(15);
-                        }
-
-                        <table class="table" style="text-size-adjust:auto;">
-                            <thead style="text-align: center;">
-                                <tr style="background-color: aliceblue;">
-                                    <th>Classificacao</th>
-                                    <th>Valor</th>
-                                    <th>Data</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
-                                @foreach (var lancamento in ViewBag.LancamentosPendentes)
-                                {
-                                    if (lancamento.Data >= dataAtual && lancamento.Data <= dataLimite && lancamento.Tipo == Transacao.Despesa)
-                                    {
-                                        <tr>
-                                            <td>@lancamento.Classificacao</td>
-                                            <td>@lancamento.Valor.ToString("C")</td>
-                                            <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                                    </svg>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="marker1"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
-    <script>
-        VanillaTilt.init(document.querySelectorAll("#cardMovement"),{
-            Max: 25,
-            speed: 400,
-            glare:true,
-            "max-glare": 1,
-        });
-    </script>
-
-</body>
+    });
+</script>
