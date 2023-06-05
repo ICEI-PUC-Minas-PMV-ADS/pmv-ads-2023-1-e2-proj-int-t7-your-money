@@ -15,6 +15,7 @@ using SendGrid;
 using Your_Money.Models;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Your_Money.Controllers
 {
@@ -97,6 +98,7 @@ namespace Your_Money.Controllers
         }
 
         // GET: Usuarios
+        [Authorize]
         public async Task<IActionResult> Index(int mes, int ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
@@ -140,7 +142,7 @@ namespace Your_Money.Controllers
                                                           p.DataVencimento.Month == mes)
                                                    .Sum(x => x.Valor);
 
-            var valorDespesas = valorDespesasLancamentos - valorDespesasParcelas;
+            var valorDespesas = valorDespesasLancamentos + valorDespesasParcelas;
 
             var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
                                                        x.Status == StatusTransacao.Efetivado          
@@ -217,7 +219,7 @@ namespace Your_Money.Controllers
             return string.Empty;
         }
 
-
+        [Authorize]
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -277,6 +279,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -298,6 +301,7 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
             if (id != usuario.Id)
@@ -333,6 +337,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -351,6 +356,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
