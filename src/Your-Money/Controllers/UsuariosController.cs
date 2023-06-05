@@ -139,7 +139,7 @@ namespace Your_Money.Controllers
                                                           p.DataVencimento.Month == mes)
                                                    .Sum(x => x.Valor);
 
-            var valorDespesas = valorDespesasLancamentos - valorDespesasParcelas;
+            var valorDespesas = valorDespesasLancamentos + valorDespesasParcelas;
 
             var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
                                                        x.Status == StatusTransacao.Efetivado          
