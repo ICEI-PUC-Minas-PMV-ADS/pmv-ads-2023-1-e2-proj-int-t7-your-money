@@ -112,118 +112,124 @@ Por exemplo:
 |Critério de Êxito | - Deverá mudar o status do Lançamento para Efetivado, já que todos as parcelas estão efetivadas. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-18 – Verificar se o saldo do mês está sendo gerado de forma correta.** 	|
-|	Requisito Associado 	| RF03 - A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. |
+|	Requisito Associado 	| RF04 - A aplicação deve gerar um saldo pegando o valor das receitas e subtraindo aos das despesas. |
 | Objetivo do Teste 	| Usuário receber uma mensagem de erro quando tentar adicionar um despesa sem os campos obrigatórios. |
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Adicionar uma receita.  <br> - Adicionar uma despesa.  <br> - Verificar o saldo no campo destinado a ele. |
 |Critério de Êxito | - O saldo deve ser o valor exato da subtração da despesa na receita. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-19 – Verificar se o alerta está sendo emitido.** 	|
-|	Requisito Associado 	| RF04 - A aplicação deve emitir alertas quando as despesas atingirem 75% do valor das receitas. |
+|	Requisito Associado 	| RF05 - A aplicação deve emitir alertas quando as despesas atingirem 75% do valor das receitas. |
 | Objetivo do Teste 	| Verificar se o alerta está sendo emitido quando as despesas atingirem 75% do valor das receitas. |
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Adicionar uma receita com valor X.  <br> - Adicionar uma despesa com o valor correspondente a 75% da receita adicionada anteriormente.  <br> - Verificar o saldo no campo destinado a ele. <br> Fechar o alerta emitido pela aplicação. |
 |Critério de Êxito | - A aplicação deverá emitir um alerta informando que suas despesas estão em 75% ou mais em relação as receitas. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-20 – Fazer o login com sucesso.** 	|
-|	Requisito Associado 	| RF05 - A aplicação deve permitir que o usuário faça login. |
+|	Requisito Associado 	| RF06 - A aplicação deve permitir que o usuário faça login. |
 | Objetivo do Teste 	| Usuário possa acessar o site utilizando seu login e senha corretamente. |
 | Passos 	| - Estar na tela de login. <br>  - Preencher o campo e-mail corretamente.  <br> - Preencher o campo senha corretamente.  <br> - Clicar no botão "Logar". |
 |Critério de Êxito | - Login realizado com sucesso, a aplicação deverá direcionar o usuário para a tela principal do sistema. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-21 – Falhar ao fazer login com e-mail inválido.** 	|
-|	Requisito Associado 	| RF05 - A aplicação deve permitir que o usuário faça login. |
+|	Requisito Associado 	| RF06 - A aplicação deve permitir que o usuário faça login. |
 | Objetivo do Teste 	| Usuário tente realizar o login com o e-mail inválido. |
 | Passos 	| - Estar na tela de login. <br>  - Preencher o campo e-mail de forma inválida.  <br> - Preencher o campo senha corretamente.  <br> - Clicar no botão "Logar". |
 |Critério de Êxito | - A aplicação deverá emitir um alerta que o e-mail está inválido e não permitir o acesso ao sistema para o usuário. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-22 – Falhar ao fazer login com e-mail vazio.** 	|
-|	Requisito Associado 	| RF05 - A aplicação deve permitir que o usuário faça login. |
+|	Requisito Associado 	| RF06 - A aplicação deve permitir que o usuário faça login. |
 | Objetivo do Teste 	| Usuário tente realizar o login com o e-mail vazio. |
 | Passos 	| - Estar na tela de login. <br>  - Não preencher o campo e-mail.  <br> - Preencher o campo senha corretamente.  <br> - Clicar no botão "Logar". |
 |Critério de Êxito | - A aplicação deverá emitir um alerta que o e-mail está vazio e não permitir o acesso ao sistema para o usuário. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-23 – Falhar ao fazer login com senha inválida.** 	|
-|	Requisito Associado 	| RF05 - A aplicação deve permitir que o usuário faça login. |
+|	Requisito Associado 	| RF06 - A aplicação deve permitir que o usuário faça login. |
 | Objetivo do Teste 	| Usuário tente realizar o login com a senha inválida. |
 | Passos 	| - Estar na tela de login. <br>  - Preencher o campo e-mail corretamente.  <br> - Preencher o campo senha de forma inválida.  <br> - Clicar no botão "Logar". |
 |Critério de Êxito | - A aplicação deverá emitir um alerta que o senha está inválida e não permitir o acesso ao sistema para o usuário. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-24 – Falhar ao fazer login com senha vazia.** 	|
-|	Requisito Associado 	| RF05 - A aplicação deve permitir que o usuário faça login. |
+|	Requisito Associado 	| RF06 - A aplicação deve permitir que o usuário faça login. |
 | Objetivo do Teste 	| Usuário tente realizar o login com a senha vazia. |
 | Passos 	| - Estar na tela de login. <br>  - Preencher o campo e-mail corretamente.  <br> - Não preencher o campo senha.  <br> - Clicar no botão "Logar". |
 |Critério de Êxito | - A aplicação deverá emitir um alerta que o senha está vazia e não permitir o acesso ao sistema para o usuário. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-25 – Criação de uma conta nova de usuário com sucesso.** 	|
-|	Requisito Associado 	| RF06 - A aplicação deve permitir o auto gerenciamentos do usuários. |
+| **Caso de Teste** 	| **CT-25 – Recuperar senha esquecida através de e-mail com sucesso.** 	|
+|	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
+| Objetivo do Teste 	| Recuperar senha esquecida através do email. |
+| Passos 	| - Estar na tela de login. <br>  - Clicar em Recuperar senha.  <br> - Informar nome e e-mail corretamente. <br> - Inserir o código recebido via e-mail. |
+|Critério de Êxito | - A aplicação deverá salvar a nova senha para realizar login. |
+|  	|  	|
+| **Caso de Teste** 	| **CT-26 – Falha ao recuperar senha esquecida através de e-mail.** 	|
+|	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
+| Objetivo do Teste 	| Recuperar senha esquecida através do email. |
+| Passos 	| - Estar na tela de login. <br>  - Clicar em Recuperar senha.  <br> - Informar nome e e-mail corretamente. <br> - Inserir um código inválido. |
+|Critério de Êxito | - A aplicação deverá impedir a recuperação de senha pelo código ser inválido. |
+|  	|  	|
+| **Caso de Teste** 	| **CT-27 – Trocar senha através de e-mail com sucesso.** 	|
+|	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
+| Objetivo do Teste 	| Trocar senha através do email. |
+| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis. <br> - Inserir o código recebido via e-mail.  |
+|Critério de Êxito | - A aplicação deverá salvar a nova senha de login. |
+|  	|  	|
+| **Caso de Teste** 	| **CT-28 – Falha ao troca senha através de e-mail.** 	|
+|	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
+| Objetivo do Teste 	| Usar um código inválido para trocar a senha. |
+| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis. <br> - Inserir um código inválido. |
+|Critério de Êxito | - A aplicação deverá impedir a troca de senha pelo código ser inválido. |
+|  	|  	|
+| **Caso de Teste** 	| **CT-29 – Criação de uma conta nova de usuário com sucesso.** 	|
+|	Requisito Associado 	| RF08 - A aplicação deve permitir o auto gerenciamentos do usuários. |
 | Objetivo do Teste 	| Um novo usuário faça cadastro na aplicação. |
 | Passos 	| - Estar na tela de login. <br>  - Clicar no botão "Nova Conta".  <br> - Informar os campos: nome, e-mail, senha corretamente.  <br> - Clicar no botão "Criar conta". |
 |Critério de Êxito | - A aplicação deverá criar um novo usuário e redireciona-lo para a tela principal do sistema. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-26 – Falha na criação de conta por conta de informações vazias.** 	|
-|	Requisito Associado 	| RF06 - A aplicação deve permitir o auto gerenciamentos do usuários. |
+| **Caso de Teste** 	| **CT-30 – Falha na criação de conta por conta de informações vazias.** 	|
+|	Requisito Associado 	| RF08 - A aplicação deve permitir o auto gerenciamentos do usuários. |
 | Objetivo do Teste 	| Um novo usuário tente realizar login com informações vazias. |
 | Passos 	| - Estar na tela de login. <br>  - Clicar no botão "Nova Conta".  <br> - Deixar de informar algum campo ou todos. <br> - Clicar no botão "Criar conta". |
 |Critério de Êxito | - A aplicação deverá exibir uma mensagem mostrando que todos os campos são obrigatórios. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-27 – Falha na criação de conta por conta de formato de e-mail inválido.** 	|
-|	Requisito Associado 	| RF06 - A aplicação deve permitir o auto gerenciamentos do usuários. |
+| **Caso de Teste** 	| **CT-31 – Falha na criação de conta por conta de formato de e-mail inválido.** 	|
+|	Requisito Associado 	| RF08 - A aplicação deve permitir o auto gerenciamentos do usuários. |
 | Objetivo do Teste 	| Um novo usuário tente realizar login com informações vazias. |
 | Passos 	| - Estar na tela de login. <br>  - Clicar no botão "Nova Conta".  <br> - Informar nome e senha corretamente. <br> - Inserir no campo e-mail, um e-mail que não contenha "@" no meio dele. <br> - Clicar no botão "Criar conta". |
 |Critério de Êxito | - A aplicação deverá exibir uma mensagem de erro informando que o formato de e-mail é inválido. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-28 – Cadastrar despesa com tipo e forma de pagamento.** 	|
-|	Requisito Associado 	| RF07 - Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. |
-| Objetivo do Teste 	| Realizar o cadastro de uma despesa informando o tipo e forma de pagamento. |
-| Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Clicar no botão de "Adicionar Despesa".  <br> - Inserir os campos nome da despesa, data de vencimento, valor, tipo e forma de pagamento.  <br> - Clicar no botão de salvar. |
-|Critério de Êxito | - A aplicação salvará a despesa e aparecerá na lista de despesas do mês em que a data de pagamento foi cadastrada. |
+| **Caso de Teste** 	| **CT-32 – Falha na criação de conta por senha e repetição de senha incompatíveis.** 	|
+|	Requisito Associado 	| RF08 - A aplicação deve permitir o auto gerenciamentos do usuários. |
+| Objetivo do Teste 	| Erro ao tentar criar usuário com senha e repetição de senha diferentes. |
+| Passos 	| - Estar na tela de login. <br>  - Clicar no botão "Nova Conta".  <br> - Informar nome e e-mail corretamente. <br> - Inserir senhas e repetição de senhas diferentes. <br> - Clicar no botão "Criar conta". |
+|Critério de Êxito | - A aplicação deverá exibir uma mensagem de erro informando as senhas são incompatíveis. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-29 – Falhar ao cadastrar uma despesa ao não informar tipo ou forma de pagamento.** 	|
-|	Requisito Associado 	| RF07 - Para cada despesa cadastrada, o tipo e a forma de pagamento deve ser informado. |
-| Objetivo do Teste 	| Não inserir o tipo ou forma de pagamento na hora de cadastrar uma despesa, deverá dar falha |
-| Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Clicar no botão de "Adicionar Despesa".  <br> - Inserir os campos nome da despesa, data de vencimento, valor e não informar o tipo ou forma de pagamento.  <br> - Clicar no botão de salvar. |
-|Critério de Êxito | - A aplicação não deverá salvar essa despesa pois são informações que devem ser obrigatórias ao cadastrar uma despesa. |
-|  	|  	|
-| **Caso de Teste** 	| **CT-30 – Visualizar os relatórios de despesas e receitas anual com sucesso.** 	|
-|	Requisito Associado 	| RF08 - A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros. |
+| **Caso de Teste** 	| **CT-33 – Visualizar os relatórios de despesas e receitas anual com sucesso.** 	|
+|	Requisito Associado 	| RF09 - A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros. |
 | Objetivo do Teste 	| Após inserção das despesas e receitas gerar um relátório de despesas anual. |
 | Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Ter receitas e despesas cadastradas.  <br> - Clicar na visualização do relátorio anual. |
 |Critério de Êxito | - A aplicação deverá mostrar um gráfico das despesas em relação as receitas no ano. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-31 – Visualizar os relatórios de despesas e receitas semestral com sucesso.** 	|
-|	Requisito Associado 	| RF08 - A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros. |
-| Objetivo do Teste 	| Após inserção das despesas e receitas gerar um relátório de despesas semestral. |
-| Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Ter receitas e despesas cadastradas.  <br> - Clicar na visualização do relátorio semestral. |
-|Critério de Êxito | - A aplicação deverá mostrar um gráfico das despesas em relação as receitas nos útimos 6 meses. |
-|  	|  	|
-| **Caso de Teste** 	| **CT-32 – Visualizar os relatórios de despesas e receitas trimestral com sucesso.** 	|
-|	Requisito Associado 	| RF08 - A aplicação deve emitir relatórios, seja de despesas, receitas e/ou outros. |
-| Objetivo do Teste 	| Após inserção das despesas e receitas gerar um relátório de despesas trimestral. |
-| Passos 	| - Estar logada na aplicação na página principal do usuário. <br>  - Ter receitas e despesas cadastradas.  <br> - Clicar na visualização do relátorio trimestral. |
-|Critério de Êxito | - A aplicação deverá mostrar um gráfico das despesas em relação as receitas nos útimos 3 meses. |
-|  	|  	|
-| **Caso de Teste** 	| **CT-33 – Visualizar um local destinado as dicas** 	|
-|	Requisito Associado 	| RF09 - Aplicação deve ter uma área específica com dicas. |
+| **Caso de Teste** 	| **CT-34 – Visualizar um local destinado as dicas.** 	|
+|	Requisito Associado 	| RF10 - Aplicação deve ter uma área específica com dicas. |
 | Objetivo do Teste 	| Um dos itens do menu deve ser as dicas e ao clicar ser redirecionado para uma página com mesmo nome. |
 | Passos 	| - Estar na aplicação na tela principal. <br>  - Clicar no dicas.  <br> - Visualizar a página dicas. |
 |Critério de Êxito | - Ao clicar nas dicas, uma nova página deverá ser carregada sobre dicas deverá ser carregada. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-34 – Verificar alerta próximo do vencimento dos pagamentos** 	|
-|	Requisito Associado 	| RF10 - A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. |
+| **Caso de Teste** 	| **CT-35 – Verificar alerta próximo do vencimento dos pagamentos.** 	|
+|	Requisito Associado 	| RF11 - A aplicação deve emitir alertas próximo aos vencimentos dos pagamentos cadastrados. |
 | Objetivo do Teste 	| Adicionar uma despesa com vencimento para o próximo dia, deslogar e logar para ver se receberá o alerta. |
 | Passos 	| - Estar na aplicação na tela principal. <br>  - Adicionar uma despesa com o vencimento para o próximo dia.  <br> - Deslogar da conta. <br> - Logar na conta. <br> - Fechar o alerta de vencimento próximo. |
 |Critério de Êxito | - Ao logar na conta, um alerta deve ser emitido de que a despesa X está próxima do vencimento. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-35 – Visualizar sessão de dicas e informações para controle financeiro** 	|
-|	Requisito Associado 	| RF11 - Nas dicas a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. |
+| **Caso de Teste** 	| **CT-36 – Visualizar sessão de dicas e informações para controle financeiro.** 	|
+|	Requisito Associado 	| RF12 - Na área dicas a aplicação deve disponibilizar dicas e informações para um melhor controle financeiro. |
 | Objetivo do Teste 	| Ao acessar as dicas, visualizar uma sessão de Dicas e Informações para melhor controle financeiro. |
 | Passos 	| - Estar na aplicação na tela principal. <br>  - No menu clicar em dicas. <br> - Visualizar uma sessão de dicas e informações para melhor controle financeiro. |
 |Critério de Êxito | - Ter no dicas uma sessão para melhor controle financeiro. |
 |  	|  	|
-| **Caso de Teste** 	| **CT-36 – Visualizar uma perspectiva de futuro de economia** 	|
-|	Requisito Associado 	| RF12 - A aplicação deve ter um campo que ofereça uma perspectiva de futuro para o usuário de quanto ele terá em X anos, se ele economizar o valor Y ao final de cada mês. |
-| Objetivo do Teste 	| Ao acessa |
-| Passos 	| - Estar logada na aplicação na página principal do usuário. <br> - Clicar em Perspectiva do Futuro. <br>  - Inserir um valor e um tempo para simulação. <br> - Clicar no botão Simular. |
-|Critério de Êxito | - Aparecer uma simulação com o valor que o usuário vai ter com o tempo de economia que colocou. |
+| **Caso de Teste** 	| **CT-37 – Ver diferenciação de Receitas e Despesas através da cor.** 	|
+|	Requisito Associado 	| RF13 - A aplicação deve ter uma página com a Visão Geral dos Lançamentos(Despesas/Receitas) com Status de Efetivado ou Pendente, identificados com cores. |
+| Objetivo do Teste 	| Ver as receitas com background verde e as despesas vermelhas|
+| Passos 	| - Estar logada na aplicação na página principal do usuário. <br> - Visualizar tabela com lançamentos. |
+|Critério de Êxito | - A coluna tipo transação deve mostrar Receitas com o fundo verde e as Despesas com o fundo Vermelho. |
 
  
 > **Links Úteis**:
