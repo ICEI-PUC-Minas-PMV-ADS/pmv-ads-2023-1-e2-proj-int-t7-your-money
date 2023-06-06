@@ -100,6 +100,7 @@
                 <div class="card shadow" id="cardMovement" style="border-start-start-radius:20px;border-start-end-radius:20px;border-end-start-radius:20px;border-end-end-radius:20px;text-size-adjust:auto;">
                     <div class="card-body pb-3" style="background: linear-gradient(darkgray,lightgray);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
                         <h4><b style="color:black;text-size-adjust:auto;">Saldo do Mês</b></h4>
+
                     </div>
                     <div class="pt-3 pb-2" style="color:darkslategray;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
@@ -107,9 +108,31 @@
                                 <span style='color: @(ViewBag.Saldo < 0 ? "red" : "green")'>
                                     @ViewBag.Saldo.ToString("C")
                                 </span>
+
                             </b>
                         </h2>
                         <img src="~/saldo.png" width="30%" style="padding-top: 1rem;">
+                         @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
+                            {
+                                if (ViewBag.AlertClass == "alert-danger")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
+                                else if (ViewBag.AlertClass == "alert-orange")
+                                {
+                                    <div class="alert alert-orange" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
+                                else if (ViewBag.AlertClass == "alert-warning")
+                                {
+                                    <div class="alert alert-warning" role="alert">
+                                        @ViewBag.AlertMessage
+                                    </div>
+                                }
+                            }
                     </div>
                     <h7 style="color:gray;padding:5px;text-size-adjust:auto;padding-bottom:15px;">atual ou do mês selecionado acima</h7>
                 </div>
@@ -192,38 +215,8 @@
                     </div>
                     <div class="marker"></div>
                 </div>
-                <div class="col-4 text-center">
-                    <div class="card">
-                        <div class="card-body" style="background-color:whitesmoke">
-                            <b style="color:black">Saldo</b>
-                        </div>
-                        <div class="pt-5 pb-5" style="color:darkslategray">
-                            <h1><b>R$ @ViewBag.Saldo</b></h1>
-                            @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
-                            {
-                                if (ViewBag.AlertClass == "alert-danger")
-                                {
-                                    <div class="alert alert-danger" role="alert">
-                                        @ViewBag.AlertMessage
-                                    </div>
-                                }
-                                else if (ViewBag.AlertClass == "alert-orange")
-                                {
-                                    <div class="alert alert-orange" role="alert">
-                                        @ViewBag.AlertMessage
-                                    </div>
-                                }
-                                else if (ViewBag.AlertClass == "alert-warning")
-                                {
-                                    <div class="alert alert-warning" role="alert">
-                                        @ViewBag.AlertMessage
-                                    </div>
-                                }
-                            }
-                        
-                        
-                   
-     
+                                                             
+               
 </div>
 <div class="modal fade pt-5 mt-5" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
