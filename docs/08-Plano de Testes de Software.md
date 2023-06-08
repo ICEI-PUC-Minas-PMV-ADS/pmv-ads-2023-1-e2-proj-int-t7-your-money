@@ -168,13 +168,13 @@ Por exemplo:
 | **Caso de Teste** 	| **CT-27 – Trocar senha através de e-mail com sucesso.** 	|
 |	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
 | Objetivo do Teste 	| Trocar senha através do email. |
-| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis. <br> - Inserir o código recebido via e-mail.  |
+| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis.  |
 |Critério de Êxito | - A aplicação deverá salvar a nova senha de login. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-28 – Falha ao troca senha através de e-mail.** 	|
 |	Requisito Associado 	| RF07 - A aplicação deve ter uma funcionalidade de recuperação de senha através do e-mail. |
 | Objetivo do Teste 	| Usar um código inválido para trocar a senha. |
-| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis. <br> - Inserir um código inválido. |
+| Passos 	| - Estar na tela de editar usuário. <br>  - Digitar senha e confirmação de senha compatíveis. |
 |Critério de Êxito | - A aplicação deverá impedir a troca de senha pelo código ser inválido. |
 |  	|  	|
 | **Caso de Teste** 	| **CT-29 – Criação de uma conta nova de usuário com sucesso.** 	|
