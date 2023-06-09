@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Your_Money.Models.Lancamento>
+
+@{
+    ViewData["Title"] = "Calendário de Lançamentos";
+}
+
+<h2 style="color: darkblue">Calendário de Lançamentos</h2>
+
+<div id="calendario">
+    <table>
+        <thead>
+            <tr>
+                <th>Dia</th>
+                <th>Evento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lancamento in Model)
+            {
+                <tr>
+                    <td>@lancamento.Data</td>
+                    @*<td>@lancamento.Evento</td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Lancamentos\Calendario.cshtml" />
+    <Compile Remove="Views\Lancamentos\Index1.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Lancamentos\Index1.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

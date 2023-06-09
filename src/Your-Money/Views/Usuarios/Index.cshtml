@@ -51,13 +51,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7">
-                <h2 style="color:darkblue;">Minha Conta</h2>
-
-                <h6 style="color:black;">
-                    Saldo total da conta: <b>
-                        <span style="color: @(ViewBag.Saldo < 0 ? "red" : "green")">
-                            @ViewBag.Saldo.ToString("C")
+                <h2 style="color:darkblue;">
+                    <lord-icon src="https://cdn.lordicon.com/qmcsqnle.json"
+                               trigger="loop"
+                               colors="primary:#ffc738,secondary:#b26836"
+                               style="width:50px;height:50px;justify-items:baseline;padding-bottom:0px;padding-top:0px;">
+                    </lord-icon>
+                    Minha Conta</h2>
+                <h6 style="color:black;">Saldo total da conta:
+                    <b><span class="value-container" style="color:@(ViewBag.Saldo < 0 ? "red" : "green");">
+                            @ViewBag.Saldo.ToString("C") 
                         </span>
+                        <i id="iconeOlho" class="fa fa-eye" style="cursor:pointer;"></i>
                     </b>
                 </h6>
             </div>
@@ -136,7 +141,7 @@
                     </div>
 
                     <div class="pt-3 pb-2" style="color:green;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C")</b></h2>
+                        <h2 style="color:green;text-size-adjust:auto;padding-top:20px;"><b><span class="value-container">@ViewBag.ValorReceitas.ToString("C")</span></b></h2>
                         <a href="~/Lancamentos/Create">
                             <img src="~/revenue.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
@@ -153,7 +158,7 @@
                         <h4><b style="color:white;text-size-adjust:auto;">Despesas</b></h4>
                     </div>
                     <div class="pt-3 pb-2" style="color:darkred;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C")</b></h2>
+                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b><span class="value-container">@ViewBag.ValorDespesas.ToString("C")</span></b></h2>
                         <a href="~/Lancamentos/Create">
                             <img src="~/expense.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
@@ -172,7 +177,7 @@
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
                             <b>
                                 <span style="color: @(ViewBag.Saldo < 0 ? "red" : "green")">
-                                        @ViewBag.Saldo.ToString("C")
+                                    <span class="value-container">@ViewBag.Saldo.ToString("C")</span>
                                 </span>
                             </b>
                         </h2>
@@ -323,5 +328,27 @@
                     "max-glare": 1,
                 });
             </script>
+
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var eyeIcon = $("#iconeOlho");
+            var valuesVisible = true;
+
+            eyeIcon.click(function () {
+                if (valuesVisible) {
+                    $(".value-container").hide();
+                    eyeIcon.removeClass("fa fa-eye").addClass("fa fa-eye-slash");
+                } else {
+                    $(".value-container").show();
+                    eyeIcon.removeClass("fa fa-eye-slash").addClass("fa fa-eye");
+                }
+
+                valuesVisible = !valuesVisible;
+            });
+        });
+    </script>
 
 </body>

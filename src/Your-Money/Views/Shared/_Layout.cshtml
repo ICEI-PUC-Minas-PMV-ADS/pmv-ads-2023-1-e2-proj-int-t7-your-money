@@ -39,12 +39,6 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div style="text-align:center;text-size-adjust:auto;">
-                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                                    <img src="~/userloged.png" />
-                                </a>
-                            </div>
-                            <h7 style="color:blue">|</h7>
-                            <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
                         </div>
                         <div>
@@ -56,8 +50,20 @@
                         <div>
                                 <h7 style="color:blue;">|</h7>
                         </div>
+                            <div style="text-align:center;text-size-adjust:auto;">
+                                <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Calendario"><h5><b>Calendário</b></h5></a>
+                            </div>
                             <div>
-                                <a class="nav-link shadow m-3" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;"><h6><b>Sair</b></h6></a>
+                                <h7 style="color:blue;">|</h7>
+                            </div>
+                            <div style="text-align:center;text-size-adjust:auto;">
+                                <a class="nav-link" style="justify-items:baseline;" asp-area="" asp-controller="Usuarios" asp-action="Index">
+                                    <img src="~/userloged.png" />
+                                </a>
+                            </div>
+                            <h7 style="color:blue">|</h7>
+                            <div>
+                                <a class="nav-link shadow m-3" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;border-color:aqua;border-inline:revert;"><h6><b>Sair</b></h6></a>
                             </div>
                         }
                         else

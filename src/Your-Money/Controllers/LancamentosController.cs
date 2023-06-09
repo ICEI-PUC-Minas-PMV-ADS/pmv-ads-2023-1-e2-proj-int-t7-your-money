@@ -183,8 +183,10 @@ namespace Your_Money.Controllers
         // GET: Lancamentos/Create
         public IActionResult Create()
         {
+
             ViewData["ContasId"] = new SelectList(new List<Usuario> { GetUser() }, "Id", "Email");
             return View();
+
         }
 
         // POST: Lancamentos/Create
@@ -348,5 +350,13 @@ namespace Your_Money.Controllers
         {
             return _context.Lancamentos.Any(e => e.Id == id);
         }
+
+        // GET: Lancamentos/Calendario
+        public IActionResult Calendario()
+        {
+            var lancamentos = _context.Lancamentos.ToList();
+            return View(lancamentos);
+        }
+
     }
 }

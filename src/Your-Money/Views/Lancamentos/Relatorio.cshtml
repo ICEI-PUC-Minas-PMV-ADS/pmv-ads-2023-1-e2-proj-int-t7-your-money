@@ -20,9 +20,10 @@
                 <h6 style="color:black;">
                     Saldo total do Ano:
                     <b>
-                        <span style="color: @(ViewBag.SaldoTotalAno < 0 ? "red" : "green")">
+                        <span class="value-container" style="color:@(ViewBag.SaldoTotalAno < 0 ? "red" : "green");">
                             @ViewBag.SaldoTotalAno.ToString("C")
                         </span>
+                        <i id="iconeOlho" class="fa fa-eye" style="cursor:pointer;"></i>
                     </b>
                 </h6>
             </div>
@@ -373,3 +374,25 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var eyeIcon = $("#iconeOlho");
+        var valuesVisible = true;
+
+        eyeIcon.click(function () {
+            if (valuesVisible) {
+                $(".value-container").hide();
+                eyeIcon.removeClass("fa fa-eye").addClass("fa fa-eye-slash");
+            } else {
+                $(".value-container").show();
+                eyeIcon.removeClass("fa fa-eye-slash").addClass("fa fa-eye");
+            }
+
+            valuesVisible = !valuesVisible;
+        });
+    });
+</script>
