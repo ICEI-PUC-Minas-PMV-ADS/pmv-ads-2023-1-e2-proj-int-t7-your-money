@@ -73,14 +73,14 @@
 
         if (status == "true") {
             if (dataPagamento == null || dataPagamento == "" || dataPagamento == " " || dataPagamento == undefined) {
-                alert("Data de Pagamento é obrigatória.");
+                alert("Efetivado - Data de Pagamento é obrigatória.");
                 return;
             }
         }
         else
         {
             if (dataPagamento != null && dataPagamento != "" && dataPagamento != " " && dataPagamento != undefined) {
-                alert("Status deve ser Efetivado.");
+                alert("Pendente - Data de Pagamento não deve ser preenchida.");
                 return;
             }
         }

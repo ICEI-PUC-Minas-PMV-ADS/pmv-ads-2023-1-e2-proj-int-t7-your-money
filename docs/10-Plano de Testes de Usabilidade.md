@@ -6,73 +6,18 @@ Um plano de teste de usabilidade deverá conter: o detalhamento dos objetivos (e
 
 Para cada voluntário do teste, é fundamental coletar e apresentar todos os dados/métricas previamente definidos.
 
-| **Caso de Teste** 	| **CTU - 01 – Criar novo usuário.** 	|
+| **Requisito Associado** 	| **RFN-01 – A aplicação deve ser fácil de usar e entender para os usuários, com uma interface de usuário intuitiva e clara.** 	|
 |:---:	|:---:	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcionalidade de cadastro de usuários. |
-| Ações necessárias 	|  1. Abrir o navegador de preferência;<br>2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Cadastrar” indicada na barra de navegação;<br>5. Preencher todos os campos do formulário de usuários;<br>6. Confirmar a criação do usuário clicando em “Salvar";<br>7. Acessar a tela de LOGIN;<br> |
+| Como pode ser testado 	| Realizar os procedimentos principais da aplicação e verificar no decorrer da utilização se algo poderia ser entendido de outra forma ou não foi compreendido como deveria ser. |
 |  	|  	|
-| **Caso de Teste** 	| **CTU - 02 – Realizar o LOGIN** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcionalidade de LOGIN. |
-| Ações necessárias 	|  1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar”;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página de Usuário da aplicação;<br> |
+| **Requisito Associado** 	| **RFN-02 – A aplicação deve ser responsiva.** |
+| Como pode ser testado 	| Acessar a aplicação em vários dispositivos com telas de tamanhos diferentes para verificar se o enquadramento da tela se adapta a essas mudanças. Outra forma de testar em um único lugar, seria no navegador, inspecionando a aplicação podemos alterar o tamanho da visualização. |
 |  	|  	|
-| **Caso de Teste** 	| **CTU - 03 – Alterar senha através da página de alteração de dados do usuário.** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcionalidade de alteração de senha. |
-| Ações necessárias 	|  1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” indicada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando no botão “Entrar";<br>8. Acessar a HomePage da aplicação;<br>9. Acessar a página de edição através do ícone indicado na sessão de "Perfil do Usuário";<br>10. Inserir a nova senha e a confirmação de senha nos campos indicados;<br>11. Realizar a edição da senha clicando em "Salvar";<br> |
+| **Requisito Associado** 	| **RFN-03 – A aplicação deve ter tempo se resposta menor que 2 segundo a cada requisição realizada.** |
+| Como pode ser testado 	| Navegar pela aplicação e verificar se a cada item ou tela acessado demora menos que 2s para carregar. |
 |  	|  	|
-| **Caso de Teste** 	| **CTU - 04 – Alterar senha através da funcionalidade de "Recuperação de Senha".** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcionalidade de "Recuperação de Senha". |
-| Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Acessar a página de Login clicando na opção “Entrar” indicada na barra de navegação;<br>5. Acessar a funcionalidade de Recuperação de Senha clicando na opção "Esqueceu sua senha?";<br>6. Inserir o e-mail correspondente a conta que deseja recuperar no campo indicado;<br>7. Solicitar o processo de recuperação clicando em “Recuperar Senha";<br>8. Acessar o endereço de e-mail inserido no campo da funcionalidade;<br>9. Copiar o código temporário recebido no e-mail e clicar no link indicado como "Recuperar Senha";<br>10. Inserir o código temporário, a nova senha e a confirmação de senha nos campos indicados na página para onde foi feito o redirecionamento a partir do e-mail;<br>11. Realizar a redefinição da senha clicando em "Redefinir Senha";<br>12 .  Realizar o Login preenchendo o campo de senha com sua nova senha e clicar em "Entrar";<br>  |
+| **Requisito Associado** 	| **RFN-04 – A aplicação deve estar disponível e funcionando corretamente durante a maior parte do tempo, com tempo de inatividade mínimo ou nulo.** |
+| Como pode ser testado 	| Acessar a aplicação em diversos horários e verificar se as principais funcionalidades estão funcionando como deveriam. |
 |  	|  	|
-| **Caso de Teste** 	| **CTU - 05 – Cadastrar uma Receita através da Página do Usuário clicando no campo indicado para "Receitas".** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcão de adição de receitas na Página do Usuário. |
-| Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” localizada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página do Usuário da aplicação;<br>9. Acessar a página de "Adição de Receitas" clicando no campo indicado como "Receitas" no ícone "+";<br>10. Selecionar a opção "Receita" no campo "Transação";<br>11. Preencher todos os demais campos obrigatórios;<br>12. Submeter o formulário de adição de receitar através do botão "Salvar";<br>13. Visualizar a receita adicionada na página de "Lançamentos";<br>  |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 06 – Cadastrar uma Receita através da Página de "Lançamentos".** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a função de adição de receitas na Página de Lançamentos. |
-| Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” indicada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página de Usuário da aplicação;<br>9. Acessar a Página de Lançamentos através da opção indicada como "Lançamentos" na barra de navegação;<br>10. Clicar na opção indicada como "Adicionar Lançamento" na página de lançamentos;<br>11. Selecionar a opção "Receita" no campo "Transação";<br>12. Preencher os demais campos obrigatórios;<br>13. Submeter o formulário de adição de receitas através do botão "Salvar";<br>14. Visualizar a nova receita adicionada na página de "Lançamentos";<br>  |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 07 – Cadastrar uma Despesa através da Página do Usuário clicando no ícone indicado para "Despesas".** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcão de adição de despesas na Página do Usuário. |
-| Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” localizada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página do Usuário da aplicação;<br>9. Acessar a página de "Adição de Despesas" clicando no campo indicado como "Despesas" no ícone "+";<br>10. Selecionar a opção "Despesa" no campo "Transação";<br>11. Preencher todos os demais campos obrigatórios;<br>12. Submeter o formulário de adição de despesa através do botão "Salvar";<br>13. Visualizar a nova despesa adicionada na página de "Lançamentos";<br>  |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 08 – Cadastrar uma Despesa através da Página de "Lançamentos".** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a função de adição de despesas na Página de Lançamentos. |
-| Ações necessárias 	| 1. Abrir o navegador de preferência;<br>2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” indicada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página de Usuário da aplicação;<br>9. Acessar a Página de Lançamentos através da opção indicada como "Lançamentos" na barra de navegação;<br>10. Clicar na opção indicada como "Adicionar Lançamento" na página de lançamentos;<br>11. Selecionar a opção "Despesa" no campo "Transação";<br>12. Preencher os demais campos obrigatórios;<br>13. Submeter o formulário de adição de despesas através do botão "Salvar";<br>14. Visualizar a nova despesa adicionada na página de "Lançamentos";<br>  |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 09** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 10** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 11** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 12** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 13** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
-|  	|  	|
-| **Caso de Teste** 	| **CTU - 14** 	|
-|	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	|  |
-| Ações necessárias 	|   |
+| **Requisito Associado** 	| **RFN-05 – A aplicação deve ser compatível com diferentes dispositivos, navegadores e sistemas operacionais, para garantir que os usuários possam acessá-lo independentemente do seu equipamento. Exemplos de navegadores: Microsoft Edge, Google Chrome, Mozila Firefox e Opera. Exemplos de sistemas operacionais: Windows, MAC, IOS, Android.** |
+| Como pode ser testado 	| Acessar a aplicação em diferentes dispositivos, navegadores e sistemas operacionais e realizar as funções principais para verificar como a aplicação se comporta nesses cenários. |

@@ -51,12 +51,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7">
-                <h2 style="color:darkblue;">Minha Conta</h2>
-
-                <h6 style="color:black;">
-                    Saldo total da conta: <b>
-                        <span style="color: @(ViewBag.SaldoTotal < 0 ? "red" : "green")">
-                            @ViewBag.SaldoTotal.ToString("C")
+                <h2 style="color:darkblue;">
+                    <lord-icon src="https://cdn.lordicon.com/qmcsqnle.json"
+                               trigger="loop"
+                               colors="primary:#ffc738,secondary:#b26836"
+                               style="width:50px;height:50px;justify-items:baseline;padding-bottom:0px;padding-top:0px;">
+                    </lord-icon>
+                    Minha Conta</h2>
+                <h6 style="color:black;">Saldo total da conta:
+                    <b><span class="value-container" style="color:@(ViewBag.Saldo < 0 ? "red" : "green");">
+                            @ViewBag.Saldo.ToString("C") 
                         </span>
                         <i id="iconeOlho" class="fa fa-eye" style="cursor:pointer;"></i>
                     </b>
@@ -172,8 +176,8 @@
                     <div class="pt-3 pb-2" style="color:darkslategray;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
                             <b>
-                                <span style='color: @(ViewBag.Saldo < 0 ? "red" : "green")'>
-                                    @ViewBag.Saldo.ToString("C")
+                                <span style="color: @(ViewBag.Saldo < 0 ? "red" : "green")">
+                                    <span class="value-container">@ViewBag.Saldo.ToString("C")</span>
                                 </span>
                             </b>
                         </h2>
