@@ -96,9 +96,13 @@ namespace Your_Money.Controllers
 
         [Authorize]
         // GET: Usuarios
+        [Authorize]
         public async Task<IActionResult> Index(int mes, int ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+
+            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            var lancamentos = await lancamentoDbContext.Include(p => p.Parcelamentos).ToListAsync();
 
             if (mes == 0)
                 mes = DateTime.Now.Month;
@@ -106,29 +110,45 @@ namespace Your_Money.Controllers
             if (ano == 0)
                 ano = DateTime.Now.Year;
 
-            var lancamentoDbContext = _context.Lancamentos.Where(i => i.Contas.Usuario.Email == userEmail);
+            var valorReceitasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                  x.Status == StatusTransacao.Efetivado &&
+                                                  (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
 
-            var lancamentosUsuario = await lancamentoDbContext.ToListAsync();
+            var valorReceitasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                          x.NumeroParcelas > 1)
+                                                   .SelectMany(l => l.Parcelamentos)
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
+                                                          p.DataVencimento.Month == mes)
+                                                   .Sum(x => x.Valor);
 
-            // Seu código para obter os valores de receitas, despesas, saldo, etc.
+            var valorReceitas = valorReceitasLancamentos + valorReceitasParcelas;
 
-            var valorReceitas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
-                                                x.Status == StatusTransacao.Efetivado &&
-                                                x.Data.Year == ano &&
-                                                x.Data.Month == mes).Sum(x => x.Valor);
+            var valorDespesasLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                  x.Status == StatusTransacao.Efetivado &&
+                                                  (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                  x.Data.Year == ano &&
+                                                  x.Data.Month == mes).Sum(x => x.Valor);
 
-            var valorDespesas = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
-                                                x.Status == StatusTransacao.Efetivado &&
-                                                x.Data.Year == ano &&
-                                                x.Data.Month == mes).Sum(x => x.Valor);
+            var valorDespesasParcelas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                          x.NumeroParcelas > 1)
+                                                   .SelectMany(l => l.Parcelamentos)
+                                                   .Where(p => p.Status == true &&
+                                                          p.DataVencimento.Year == ano &&
+                                                          p.DataVencimento.Month == mes)
+                                                   .Sum(x => x.Valor);
 
-            var valorReceitasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Receita &&
-                                                    x.Status == StatusTransacao.Efetivado
-                                                    ).Sum(x => x.Valor);
+            var valorDespesas = valorDespesasLancamentos + valorDespesasParcelas;
 
-            var valorDespesasTotal = lancamentosUsuario.Where(x => x.Tipo == Transacao.Despesa &&
-                                                    x.Status == StatusTransacao.Efetivado
-                                                    ).Sum(x => x.Valor);
+            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                       x.Status == StatusTransacao.Efetivado          
+                                                              ).Sum(x => x.Valor);
+            
+            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                   x.Status == StatusTransacao.Efetivado
+                                                              ).Sum(x => x.Valor);
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
@@ -150,7 +170,7 @@ namespace Your_Money.Controllers
         }
 
 
-
+        [Authorize]
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -210,6 +230,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -231,6 +252,7 @@ namespace Your_Money.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Senha,ConfirmarSenha")] Usuario usuario)
         {
             if (id != usuario.Id)
@@ -266,6 +288,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -284,6 +307,7 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
+        [Authorize]
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
