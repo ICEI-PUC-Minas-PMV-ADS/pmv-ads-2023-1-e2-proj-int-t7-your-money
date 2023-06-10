@@ -34,17 +34,17 @@ Para cada voluntário do teste, é fundamental coletar e apresentar todos os dad
 |  	|  	|
 | **Caso de Teste** 	| **CTU - 06 – Cadastrar uma Receita através da Página de "Lançamentos".** 	|
 |	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a função de adição de receitas na Página de Lançamentos. |
+| Objetivo do Teste 	| Avaliar a função de adição de receitas na página de Lançamentos. |
 | Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” indicada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página de Usuário da aplicação;<br>9. Acessar a Página de Lançamentos através da opção indicada como "Lançamentos" na barra de navegação;<br>10. Clicar na opção indicada como "Adicionar Lançamento" na página de lançamentos;<br>11. Selecionar a opção "Receita" no campo "Transação";<br>12. Preencher os demais campos obrigatórios;<br>13. Submeter o formulário de adição de receitas através do botão "Salvar";<br>14. Visualizar a nova receita adicionada na página de "Lançamentos";<br>  |
 |  	|  	|
 | **Caso de Teste** 	| **CTU - 07 – Cadastrar uma Despesa através da Página do Usuário clicando no ícone indicado para "Despesas".** 	|
 |	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a funcão de adição de despesas na Página do Usuário. |
+| Objetivo do Teste 	| Avaliar a funcão de adição de despesas na página do Usuário. |
 | Ações necessárias 	| 1. Abrir o navegador de preferência;<br>	2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” localizada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página do Usuário da aplicação;<br>9. Acessar a página de "Adição de Despesas" clicando no campo indicado como "Despesas" no ícone "+";<br>10. Selecionar a opção "Despesa" no campo "Transação";<br>11. Preencher todos os demais campos obrigatórios;<br>12. Submeter o formulário de adição de despesa através do botão "Salvar";<br>13. Visualizar a nova despesa adicionada na página de "Lançamentos";<br>  |
 |  	|  	|
 | **Caso de Teste** 	| **CTU - 08 – Cadastrar uma Despesa através da Página de "Lançamentos".** 	|
 |	Perfil	| Usuário (todos) |
-| Objetivo do Teste 	| Avaliar a função de adição de despesas na Página de Lançamentos. |
+| Objetivo do Teste 	| Avaliar a função de adição de despesas na página de Lançamentos. |
 | Ações necessárias 	| 1. Abrir o navegador de preferência;<br>2. Acessar o site a partir da URL correspondente;<br>3. Visualizar a HomePage da aplicação;<br>4. Clicar na opção “Entrar” indicada na barra de navegação;<br>5. Inserir o e-mail no campo indicado;<br>6. Inserir a senha no campo indicado;<br>7. Realizar o Login clicando em “Entrar";<br>8. Acessar a Página de Usuário da aplicação;<br>9. Acessar a Página de Lançamentos através da opção indicada como "Lançamentos" na barra de navegação;<br>10. Clicar na opção indicada como "Adicionar Lançamento" na página de lançamentos;<br>11. Selecionar a opção "Despesa" no campo "Transação";<br>12. Preencher os demais campos obrigatórios;<br>13. Submeter o formulário de adição de despesas através do botão "Salvar";<br>14. Visualizar a nova despesa adicionada na página de "Lançamentos";<br>  |
 |  	|  	|
 | **Caso de Teste**     | **CTU - 09**  |
@@ -59,26 +59,26 @@ Para cada voluntário do teste, é fundamental coletar e apresentar todos os dad
 |   |   |
 | **Caso de Teste**     | **CTU - 11**  |
 |   Perfil  | Usuário |
-| Objetivo do Teste     | Excluir Lançamento |
+| Objetivo do Teste     | Verificar a exclusão de Lançamento |
 | Ações necessárias     | 1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em Entrar; <br> 5. Inserir E-mail; <br> 6. Inserir Senha; <br> 7. Acessar por meio do menu "Lançamentos"; <br> 8. Na tabela de Lançamentos, na coluna "Ações", clicar na imagem de um lixo, na linha do lançamento a ser excluido; <br> 9. Depois de clicar na imagem do lixo, usuário é direcionado para página de deletar o lançamento onde aparece a pergunta "Você tem certeza que deseja excluir este lançamento?"; <br> 10. Nesta página "Deletar Lançamento" o Uuário tem a opção de Voltar ou Deletar; <br> 11. Caso clique em "Voltar", Usuário retorna para a tabela de lançamentos; <br> 12. Caso clique em "Deletar", no Modal de confirmação, aparece a mensagem "Deseja realizar a remoção PERMANENTE deste registro?" com a opção de "Voltar", em cinza e "Confirmar" em vermelho; <br> 13. Caso clique em "Voltar", Usuário retorna para a tabela de lançamentos e lançamento continua inalterado;  <br> 14. Caso clique em "Confirmar", Usuário retorna para a tabela de lançamentos e lançamento é excluido e não consta mais na tabela. |
 |   |   |
 | **Caso de Teste**     | **CTU - 12**  |
 |   Perfil  | Usuário |
-| Objetivo do Teste     | Avaliar a Edição de parcelas de lançamento |
+| Objetivo do Teste     | Avaliar a edição de parcelas de lançamento |
 | Ações necessárias     | 1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em Entrar; <br> 5. Inserir E-mail; <br> 6. Inserir Senha; <br> 7. Acessar por meio do menu "Lançamentos"; <br> 8. Na tabela de Lançamentos, na coluna "Ações", clicar na imagem de um lápis, na linha do lançamento a ser editado; <br> 9. Ao editar Lançamento, é possível modificar os campos "Valor Original", "Data de Vencimento", "Status" e "Descrição". <br> 10. Ao editar Lançamento, não é possível modificar os campos "Transação", "Via", "Classificação" e "Recorrente?". <br> 11. Na página "Editar Lançamento", caso "Recorrente" seja diferente de 0, Tabela de Parcelas será mostrada com uma linha para cada parcela; <br> 12. Nesta tabela, na coluna "Ações", é necessário clicar no "lápis" para Editar parcela; <br> 13. Ao Editar parcela, campos "Valor", "Data de Pagamento", "Data de Vencimento" e "Status" podem ser alterados; <br> 14. Caso queira confirmar alterações, Usuário deve clicar em "Save" para que modificações sejam confirmadas; <br> 15. Caso não queira fazer nenhuma alteração, Usuário deve clicar em "Voltar"  |
     |   |  
 **Caso de Teste**   | **CTU - 13**  |
 |   Perfil  | Usuário |
-| Objetivo do Teste     | Visualizar saldo |
+| Objetivo do Teste     | Verificar a visualização do saldo |
 | Ações necessárias     |1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em Entrar; <br> 5. Ao entrar no site, Usuário é direcionado para a "Home" page, onde o "Saldo total da Conta" é mostrado.  |
     |   |
 **Caso de Teste**   | **CTU - 14**  |
 |   Perfil  | Usuário |
-| Objetivo do Teste     | Avaliar se valores estão batendo conforme colocado |
+| Objetivo do Teste     | Avaliar se valores estão de acordo com os inseridos |
 | Ações necessárias     | 1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em Entrar; <br> 5. Ao entrar no site, Usuário é direcionado para a "Home" page, onde aparecem "cards" com Receitas, Despesas e Saldo do Mês. Todos esses valores do mês atual. <br> 6. Caso queira visualizar os valores de outro mês, basta inserir o mês e o ano e clicar em pesquisar. <br> 7. O valor "Saldo do Mês" deve ser exatamente o valor "Receitas" menos o valor "Despesas". |
     |   |
 **Caso de Teste**   | **CTU - 15**  |
-|   Perfil  |  |
-| Objetivo do Teste     | Analisar dicas |
-| Ações necessárias     |   |
+|   Perfil  | Usuário |
+| Objetivo do Teste     | Analisar Dicas |
+| Ações necessárias     | 1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em "Dicas". |
     |   |
