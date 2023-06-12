@@ -3,6 +3,13 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<link rel="stylesheet" href="~/css/site.css" />
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Deletar Usuário</li>
+    </ol>
+</nav>
 
 <body style="background-image: url(/blue1.png);">
 
@@ -12,6 +19,18 @@
             <li class="breadcrumb-item active" aria-current="page">Deletar Usuário</li>
         </ol>
     </nav>
+
+    @{
+        var alertClass = ViewBag.AlertClass;
+        var alertMessage = ViewBag.AlertMessage;
+    }
+
+    @if (!string.IsNullOrEmpty(alertMessage))
+    {
+        <div class="alert @alertClass">
+            @alertMessage
+        </div>
+    }
 
     <h2 style="color: darkblue">Deletar Usuário</h2>
     <hr>

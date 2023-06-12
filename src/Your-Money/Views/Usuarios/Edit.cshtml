@@ -1,8 +1,25 @@
 ﻿@model Your_Money.Models.Usuario
 
 @{
-    ViewData["Title"] = "Editar Usuário";
+    var alertClass = ViewBag.AlertClass;
+    var alertMessage = ViewBag.AlertMessage;
 }
+
+@if (!string.IsNullOrEmpty(alertMessage))
+{
+    <div class="alert @alertClass">
+        @alertMessage
+    </div>
+}
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+    ViewData["Title"] = "Editar Usuário";
+
 
 <body style="background-image: url(/blue1.png);">
 

@@ -3,12 +3,25 @@
 @{
     ViewData["Title"] = "Criar Usuário";
 }
+<link rel="stylesheet" href="~/css/site.css" />
 <body style="background-image: url(/blue1.png);">
 
 <h2 style="color:darkblue">Criar Usuário</h2>
 <hr>
 <div class="row">
     <div class="col-md-4">
+        @{
+            var alertClass = ViewBag.AlertClass;
+            var alertMessage = ViewBag.AlertMessage;
+        }
+
+        @if (!string.IsNullOrEmpty(alertMessage))
+        {
+            <div class="alert @alertClass">
+                @alertMessage
+            </div>
+        }
+        
         <form asp-action="Create" id="createForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">

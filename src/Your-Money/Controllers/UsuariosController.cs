@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
@@ -22,13 +23,14 @@ namespace Your_Money.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
+        private readonly CultureInfo _cultura;
 
         public UsuariosController(IConfiguration configuration, ApplicationDbContext context)
         {
             _configuration = configuration;
             _context = context;
+            _cultura = new CultureInfo("pt-BR");
         }
-
         public IActionResult Login()
         {
             return View();
@@ -65,7 +67,7 @@ namespace Your_Money.Controllers
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                ClaimsPrincipal principal = new(userIdentity);
 
                 var props = new AuthenticationProperties
                 {
@@ -83,11 +85,12 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
-        public async Task<IActionResult> logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return Redirect("/Home/Index");
         }
+
 
         public IActionResult AccessDenied()
         {
@@ -154,6 +157,36 @@ namespace Your_Money.Controllers
             ViewBag.Saldo = valorReceitas - valorDespesas;
             ViewBag.SaldoTotal = valorReceitasTotal - valorDespesasTotal;
 
+            decimal porcentagemDespesas = 0;
+
+            if (valorReceitas != 0)
+            {
+                porcentagemDespesas = valorDespesas / valorReceitas * 100;
+            }
+            else if (valorDespesas != 0)
+            {
+                porcentagemDespesas = 100; 
+            }
+
+            string nomeMes = _cultura.DateTimeFormat.GetMonthName(mes);
+            string alertClass = GetAlertClass(porcentagemDespesas);
+
+            if (porcentagemDespesas > 95)
+            {
+                ViewBag.AlertClass = "alert-danger";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            {
+                ViewBag.AlertClass = "alert-orange";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            {
+                ViewBag.AlertClass = "alert-warning";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             var usuarios = await usuarioDbContext.ToListAsync();
 
@@ -168,6 +201,23 @@ namespace Your_Money.Controllers
             return View(usuarios);
         }
 
+        private string GetAlertClass(decimal porcentagemDespesas)
+        {
+            if (porcentagemDespesas > 95)
+            {
+                return "alert-danger";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            {
+                return "alert-orange";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            {
+                return "alert-warning";
+            }
+
+            return string.Empty;
+        }
 
         [Authorize]
         // GET: Usuarios/Details/5

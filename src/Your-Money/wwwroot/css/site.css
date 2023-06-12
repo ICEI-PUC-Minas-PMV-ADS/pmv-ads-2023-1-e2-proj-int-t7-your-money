@@ -91,3 +91,31 @@ body {
     margin-top: 0px;
     height: 0px;
 }
+/* Alert messages
+-------------------------------------------------- */
+.alert {
+    font-weight: bold;
+}
+
+.alert-danger {
+    color: red;
+  
+}
+
+.alert-orange {
+    color: black;
+    background-color: orange;
+}
+
+.alert-warning {
+    color: black;
+    background-color: yellow;
+}
+
+
+
+
+
+
+
+
