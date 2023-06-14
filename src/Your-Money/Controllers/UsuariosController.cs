@@ -159,29 +159,29 @@ namespace Your_Money.Controllers
 
             decimal porcentagemDespesas = 0;
 
-            if (valorReceitas != 0)
+            if (valorReceitas == 0 && valorDespesas >= 0)
             {
-                porcentagemDespesas = valorDespesas / valorReceitas * 100;
+                porcentagemDespesas = valorDespesas / (valorReceitas == 0 ? 1 : valorReceitas) * 100;
             }
-            else if (valorDespesas != 0)
+            else if (valorDespesas > 0)
             {
-                porcentagemDespesas = 100; 
+                porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
             }
 
             string nomeMes = _cultura.DateTimeFormat.GetMonthName(mes);
             string alertClass = GetAlertClass(porcentagemDespesas);
 
-            if (porcentagemDespesas > 95)
+            if (porcentagemDespesas > 95 && porcentagemDespesas <= 1000000)
             {
                 ViewBag.AlertClass = "alert-danger";
                 ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
             }
-            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95 && porcentagemDespesas <= 1000000)
             {
                 ViewBag.AlertClass = "alert-orange";
                 ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
             }
-            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85 && porcentagemDespesas <= 1000000)
             {
                 ViewBag.AlertClass = "alert-warning";
                 ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
