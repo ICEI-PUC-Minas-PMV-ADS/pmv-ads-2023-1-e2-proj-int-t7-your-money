@@ -9,6 +9,8 @@
     
     decimal valorReceitas = ViewBag.ValorReceitas ?? 0;
     decimal valorDespesas = ViewBag.ValorDespesas ?? 0;
+    // Checa se valorReceitas is zero, and assign a default value of 1 in that case
+    valorReceitas = valorReceitas == 0 ? 1 : valorReceitas;
     decimal porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
 
 }
