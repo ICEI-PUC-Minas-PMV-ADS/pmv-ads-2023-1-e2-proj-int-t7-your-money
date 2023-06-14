@@ -56,7 +56,7 @@
                 <h6 style="color:black;">
                     Saldo total da conta: <b>
                         <span style="color: @(ViewBag.SaldoTotal < 0 ? "red" : "green")">
-                            @ViewBag.SaldoTotal.ToString("C")
+                            @ViewBag.SaldoTotal.ToString("C", new CultureInfo("pt-BR"))
                         </span>
                     </b>
                 </h6>
@@ -133,7 +133,7 @@
                     </div>
 
                     <div class="pt-3 pb-2" style="color:green;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C")</b></h2>
+                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
                         <a href="~/Lancamentos/Create">
                             <img src="~/revenue.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
@@ -150,7 +150,7 @@
                         <h4><b style="color:white;text-size-adjust:auto;">Despesas</b></h4>
                     </div>
                     <div class="pt-3 pb-2" style="color:darkred;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C")</b></h2>
+                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
                         <a href="~/Lancamentos/Create">
                             <img src="~/expense.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
@@ -169,7 +169,7 @@
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
                             <b>
                                 <span style='color: @(ViewBag.Saldo < 0 ? "red" : "green")'>
-                                    @ViewBag.Saldo.ToString("C")
+                                    @ViewBag.Saldo.ToString("C", new CultureInfo("pt-BR"))
                                 </span>
                             </b>
                         </h2>
@@ -238,7 +238,7 @@
                                     {
                                         <tr>
                                             <td>@lancamento.Classificacao</td>
-                                            <td>@lancamento.Valor.ToString("C")</td>
+                                            <td>@lancamento.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
                                             <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
                                             <td>
                                                 <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
@@ -288,7 +288,7 @@
                                     {
                                         <tr>
                                             <td>@lancamento.Classificacao</td>
-                                            <td>@lancamento.Valor.ToString("C")</td>
+                                            <td>@lancamento.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
                                             <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
                                             <td>
                                                 <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
