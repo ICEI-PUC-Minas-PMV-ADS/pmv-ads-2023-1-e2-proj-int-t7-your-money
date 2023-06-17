@@ -103,6 +103,21 @@
         data: data,
         options: {
             plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            var value = context.dataset.data[context.dataIndex];
+                            return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                        }
+                    }
+                },
                 datalabels: {
                     anchor: 'end',
                     align: 'end',
@@ -120,6 +135,9 @@
                     }
                 },
                 y: {
+                    type: 'logarithmic',
+                    display: false,
+                    beginAtZero: true,
                     beginAtZero: false,
                     grid: {
                         display: false, // Remove as grades da escala x
@@ -132,15 +150,6 @@
                     }
                 }
             },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 16
-                        }
-                    }
-                },
-            }
         }
     };
 
@@ -263,6 +272,14 @@
                                     }
                                 }
                             },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        var value = context.dataset.data[context.dataIndex];
+                                        return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                                    }
+                                }
+                            },
                             title: {
                                 display: true,
                                 text: 'Receitas',
@@ -374,6 +391,14 @@
                                 labels: {
                                     font: {
                                         size: 14
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        var value = context.dataset.data[context.dataIndex];
+                                        return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
                                     }
                                 }
                             },
