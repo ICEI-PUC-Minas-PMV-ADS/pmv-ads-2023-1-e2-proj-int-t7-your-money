@@ -1,7 +1,16 @@
 ﻿@model Your_Money.Models.Lancamento
 
+@using Microsoft.AspNetCore.Http
+
+
 @{
     ViewData["Title"] = "Adicionar Lançamento";
+}
+
+@{
+    var tipoTransacao = ViewContext.HttpContext.Request.Query["tipoTransacao"];
+    var isReceita = tipoTransacao == "receita";
+    var isDespesa = tipoTransacao == "despesa";
 }
 
 <body class="background-image">
@@ -22,12 +31,15 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group" id="Transação">
-                        <b style="color:darkblue"><label asp-for="Tipo" class="control-label"></label></b>
-                        <select asp-for="Tipo" class="form-control shadow-sm form-input" asp-items="Html.GetEnumSelectList<Transacao>()" required>
+                        <label class="control-label" style="color:darkblue;"><b>Transação</b></label>
+                        <select name="Tipo" class="form-control shadow-sm" required style="color:darkblue;">
                             <option value="" style="background-color:aliceblue;">Selecione</option>
+                            <option value="Receita" selected="@isReceita">Receita</option>
+                            <option value="Despesa" selected="@isDespesa">Despesa</option>
                         </select>
                         <span asp-validation-for="Tipo" class="text-danger"></span>
                     </div>
+
                     <div class="form-group" id="Classificação">
                         <b style="color:darkblue"><label asp-for="Classificacao" class="control-label"></label></b>
                         <select asp-for="Classificacao" class="form-control shadow-sm" asp-items="Html.GetEnumSelectList<Classificacao>()" required>
