@@ -7,6 +7,12 @@
 @{
     ViewData["Title"] = "Minha Conta";
     var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
+
+    decimal valorReceitas = ViewBag.ValorReceitas ?? 0;
+    decimal valorDespesas = ViewBag.ValorDespesas ?? 0;
+    // Checa se valorReceitas is zero, and assign a default value of 1 in that case
+    valorReceitas = valorReceitas == 0 ? 1 : valorReceitas;
+    decimal porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
 }
 
 @{
@@ -30,6 +36,12 @@
 
 }
 
+@{
+    var alertMessage = ViewBag.AlertMessage;
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+
 <body class="background-image">
 
     <nav>
@@ -51,7 +63,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7">
+
                 <h2 style="color:darkblue;">Minha Conta</h2>
+                <hr>
 
                 <h6 style="color:black;">
                     Saldo total da conta: <b>
@@ -84,7 +98,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                            <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="digite o ano" value="@ViewBag.AnoAtual" />
+                            <input type="number" step="1" min="1901" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="digite o ano" value="@ViewBag.AnoAtual" />
                         </div>
                     </div>
                     <div class="col-md">
@@ -96,8 +110,6 @@
             </div>
         </div>
     </div>
-
-    <hr>
 
     <div class="container-fluid ml-3 pt-2 p-2 pb-2 text-center">
         <div class="row">
@@ -165,6 +177,7 @@
                     <div class="card-body pb-3" style="background: linear-gradient(darkgray,lightgray);border-start-start-radius:20px;border-start-end-radius:20px;text-size-adjust:auto;">
                         <h4><b style="color:black;text-size-adjust:auto;">Saldo do Mês</b></h4>
                     </div>
+
                     <div class="pt-3 pb-2" style="color:darkslategray;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
                             <b>
@@ -179,8 +192,34 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
+    <div class="pt-2">
+
+        @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
+        {
+            if (ViewBag.AlertClass == "alert-danger")
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+            else if (ViewBag.AlertClass == "alert-orange")
+            {
+                <div class="alert alert-orange" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+            else if (ViewBag.AlertClass == "alert-warning")
+            {
+                <div class="alert alert-warning" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+        }
+    </div>
+  
+    </div>
     <hr>
 
     <style>
@@ -310,14 +349,52 @@
 
         </div>
     </div>
-    <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
+
+    <div class="modal fade pt-5 mt-5" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="alertModalLabel" style="color: darkred"><b>Atenção!</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="alert alert-danger pt-4 pb-4" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-exclamation-triangle pt-4" viewBox="0 0 16 16">
+                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                        </svg>
+                        <h4 style="text-align:center">@ViewBag.AlertMessage</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
     <script>
-        VanillaTilt.init(document.querySelectorAll("#cardMovement"),{
-            Max: 25,
-            speed: 400,
-            glare:true,
-            "max-glare": 1,
+        $(document).ready(function () {
+            var valorReceitas = parseFloat("@valorReceitas");
+            var valorDespesas = parseFloat("@valorDespesas");
+            var porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
+
+            if (porcentagemDespesas > 75) {
+                $('#alertModal').modal('show');
+            }
         });
     </script>
+
+         <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
+         <script>
+               VanillaTilt.init(document.querySelectorAll("#cardMovement"),{
+                    Max: 25,
+                    speed: 400,
+                    glare:true,
+                    "max-glare": 1,
+               });
+         </script>
 
 </body>

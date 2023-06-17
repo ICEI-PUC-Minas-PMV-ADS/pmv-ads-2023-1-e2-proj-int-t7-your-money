@@ -15,6 +15,7 @@ using Your_Money.Models;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using System.Globalization;
 
 namespace Your_Money.Controllers
 {
@@ -22,11 +23,13 @@ namespace Your_Money.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
+        private readonly CultureInfo _cultura;
 
         public UsuariosController(IConfiguration configuration, ApplicationDbContext context)
         {
             _configuration = configuration;
             _context = context;
+            _cultura = new CultureInfo("pt-BR");
         }
 
         public IActionResult Login()
@@ -154,6 +157,37 @@ namespace Your_Money.Controllers
             ViewBag.Saldo = valorReceitas - valorDespesas;
             ViewBag.SaldoTotal = valorReceitasTotal - valorDespesasTotal;
 
+            decimal porcentagemDespesas = 0;
+
+            if (valorReceitas == 0 && valorDespesas >= 0)
+            {
+                porcentagemDespesas = valorDespesas / (valorReceitas == 0 ? 1 : valorReceitas) * 100;
+            }
+            else if (valorDespesas > 0)
+            {
+                porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
+            }
+
+            string nomeMes = _cultura.DateTimeFormat.GetMonthName(mes);
+            string alertClass = GetAlertClass(porcentagemDespesas);
+
+            if (porcentagemDespesas > 95 && porcentagemDespesas <= 1000000)
+            {
+                ViewBag.AlertClass = "alert-danger";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95 && porcentagemDespesas <= 1000000)
+            {
+                ViewBag.AlertClass = "alert-orange";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85 && porcentagemDespesas <= 1000000)
+            {
+                ViewBag.AlertClass = "alert-warning";
+                ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
+            }
+
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             var usuarios = await usuarioDbContext.ToListAsync();
 
@@ -166,6 +200,24 @@ namespace Your_Money.Controllers
             ViewBag.LancamentosPendentes = lancamentosPendentes;
 
             return View(usuarios);
+        }
+
+        private string GetAlertClass(decimal porcentagemDespesas)
+        {
+            if (porcentagemDespesas > 95)
+            {
+                return "alert-danger";
+            }
+            else if (porcentagemDespesas > 85 && porcentagemDespesas <= 95)
+            {
+                return "alert-orange";
+            }
+            else if (porcentagemDespesas >= 75 && porcentagemDespesas <= 85)
+            {
+                return "alert-warning";
+            }
+
+            return string.Empty;
         }
 
 

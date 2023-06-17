@@ -6,202 +6,159 @@ Os dados coletados durante o teste de usabilidade são usados para identificar p
 Foi elaborado um formulário com perguntas onde os participantes foram questionados sobre as funcionalidades de usabilidade.
 
 Relatório:
-Participantes: 9
+Participantes: 7
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-01 	|  |   |  | --- |  |
-| Usuário 02    | CTU-01 	|  |   |  | --- |  |
-| Usuário 03	| CTU-01	|  |   |  | --- |  |
-| Usuário 04	| CTU-01 	|  |   |  | --- |  |
-| Usuário 05	| CTU-01    |  |   |  | --- |  |
-| Usuário 06	| CTU-01 	|  |   |  | --- |  |
-| Usuário 07	| CTU-01 	|  |   |  | --- |  |
-| Usuário 08	| CTU-01 	|  |   |  | --- |  |
-| Usuário 09	| CTU-01 	|  |   |  | --- |  |
-| Usuário 10	| CTU-01 	|  |   |  | --- |  |
+(*) Usuário fez as etapas de testes como usuário logado
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-02 	|  |   |  | --- |  |
-| Usuário 02    | CTU-02 	|  |   |  | --- |  |
-| Usuário 03	| CTU-02	|  |   |  | --- |  |
-| Usuário 04	| CTU-02 	|  |   |  | --- |  |
-| Usuário 05	| CTU-02    |  |   |  | --- |  |
-| Usuário 06	| CTU-02 	|  |   |  | --- |  |
-| Usuário 07	| CTU-02 	|  |   |  | --- |  |
-| Usuário 08	| CTU-02 	|  |   |  | --- |  |
-| Usuário 09	| CTU-02 	|  |   |  | --- |  |
-| Usuário 10	| CTU-02 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-01 	| 00:58m | 6 | --- | --- | 
+| Usuário 02    | CTU-01 	| 00:28m | 6 | --- | --- | 
+| Usuário 03	| CTU-01	| 01:08m | 11 | 1 | Sim | 
+| Usuário 04	| CTU-01 	| 03:58m | 15 | 1 | Não | 
+| Usuário 05	| CTU-01    | 00:42m | 7 | --- | --- | 
+| Usuário 06	| CTU-01 	| 00:55m | 14 | --- | --- | 
+| Usuário 07	| CTU-01 	|  |  |  | --- | 
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-03 	|  |   |  | --- |  |
-| Usuário 02    | CTU-03 	|  |   |  | --- |  |
-| Usuário 03	| CTU-03	|  |   |  | --- |  |
-| Usuário 04	| CTU-03	|  |   |  | --- |  |
-| Usuário 05	| CTU-03    |  |   |  | --- |  |
-| Usuário 06	| CTU-03 	|  |   |  | --- |  |
-| Usuário 07	| CTU-03 	|  |   |  | --- |  |
-| Usuário 08	| CTU-03 	|  |   |  | --- |  |
-| Usuário 09	| CTU-03 	|  |   |  | --- |  |
-| Usuário 10	| CTU-03 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-02 	| 00:04m | 4 | --- | --- | 
+| Usuário 02    | CTU-02 	| 00:09m | 4 | --- | --- |  
+| Usuário 03	| CTU-02	| 00:10m | 2 | 1 | --- |  
+| Usuário 04	| CTU-02 	| 00:33m | 5 | 1 | Sim |  
+| Usuário 05	| CTU-02    | 00:21m | 4 | --- | --- | 
+| Usuário 06	| CTU-02 	| 00:57m | 9 | --- | --- |  
+| Usuário 07	| CTU-02 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-04 	|  |   |  | --- |  |
-| Usuário 02    | CTU-04 	|  |   |  | --- |  |
-| Usuário 03	| CTU-04	|  |   |  | --- |  |
-| Usuário 04	| CTU-04 	|  |   |  | --- |  |
-| Usuário 05	| CTU-04    |  |   |  | --- |  |
-| Usuário 06	| CTU-04 	|  |   |  | --- |  |
-| Usuário 07	| CTU-04 	|  |   |  | --- |  |
-| Usuário 08	| CTU-04 	|  |   |  | --- |  |
-| Usuário 09	| CTU-04 	|  |   |  | --- |  |
-| Usuário 10	| CTU-04 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-03 	| 00:26m | 4 | --- | --- |  
+| Usuário 02    | CTU-03 	| 00:21m | 6 | --- | --- |  
+| Usuário 03	| CTU-03	| 00:51m | 5 | --- | --- |  
+| Usuário 04	| CTU-03	| 01:51m | 8 | --- | --- |  
+| Usuário 05	| CTU-03    | 01:45m | 9 | --- | --- |  
+| Usuário 06	| CTU-03 	| 00:25m | 4 | --- | --- |  
+| Usuário 07	| CTU-03 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-05 	|  |   |  | --- |  |
-| Usuário 02    | CTU-05 	|  |   |  | --- |  |
-| Usuário 03	| CTU-05	|  |   |  | --- |  |
-| Usuário 04	| CTU-05 	|  |   |  | --- |  |
-| Usuário 05	| CTU-05    |  |   |  | --- |  |
-| Usuário 06	| CTU-05 	|  |   |  | --- |  |
-| Usuário 07	| CTU-05 	|  |   |  | --- |  |
-| Usuário 08	| CTU-05 	|  |   |  | --- |  |
-| Usuário 09	| CTU-05 	|  |   |  | --- |  |
-| Usuário 10	| CTU-05 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-04 	| 00:15m | 3* | 1 | Não |  
+| Usuário 02    | CTU-04 	| 00:52m | 6 | --- | --- |  
+| Usuário 03	| CTU-04	| 01:52m | 14 | --- | --- |  
+| Usuário 04	| CTU-04 	| 02:53m | 17 | 2 | Não |  
+| Usuário 05	| CTU-04    | 00:43m | 4* | 1 | Não |  
+| Usuário 06	| CTU-04 	| 00:00m | 5 | 1 | Não |  
+| Usuário 07	| CTU-04 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-06 	|  |   |  | --- |  |
-| Usuário 02    | CTU-06 	|  |   |  | --- |  |
-| Usuário 03	| CTU-06	|  |   |  | --- |  |
-| Usuário 04	| CTU-06 	|  |   |  | --- |  |
-| Usuário 05	| CTU-06    |  |   |  | --- |  |
-| Usuário 06	| CTU-06 	|  |   |  | --- |  |
-| Usuário 07	| CTU-06 	|  |   |  | --- |  |
-| Usuário 08	| CTU-06 	|  |   |  | --- |  |
-| Usuário 09	| CTU-06 	|  |   |  | --- |  |
-| Usuário 10	| CTU-06 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-05 	| 00:46m | 4* | --- | --- |  
+| Usuário 02    | CTU-05 	| 00:34m | 5* | --- | --- |  
+| Usuário 03	| CTU-05	| 00:46m | 18 | --- | --- |  
+| Usuário 04	| CTU-05 	| 00:56m | 20 | --- | --- |  
+| Usuário 05	| CTU-05    | 01:44m | 10 | --- | --- |  
+| Usuário 06	| CTU-05 	| 00:40m | 14 | --- | --- |  
+| Usuário 07	| CTU-05 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-07 	|  |   |  | --- |  |
-| Usuário 02    | CTU-07 	|  |   |  | --- |  |
-| Usuário 03	| CTU-07	|  |   |  | --- |  |
-| Usuário 04	| CTU-07 	|  |   |  | --- |  |
-| Usuário 05	| CTU-07    |  |   |  | --- |  |
-| Usuário 06	| CTU-07 	|  |   |  | --- |  |
-| Usuário 07	| CTU-07 	|  |   |  | --- |  |
-| Usuário 08	| CTU-07 	|  |   |  | --- |  |
-| Usuário 09	| CTU-07 	|  |   |  | --- |  |
-| Usuário 10	| CTU-07 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-06 	| 02:02m | 5* | --- | --- |  
+| Usuário 02    | CTU-06 	| 00:34m | 5* | --- | --- |  
+| Usuário 03	| CTU-06	| 00:57m | 20 | --- | --- |  
+| Usuário 04	| CTU-06 	| 01:57m | 23 | --- | --- |  
+| Usuário 05	| CTU-06    | 01:47m | 13 | --- | --- |  
+| Usuário 06	| CTU-06 	| 00?33m | 14 | --- | --- |  
+| Usuário 07	| CTU-06 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-08 	|  |   |  | --- |  |
-| Usuário 02    | CTU-08 	|  |   |  | --- |  |
-| Usuário 03	| CTU-08	|  |   |  | --- |  |
-| Usuário 04	| CTU-08 	|  |   |  | --- |  |
-| Usuário 05	| CTU-08    |  |   |  | --- |  |
-| Usuário 06	| CTU-08 	|  |   |  | --- |  |
-| Usuário 07	| CTU-08 	|  |   |  | --- |  |
-| Usuário 08	| CTU-08 	|  |   |  | --- |  |
-| Usuário 09	| CTU-08 	|  |   |  | --- |  |
-| Usuário 10	| CTU-08 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-07 	| 00:24m | 5* | --- | --- |  
+| Usuário 02    | CTU-07 	| 00:34m | 5* | --- | --- |  
+| Usuário 03	| CTU-07	| 01:11m | 22 | --- | --- |  
+| Usuário 04	| CTU-07 	| 01:41m | 20 | --- | --- |  
+| Usuário 05	| CTU-07    | 01:37m | 13 | --- | --- |  
+| Usuário 06	| CTU-07 	| 00:24m | 11 | 0 | --- |  
+| Usuário 07	| CTU-07 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-09 	|  |   |  | --- |  |
-| Usuário 02    | CTU-09 	|  |   |  | --- |  |
-| Usuário 03	| CTU-09	|  |   |  | --- |  |
-| Usuário 04	| CTU-09 	|  |   |  | --- |  |
-| Usuário 05	| CTU-09    |  |   |  | --- |  |
-| Usuário 06	| CTU-09 	|  |   |  | --- |  |
-| Usuário 07	| CTU-09 	|  |   |  | --- |  |
-| Usuário 08	| CTU-09 	|  |   |  | --- |  |
-| Usuário 09	| CTU-09 	|  |   |  | --- |  |
-| Usuário 10	| CTU-09 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-08 	| 00:46m | 5* | --- | --- |   
+| Usuário 02    | CTU-08 	| 00:34m | 5* | --- | --- | 
+| Usuário 03	| CTU-08	| 00:56m | 19 | --- | --- |  
+| Usuário 04	| CTU-08 	| 02:37m | 27 | --- | --- |  
+| Usuário 05	| CTU-08    | 01:45m | 13 | --- | --- |  
+| Usuário 06	| CTU-08 	| 00:21m | 21 | --- | Não |  
+| Usuário 07	| CTU-08 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-10 	|  |   |  | --- |  |
-| Usuário 02    | CTU-10 	|  |   |  | --- |  |
-| Usuário 03	| CTU-10	|  |   |  | --- |  |
-| Usuário 04	| CTU-10 	|  |   |  | --- |  |
-| Usuário 05	| CTU-10    |  |   |  | --- |  |
-| Usuário 06	| CTU-10 	|  |   |  | --- |  |
-| Usuário 07	| CTU-10 	|  |   |  | --- |  |
-| Usuário 08	| CTU-10 	|  |   |  | --- |  |
-| Usuário 09	| CTU-10 	|  |   |  | --- |  |
-| Usuário 10	| CTU-10 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-09 	| 00:13m | 4 | --- | --- |  
+| Usuário 02    | CTU-09 	| 00:13m | 2 | --- | --- |  
+| Usuário 03	| CTU-09	| 00:16m | 4 | --- | --- |  
+| Usuário 04	| CTU-09 	| 00:46m | 6 | --- | --- |  
+| Usuário 05	| CTU-09    | 00:15m | 2 | --- | --- |  
+| Usuário 06	| CTU-09 	| 00:05m | 2 | --- | --- |  
+| Usuário 07	| CTU-09 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-11 	|  |   |  | --- |  |
-| Usuário 02    | CTU-11 	|  |   |  | --- |  |
-| Usuário 03	| CTU-11	|  |   |  | --- |  |
-| Usuário 04	| CTU-11 	|  |   |  | --- |  |
-| Usuário 05	| CTU-11    |  |   |  | --- |  |
-| Usuário 06	| CTU-11 	|  |   |  | --- |  |
-| Usuário 07	| CTU-11 	|  |   |  | --- |  |
-| Usuário 08	| CTU-11 	|  |   |  | --- |  |
-| Usuário 09	| CTU-11 	|  |   |  | --- |  |
-| Usuário 10	| CTU-11 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-10 	| 00:28m | 6 | --- | --- |  
+| Usuário 02    | CTU-10 	| 00:15m | 4 | --- | --- |  
+| Usuário 03	| CTU-10	| 00:27m | 11 | --- | --- |  
+| Usuário 04	| CTU-10 	| 01:27m | 12 | --- | --- |  
+| Usuário 05	| CTU-10    | 00:15m | 2 | --- | --- |  
+| Usuário 06	| CTU-10 	| 00:05m | 2 | --- | --- |   
+| Usuário 07	| CTU-10 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-12 	|  |   |  | --- |  |
-| Usuário 02    | CTU-12 	|  |   |  | --- |  |
-| Usuário 03	| CTU-12	|  |   |  | --- |  |
-| Usuário 04	| CTU-12 	|  |   |  | --- |  |
-| Usuário 05	| CTU-12    |  |   |  | --- |  |
-| Usuário 06	| CTU-12 	|  |   |  | --- |  |
-| Usuário 07	| CTU-12 	|  |   |  | --- |  |
-| Usuário 08	| CTU-12 	|  |   |  | --- |  |
-| Usuário 09	| CTU-12 	|  |   |  | --- |  |
-| Usuário 10	| CTU-12 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-11 	| 00:09m | 3 | --- | --- |  
+| Usuário 02    | CTU-11 	| 00:09m | 3 | --- | --- |  
+| Usuário 03	| CTU-11	| 00:15m | 5 | --- | --- |  
+| Usuário 04	| CTU-11 	| 00:45m | 10 | --- | --- |  
+| Usuário 05	| CTU-11    | 00:39m | 2 | --- | --- |  
+| Usuário 06	| CTU-11 	| 00:11m | 6 | --- | --- |  
+| Usuário 07	| CTU-11 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-13 	|  |   |  | --- |  |
-| Usuário 02    | CTU-13 	|  |   |  | --- |  |
-| Usuário 03	| CTU-13	|  |   |  | --- |  |
-| Usuário 04	| CTU-13 	|  |   |  | --- |  |
-| Usuário 05	| CTU-13    |  |   |  | --- |  |
-| Usuário 06	| CTU-13 	|  |   |  | --- |  |
-| Usuário 07	| CTU-13 	|  |   |  | --- |  |
-| Usuário 08	| CTU-13 	|  |   |  | --- |  |
-| Usuário 09	| CTU-13 	|  |   |  | --- |  |
-| Usuário 10	| CTU-13 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- | 
+| Usuário 01	| CTU-12 	| 00:25m | 6 | --- | --- |  
+| Usuário 02    | CTU-12 	| 00:16m | 3 | --- | --- |  
+| Usuário 03	| CTU-12	| 00:24m | 9 | --- | --- |  
+| Usuário 04	| CTU-12 	| 00:44m | 15 | --- | --- |  
+| Usuário 05	| CTU-12    | 00:22m | 3 | --- | --- |  
+| Usuário 06	| CTU-12 	| 00:11m | 4 | --- | --- |  
+| Usuário 07	| CTU-12 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-14 	|  |   |  | --- |  |
-| Usuário 02    | CTU-14 	|  |   |  | --- |  |
-| Usuário 03	| CTU-14	|  |   |  | --- |  |
-| Usuário 04	| CTU-14 	|  |   |  | --- |  |
-| Usuário 05	| CTU-14    |  |   |  | --- |  |
-| Usuário 06	| CTU-14 	|  |   |  | --- |  |
-| Usuário 07	| CTU-14 	|  |   |  | --- |  |
-| Usuário 08	| CTU-14 	|  |   |  | --- |  |
-| Usuário 09	| CTU-14 	|  |   |  | --- |  |
-| Usuário 10	| CTU-14 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-13 	| 00:24m | 5 | --- | --- |  
+| Usuário 02    | CTU-13 	| 00:24m | 5 | --- | --- |
+| Usuário 03	| CTU-13	| 00:15m | 4 | --- | --- |  
+| Usuário 04	| CTU-13 	| 00:59m | 7 | --- | --- |  
+| Usuário 05	| CTU-13    | 01:50m | 7 | --- | --- |  
+| Usuário 06	| CTU-13 	| 00:35m | 10 | --- | --- |  
+| Usuário 07	| CTU-13 	|  |  |  | --- |  
 
-| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Comentários e observações** |
-| --- 	| --- 	| --- | ---  | --- | --- | --- |
-| Usuário 01	| CTU-15 	|  |   |  | --- |  |
-| Usuário 02    | CTU-15 	|  |   |  | --- |  |
-| Usuário 03	| CTU-15	|  |   |  | --- |  |
-| Usuário 04	| CTU-15 	|  |   |  | --- |  |
-| Usuário 05	| CTU-15    |  |   |  | --- |  |
-| Usuário 06	| CTU-15 	|  |   |  | --- |  |
-| Usuário 07	| CTU-15 	|  |   |  | --- |  |
-| Usuário 08	| CTU-15 	|  |   |  | --- |  |
-| Usuário 09	| CTU-15 	|  |   |  | --- |  |
-| Usuário 10	| CTU-15 	|  |   |  | --- |  |
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-14 	| 00:33m | 5 | --- | --- |  
+| Usuário 02    | CTU-14 	| 00:32m | 5 | --- | --- |   
+| Usuário 03	| CTU-14	| 00:10m | 4 | --- | --- |   
+| Usuário 04	| CTU-14 	| 00:31m | 5 | --- | --- |   
+| Usuário 05	| CTU-14    | 00:31m | 5 | --- | --- | 
+| Usuário 06	| CTU-14 	| 00:04m | 2 | --- | --- |  
+| Usuário 07	| CTU-14 	|  |  |  | --- |   
+
+| **Usuário** 	| **Artefato** 	| **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | 
+| --- 	| --- 	| --- | ---  | --- | --- |
+| Usuário 01	| CTU-15 	| 01:23m | 8 | --- | --- | 
+| Usuário 02    | CTU-15 	| 01:10m | 7 | --- | --- |  
+| Usuário 03	| CTU-15	| 00:56m | 9 | --- | --- |  
+| Usuário 04	| CTU-15 	| 02:56m | 13 | --- | --- |  
+| Usuário 05	| CTU-15    | 01:50m | 7 | --- | --- |  
+| Usuário 06	| CTU-15 	| 01:20m | 7 | --- | --- |  
+| Usuário 07	| CTU-15 	|  |  |  | --- |    
 
 <h2>Observações e conclusão</h2>
 <!-- aguardando finalização dos testes -->
