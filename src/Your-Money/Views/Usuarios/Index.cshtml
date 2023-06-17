@@ -134,7 +134,7 @@
 
                     <div class="pt-3 pb-2" style="color:green;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
-                        <a href="~/Lancamentos/Create">
+                        <a href="~/Lancamentos/Create?tipoTransacao=receita">
                             <img src="~/revenue.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
                     </div>
@@ -151,7 +151,7 @@
                     </div>
                     <div class="pt-3 pb-2" style="color:darkred;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
-                        <a href="~/Lancamentos/Create">
+                        <a href="~/Lancamentos/Create?tipoTransacao=despesa">
                             <img src="~/expense.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
                     </div>
