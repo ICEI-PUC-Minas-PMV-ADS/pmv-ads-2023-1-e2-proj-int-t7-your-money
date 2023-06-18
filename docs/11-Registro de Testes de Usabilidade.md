@@ -5,10 +5,7 @@ Os dados coletados durante o teste de usabilidade são usados para identificar p
 
 Foi elaborado um formulário com perguntas onde os participantes foram questionados sobre as funcionalidades de usabilidade.
 
-Relatório:
 Participantes: 6
-
-(*) Usuário fez as etapas de testes como usuário logado
 
 | **Usuário** | **Artefato** | **Tempo (minutos)** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Nota 1(ruim) - 5(muito bom)** | 
 | --- | --- | --- | --- | --- | --- | --- |
@@ -150,12 +147,12 @@ Participantes: 6
 
 Nossos testes foram realizados com: 
 
-Usuário 01: Mulher, 27 anos, ensino superior completo.
-Usuário 02: Homem, 27 anos, ensino superior completo.
-Usuário 03: Mulher, 53 anos, ensino superior completo
-Usuário 04: Homem, 46 anos, ensino médio completo.
-Usuário 05: Mulher, 43 anos, ensino superior completo.
-Usuário 06: Mulher, 28 anos, pós graduada.
+Usuário 01: Mulher, 27 anos, ensino superior completo.<br>
+Usuário 02: Homem, 27 anos, ensino superior completo.<br>
+Usuário 03: Mulher, 53 anos, ensino superior completo.<br>
+Usuário 04: Homem, 46 anos, ensino médio completo.<br>
+Usuário 05: Mulher, 43 anos, ensino superior completo.<br>
+Usuário 06: Mulher, 28 anos, pós graduada.<br>
 
 
 <h2>Relatório</h2>
@@ -165,20 +162,25 @@ Usuário 06: Mulher, 28 anos, pós graduada.
 Seguem resultados: 
 
 **01 - Criar novo usuário.** 
+
 Média da nota: 4,16
 
 Dois usuários tiveram erros. Um se recuperou sozinho e o outro não.
 
 Sugestões e considerações dos usuários: 
-- Na hora de criar a senha, poderia ter uma mensagem avisando que a senha tem que ter uma letra e um numero
+- Na hora de criar a senha poderia ter uma mensagem avisando que a senha tem que ter uma letra maíucula, uma letra minúscula, um número
 e no minimo 6 caracteres.
 
+
 **02 - Realizar o LOGIN** 
+
 Média da nota: 4,66
 
 Um usuário teve um erro e conseguiu se recuperar.
 
+
 **03 - Alterar senha através da página de alteração de dados do usuário.** 
+
 Média da nota: 3,16
 
 Ao final do teste dois usuários questionaram se a senha estava alterada já que nao tinha mensagem alguma informando isso.
@@ -188,7 +190,9 @@ Sugestões e considerações dos usuários:
 - Indicar se as senhas coincidem. Email de notificação da alteração de senha.
 - Mostrar mensagem informando que a senha foi alterada com sucesso ou não.
 
+
 **04 - Alterar senha através da funcionalidade de "Recuperação de Senha"**
+
 Média da nota: 2,66
 
 Quatro usuários tiveram problemas e não conseguiram se recuperar sozinho.
@@ -198,7 +202,9 @@ Sugestões e considerações dos usuários:
 - Indicar se as senhas coincidem. Email de notificação da alteração de senha.
 - Evitar auto preenchimento dos campos pela ferramenta do navegador (exceção poderia ser o código)
 
+
 **05 - Cadastrar uma Receita através da Página do Usuário clicando no campo indicado para "Receitas".** 
+
 Média da nota: 3,50
 
 Sugestões e considerações dos usuários: 
@@ -206,19 +212,25 @@ Sugestões e considerações dos usuários:
 - Cadastrar uma Receita através da Página do Usuário clicando no campo indicado para "Receitas", usuário informa que não entendeu direito o campo da recorrencia, exemplo se for a receita de salario, eu colocaria 1? Como é recorrente 1x por mês? ou colocaria 0
 é preciso preencher todo mês?
 
+
 **06 - Cadastrar uma Receita através da Página de "Lançamentos".** 
+
 Média da nota: 3,66
 
 Sugestões e considerações dos usuários: 
 - O botão para adicionar o lançamento não ficou intuitivo, ficou muito apagado, poderia ser colocado um botão ao lado direito, similar ao que tem na tela de usuário, ícone de + verde é uma boa opção.
 
+
 **07 - Cadastrar uma Despesa através da Página do Usuário clicando no ícone indicado para "Despesas".** 
+
 Média da nota: 4,83
 
 Sugestões e considerações dos usuários: 
 - Mesmas observações para o CTU-05, já que a página de lançamento faz os dois casos.
 
+
 **08 - Cadastrar uma Despesa através da Página de "Lançamentos".** 
+
 Média da nota: 3,50
 
 Um usuário não preencheu Recorrência e teve um Erro.
@@ -227,34 +239,46 @@ Sugestões e considerações dos usuários:
 - Mesmas observações para o CTU-06, já que a página de lançamento faz os dois casos.
 - Campo Recorrente gerou dúvidas no usuário: se ele paga o curso de ingles em 12x parcelas, então, colocaria ali 12 como recorrencia? Sugestão do uauário: mudar o nome do campo para parcela
 
+
 **09 - Visualizar lançamento.** 
+
 Média da nota: 4,83
 
 Usuários não tiveram problemas e nem dúvidas ao executar a tarefa.
 
+
 **10 - Editar lançamento.** 
+
 Média da nota: 3,83
 
 Usuários não tiveram problemas e nem dúvidas ao executar a tarefa.
 
+
 **11 - Excluir lançamento.** 
+
 Média da nota: 4,33
 
 Usuários não tiveram problemas e nem dúvidas ao executar a tarefa.
 
+
 **12 - Editar parcelas de lançamento.** 
+
 Média da nota: 4,83
 
 Sugestões e considerações dos usuários: 
 - Atualizar valor total ao alterar uma parcela.
 
+
 **13 - Visualizar saldo.** 
+
 Média da nota: 4,16
 
 Sugestões e considerações dos usuários:
 - Não foi contabilizado as despesas no saldo total da conta 
 
+
 **14 - Verificar se valores estão batendo conforme colocado.** 
+
 Média da nota: 3,50
 
 Um usuário procurou o Saldo na página relatório.
@@ -262,7 +286,9 @@ Um usuário procurou o Saldo na página relatório.
 Sugestões e considerações dos usuários: 
 - Não foi contabilizado as despesas no saldo total da conta.
 
+
 **15 - Analisar dicas (se as dicas são utéis)** 
+
 Média da nota: 4,66
 
 Todos os usuários informaram que as dicas são utéis.
@@ -273,17 +299,19 @@ Sugestões e considerações dos usuários:
 - Sugestão: Home ser a primeira opção do menu.
 
 
+
 **Plano de correção:**
+
 | **Correção** | **Foi implementada?** |
 | --- | --- |
 | Função Criar Lançamento está permitindo Salvar com campos vazios | Implementado |
-| Indicar visualmente os requisitos obrigatórios da criação de senha no login e alterar senha dentro do usuário | --- |
-| Tirar o auto-preenchimento do campo código quando usuário esqueceu a senha, pois está vindo preenchido com email | --- |
+| Indicar visualmente os requisitos obrigatórios da criação de senha no login e alterar senha dentro do usuário | Implementado |
+| Tirar o auto-preenchimento do campo código quando usuário esqueceu a senha, pois está vindo preenchido com email | A ser implementado |
 | ALterar Recorrente para Parcelas, pois usuários acharam confuso a recorrencia | Implementado |
 | Saldo total da conta está com valor errado, não está contabilizando despesas | Implementado |
-| Renomear Dicas para Dicas Financeiras | --- |
-| Home ser a primeira opção do menu | --- |
-| Criar uma visualização melhor de Adicionar Lançamento na página de Lançamentos | --- |
+| Renomear Dicas para Dicas Financeiras | A ser implementado  |
+| Home ser a primeira opção do menu | Implementado |
+| Criar uma visualização melhor de Adicionar Lançamento na página de Lançamentos | Implementado  |
 
 **Conclusão**
 
