@@ -145,7 +145,7 @@ Participantes: 6
 
 <h2>Observações e conclusão</h2>
 
-Nossos testes foram realizados com: 
+Nossos testes foram realizados com os seguintes voluntários: 
 
 Usuário 01: Mulher, 27 anos, ensino superior completo.<br>
 Usuário 02: Homem, 27 anos, ensino superior completo.<br>
