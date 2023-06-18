@@ -46,20 +46,16 @@ Os requisitos para realização dos testes são:
 - Disponibilidade do usuário em comparecer no local para teste.
 
 ### Método utilizado: Observação direta, medição e Avaliação
-Serão selecionados de sete a dez participantes para realizar um teste no qual eles avaliarão como o site se desempenha e interage, levando em consideração as necessidades que estão alinhadas com o propósito da aplicação, além de oferecer sugestões para melhorias.
+Serão selecionados seis participantes para realizar um teste no qual eles avaliarão como o site se desempenha e interage, levando em consideração as necessidades que estão alinhadas com o propósito da aplicação, além de oferecer sugestões para melhorias.
 Os participantes terão a responsabilidade de analisar de maneira eficiente um conjunto de tarefas atribuídas a eles e fornecer feedback sobre a usabilidade da aplicação.
 
 Para cada tarefa do participante poderemos medir: eficácia, eficiência e satisfação
 
 > Conclusão de tarefas sem erro<br>
-> Conclusão de tarefa com erro (não crítico)<br>
-> Erros críticos<br>
+> Conclusão de tarefa com erro<br>
 > Quantidade total de cliques<br>
-> Quantidade de vezes que o usuário precisou de ajuda<br>
 > Tempo de execução da tarefa<br>
-> Tempo utilizado na primeira tentativa x segunda tentativa<br>
-> Satisfação ao realizar uma tarefa-pedir para o usuário avaliar através de escala 1 a 5<br>
-> Satisfação geral do teste-pedir para o usuário avaliar através de escala 1 a 5
+> Satisfação ao realizar uma tarefa - pedir para o usuário avaliar através de escala 1 a 5
 
 ### Serão acompanhadas de perto as seguintes tarefas: observação direta, medição e avaliação.
 Aqui estão as atividades a serem realizadas pelos participantes, que serão cuidadosamente observadas:
@@ -140,3 +136,16 @@ Aqui estão as atividades a serem realizadas pelos participantes, que serão cui
 | Objetivo do Teste     | Analisar Dicas |
 | Ações necessárias     | 1. Acessar o Navegador; <br> 2. Informar o endereço do site; <br> 3. Visualizar a página principal; <br> 4. Clicar em "Dicas". |
     |   |
+
+## Análise do teste e resultados
+
+Para registro será utilizada uma tabela conforme exemplo abaixo:
+
+| **Usuário** | **Artefato** | **Tempo** | **Clicks/Ações** | **Qtd. Erros** | **Se recuperou do erro** | **Nota 1(ruim) - 5(muito bom)** | 
+| --- | --- | --- | --- | --- | --- | --- |
+| Usuário 01 | --- | --- | --- | --- | --- | --- |
+| Usuário 02 | --- | --- | --- | --- | --- | --- |
+| Usuário 03 | --- | --- | --- | --- | --- | --- |
+| Usuário 04 | --- | --- | --- | --- | --- | --- |
+| Usuário 05 | --- | --- | --- | --- | --- | --- |
+| Usuário 06 | --- | --- | --- | --- | --- | --- |
