@@ -28,12 +28,13 @@
                 <div class="form-group">
                     <b style="color:darkblue"><label asp-for="Senha" class="control-label"></label></b>
                     <div class="input-group">
-                        <input asp-for="Senha" id="Senha" class="form-control shadow-sm" type="password" required minlength="6" />
+                        <input asp-for="Senha" id="Senha" class="form-control shadow-sm" type="password" required minlength="6"/>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="toggleSenha" onclick="togglePasswordVisibility('Senha')">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </div>
+                        <p style="font-size:6px;color:gray;">6 caracteres com pelo menos 1 letra maiúscula, 1 letra minúscula e 1 número.</p>
                     </div>
                     <span asp-validation-for="Senha" class="text-danger"></span>
                     <span id="senhaError" class="text-danger"></span>

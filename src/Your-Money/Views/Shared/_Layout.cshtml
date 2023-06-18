@@ -29,12 +29,6 @@
     <img src="~/yourMoney.png" class="img-fluid" style="max-width: 20%;" />
 </a>
                     </div>
-                        <div style="text-align:center;text-size-adjust:auto;">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
-                    </div>
-                        <div>
-                            <h7 style="color:blue">|</h7>
-                        </div>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div style="text-align:center;text-size-adjust:auto;">
@@ -55,12 +49,25 @@
                         <div>
                                 <h7 style="color:blue;">|</h7>
                         </div>
+                            <div style="text-align:center;text-size-adjust:auto;">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
+                            </div>
+                            <div>
+                                <h7 style="color:blue">|</h7>
+                            </div>
                             <div>
                                 <a class="nav-link shadow m-3" asp-area="" asp-controller="Usuarios" asp-action="Logout" style="background-color:aliceblue;border-start-end-radius:20px;border-start-start-radius:20px;border-end-end-radius:20px;border-end-start-radius:20px;"><h6><b>Sair</b></h6></a>
                             </div>
                         }
                         else
                         {
+                            <div style="text-align:center;text-size-adjust:auto;">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Dicas"><h5><b>Dicas</b></h5></a>
+                            </div>
+                            <div>
+                                <h7 style="color:blue">|</h7>
+                            </div>
+
                             <div style="text-align:center;text-size-adjust:auto;">
                             <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Create"><h5><b>Cadastrar</b></h5></a> 
                         </div>
