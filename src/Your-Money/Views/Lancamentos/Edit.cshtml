@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Editar Lançamento";
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 
     var isReadOnly = Model.NumeroParcelas > 1;
     var valorTotalParcelas = Model.Parcelamentos.Sum(x => x.Valor);
