@@ -82,7 +82,7 @@ namespace Your_Money.Controllers
 
             ViewBag.MesAtual = mesAtual;
 
-            Dictionary<decimal, (decimal receitasMes, decimal despesasMes)> lancamentosMes = new Dictionary<decimal, (decimal, decimal)>();
+            Dictionary<int, (int receitasMes, int despesasMes)> lancamentosMes = new Dictionary<int, (int, int)>();
 
             for (int mesRelatorio = 1; mesRelatorio <= 12; mesRelatorio++)
             {
@@ -134,24 +134,11 @@ namespace Your_Money.Controllers
             ViewBag.EventosDespesa = eventosDespesa;
             ViewBag.OutrosDespesa = outrosDespesa;
 
-
             return View(await applicationDbContext.ToListAsync());
-        }
-        private decimal SomaLancamentosPorClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
-        {
-            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
-            return _context.Lancamentos
-                .Where(t => t.Classificacao == classificacao &&
-                            t.Tipo == transacao &&
-                            t.Data.Month == mes &&
-                            t.Data.Year == ano &&
-                            t.Status == StatusTransacao.Efetivado &&
-                            t.Contas.Usuario.Email == userEmail)
-                .Sum(t => t.Valor);
         }
 
         // Gráficos1
-        public (decimal receitasMes, decimal despesasMes) GetLancamentosMes(int? mes, int? ano)
+        public (int receitasMes, int despesasMes) GetLancamentosMes(int? mes, int? ano)
         {
             var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
             decimal somaDeLancamentosReceita = 0;
@@ -160,6 +147,7 @@ namespace Your_Money.Controllers
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
                                                                       l.Tipo == Transacao.Receita &&
+                                                                      l.Status == StatusTransacao.Efetivado &&
                                                                       l.Contas.Usuario.Email == userEmail))
             {
                 somaDeLancamentosReceita += lancamento.Valor;
@@ -168,12 +156,13 @@ namespace Your_Money.Controllers
             foreach (var lancamento in _context.Lancamentos.Where(l => l.Data.Month == mes &&
                                                                       l.Data.Year == ano &&
                                                                       l.Tipo == Transacao.Despesa &&
+                                                                      l.Status == StatusTransacao.Efetivado &&
                                                                       l.Contas.Usuario.Email == userEmail))
             {
                 somaDeLancamentoDespesas += lancamento.Valor;
             }
 
-            //Pega saldo total do ano
+            // Pega saldo total do ano
             var saldoTotalAno = _context.Lancamentos.Where(l => l.Contas.Usuario.Email == userEmail &&
                                                                 l.Status == StatusTransacao.Efetivado &&
                                                                 l.Data.Year == ano).Sum(l => l.Tipo == Transacao.Receita ? l.Valor : -l.Valor);
@@ -181,7 +170,20 @@ namespace Your_Money.Controllers
             ViewBag.SaldoTotalAno = saldoTotalAno;
             //
 
-            return ((decimal)somaDeLancamentosReceita, (decimal)somaDeLancamentoDespesas);
+            return ((int)Math.Round(somaDeLancamentosReceita), (int)Math.Round(somaDeLancamentoDespesas));
+        }
+        private decimal SomaLancamentosPorClassificacao(Classificacao classificacao, Transacao transacao, int? mes, int? ano)
+        {
+            var userEmail = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email)?.Value;
+            var result = _context.Lancamentos
+                .Where(t => t.Classificacao == classificacao &&
+                            t.Tipo == transacao &&
+                            t.Data.Month == mes &&
+                            t.Data.Year == ano &&
+                            t.Status == StatusTransacao.Efetivado &&
+                            t.Contas.Usuario.Email == userEmail)
+                .Sum(t => t.Valor);
+            return (int)Math.Round(result);
         }
 
         // GET: Lancamentos/Create

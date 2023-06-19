@@ -27,9 +27,7 @@ Para mais informações, consulte o microfundamento "Modelagem de Dados".
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+Para implementar a solução, foi utilizado a estrutura ASP.NET Core MVC com a linguagem de programação C#. Para o armazenamento de dados foi utilizado o Banco de Dados SQL da Azure. Para IDE de desenvolvimento foi utilizado o Visual Studio 2022.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

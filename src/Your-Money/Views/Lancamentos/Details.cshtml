@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Detalhar Lançamento";
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 }
 
 <body style="background-image: url(/blue1.png);margin-left:10px;">
@@ -124,8 +126,8 @@
 
         <div class="row">
             <div class="col-md-4">
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
             </div>
         </div>
     </form>

@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = "Relatorio";
-    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<decimal, (decimal receitasMes, decimal despesasMes)>;
+    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
 }
 
 <nav>
@@ -11,9 +13,11 @@
         <li class="breadcrumb-item active" aria-current="page">Relatório</li>
     </ol>
 </nav>
+ 
+
 
 <div class="d-flex justify-content-center">
-    <div class="container-fluid pt-5 pb-3" style="background-image:url(/blue2.png);">
+    <div class="container-fluid pt-3 pb-3" style="background-image:url(/blue2.png);">
         <div class="row align-self-center">
             <div class="col-sm-9 align-self-center p-2">
                 <h2 style="color:darkblue;">Visão Global</h2>
@@ -26,14 +30,21 @@
                     </b>
                 </h6>
             </div>
-            <div class="col-sm align-self-center">
-                <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
-                <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;width:70%;"
-                       Placeholder="Digite o ano" />
-                <div style="padding-top:10px;">
-                    <button class="btn btn-primary">Pesquisar</button>
-                </div>
+            <div class="col-sm-3">
+
+                <form asp-action="Relatorio" method="get" class="form-row justify-content-center">
+                    <div class="col">
+                        <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
+                        <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;width:70%;"
+                               Placeholder="Digite o ano" />
+                        <div style="padding-top:10px;">
+                            <button type="submit" class="btn btn-primary">Pesquisar</button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
+
         </div>
     </div>
 </div>
@@ -41,74 +52,104 @@
 <hr>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+
 
 <div>
-    <canvas id="grafico1" style="width:300px; height:100px;padding-top:30px;padding-bottom:50px;"></canvas>
+    <canvas id="grafico1" style="width:300px; height:80px;padding-top:15px;padding-bottom:5px;"></canvas>
 </div>
 
 <script>
-
     var data = {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
             label: 'Receitas',
             data: [@lancamentosMes[1].receitasMes,
-                    @lancamentosMes[2].receitasMes,
-                    @lancamentosMes[3].receitasMes,
-                    @lancamentosMes[4].receitasMes,
-                    @lancamentosMes[5].receitasMes,
-                    @lancamentosMes[6].receitasMes,
-                    @lancamentosMes[7].receitasMes,
-                    @lancamentosMes[8].receitasMes,
-                    @lancamentosMes[9].receitasMes,
-                    @lancamentosMes[10].receitasMes,
-                    @lancamentosMes[11].receitasMes,
-                    @lancamentosMes[12].receitasMes],
+    @lancamentosMes[2].receitasMes,
+    @lancamentosMes[3].receitasMes,
+    @lancamentosMes[4].receitasMes,
+    @lancamentosMes[5].receitasMes,
+    @lancamentosMes[6].receitasMes,
+    @lancamentosMes[7].receitasMes,
+    @lancamentosMes[8].receitasMes,
+    @lancamentosMes[9].receitasMes,
+    @lancamentosMes[10].receitasMes,
+    @lancamentosMes[11].receitasMes,
+    @lancamentosMes[12].receitasMes],
             borderWidth: 1,
-            backgroundColor: ['lightgreen'],
+            backgroundColor: 'lightgreen',
         },
         {
             label: 'Despesa',
             data: [@lancamentosMes[1].despesasMes,
-                    @lancamentosMes[2].despesasMes,
-                    @lancamentosMes[3].despesasMes,
-                    @lancamentosMes[4].despesasMes,
-                    @lancamentosMes[5].despesasMes,
-                    @lancamentosMes[6].despesasMes,
-                    @lancamentosMes[7].despesasMes,
-                    @lancamentosMes[8].despesasMes,
-                    @lancamentosMes[9].despesasMes,
-                    @lancamentosMes[10].despesasMes,
-                    @lancamentosMes[11].despesasMes,
-                    @lancamentosMes[12].despesasMes],
+    @lancamentosMes[2].despesasMes,
+    @lancamentosMes[3].despesasMes,
+    @lancamentosMes[4].despesasMes,
+    @lancamentosMes[5].despesasMes,
+    @lancamentosMes[6].despesasMes,
+    @lancamentosMes[7].despesasMes,
+    @lancamentosMes[8].despesasMes,
+    @lancamentosMes[9].despesasMes,
+    @lancamentosMes[10].despesasMes,
+    @lancamentosMes[11].despesasMes,
+    @lancamentosMes[12].despesasMes],
             borderWidth: 1,
-            backgroundColor: ['indianred'],
-        }
-        ]
+            backgroundColor: 'indianred',
+        }]
     };
 
     var config = {
         type: 'bar',
-        data,
+        data: data,
         options: {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    grid: {
-                        drawOnChartArea: false
-                    }
-                }
-            },
             plugins: {
                 legend: {
                     labels: {
                         font: {
-                            size: 18
+                            size: 16
                         }
                     }
                 },
-                indexAxis: 'x'
-            }
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            var value = context.dataset.data[context.dataIndex];
+                            return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                        }
+                    }
+                },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    formatter: function (value, context) {
+                        return 'R$ ' + value; // Formata o valor com o prefixo "R$"
+                    }
+                }
+            },
+            indexAxis: 'x',
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        drawOnChartArea: true
+                    }
+                },
+                y: {
+                    type: 'logarithmic',
+                    display: false,
+                    beginAtZero: true,
+                    beginAtZero: false,
+                    grid: {
+                        display: false, // Remove as grades da escala x
+                        drawBorder: false // Remove as bordas da grade vertical
+                    },
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                        }
+                    }
+                }
+            },
         }
     };
 
@@ -116,17 +157,288 @@
         document.getElementById('grafico1'),
         config
     );
-
 </script>
+
+<div class="text-center pt-2">
+    <hr />
+    <h7 style="color:gray;">*Caso queira retirar algum item da visualização, basta clicar no item desejado na legenda</h7>
+</div>
+
+<hr>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="d-flex justify-content-center">
+
+    <div class="container-fluid pt-3 pb-3" style="background-image:url(/blue2.png);">
+
+        <div class="row align-self-center">
+
+            <div class="col-sm-9 align-self-center">
+                <h2 style="color:darkblue;">Detalhamento</h2>
+            </div>
+
+            <div class="col-sm align-self-center">
+               
+                <form asp-action="Relatorio" method="get">
+                    <div class="col align-self-center">
+                        <label class="control-label pt-0 mt-0" style="color:darkblue;"><b>Mês</b></label>
+                        <select name="mes" class="form-control shadow-sm" required style="color:darkblue;width:70%;">
+                            <option value="@ViewBag.MesAtual">Mês Atual</option>
+                            <option value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                    </div>
+                    <div class="col align-self-center">
+                    <label class="control-label pt-1" style="color:darkblue;"><b>Ano</b></label>
+                    <input type="number" name="ano" class="form-control shadow-sm" required style="color:darkblue;width:70%;"
+                           Placeholder="Digite o ano" />
+                    </div>
+
+                    <div class="col align-self-center" style="padding-top:10px;">
+                        <button class="btn btn-primary">Pesquisar</button>
+                    </div>                    
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="container pt-3 pl-0 pr-0">
+    
+    <div class="row pt-3 pl-0 pr-0 ml-0 mr-0">
+
+        <div class="col-sm-5">
+
+            <canvas id="grafico2" style="height:40px;max-width:max-content;padding-bottom:10px;text-size-adjust:auto;"></canvas>
+
+            <script>
+                var data = {
+                    labels: ['Salário', 'Investimentos', 'Outros'],
+                    datasets: [{
+                        label: 'Receitas',
+                        data: [@ViewBag.SalarioReceita,
+                @ViewBag.InvestimentosReceita,
+                @ViewBag.OutrosReceita],
+                        borderWidth: 1,
+                        backgroundColor: [
+                            'rgba(144, 238, 144, 1)',
+                            'rgba(50, 205, 50, 1)',
+                            'rgba(34, 139, 34, 1)'
+                        ],
+                    },
+                    ]
+                };
+                var config = {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    drawOnChartArea: true
+                                }
+                            },
+                            x: {
+                                display: false,
+                                beginAtZero: false,
+                                grid: {
+                                    display: false, // Remove as grades da escala x
+                                    drawBorder: false // Remove as bordas da grade vertical
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        var value = context.dataset.data[context.dataIndex];
+                                        return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Receitas',
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var myChart = new Chart(
+                    document.getElementById('grafico2'),
+                    config
+                );
+
+            </script>
+        </div>
+
+        <div class="col-sm-1" style="border-right: 1px solid #ccc;"></div>
+        
+        <div class="col-sm-6" style="text-align:center;">
+
+            <canvas id="grafico3" style="height:30px;width:100%;padding-bottom:5px;text-size-adjust:auto;"></canvas>
+
+            <script>
+                var data = {
+                    labels: ['Alimentação',
+                        'Educação',
+                        'Empréstimos',
+                        'Entretenimento',
+                        'Eventos',
+                        'Impostos',
+                        'Imprevistos',
+                        'Investimentos',
+                        'Moradia',
+                        'Saúde',
+                        'Seguros',
+                        'Taxas',
+                        'Transporte',
+                        'Veículo',
+                        'Vestuário',
+                        'Outros'],
+                    datasets: [{
+                        label: 'Despesas',
+                        data: [@ViewBag.AlimentacaoDespesa,
+                @ViewBag.EducacaoDespesa,
+                @ViewBag.EmprestimoDespesa,
+                @ViewBag.EntretenimentoDespesa,
+                @ViewBag.EventosDespesa,
+                @ViewBag.ImpostoDespesa,
+                @ViewBag.ImprevistosDespesa,
+                @ViewBag.InvestimentosDespesa,
+                @ViewBag.MoradiaDespesa,
+                @ViewBag.SaudeDespesa,
+                @ViewBag.SegurosDespesa,
+                @ViewBag.TaxaDespesa,
+                @ViewBag.TransporteDespesa,
+                @ViewBag.VeiculoDespesa,
+                @ViewBag.VestuarioDespesa,
+                @ViewBag.OutrosDespesa],
+                        borderWidth: 1,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',   
+                            'rgba(255, 206, 86, 0.8)',    
+                            'rgba(75, 192, 192, 0.8)',    
+                            'rgba(153, 102, 255, 0.8)',   
+                            'rgba(255, 159, 64, 0.8)',   
+                            'rgba(255, 0, 0, 0.8)',    
+                            'rgba(0, 255, 0, 0.8)',        
+                            'rgba(0, 0, 255, 0.8)',        
+                            'rgba(255, 0, 255, 0.8)',      
+                            'rgba(255, 255, 0, 0.8)',      
+                            'rgba(0, 255, 255, 0.8)',      
+                            'rgba(128, 128, 128, 0.8)',    
+                            'rgba(255, 128, 0, 0.8)',      
+                            'rgba(0, 128, 128, 0.8)',      
+                            'rgba(128, 0, 128, 0.8)'
+                        ],
+                    },
+                    ]
+                };
+                var config = {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                        indexAxis: 'y',
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    drawOnChartArea: true
+                                }
+                            },
+                            x: {
+                                display: false,
+                                beginAtZero: false,
+                                grid: {
+                                    display: false, // Remove as grades da escala x
+                                    drawBorder: false // Remove as bordas da grade vertical
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        var value = context.dataset.data[context.dataIndex];
+                                        return 'R$ ' + value.toFixed(2); // Adiciona o prefixo "R$" e formata o número com duas casas decimais
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Despesas',
+                                font: {
+                                    size: 18,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var myChart = new Chart(
+                    document.getElementById('grafico3'),
+                    config
+                );
+
+
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="text-center pt-3 pb-0">
+    <hr />
+    <h7 style="color:gray;">*Caso queira retirar algum item da visualização, basta clicar no item desejado na legenda</h7>
+</div>
 
 <div style="padding-top:10px;">
     <hr>
     <h5 style="color:darkblue;padding-top:20px;padding-bottom:20px;"> Descritivo dos Lançamentos </h5>
 
-    <table class="table table-striped table-hover" id="tabela2-lancamentos" style="text-align:center;padding-top:20px;">
+    <table class="table table-striped table-hover" id="tabela1-lancamentos" style="text-align:center;padding-top:20px;background-color:white;">
+
         <thead>
-            <tr style="background-color:aliceblue">
-                <th style="text-align:center;">
+            <tr style="background-color:aliceblue;">
+                <th style="text-align:center;text-size-adjust:auto;">
                     @Html.DisplayNameFor(model => model.Tipo)
                 </th>
                 <th style="text-align:center;">
@@ -137,6 +449,9 @@
                 </th>
                 <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Valor)
+                </th>
+                <th style="text-align:center;">
+                    N°. Parcelas
                 </th>
                 <th style="text-align:center;">
                     @Html.DisplayNameFor(model => model.Data)
@@ -178,6 +493,26 @@
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
                     <td>
+                        @{
+                            int numeroParcelas = item.NumeroParcelas;
+                            string resultado;
+
+                            if (numeroParcelas == 0 || numeroParcelas == 1)
+                            {
+                                resultado = "-";
+                            }
+                            else if (numeroParcelas > 1)
+                            {
+                                resultado = $"{numeroParcelas}";
+                            }
+                            else
+                            {
+                                resultado = "Número de Parcelas inválido";
+                            }
+                        }
+                        <span>@resultado</span>
+                    </td>
+                    <td>
                         @item.Data.ToString("dd/MM/yyyy")
                     </td>
                     <td>
@@ -207,10 +542,12 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                            </svg>
                         </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
 </div>

@@ -16,6 +16,7 @@ using Your_Money.Models;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using System.Globalization;
 
 namespace Your_Money.Controllers
 {
@@ -144,13 +145,31 @@ namespace Your_Money.Controllers
 
             var valorDespesas = valorDespesasLancamentos + valorDespesasParcelas;
 
-            var valorReceitasTotal = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
-                                                       x.Status == StatusTransacao.Efetivado          
-                                                              ).Sum(x => x.Valor);
-            
-            var valorDespesasTotal = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
-                                                                   x.Status == StatusTransacao.Efetivado
-                                                              ).Sum(x => x.Valor);
+            var valorReceitasTotalLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                                   x.Status == StatusTransacao.Efetivado &&
+                                                                   (x.NumeroParcelas == 0 || x.NumeroParcelas == 1)).
+                                                                   Sum(x => x.Valor);
+
+            var valorReceitasTotalParcelas = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                                  x.NumeroParcelas > 1)
+                                                                    .SelectMany(l => l.Parcelamentos)
+                                                                    .Where(p => p.Status == true)
+                                                                    .Sum(p => p.Valor);
+
+            var valorReceitasTotal = valorReceitasTotalLancamentos + valorReceitasTotalParcelas;
+
+            var valorDespesasTotalLancamentos = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                   x.Status == StatusTransacao.Efetivado &&
+                                                                   (x.NumeroParcelas == 0 || x.NumeroParcelas == 1)).
+                                                                   Sum(x => x.Valor);
+
+            var valorDespesasTotalParcelas = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                  x.NumeroParcelas > 1)
+                                                                    .SelectMany(l => l.Parcelamentos)
+                                                                    .Where(p => p.Status == true)
+                                                                    .Sum(p => p.Valor);
+
+            var valorDespesasTotal = valorDespesasTotalLancamentos + valorDespesasTotalParcelas;
 
             ViewBag.ValorReceitas = valorReceitas;
             ViewBag.ValorDespesas = valorDespesas;
@@ -187,6 +206,7 @@ namespace Your_Money.Controllers
                 ViewBag.AlertMessage = "As despesas tomaram " + porcentagemDespesas.ToString("F2") + "% das receitas no mês de " + nomeMes + "!";
             }
 
+
             var usuarioDbContext = _context.Usuarios.Where(i => i.Email == userEmail);
             var usuarios = await usuarioDbContext.ToListAsync();
 
@@ -194,6 +214,34 @@ namespace Your_Money.Controllers
             var lancamentosPendentes = _context.Lancamentos
                 .Where(i => i.Contas.Usuario.Email == userEmail && i.Status == StatusTransacao.Pendente)
                 .ToList();
+
+            ViewBag.ReceitasPendentesLancamento = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                                       x.Status == StatusTransacao.Pendente &&
+                                                                       (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                                       x.Data.Date >= DateTime.Now.Date &&
+                                                                       x.Data.Date <= DateTime.Now.Date.AddDays(15)).ToList();
+
+            ViewBag.ReceitasPendentesParcela = lancamentos.Where(x => x.Tipo == Transacao.Receita &&
+                                                                  x.NumeroParcelas > 1)
+                                                                   .SelectMany(l => l.Parcelamentos)
+                                                                   .Where(p => p.Status == false &&
+                                                                          p.DataVencimento.Date >= DateTime.Now.Date &&
+                                                                          p.DataVencimento.Date <= DateTime.Now.Date.AddDays(15)).ToList();
+
+
+
+            ViewBag.DespesasPendentesLancamento = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                       x.Status == StatusTransacao.Pendente &&
+                                                                       (x.NumeroParcelas == 0 || x.NumeroParcelas == 1) &&
+                                                                       x.Data.Date >= DateTime.Now.Date &&
+                                                                       x.Data.Date <= DateTime.Now.Date.AddDays(15)).ToList();
+
+            ViewBag.DespesasPendentesParcela = lancamentos.Where(x => x.Tipo == Transacao.Despesa &&
+                                                                  x.NumeroParcelas > 1)
+                                                                   .SelectMany(l => l.Parcelamentos)
+                                                                   .Where(p => p.Status == false &&
+                                                                          p.DataVencimento.Date >= DateTime.Now.Date &&
+                                                                          p.DataVencimento.Date <= DateTime.Now.Date.AddDays(15)).ToList();
 
             // Passar os lançamentos pendentes para a view
             ViewBag.LancamentosPendentes = lancamentosPendentes;
@@ -218,6 +266,7 @@ namespace Your_Money.Controllers
 
             return string.Empty;
         }
+
 
         [Authorize]
         // GET: Usuarios/Details/5
