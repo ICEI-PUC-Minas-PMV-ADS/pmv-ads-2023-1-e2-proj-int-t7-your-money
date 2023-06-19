@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
@@ -31,7 +32,6 @@ namespace Your_Money.Controllers
             _context = context;
             _cultura = new CultureInfo("pt-BR");
         }
-
         public IActionResult Login()
         {
             return View();
@@ -68,7 +68,7 @@ namespace Your_Money.Controllers
 
                 var userIdentity = new ClaimsIdentity(claims, "login");
 
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                ClaimsPrincipal principal = new(userIdentity);
 
                 var props = new AuthenticationProperties
                 {
@@ -86,11 +86,12 @@ namespace Your_Money.Controllers
             return View(usuario);
         }
 
-        public async Task<IActionResult> logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return Redirect("/Home/Index");
         }
+
 
         public IActionResult AccessDenied()
         {

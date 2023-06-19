@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Your_Money.Models;
+using System.Globalization;
 
 namespace Your_Money
 {
@@ -27,6 +28,9 @@ namespace Your_Money
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Registro da instância de CultureInfo
+            services.AddSingleton<CultureInfo>(new CultureInfo("pt-BR"));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );

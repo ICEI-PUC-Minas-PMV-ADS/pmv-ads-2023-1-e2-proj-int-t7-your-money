@@ -4,12 +4,15 @@
     ViewData["Title"] = "Criar Usuário";
 }
 
+<link rel="stylesheet" href="~/css/site.css" />
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
 <body style="background-image: url(/blue1.png);">
 
 <h2 style="color:darkblue">Criar Usuário</h2>
 <hr>
+
 
     <div class="row">
         <div class="col-md-4">
@@ -52,6 +55,7 @@
                     <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
                     <span id="confirmarSenhaError" class="text-danger"></span>
                 </div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar</a>

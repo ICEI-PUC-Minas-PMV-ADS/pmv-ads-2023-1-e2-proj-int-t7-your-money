@@ -17,16 +17,16 @@
 
 <body class="background-image">
 
-<nav>
-    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
-        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
-        <li class="breadcrumb-item"><a asp-area="" asp-controller="Lancamentos" asp-action="Index">Lançamentos</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Adicionar Lançamento</li>
-    </ol>
-</nav>
+    <nav>
+        <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Lancamentos" asp-action="Index">Lançamentos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Adicionar Lançamento</li>
+        </ol>
+    </nav>
 
-<h2 style="color:darkblue">Adicionar Lançamento</h2>
-<hr>
+    <h2 style="color:darkblue">Adicionar Lançamento</h2>
+    <hr>
 
     <div class="container">
         <form asp-action="Create" id="formCreate">
@@ -72,7 +72,9 @@
                     </div>
                     <div class="form-group">
                         <b style="color:darkblue"><label asp-for="Valor" class="control-label"></label></b>
+
                         <input asp-for="Valor" class="form-control shadow-sm" placeholder="R$ 0,00" required />
+
                         <span asp-validation-for="Valor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
