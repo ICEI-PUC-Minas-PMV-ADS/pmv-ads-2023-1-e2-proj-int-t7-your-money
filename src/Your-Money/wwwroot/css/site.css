@@ -99,11 +99,11 @@ body {
 
 .alert-danger {
     color: red;
-  
+
 }
 
 .alert-orange {
-    color: black;
+    color: white;
     background-color: orange;
 }
 
@@ -111,11 +111,5 @@ body {
     color: black;
     background-color: yellow;
 }
-
-
-
-
-
-
 
 

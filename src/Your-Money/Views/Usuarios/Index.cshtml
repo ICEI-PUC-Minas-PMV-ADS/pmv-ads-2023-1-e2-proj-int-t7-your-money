@@ -6,13 +6,17 @@
 
 @{
     ViewData["Title"] = "Minha Conta";
-    
+
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-BR");
+    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
+
+    var lancamentosMes = ViewBag.LancamentosMes as Dictionary<int, (int receitasMes, int despesasMes)>;
+
     decimal valorReceitas = ViewBag.ValorReceitas ?? 0;
     decimal valorDespesas = ViewBag.ValorDespesas ?? 0;
     // Checa se valorReceitas is zero, and assign a default value of 1 in that case
     valorReceitas = valorReceitas == 0 ? 1 : valorReceitas;
     decimal porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
-
 }
 
 @{
@@ -41,6 +45,12 @@
 
 <link rel="stylesheet" href="~/css/site.css" />
 
+@{
+    var alertMessage = ViewBag.AlertMessage;
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+
 <body class="background-image">
 
 <nav>
@@ -63,13 +73,15 @@
         <div class="row">
             <div class="col-md-7">
 
-<h2 style="color:darkblue;">Minha Conta</h2>
-<hr>
+
+                <h2 style="color:darkblue;">Minha Conta</h2>
+                <hr>
+
 
                 <h6 style="color:black;">
                     Saldo total da conta: <b>
                         <span style="color: @(ViewBag.SaldoTotal < 0 ? "red" : "green")">
-                            @ViewBag.SaldoTotal.ToString("C")
+                            @ViewBag.SaldoTotal.ToString("C", new CultureInfo("pt-BR"))
                         </span>
                     </b>
                 </h6>
@@ -96,8 +108,10 @@
                     </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label class="control-label">Ano</label>
-                            <input type="number" step="1" min="1901" name="ano" class="form-control" required />
+
+                            <label class="control-label" style="color:darkblue;"><b>Ano</b></label>
+                            <input type="number" step="1" min="1901" name="ano" class="form-control shadow-sm" required style="color:darkblue;" Placeholder="digite o ano" value="@ViewBag.AnoAtual" />
+
                         </div>
                     </div>
                     <div class="col-md">
@@ -108,7 +122,9 @@
                 </form>
             </div>
         </div>
-</div>
+
+    </div>
+
     <div class="container-fluid ml-3 pt-2 p-2 pb-2 text-center">
         <div class="row">
             <div class="col-md-2">
@@ -146,8 +162,8 @@
                     </div>
 
                     <div class="pt-3 pb-2" style="color:green;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C")</b></h2>
-                        <a href="~/Lancamentos/Create">
+                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorReceitas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
+                        <a href="~/Lancamentos/Create?tipoTransacao=receita">
                             <img src="~/revenue.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
                     </div>
@@ -163,8 +179,8 @@
                         <h4><b style="color:white;text-size-adjust:auto;">Despesas</b></h4>
                     </div>
                     <div class="pt-3 pb-2" style="color:darkred;text-size-adjust:auto;">
-                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C")</b></h2>
-                        <a href="~/Lancamentos/Create">
+                        <h2 style="text-size-adjust:auto;padding-top:20px;"><b>@ViewBag.ValorDespesas.ToString("C", new CultureInfo("pt-BR"))</b></h2>
+                        <a href="~/Lancamentos/Create?tipoTransacao=despesa">
                             <img src="~/expense.png" width="30%" style="padding-top: 1rem;cursor:pointer;">
                         </a>
                     </div>
@@ -179,11 +195,12 @@
                         <h4><b style="color:black;text-size-adjust:auto;">Saldo do Mês</b></h4>
 
                     </div>
+
                     <div class="pt-3 pb-2" style="color:darkslategray;text-size-adjust:auto;">
                         <h2 style="text-size-adjust:auto;padding-top:20px;">
                             <b>
                                 <span style='color: @(ViewBag.Saldo < 0 ? "red" : "green")'>
-                                    @ViewBag.Saldo.ToString("C")
+                                    @ViewBag.Saldo.ToString("C", new CultureInfo("pt-BR"))
                                 </span>
 
                             </b>
@@ -222,6 +239,31 @@
         </div>
     </div>
 
+
+        @if (ViewBag.AlertMessage != null && ViewBag.AlertClass != null)
+        {
+            if (ViewBag.AlertClass == "alert-danger")
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+            else if (ViewBag.AlertClass == "alert-orange")
+            {
+                <div class="alert alert-orange" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+            else if (ViewBag.AlertClass == "alert-warning")
+            {
+                <div class="alert alert-warning" role="alert">
+                    @ViewBag.AlertMessage
+                </div>
+            }
+        }
+    </div>
+  
+    </div>
     <hr>
 
     <style>
@@ -273,24 +315,38 @@
                                 </tr>
                             </thead>
                             <tbody style="text-align: center;">
-                                @foreach (var lancamento in ViewBag.LancamentosPendentes)
+                                @foreach (var lancamento in ViewBag.ReceitasPendentesLancamento)
                                 {
-                                    if (lancamento.Data >= dataAtual && lancamento.Data <= dataLimite && lancamento.Tipo == Transacao.Receita)
-                                    {
-                                        <tr>
-                                            <td>@lancamento.Classificacao</td>
-                                            <td>@lancamento.Valor.ToString("C")</td>
-                                            <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
-                                            <td>
-                                                <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                                    </svg>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    }
+                                    <tr>
+                                        <td>@lancamento.Classificacao</td>
+                                        <td>@lancamento.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
+                                        <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                                @foreach (var receitaParcelada in ViewBag.ReceitasPendentesParcela)
+                                {
+                                    <tr>
+                                        <td>@receitaParcelada.Lancamento.Classificacao</td>
+                                        <td>@receitaParcelada.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
+                                    <td>@receitaParcelada.DataVencimento.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                        <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@receitaParcelada.LancamentoId" style="padding-right:5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
@@ -298,19 +354,64 @@
                     <div class="marker"></div>
                 </div>
             </div>
-                <div class="col-md-6">
-                    <div class="card shadow" style="border-start-end-radius:20px;border-end-end-radius:20px;">
-                        <div class="card-body" style="background-color:white;border-start-end-radius:20px;border-end-end-radius:20px;">
-                            <h5 style="color:darkred;text-align:center;padding-left:5px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
-                                    <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
-                                    <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
-                                </svg>
-                                À Pagar
-                            </h5>
-                                @{
-                                    DateTime myDataAtual = DateTime.Today;
-                                    DateTime myDataLimite = myDataAtual.AddDays(15);
+
+           <div class="col-md-6">
+                <div class="card shadow" style="border-start-end-radius:20px;border-end-end-radius:20px;">
+                    <div class="card-body" style="background-color:white;border-start-end-radius:20px;border-end-end-radius:20px;">
+                        <h5 style="color:darkred;text-align:center;padding-left:5px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+                                <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            À Pagar
+                        </h5>
+                        @{
+                            DateTime myDataAtual = DateTime.Today;
+                            DateTime myDataLimite = myDataAtual.AddDays(15);
+                        }
+
+                        <table class="table" style="text-size-adjust:auto;">
+                            <thead style="text-align: center;">
+                                <tr style="background-color: aliceblue;">
+                                    <th>Classificacao</th>
+                                    <th>Valor</th>
+                                    <th>Data</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                @foreach (var lancamento in ViewBag.DespesasPendentesLancamento)
+                                {
+                                    <tr>
+                                        <td>@lancamento.Classificacao</td>
+                                        <td>@lancamento.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
+                                        <td>@lancamento.Data.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@lancamento.Id" style="padding-right:5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                                @foreach (var despesaParcelada in ViewBag.DespesasPendentesParcela)
+                                {
+                                    <tr>
+                                        <td>@despesaParcelada.Lancamento.Classificacao</td>
+                                        <td>@despesaParcelada.Valor.ToString("C", new CultureInfo("pt-BR"))</td>
+                                        <td>@despesaParcelada.DataVencimento.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            <a asp-area="" asp-controller="Lancamentos" asp-action="Edit" asp-route-id="@despesaParcelada.LancamentoId" style="padding-right:5px;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 }
 
                             <table class="table" style="text-size-adjust:auto;">
@@ -373,30 +474,53 @@
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <div class="modal fade pt-5 mt-5" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="alertModalLabel" style="color: darkred"><b>Atenção!</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="alert alert-danger pt-4 pb-4" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-exclamation-triangle pt-4" viewBox="0 0 16 16">
+                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                        </svg>
+                        <h4 style="text-align:center">@ViewBag.AlertMessage</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script>
-    $(document).ready(function () {
-        var valorReceitas = parseFloat("@valorReceitas");
-        var valorDespesas = parseFloat("@valorDespesas");
-        var porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
-        if (porcentagemDespesas > 75) {
-            $('#alertModal').modal('show');
-        }
-    });
-</script>
-    <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
     <script>
-        VanillaTilt.init(document.querySelectorAll("#cardMovement"), {
-            Max: 25,
-            speed: 400,
-            glare: true,
-            "max-glare": 1,
+        $(document).ready(function () {
+            var valorReceitas = parseFloat("@valorReceitas");
+            var valorDespesas = parseFloat("@valorDespesas");
+            var porcentagemDespesas = (valorDespesas / valorReceitas) * 100;
+
+            if (porcentagemDespesas > 75) {
+                $('#alertModal').modal('show');
+            }
+
         });
     </script>
+
+         <script type="text/javascript" src="~/js/vanilla-tilt.js"></script>
+         <script>
+               VanillaTilt.init(document.querySelectorAll("#cardMovement"),{
+                    Max: 25,
+                    speed: 400,
+                    glare:true,
+                    "max-glare": 1,
+               });
+         </script>
 
 </body>
