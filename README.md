@@ -58,9 +58,15 @@ O link e o usuário/senha descritos acima são apenas exemplos de como tais info
 
 # Apresentação
 
-<li><a href="presentation/"> Apresentação da solução</a></li>
+<li><a href="docs/12-Apresentação do Projeto.md"> Apresentação da solução</a></li>
 
-# Vídeo de apresentação do projeto
+
+# Vídeo de apresentação final do projeto
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/110863413/e667027c-fd7a-4604-ab05-458428f3d4ab
+
+
+## Apresentação Inicial
 
 https://user-images.githubusercontent.com/110863413/234155199-efdbd2e3-164e-49c3-8155-b03f20693cc0.mp4
 
