@@ -8,23 +8,39 @@ O template criado é composto pelos seguintes layouts:
 
 * Tela Principal
 * Tela área do usuário logado
-* Modal de lançamento (despesas ou receitas)
+* Tela de lançamento (despesas ou receitas)
 * Tela exibição de relatórios
 
 A responsividade segue o padrão do Bootstrap
 
+Todas as telas contarão com o padrão:
+* Header: exibirá a logomarca e o indicativo das páginas
+* Body: exibirá o conteúdo das páginas selecionadas
+* Footer: exibirá a informação: "Direitos reservados a PUC Minas. COPYRIGHT© 2023 - Dicas" e terá um link no nome "Dicas" para exibição da página
+
+
 ## Tela Principal
 Tela que abrange todas as visualizações inicias do site e contempla área para que o usuário possa fazer o seu login/cadastro
-![Home Page](img/Wireframe-YourMoney(0).png)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/110863413/a624e6d8-8b77-4f37-a53c-66b874b6ba81)
+
+
+
 ## Tela área do usuário logado
 Tela destinada a exibição da página do usuário cadastrado e logado no sistema, exibindo informações de seus lançamentos
-![Usuario logado](img/Wireframe-YourMoney(3).png)
-## Modal de lançamento (despesas ou receitas)
-Modal destinado ao lançamento de despesas ou receitas do usuário
-![Usuario logado](img/Wireframe-YourMoney(6).png)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/110863413/62ec5a19-d2eb-460a-b2e8-b316a370e7c7)
+
+
+
+## Tela de lançamento (despesas ou receitas)
+Tela destinada ao lançamento de despesas ou receitas do usuário
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/110863413/7f14b5b0-806d-461e-9c5c-c18143eeb525)
+
+
+
 ## Tela exibição de relatórios
 Tela destinada a exibição de relatório no período selecionado pelo usuário
-![Usuario logado 1](img/Wireframe-YourMoney(4).png)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money/assets/110863413/dfc509af-7800-4ed5-bfc5-353c4e1b616e)
+
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
