@@ -11,7 +11,7 @@ A ferramenta de controle de versão adotada no projeto foi [Github](https://gith
 O projeto segue a seguinte convenção para o nome de branches:
 
 * `main`: versão já testada do software
-* `testing`: versão em que são realizados os testes do software
+* `homolog`: versão em que são realizados os testes do software
 * `dev`: versão de desenvolvimento do software
 
 ## Gerenciamento de Projeto
