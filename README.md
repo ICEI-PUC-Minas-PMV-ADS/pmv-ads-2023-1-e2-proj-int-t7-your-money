@@ -26,13 +26,9 @@ O projeto desenvolvido tem como objetivo criar uma aplicação que possa Prover 
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Nossa aplicação poderá ser acessada diretamente pelo link: https://your-money20230609182318.azurewebsites.net/
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
-
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
-
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
+Você poderá navegar pela solução tranquilamente, poderá realizar seu cadastro para acessar a página do usuário, realizar seus lançamentos seja de receita ou despesas, conferir seus saldos e muitas outras informações na página de relatório. A aplicação é de fácil utilização, buscou ser o mais intuitiva para sua navegação, esperamos que vocês desfrute de bons momentos e possa alcançar um maior controle financeiro através de nossa aplicação. 
 
 # Documentação
 
