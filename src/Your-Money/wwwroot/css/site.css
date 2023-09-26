@@ -42,7 +42,7 @@ html {
 }
 
 .background-image {
-    background-image: url(/blue1.png);
+    /*background-image: url(/blue1.png);*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
