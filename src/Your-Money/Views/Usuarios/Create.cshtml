@@ -6,9 +6,9 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
-<body style="background-image: url(/blue1.png);">
+<body class="background-image">
 
-    <h2 style="color:darkblue">Criar Usuário</h2>
+    <h2 style="color: darkgreen;padding-top:50px;">Criar Usuário</h2>
     <hr>
 
     <div class="row">
@@ -16,17 +16,17 @@
             <form asp-action="Create" id="createForm">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <b style="color:darkblue"><label asp-for="Nome" class="control-label"></label></b>
+                    <b style="color:darkgreen"><label asp-for="Nome" class="control-label"></label></b>
                     <input asp-for="Nome" class="form-control shadow-sm" required />
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <b style="color:darkblue"><label asp-for="Email" class="control-label"></label></b>
+                    <b style="color:darkgreen"><label asp-for="Email" class="control-label"></label></b>
                     <input asp-for="Email" class="form-control shadow-sm" required />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <b style="color:darkblue"><label asp-for="Senha" class="control-label"></label></b>
+                    <b style="color:darkgreen"><label asp-for="Senha" class="control-label"></label></b>
                     <div class="input-group">
                         <input asp-for="Senha" id="Senha" class="form-control shadow-sm" type="password" required minlength="6" />
                         <div class="input-group-append">
@@ -39,7 +39,7 @@
                     <span id="senhaError" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <b style="color:darkblue"><label asp-for="ConfirmarSenha" class="control-label"></label></b>
+                    <b style="color:darkgreen"><label asp-for="ConfirmarSenha" class="control-label"></label></b>
                     <div class="input-group">
                         <input asp-for="ConfirmarSenha" id="ConfirmarSenha" class="form-control shadow-sm" type="password" required minlength="6" />
                         <div class="input-group-append">

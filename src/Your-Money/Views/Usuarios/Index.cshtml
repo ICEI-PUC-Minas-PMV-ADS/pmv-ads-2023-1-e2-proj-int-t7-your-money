@@ -33,18 +33,10 @@
 <body class="background-image">
 
     <nav>
-        <ol class="breadcrumb p-0 pt-0 pb-0" style="background: white;text-size-adjust:auto;">
+        <ol class="breadcrumb p-0 pt-0 pb-0">
             <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
-            <marquee direction="left" style="background-color:aliceblue;padding-top:5px;padding-bottom:5px;">
-                <img class="tex-info" src="~/crown.svg" style="width:15px;align-self:center;margin-right:10px;">
-                <span class="text-info">Dólar -&gt;</span> @usdValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <span class="text-info">Euro -&gt;</span> @eurValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <span class="text-info">Bitcoin -&gt;</span> @btcValue.ToString("C", CultureInfo.GetCultureInfo("pt-BR")) &nbsp;|&nbsp;
-                <h7 id="cotation">
-                    <h7 class="text-info" style="font-style:italic;padding-left:5px;">última atualização à 30 segundos</h7>
-                    <img class="tex-info" src="~/crown.svg" style="width:15px;align-self:center;margin-left:10px;">
-            </marquee>
+
         </ol>
     </nav>
 

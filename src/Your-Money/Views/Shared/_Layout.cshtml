@@ -27,26 +27,26 @@
                     <div class="row align-items-center">
                         <div class="col-md">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
-                                <img src="~/Logo Cores.png" class="img-fluid" style="width:170px;height:100px;"/>
+                                    <img src="~/Logo Cores.png" class="img-fluid" style="width: 20%; height: auto;"/>
                             </a>
                         </div>
 
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div style="text-align:center;text-size-adjust:auto;color:green;">
-                            <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index"><h5><b>Lançamentos</b></h5></a>
+                                <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Index" style="color:green;"><h5><b>Lançamentos</b></h5></a>
                         </div>
                         <div>
                             <h7 style="color:darkgreen">|</h7>
                         </div>
                             <div style="text-align:center;text-size-adjust:auto;">
-                            <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Relatorio"><h5><b>Relatórios</b></h5></a>
+                                <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Relatorio" style="color:green;"><h5><b>Relatórios</b></h5></a>
                         </div>
                         <div>
                                 <h7 style="color:darkgreen;">|</h7>
                         </div>
                             <div style="text-align:center;text-size-adjust:auto;">
-                                <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Calendario"><h5><b>Calendário</b></h5></a>
+                                <a class="nav-link" asp-area="" asp-controller="Lancamentos" asp-action="Calendario" style="color:green;"><h5><b>Calendário</b></h5></a>
                             </div>
                             <div>
                                 <h7 style="color:darkgreen;">|</h7>

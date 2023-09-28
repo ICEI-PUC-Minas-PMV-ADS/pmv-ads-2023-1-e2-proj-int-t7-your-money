@@ -30,6 +30,10 @@ a {
   border-color: #1861ac;
 }
 
+.breadcrumb {
+    background-color: transparent; /* Define o fundo como transparente */
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -42,7 +46,7 @@ html {
 }
 
 .background-image {
-    background-image:src(../694.jpg);
+    background-image:url(../03.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -86,8 +90,14 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 0px;
 }
-.footer {
-    margin-bottom: 0px;
-    margin-top: 0px;
-    height: 0px;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex-grow: 1;
 }
