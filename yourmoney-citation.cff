@@ -1,0 +1,26 @@
+message: Please cite this software using these metadata.
+title: YOUR MONEY
+authors:
+  - family-names: Mendes Rufino Silva
+    given-names: Daniel   
+  - family-names: Buck Alves
+    given-names: Leonardo 
+  - family-names: Melo de Lima
+    given-names: Leonardo  
+  - family-names: Henrique da Silva Santos 
+    given-names: Pedro  
+  - family-names: Santana de Oliveira
+    given-names: Rafael  
+  - family-names: Castellano
+    given-names: Stephanye 
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Nardin
+    given-names: Luciana  
+keywords:
+  - Auxiliar as pessoas no controle de seus gastos pessoais
+  - Dar dicas e recomendações para um controle financeiro mais assertivo
+  - Fazer com que os usuarios tenham mais responsabilidade com seu dinheiro.
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e2-proj-int-t7-your-money
+version: 1.0.0
+date-released: 2023-06-19
